@@ -162,5 +162,23 @@ namespace View
 
             Sobre.Show();
         }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OS.Frm_ListarOS Frm_ListarOS = new OS.Frm_ListarOS();
+
+            Frm_ListarOS.MdiParent = this;
+
+            Frm_ListarOS.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ListarJuridica Frm_ListarJuridica = new Pessoas.Frm_ListarJuridica();
+
+            Frm_ListarJuridica.MdiParent = this;
+
+            Frm_ListarJuridica.Show();
+        }
     }
 }

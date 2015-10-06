@@ -7,7 +7,7 @@ namespace Model.Ordem_de_Servico
 {
     public class OrdemServico
     {
-        private int identificador;
+        private string identificador;
         private string referencia;
         private string situacao; //P para pronto M para manutenção A avaliação
         private string defeito;
@@ -15,9 +15,22 @@ namespace Model.Ordem_de_Servico
         private string observacao;
         private string numeroSerie;
         private string equipamento;
-        private DateTime dataEntradaServico; //Substitiu o int que tem na documentação, para salvar a data e a hora de entrada do serviço/produto.
+        private string dataEntradaServico; //Substitiu o int que tem na documentação, para salvar a data e a hora de entrada do serviço/produto.
         private Fisica pessoaFisica;
         private Juridica pessoaJuridica;
+
+        public string Identificador
+        {
+            get
+            {
+                return identificador;
+            }
+
+            set
+            {
+                identificador = value;
+            }
+        }
 
         public string Referencia
         {
@@ -110,7 +123,7 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        public DateTime DataEntradaServico
+        public string DataEntradaServico
         {
             get
             {
@@ -135,7 +148,7 @@ namespace Model.Ordem_de_Servico
                 pessoaFisica = value;
             }
         }
-        //TODO:Verificar o código para ter um responsavel pela ordem de serviço
+
         public Juridica PessoaJuridica
         {
             get
@@ -149,27 +162,21 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        public int Identificador
-        {
-            get
-            {
-                return identificador;
-            }
-
-            set
-            {
-                identificador = value;
-            }
-        }
-
-        public string Save(int _Identificador)
+        public string Save(string _Identificador, String _referencia, string _situacao, string _defeito, string _descricao, string _obervacao, string _numeroSerie, string _equipamento, string _dataEntradaServico)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
 
-            OSBase.DataEntradaServico = DateTime.Now;
-            Random R = new Random();
-            OSBase.Identificador = R.Next(999999999);
+            OSBase.Identificador = _Identificador;
+            OSBase.Equipamento = _equipamento;
+            OSBase.Situacao = _situacao;
+            OSBase.NumeroSerie = _numeroSerie;
+            OSBase.Defeito = _defeito;
+            OSBase.Referencia = _referencia;
+            OSBase.DataEntradaServico = _dataEntradaServico;
+            OSBase.Observacao = _obervacao;
+            OSBase.Descricao = _descricao;
+
 
             StreamWriter sw = null;
 
@@ -178,10 +185,10 @@ namespace Model.Ordem_de_Servico
             {
                 try
                 {
-                    sw = new StreamWriter(String.Format("OS/{0}.os", Identificador));
+                    sw = new StreamWriter(String.Format("OS/{0}.os", _Identificador));
 
-                    sw.WriteLine(OSBase.Identificador); //O numero da ordem de serviço vai vir sempre 1º.
-                    sw.WriteLine(OSBase.PessoaFisica);  //TODO Arrumar Código para verificar o tipo depessoa.
+                    sw.WriteLine(OSBase.Identificador);
+                    //sw.WriteLine(OSBase.PessoaFisica);   //TODO: Arruma sistema de pessoa Fisica/Juridica.  
                     sw.WriteLine(OSBase.Equipamento);
                     sw.WriteLine(OSBase.Situacao);
                     sw.WriteLine(OSBase.NumeroSerie);
@@ -189,6 +196,7 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.Referencia);
                     sw.WriteLine(OSBase.DataEntradaServico);
                     sw.WriteLine(OSBase.Observacao);
+                    sw.WriteLine(OSBase.Descricao);
                 }
                 catch (System.Exception Exc)
                 {
@@ -211,12 +219,120 @@ namespace Model.Ordem_de_Servico
             }
             else
             {
-                Save(OSBase.Identificador);
+                //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
+
+                //TODO: ARRUMAR UM MODO DE VERIFICAR SE JÁ FOI CRIADO UMA OS COM O NUMERO SORTEADO.
+
+                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
             }
 
 
             return Saida;
 
+        }
+
+        public string Edit(string _Identificador, String _referencia, string _situacao, string _defeito, string _descricao, string _obervacao, string _numeroSerie, string _equipamento, string _dataEntradaServico)
+        {
+            OrdemServico OSBase = new OrdemServico();
+            string Saida = null;
+
+            OSBase.Identificador = _Identificador;
+            OSBase.Equipamento = _equipamento;
+            OSBase.Situacao = _situacao;
+            OSBase.NumeroSerie = _numeroSerie;
+            OSBase.Defeito = _defeito;
+            OSBase.Referencia = _referencia;
+            OSBase.DataEntradaServico = _dataEntradaServico;
+            OSBase.Observacao = _obervacao;
+            OSBase.Descricao = _descricao;
+
+
+            StreamWriter sw = null;
+
+
+            if (Verificar(OSBase.identificador) == true)
+            {
+                try
+                {
+                    sw = new StreamWriter(String.Format("OS/{0}.os", _Identificador));
+
+                    sw.WriteLine(OSBase.Identificador);
+                    //sw.WriteLine(OSBase.PessoaFisica);   //TODO: Arruma sistema de pessoa Fisica/Juridica.  
+                    sw.WriteLine(OSBase.Equipamento);
+                    sw.WriteLine(OSBase.Situacao);
+                    sw.WriteLine(OSBase.NumeroSerie);
+                    sw.WriteLine(OSBase.Defeito);
+                    sw.WriteLine(OSBase.Referencia);
+                    sw.WriteLine(OSBase.DataEntradaServico);
+                    sw.WriteLine(OSBase.Observacao);
+                    sw.WriteLine(OSBase.Descricao);
+                }
+                catch (System.Exception Exc)
+                {
+                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                    Log.ArquivoExceptionLog(Exc);
+
+                    Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
+                }
+                finally
+                {
+                    if (sw != null)
+                    {
+                        sw.Close();
+
+                        Saida = "Ordem de Serviço editada com sucesso!";
+                    }
+
+                }
+            }
+            else
+            {
+                //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
+
+                //TODO: ARRUMAR UM MODO DE VERIFICAR SE JÁ FOI CRIADO UMA OS COM O NUMERO SORTEADO.
+
+                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
+            }
+
+
+            return Saida;
+
+        }
+
+        public OrdemServico Load(string _Identificador)
+        {
+            OrdemServico OSBase = new OrdemServico();
+            StreamReader sr = null;
+
+            try
+            {
+                sr = new StreamReader(String.Format("OS/{0}.os", _Identificador));
+
+                OSBase.Identificador = sr.ReadLine();
+                // OSBase.PessoaFisica = sr.ReadLine(); //TODO: Arrumar na questão de pessoa Fisica ou Juridica.
+                OSBase.Equipamento = sr.ReadLine();
+                OSBase.Situacao = sr.ReadLine();
+                OSBase.NumeroSerie = sr.ReadLine();
+                OSBase.Defeito = sr.ReadLine();
+                OSBase.Referencia = sr.ReadLine();
+                OSBase.DataEntradaServico = sr.ReadLine();
+                OSBase.Observacao = sr.ReadLine();
+                OSBase.Descricao = sr.ReadLine();
+            }
+            catch (Exception Exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(Exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
+            }
+
+            return OSBase;
         }
 
         public List<string> LoadList()
@@ -238,56 +354,13 @@ namespace Model.Ordem_de_Servico
             return ListaDeOS;
         }
 
-        public OrdemServico Load(int _Identificador)
-        {
-            OrdemServico OSBase = new OrdemServico();
-            StreamReader sr = null;
-
-            if (Verificar(_Identificador))
-            {
-                try
-                {
-                    sr = new StreamReader(String.Format("OS/{0}.os", _Identificador));
-
-                    OSBase.Identificador = int.Parse(sr.ReadLine());
-                    //OSBase.PessoaFisica = sr.ReadLine(); //TODO: Arrumar na questão de pessoa Fisica ou Juridica.
-                    OSBase.Equipamento = sr.ReadLine();
-                    OSBase.Situacao = sr.ReadLine();
-                    OSBase.NumeroSerie = sr.ReadLine();
-                    OSBase.Defeito = sr.ReadLine();
-                    OSBase.Referencia = sr.ReadLine();
-                    OSBase.DataEntradaServico = DateTime.Parse(sr.ReadLine());
-                    OSBase.Observacao = sr.ReadLine();
-                }
-                catch (Exception Exc)
-                {
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(Exc);
-                }
-                finally
-                {
-                    if (sr != null)
-                        sr.Close();
-                }
-            }
-            else
-            {
-                //TODO:Verificar uma meneira de retornar uma mensagem.
-            }
-
-
-            return OSBase;
-        }
-
-        public bool Verificar(int _Identificador)
+        public bool Verificar(string _Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
-            DirectoryInfo Arquivo = new DirectoryInfo(string.Format("OS/{0}.os", _Identificador));
 
-            if (Arquivo.Exists)
+            if (File.Exists((string.Format("OS/{0}.os", _Identificador))))
             {
                 Encontrado = true;
             }

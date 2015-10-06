@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("View")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Software Ordem de serviço")]
+[assembly: AssemblyDescription("Software desenvolvido para o melhore gerenciamento de ordens de serviço")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("View")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCompany("Cristiano Cunha")]
+[assembly: AssemblyProduct("Software OS")]
+[assembly: AssemblyCopyright("Cristiano Cunha Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -11,7 +11,6 @@ namespace Model.Pessoa_e_Usuario
         private string cpf;
         private string celular;
         private DateTime dataDeNascimento;
-        private string nomeTeste = "";
 
 
         public char Sexo
@@ -66,37 +65,52 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
-
-        public String Save()
+        public String Save(String _nome, String _endereco, string _telefone, char _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cpf, string _celular, char _sexo, DateTime _datadenascimento)
         {
             StreamWriter sw = null;
             string Saida = "";
 
             //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
 
-            if (Verificar(nomeTeste) == false)
+            if (Verificar(_nome) == false)
             {
 
                 try
                 {
-                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", nomeTeste.TrimStart().TrimEnd()));
+                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+
+                    Fisica PessoaFBase = new Fisica();
+
+                    PessoaFBase.Nome = _nome;
+                    PessoaFBase.Endereco = _endereco;
+                    PessoaFBase.Telefone = _telefone;
+                    PessoaFBase.Situacao = _situacao;
+                    PessoaFBase.SiglaEstado = _siglaEstado;
+                    PessoaFBase.Cidade = _cidade;
+                    PessoaFBase.Bairro = _bairro;
+                    PessoaFBase.Cep = _cep;
+                    PessoaFBase.Observacoes = _observacoes;
+                    PessoaFBase.Cpf = _cpf;
+                    PessoaFBase.sexo = _sexo;
+                    PessoaFBase.celular = _celular;
+                    PessoaFBase.DataDeNascimento = _datadenascimento;
 
                     //Parte de Pessoa
-                    sw.WriteLine(Nome);
-                    sw.WriteLine(Endereco);
-                    sw.WriteLine(Telefone);
-                    sw.WriteLine(Situacao);
-                    sw.WriteLine(SiglaEstado);
-                    sw.WriteLine(Cidade);
-                    sw.WriteLine(Bairro);
-                    sw.WriteLine(Cep);
-                    sw.WriteLine(Observacoes);
+                    sw.WriteLine(PessoaFBase.Nome);
+                    sw.WriteLine(PessoaFBase.Endereco);
+                    sw.WriteLine(PessoaFBase.Telefone);
+                    sw.WriteLine(PessoaFBase.Situacao);
+                    sw.WriteLine(PessoaFBase.SiglaEstado);
+                    sw.WriteLine(PessoaFBase.Cidade);
+                    sw.WriteLine(PessoaFBase.Bairro);
+                    sw.WriteLine(PessoaFBase.Cep);
+                    sw.WriteLine(PessoaFBase.Observacoes);
 
                     //Parte de Pessoa Física
-                    sw.WriteLine(cpf);
-                    sw.WriteLine(Celular);
-                    sw.WriteLine(Sexo);
-                    sw.WriteLine(DataDeNascimento);
+                    sw.WriteLine(PessoaFBase.Cpf);
+                    sw.WriteLine(PessoaFBase.celular);
+                    sw.WriteLine(PessoaFBase.sexo);
+                    sw.WriteLine(PessoaFBase.DataDeNascimento);
 
                 }
                 catch (Exception exc)
@@ -119,13 +133,61 @@ namespace Model.Pessoa_e_Usuario
             }
             else
             {
-                Saida = "Usuario já cadastrado";
+                Saida = "Pessoa Física já cadastrada.";
 
                 return Saida;
             }
         }
 
-        public List<string> Load()
+        public Fisica Load(String _Nome)
+        {
+            Fisica PessoaFBase = new Fisica();
+
+            if (Verificar(_Nome))
+            {
+                StreamReader sr = null;
+                try
+                {
+                    sr = new StreamReader(String.Format("Pessoa/J/{0}.pessoaj", _Nome));
+
+                    //Parte de Pessoa
+                    PessoaFBase.Endereco = sr.ReadLine();
+                    PessoaFBase.Telefone = sr.ReadLine();
+                    PessoaFBase.Situacao = Convert.ToChar(sr.ReadLine());
+                    PessoaFBase.SiglaEstado = sr.ReadLine();
+                    PessoaFBase.Cidade = sr.ReadLine();
+                    PessoaFBase.Bairro = sr.ReadLine();
+                    PessoaFBase.Cep = sr.ReadLine();
+                    PessoaFBase.Observacoes = sr.ReadLine();
+
+                    //Parte de Pessoa Jurídica
+                    PessoaFBase.cpf = sr.ReadLine();
+                    PessoaFBase.Celular = sr.ReadLine();
+                    PessoaFBase.Sexo = Convert.ToChar(sr.ReadLine());
+                    PessoaFBase.DataDeNascimento = Convert.ToDateTime(sr.ReadLine());
+                }
+                catch (Exception exc)
+                {
+                    //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                    Log.ArquivoExceptionLog(exc);
+                }
+                finally
+                {
+                    if (sr != null)
+                        sr.Close();
+                }
+            }
+            else
+            {
+                //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+            }
+
+            return PessoaFBase;
+        }
+
+        public List<string> LoadLista()
         {
             List<string> ListaDePessoaFisica = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("Pessoa/F/");
@@ -164,11 +226,5 @@ namespace Model.Pessoa_e_Usuario
             return Encontrado;
         }
 
-        public Fisica(string _nome)
-        {
-            //Quando cria uma nova pessoa fisica e passado "nomeTeste", para verificar se ele já existe.
-
-            nomeTeste = _nome;
-        }
     }
 }

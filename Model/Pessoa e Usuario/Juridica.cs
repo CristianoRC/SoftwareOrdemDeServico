@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 namespace Model.Pessoa_e_Usuario
 {
-   public class Juridica : Pessoa
+    public class Juridica : Pessoa
     {
         private string razaoSocial;
         private string cnpj;
         private string contato;
         private string inscricaoEstadual;
-        private string nomeTeste = "";
 
         public string RazaoSocial
         {
@@ -65,39 +64,54 @@ namespace Model.Pessoa_e_Usuario
         }
 
 
-
-        public String Save()
+        public String Save(String _nome, String _endereco, string _telefone, char _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cnpj, string _contato, string _inscricaoestadual, string _razaosocial)
         {
             StreamWriter sw = null;
             string Saida = "";
 
             //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
 
-            if (Verificar(nomeTeste) == false)
+            if (Verificar(_nome) == false)
             {
-
                 try
                 {
-                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", nomeTeste.TrimStart().TrimEnd()));
+
+                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+
+                    Juridica PessoaJBase = new Juridica();
+
+                    PessoaJBase.Nome = _nome;
+                    PessoaJBase.Endereco = _endereco;
+                    PessoaJBase.Telefone = _telefone;
+                    PessoaJBase.Situacao = _situacao;
+                    PessoaJBase.SiglaEstado = _siglaEstado;
+                    PessoaJBase.Cidade = _cidade;
+                    PessoaJBase.Bairro = _bairro;
+                    PessoaJBase.Cep = _cep;
+                    PessoaJBase.Observacoes = _observacoes;
+                    PessoaJBase.Cnpj = _cnpj;
+                    PessoaJBase.Contato = _contato;
+                    PessoaJBase.InscricaoEstadual = _inscricaoestadual;
+                    PessoaJBase.RazaoSocial = _razaosocial;
 
                     //Parte de Pessoa
-                    sw.WriteLine(Nome);
-                    sw.WriteLine(Endereco);
-                    sw.WriteLine(Telefone);
-                    sw.WriteLine(Situacao);
-                    sw.WriteLine(SiglaEstado);
-                    sw.WriteLine(Cidade);
-                    sw.WriteLine(Bairro);
-                    sw.WriteLine(Cep);
-                    sw.WriteLine(Observacoes);
+                    sw.WriteLine(PessoaJBase.Nome);
+                    sw.WriteLine(PessoaJBase.Endereco);
+                    sw.WriteLine(PessoaJBase.Telefone);
+                    sw.WriteLine(PessoaJBase.Situacao);
+                    sw.WriteLine(PessoaJBase.SiglaEstado);
+                    sw.WriteLine(PessoaJBase.Cidade);
+                    sw.WriteLine(PessoaJBase.Bairro);
+                    sw.WriteLine(PessoaJBase.Cep);
+                    sw.WriteLine(PessoaJBase.Observacoes);
 
                     //Parte de Pessoa Jurídica
-                    sw.WriteLine(Cnpj);
-                    sw.WriteLine(Contato);
-                    sw.WriteLine(InscricaoEstadual);
-                    sw.WriteLine(RazaoSocial);
-
+                    sw.WriteLine(PessoaJBase.Cnpj);
+                    sw.WriteLine(PessoaJBase.Contato);
+                    sw.WriteLine(PessoaJBase.InscricaoEstadual);
+                    sw.WriteLine(PessoaJBase.RazaoSocial);
                 }
+
                 catch (Exception exc)
                 {
                     Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
@@ -118,10 +132,58 @@ namespace Model.Pessoa_e_Usuario
             }
             else
             {
-                Saida = "Pessoa Jurídica já cadastrado";
+                Saida = "Pessoa Jurpidica já cadastrada.";
 
                 return Saida;
             }
+        }
+
+        public Juridica Load(String _Nome)
+        {
+            Juridica PessoaJBase = new Juridica();
+
+            if (Verificar(_Nome))
+            {
+                StreamReader sr = null;
+                try
+                {
+                    sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", _Nome));
+
+                    //Parte de Pessoa
+                    PessoaJBase.Endereco = sr.ReadLine();
+                    PessoaJBase.Telefone = sr.ReadLine();
+                    PessoaJBase.Situacao = Convert.ToChar(sr.ReadLine());
+                    PessoaJBase.SiglaEstado = sr.ReadLine();
+                    PessoaJBase.Cidade = sr.ReadLine();
+                    PessoaJBase.Bairro = sr.ReadLine();
+                    PessoaJBase.Cep = sr.ReadLine();
+                    PessoaJBase.Observacoes = sr.ReadLine();
+
+                    //Parte de Pessoa Jurídica
+                    PessoaJBase.Cnpj = sr.ReadLine();
+                    PessoaJBase.Contato = sr.ReadLine();
+                    PessoaJBase.InscricaoEstadual = sr.ReadLine();
+                    PessoaJBase.RazaoSocial = sr.ReadLine();
+                }
+                catch (Exception exc)
+                {
+                    //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                    Log.ArquivoExceptionLog(exc);
+                }
+                finally
+                {
+                    if (sr != null)
+                        sr.Close();
+                }     
+            }
+            else
+            {
+                //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+            }
+
+            return PessoaJBase;
         }
 
         public List<string> LoadList()
@@ -149,7 +211,7 @@ namespace Model.Pessoa_e_Usuario
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
-            DirectoryInfo Arquivo = new DirectoryInfo(String.Format("Pessoa/J/{0}.pessoaj", _nome.TrimStart().TrimEnd()));
+            DirectoryInfo Arquivo = new DirectoryInfo(String.Format("Pessoa/J/{0}.PESSOAJ", _nome.TrimStart().TrimEnd()));
 
             if (Arquivo.Exists)
             {
@@ -161,13 +223,6 @@ namespace Model.Pessoa_e_Usuario
             }
 
             return Encontrado;
-        }
-
-        public Juridica(string _nome)
-        {
-            //Quando cria uma nova pessoa fisica e passado "nomeTeste", para verificar se ele já existe.
-
-            nomeTeste = _nome;
         }
 
     }

@@ -30,7 +30,7 @@ namespace View.Pessoas
                 sw.WriteLine(Txt_Cep.Text);
                 sw.WriteLine(Txt_Observacoes.Text);
 
-                //TODO:Arrumar o nome dos txt
+                //TODO:Arrumar o nome dos txt Parte design
 
                 //Parte de Pessoa Física
                 sw.WriteLine(Txt_CPF.Text);

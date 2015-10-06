@@ -1,6 +1,6 @@
 ﻿namespace Model.Pessoa_e_Usuario
 {
-    public class Pessoa
+     public class Pessoa
     {
         private string nome;
         private string endereco;
