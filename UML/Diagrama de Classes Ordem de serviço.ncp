@@ -1,0 +1,253 @@
+<Project>
+  <Name>Diagrama de Classes Ordem de serviço</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Camada Model</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Pessoa</Name>
+        <Access>Public</Access>
+        <Location left="12" top="1014" />
+        <Size width="162" height="451" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String endereco</Member>
+        <Member type="Field">private String telefone</Member>
+        <Member type="Field">private Char situacao</Member>
+        <Member type="Field">private Char Tipo</Member>
+        <Member type="Field">private String siglaEstado</Member>
+        <Member type="Field">private String cidade</Member>
+        <Member type="Field">private String bairro</Member>
+        <Member type="Field">private String cep</Member>
+        <Member type="Field">private String observacoes</Member>
+        <Member type="Field">private OrdemServico newOrdemDeSertvico</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Endereco { get; set; }</Member>
+        <Member type="Property">public String Telefone { get; set; }</Member>
+        <Member type="Property">public Char Situacao { get; set; }</Member>
+        <Member type="Property">public String SiglaEstado { get; set; }</Member>
+        <Member type="Property">public String Cidade { get; set; }</Member>
+        <Member type="Property">public String Bairro { get; set; }</Member>
+        <Member type="Property">public String Cep { get; set; }</Member>
+        <Member type="Property">public String Observacoes { get; set; }</Member>
+        <Member type="Property">public Char Tipo1 { get; set; }</Member>
+        <Member type="Constructor">public Pessoa()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Usuario</Name>
+        <Access>Public</Access>
+        <Location left="860" top="428" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String senha</Member>
+        <Member type="Field">private Char nivelAcesso</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Senha { get; set; }</Member>
+        <Member type="Property">public Char NivelAcesso { get; set; }</Member>
+        <Member type="Constructor">public Usuario()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Produto</Name>
+        <Access>Public</Access>
+        <Location left="648" top="428" />
+        <Size width="162" height="366" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String codigoBarra</Member>
+        <Member type="Field">private String referencia</Member>
+        <Member type="Field">private String descricao</Member>
+        <Member type="Field">private String marcaProduto</Member>
+        <Member type="Field">private Double precoCusto</Member>
+        <Member type="Field">private Double precoVenda</Member>
+        <Member type="Field">private Double precoVendaAtacado</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String CodigoBarra { get; set; }</Member>
+        <Member type="Property">public String Referencia { get; set; }</Member>
+        <Member type="Property">public String Descricao { get; set; }</Member>
+        <Member type="Property">public Double PrecoCusto { get; set; }</Member>
+        <Member type="Property">public Double PrecoVenda { get; set; }</Member>
+        <Member type="Property">public Double PrecoVendaAtacado { get; set; }</Member>
+        <Member type="Property">public String MarcaProduto { get; set; }</Member>
+        <Member type="Constructor">public Produto()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Fisica</Name>
+        <Access>Public</Access>
+        <Location left="436" top="428" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Char sexo</Member>
+        <Member type="Field">private String cpf</Member>
+        <Member type="Field">private String celular</Member>
+        <Member type="Field">private DateTime dataDeNascimento</Member>
+        <Member type="Property">public Char Sexo { get; set; }</Member>
+        <Member type="Property">public String Cpf { get; set; }</Member>
+        <Member type="Property">public String Celular { get; set; }</Member>
+        <Member type="Property">public DateTime DataDeNascimento { get; set; }</Member>
+        <Member type="Constructor">public Fisica()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Juridica</Name>
+        <Access>Public</Access>
+        <Location left="224" top="428" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String razaoSocial</Member>
+        <Member type="Field">private String cnpj</Member>
+        <Member type="Field">private String contato</Member>
+        <Member type="Field">private String inscricaoEstadual</Member>
+        <Member type="Property">public String RazaoSocial { get; set; }</Member>
+        <Member type="Property">public String Cnpj { get; set; }</Member>
+        <Member type="Property">public String Contato { get; set; }</Member>
+        <Member type="Property">public String InscricaoEstadual { get; set; }</Member>
+        <Member type="Constructor">public Juridica()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrdemServico</Name>
+        <Access>Public</Access>
+        <Location left="12" top="428" />
+        <Size width="162" height="536" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String referencia</Member>
+        <Member type="Field">private Char situacao</Member>
+        <Member type="Field">private String defeito</Member>
+        <Member type="Field">private String descricao</Member>
+        <Member type="Field">private String observacao</Member>
+        <Member type="Field">private String numeroSerie</Member>
+        <Member type="Field">private String equipamento</Member>
+        <Member type="Field">private Double descontoservico</Member>
+        <Member type="Field">private Double acrecimoServico</Member>
+        <Member type="Field">private Double descontoProduto</Member>
+        <Member type="Field">private Double acrecimoProduto</Member>
+        <Member type="Field">private DateTime dataEntradaServico</Member>
+        <Member type="Property">public String Referencia { get; set; }</Member>
+        <Member type="Property">public Char Situacao { get; set; }</Member>
+        <Member type="Property">public String Defeito { get; set; }</Member>
+        <Member type="Property">public String Descricao { get; set; }</Member>
+        <Member type="Property">public String Observacao { get; set; }</Member>
+        <Member type="Property">public String NumeroSerie { get; set; }</Member>
+        <Member type="Property">public String Equipamento { get; set; }</Member>
+        <Member type="Property">public Double Descontoservico { get; set; }</Member>
+        <Member type="Property">public Double AcrecimoServico { get; set; }</Member>
+        <Member type="Property">public Double DescontoProduto { get; set; }</Member>
+        <Member type="Property">public Double AcrecimoProduto { get; set; }</Member>
+        <Member type="Property">public DateTime DataEntradaServico { get; set; }</Member>
+        <Member type="Constructor">public OrdemServico()</Member>
+        <Member type="Method">public Void obtemTotalProdutos()</Member>
+        <Member type="Method">public Void obtemTotalServicos()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Servico</Name>
+        <Access>Public</Access>
+        <Location left="860" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String descricao</Member>
+        <Member type="Field">private Double valor</Member>
+        <Member type="Property">public String Descricao { get; set; }</Member>
+        <Member type="Property">public Double Valor { get; set; }</Member>
+        <Member type="Constructor">public Servico()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Compra</Name>
+        <Access>Public</Access>
+        <Location left="648" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Compra()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ContasPagar</Name>
+        <Access>Public</Access>
+        <Location left="436" top="12" />
+        <Size width="162" height="366" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Int32 quantidadeParcelas</Member>
+        <Member type="Field">private DateTime dataVencimento</Member>
+        <Member type="Field">private DateTime dataPagamento</Member>
+        <Member type="Field">private Int32 numeroParcelaAtual</Member>
+        <Member type="Field">private Double desconto</Member>
+        <Member type="Field">private Double juros</Member>
+        <Member type="Field">private Double valorPago</Member>
+        <Member type="Field">private Double valorConta</Member>
+        <Member type="Property">public Int32 QuantidadeParcelas { get; set; }</Member>
+        <Member type="Property">public DateTime DataVencimento { get; set; }</Member>
+        <Member type="Property">public DateTime DataPagamento { get; set; }</Member>
+        <Member type="Property">public Double Desconto { get; set; }</Member>
+        <Member type="Property">public Double Juros { get; set; }</Member>
+        <Member type="Property">public Double ValorPago { get; set; }</Member>
+        <Member type="Property">public Double ValorConta { get; set; }</Member>
+        <Member type="Property">public Int32 NumeroParcelaAtual { get; set; }</Member>
+        <Member type="Constructor">public ContasPagar()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ContasReceber</Name>
+        <Access>Public</Access>
+        <Location left="224" top="12" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Int32 quantidadeParcelas</Member>
+        <Member type="Field">private DateTime dataVencimento</Member>
+        <Member type="Field">private DateTime dataPagamento</Member>
+        <Member type="Field">private Int32 numeroParcela</Member>
+        <Member type="Property">public Int32 QuantidadeParcelas { get; set; }</Member>
+        <Member type="Property">public DateTime DataVencimento { get; set; }</Member>
+        <Member type="Property">public DateTime DataPagamento { get; set; }</Member>
+        <Member type="Property">public Int32 NumeroParcela { get; set; }</Member>
+        <Member type="Constructor">public ContasReceber()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Venda</Name>
+        <Access>Public</Access>
+        <Location left="12" top="12" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Venda()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="3" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>244</X>
+          <Y>1069</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="10" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>53</X>
+          <Y>377</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>newOrdemDeSertvico</StartRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

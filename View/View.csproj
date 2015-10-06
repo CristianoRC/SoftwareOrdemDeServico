@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>View</RootNamespace>
+    <AssemblyName>View</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icone.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cunha">
+      <HintPath>C:\Users\crist\Documents\Visual Studio 2015\Projects\Cunha\Cunha\bin\Release\Cunha.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios Usuarios\Frm_NewUsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios Usuarios\Frm_NewUsu.Designer.cs">
+      <DependentUpon>Frm_NewUsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outros\Frm_Sobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outros\Frm_Sobre.Designer.cs">
+      <DependentUpon>Frm_Sobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outros\Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outros\Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outros\Frm_Pai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outros\Frm_Pai.Designer.cs">
+      <DependentUpon>Frm_Pai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Opcoes\Frm_OpicoesInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Opcoes\Frm_OpicoesInicial.Designer.cs">
+      <DependentUpon>Frm_OpicoesInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OS\Frm_EditarOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OS\Frm_EditarOS.Designer.cs">
+      <DependentUpon>Frm_EditarOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OS\Frm_NewOrdem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OS\Frm_NewOrdem.Designer.cs">
+      <DependentUpon>Frm_NewOrdem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoas\Frm_PessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_PessoaFisica.Designer.cs">
+      <DependentUpon>Frm_PessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoas\Frm_PessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_PessoaJuridica.Designer.cs">
+      <DependentUpon>Frm_PessoaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios Usuarios\Frm_NewUsu.resx">
+      <DependentUpon>Frm_NewUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outros\Frm_Sobre.resx">
+      <DependentUpon>Frm_Sobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outros\Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outros\Frm_Pai.resx">
+      <DependentUpon>Frm_Pai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Opcoes\Frm_OpicoesInicial.resx">
+      <DependentUpon>Frm_OpicoesInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OS\Frm_EditarOS.resx">
+      <DependentUpon>Frm_EditarOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OS\Frm_NewOrdem.resx">
+      <DependentUpon>Frm_NewOrdem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_PessoaFisica.resx">
+      <DependentUpon>Frm_PessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_PessoaJuridica.resx">
+      <DependentUpon>Frm_PessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{3ad6dc90-0da9-4621-a529-b0d7bd4012c4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
