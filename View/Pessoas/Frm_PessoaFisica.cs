@@ -15,45 +15,26 @@ namespace View.Pessoas
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
 
-            StreamWriter sw = null;
+            Model.Pessoa_e_Usuario.Fisica PessoaFBase = new Model.Pessoa_e_Usuario.Fisica();
 
-            try
-            {
-                sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf",Txt_Nome.Text.TrimEnd().TrimStart()));
+            PessoaFBase.Nome = Txt_Nome.Text;
+            PessoaFBase.Endereco = Txt_Endereco.Text;
+            PessoaFBase.Telefone = Txt_Telefone.Text;
+            PessoaFBase.Situacao = Txt_Situacao.Text;
+            PessoaFBase.SiglaEstado = Txt_Estado.Text;
+            PessoaFBase.Cidade = Txt_Cidade.Text;
+            PessoaFBase.Bairro = Txt_Bairro.Text;
+            PessoaFBase.Cep = Txt_Cep.Text;
+            PessoaFBase.Observacoes = Txt_Observacoes.Text;
 
-                sw.WriteLine(Txt_Nome.Text);
-                sw.WriteLine(Txt_Endereco.Text);
-                sw.WriteLine(Txt_Telefone.Text);
-                sw.WriteLine(Txt_Situacao.Text);
-                sw.WriteLine(Txt_Estado.Text);
-                sw.WriteLine(Txt_Cidade.Text);
-                sw.WriteLine(Txt_Bairro.Text);
-                sw.WriteLine(Txt_Cep.Text);
-                sw.WriteLine(Txt_Observacoes.Text);
+            //Parte de Pessoa Jurídica
+            PessoaFBase.CPF = Txt_CPF.Text;
+            PessoaFBase.Celular = Txt_Celular.Text;
+            PessoaFBase.Sexo = Txt_Sexo.Text;
+            PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
-                //Parte de Pessoa Física
-                sw.WriteLine(Txt_CPF.Text);
-                sw.WriteLine(Txt_Celular.Text);
-                sw.WriteLine(Txt_Sexo.Text);
-                sw.WriteLine(Txt_DataNacimento.Text);
-            }
-            catch (Exception Exc)
-            {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
-
-                MessageBox.Show("Ocorreu um erro inesperado! Um arquivo de LOG foi criado no diretorio do seu sotware", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Close();
-
-                    MessageBox.Show("Pessoal Física Salva com sucesso!","Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-            }
+            //A função Save() Retona uma string infomando sobre o que ocorreu.
+            MessageBox.Show(PessoaFBase.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Telefone, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
         }
     }
 }

@@ -7,13 +7,13 @@ namespace Model.Pessoa_e_Usuario
 {
     public class Fisica : Pessoa
     {
-        private char sexo; //Usar sempre letra maiuscula.
+        private string sexo; //Usar sempre letra maiuscula.
         private string cpf;
         private string celular;
         private DateTime dataDeNascimento;
 
 
-        public char Sexo
+        public string Sexo
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
-        public string Cpf
+        public string CPF
         {
             get
             {
@@ -65,7 +65,7 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
-        public String Save(String _nome, String _endereco, string _telefone, char _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cpf, string _celular, char _sexo, DateTime _datadenascimento)
+        public String Save(String _nome, String _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cpf, string _celular, string _sexo, DateTime _datadenascimento)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -90,7 +90,7 @@ namespace Model.Pessoa_e_Usuario
                     PessoaFBase.Bairro = _bairro;
                     PessoaFBase.Cep = _cep;
                     PessoaFBase.Observacoes = _observacoes;
-                    PessoaFBase.Cpf = _cpf;
+                    PessoaFBase.CPF = _cpf;
                     PessoaFBase.sexo = _sexo;
                     PessoaFBase.celular = _celular;
                     PessoaFBase.DataDeNascimento = _datadenascimento;
@@ -107,7 +107,7 @@ namespace Model.Pessoa_e_Usuario
                     sw.WriteLine(PessoaFBase.Observacoes);
 
                     //Parte de Pessoa Física
-                    sw.WriteLine(PessoaFBase.Cpf);
+                    sw.WriteLine(PessoaFBase.CPF);
                     sw.WriteLine(PessoaFBase.celular);
                     sw.WriteLine(PessoaFBase.sexo);
                     sw.WriteLine(PessoaFBase.DataDeNascimento);
@@ -143,51 +143,46 @@ namespace Model.Pessoa_e_Usuario
         {
             Fisica PessoaFBase = new Fisica();
 
-            if (Verificar(_Nome))
+
+            StreamReader sr = null;
+            try
             {
-                StreamReader sr = null;
-                try
-                {
-                    sr = new StreamReader(String.Format("Pessoa/J/{0}.pessoaj", _Nome));
+                sr = new StreamReader(String.Format("Pessoa/F/{0}.pessoaf", _Nome));
 
-                    //Parte de Pessoa
-                    PessoaFBase.Endereco = sr.ReadLine();
-                    PessoaFBase.Telefone = sr.ReadLine();
-                    PessoaFBase.Situacao = Convert.ToChar(sr.ReadLine());
-                    PessoaFBase.SiglaEstado = sr.ReadLine();
-                    PessoaFBase.Cidade = sr.ReadLine();
-                    PessoaFBase.Bairro = sr.ReadLine();
-                    PessoaFBase.Cep = sr.ReadLine();
-                    PessoaFBase.Observacoes = sr.ReadLine();
+                //Parte de Pessoa
+                PessoaFBase.Nome = sr.ReadLine();
+                PessoaFBase.Endereco = sr.ReadLine();
+                PessoaFBase.Telefone = sr.ReadLine();
+                PessoaFBase.Situacao = sr.ReadLine();
+                PessoaFBase.SiglaEstado = sr.ReadLine();
+                PessoaFBase.Cidade = sr.ReadLine();
+                PessoaFBase.Bairro = sr.ReadLine();
+                PessoaFBase.Cep = sr.ReadLine();
+                PessoaFBase.Observacoes = sr.ReadLine();
 
-                    //Parte de Pessoa Jurídica
-                    PessoaFBase.cpf = sr.ReadLine();
-                    PessoaFBase.Celular = sr.ReadLine();
-                    PessoaFBase.Sexo = Convert.ToChar(sr.ReadLine());
-                    PessoaFBase.DataDeNascimento = Convert.ToDateTime(sr.ReadLine());
-                }
-                catch (Exception exc)
-                {
-                    //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(exc);
-                }
-                finally
-                {
-                    if (sr != null)
-                        sr.Close();
-                }
+                //Parte de Pessoa Jurídica
+                PessoaFBase.cpf = sr.ReadLine();
+                PessoaFBase.Celular = sr.ReadLine();
+                PessoaFBase.Sexo = sr.ReadLine();
+                PessoaFBase.DataDeNascimento = Convert.ToDateTime(sr.ReadLine());
             }
-            else
+            catch (Exception exc)
             {
                 //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
             }
 
             return PessoaFBase;
         }
 
-        public List<string> LoadLista()
+        public List<string> LoadList()
         {
             List<string> ListaDePessoaFisica = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("Pessoa/F/");

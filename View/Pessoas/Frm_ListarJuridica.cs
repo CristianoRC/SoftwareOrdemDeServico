@@ -17,7 +17,8 @@ namespace View.Pessoas
 
             foreach (var item in PessoaJuridicaBase.LoadList())
             {
-                Data_Os.Rows.Add(PessoaJuridicaBase.Load(item).Nome, PessoaJuridicaBase.Load(item).Contato, PessoaJuridicaBase.Load(item).Cnpj, PessoaJuridicaBase.Load(item).Cidade, Convert.ToString(PessoaJuridicaBase.Load(item).Situacao);//TODO Arrumar código de pessoa fisica ou juridica aqui.
+                //Fazer um load na mão para saber se o problema e na parte de load.
+                Data_Os.Rows.Add(PessoaJuridicaBase.Load(item).Nome, PessoaJuridicaBase.Load(item).Contato, PessoaJuridicaBase.Load(item).Cnpj, PessoaJuridicaBase.Load(item).Cidade, Convert.ToString(PessoaJuridicaBase.Load(item).Situacao));//TODO Arrumar código de pessoa fisica ou juridica aqui.
             }
         }
     }

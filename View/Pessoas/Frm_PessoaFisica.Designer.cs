@@ -33,7 +33,6 @@
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Txt_Telefone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Situacao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Txt_Bairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Txt_Cep = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Txt_Observacoes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,6 +56,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
+            this.Txt_Telefone = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,13 +93,6 @@
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Endereço";
-            // 
-            // Txt_Telefone
-            // 
-            this.Txt_Telefone.Location = new System.Drawing.Point(69, 126);
-            this.Txt_Telefone.Name = "Txt_Telefone";
-            this.Txt_Telefone.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Telefone.TabIndex = 5;
             // 
             // label3
             // 
@@ -166,13 +159,6 @@
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Bairro";
-            // 
-            // Txt_Cep
-            // 
-            this.Txt_Cep.Location = new System.Drawing.Point(519, 126);
-            this.Txt_Cep.Name = "Txt_Cep";
-            this.Txt_Cep.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Cep.TabIndex = 15;
             // 
             // label8
             // 
@@ -292,8 +278,8 @@
             // 
             this.Txt_Sexo.FormattingEnabled = true;
             this.Txt_Sexo.Items.AddRange(new object[] {
-            "M",
-            "F"});
+            "Masculino",
+            "Feminino"});
             this.Txt_Sexo.Location = new System.Drawing.Point(518, 19);
             this.Txt_Sexo.Name = "Txt_Sexo";
             this.Txt_Sexo.Size = new System.Drawing.Size(236, 21);
@@ -344,17 +330,35 @@
             this.Btm_Salvar.Text = "Salvar";
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
             // 
+            // Txt_Telefone
+            // 
+            this.Txt_Telefone.Location = new System.Drawing.Point(67, 123);
+            this.Txt_Telefone.Mask = "(00)90000-0000";
+            this.Txt_Telefone.Name = "Txt_Telefone";
+            this.Txt_Telefone.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Telefone.TabIndex = 8;
+            // 
+            // Txt_Cep
+            // 
+            this.Txt_Cep.Location = new System.Drawing.Point(519, 123);
+            this.Txt_Cep.Mask = "99999-999";
+            this.Txt_Cep.Name = "Txt_Cep";
+            this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Cep.TabIndex = 20;
+            this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Frm_PessoaFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(846, 391);
+            this.Controls.Add(this.Txt_Cep);
+            this.Controls.Add(this.Txt_Telefone);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.Txt_Observacoes);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Txt_Bairro);
             this.Controls.Add(this.label7);
@@ -363,7 +367,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Txt_Situacao);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Txt_Telefone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label2);
@@ -392,7 +395,6 @@
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Txt_Telefone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_Situacao;
         private System.Windows.Forms.Label label4;
@@ -401,7 +403,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Txt_Bairro;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Txt_Cep;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox Txt_Observacoes;
         private System.Windows.Forms.Label label9;
@@ -417,5 +418,7 @@
         private System.Windows.Forms.MaskedTextBox Txt_Celular;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Btm_Salvar;
+        private System.Windows.Forms.MaskedTextBox Txt_Telefone;
+        private System.Windows.Forms.MaskedTextBox Txt_Cep;
     }
 }

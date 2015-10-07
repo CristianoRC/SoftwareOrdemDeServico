@@ -64,7 +64,7 @@ namespace Model.Pessoa_e_Usuario
         }
 
 
-        public String Save(String _nome, String _endereco, string _telefone, char _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cnpj, string _contato, string _inscricaoestadual, string _razaosocial)
+        public String Save(string _nome, string _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cnpj, string _contato, string _inscricaoestadual, string _razaosocial)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -76,7 +76,7 @@ namespace Model.Pessoa_e_Usuario
                 try
                 {
 
-                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
 
                     Juridica PessoaJBase = new Juridica();
 
@@ -138,49 +138,43 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
-        public Juridica Load(String _Nome)
+        public Juridica Load(String _IdentificadorLoad)
         {
             Juridica PessoaJBase = new Juridica();
 
-            if (Verificar(_Nome))
+            StreamReader sr = null;
+            try
             {
-                StreamReader sr = null;
-                try
-                {
-                    sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", _Nome));
+                sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", _IdentificadorLoad));
 
-                    //Parte de Pessoa
-                    PessoaJBase.Endereco = sr.ReadLine();
-                    PessoaJBase.Telefone = sr.ReadLine();
-                    PessoaJBase.Situacao = Convert.ToChar(sr.ReadLine());
-                    PessoaJBase.SiglaEstado = sr.ReadLine();
-                    PessoaJBase.Cidade = sr.ReadLine();
-                    PessoaJBase.Bairro = sr.ReadLine();
-                    PessoaJBase.Cep = sr.ReadLine();
-                    PessoaJBase.Observacoes = sr.ReadLine();
+                //Parte de Pessoa
+                PessoaJBase.Nome = sr.ReadLine();
+                PessoaJBase.Endereco = sr.ReadLine();
+                PessoaJBase.Telefone = sr.ReadLine();
+                PessoaJBase.Situacao = sr.ReadLine();
+                PessoaJBase.SiglaEstado = sr.ReadLine();
+                PessoaJBase.Cidade = sr.ReadLine();
+                PessoaJBase.Bairro = sr.ReadLine();
+                PessoaJBase.Cep = sr.ReadLine();
+                PessoaJBase.Observacoes = sr.ReadLine();
 
-                    //Parte de Pessoa Jurídica
-                    PessoaJBase.Cnpj = sr.ReadLine();
-                    PessoaJBase.Contato = sr.ReadLine();
-                    PessoaJBase.InscricaoEstadual = sr.ReadLine();
-                    PessoaJBase.RazaoSocial = sr.ReadLine();
-                }
-                catch (Exception exc)
-                {
-                    //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(exc);
-                }
-                finally
-                {
-                    if (sr != null)
-                        sr.Close();
-                }     
+                //Parte de Pessoa Jurídica
+                PessoaJBase.Cnpj = sr.ReadLine();
+                PessoaJBase.Contato = sr.ReadLine();
+                PessoaJBase.InscricaoEstadual = sr.ReadLine();
+                PessoaJBase.RazaoSocial = sr.ReadLine();
             }
-            else
+            catch (Exception exc)
             {
                 //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
             }
 
             return PessoaJBase;

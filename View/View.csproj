@@ -99,6 +99,12 @@
     <Compile Include="OS\Frm_NewOrdem.Designer.cs">
       <DependentUpon>Frm_NewOrdem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pessoas\Frm_ListarFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ListarFisica.Designer.cs">
+      <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pessoas\Frm_ListarJuridica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_NewOrdem.resx">
       <DependentUpon>Frm_NewOrdem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_ListarFisica.resx">
+      <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ListarJuridica.resx">
       <DependentUpon>Frm_ListarJuridica.cs</DependentUpon>

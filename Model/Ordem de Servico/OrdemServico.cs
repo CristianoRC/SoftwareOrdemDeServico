@@ -9,13 +9,13 @@ namespace Model.Ordem_de_Servico
     {
         private string identificador;
         private string referencia;
-        private string situacao; //P para pronto M para manutenção A avaliação
+        private string situacao;
         private string defeito;
         private string descricao;
         private string observacao;
         private string numeroSerie;
         private string equipamento;
-        private string dataEntradaServico; //Substitiu o int que tem na documentação, para salvar a data e a hora de entrada do serviço/produto.
+        private string dataEntradaServico;
         private Fisica pessoaFisica;
         private Juridica pessoaJuridica;
 
@@ -220,9 +220,6 @@ namespace Model.Ordem_de_Servico
             else
             {
                 //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-
-                //TODO: ARRUMAR UM MODO DE VERIFICAR SE JÁ FOI CRIADO UMA OS COM O NUMERO SORTEADO.
-
                 Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
             }
 
@@ -257,7 +254,6 @@ namespace Model.Ordem_de_Servico
                     sw = new StreamWriter(String.Format("OS/{0}.os", _Identificador));
 
                     sw.WriteLine(OSBase.Identificador);
-                    //sw.WriteLine(OSBase.PessoaFisica);   //TODO: Arruma sistema de pessoa Fisica/Juridica.  
                     sw.WriteLine(OSBase.Equipamento);
                     sw.WriteLine(OSBase.Situacao);
                     sw.WriteLine(OSBase.NumeroSerie);
@@ -289,9 +285,6 @@ namespace Model.Ordem_de_Servico
             else
             {
                 //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-
-                //TODO: ARRUMAR UM MODO DE VERIFICAR SE JÁ FOI CRIADO UMA OS COM O NUMERO SORTEADO.
-
                 Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
             }
 

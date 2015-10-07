@@ -39,7 +39,7 @@ namespace View.OS
             {
                 Model.Pessoa_e_Usuario.Fisica PessoaFBase = new Model.Pessoa_e_Usuario.Fisica();
 
-                foreach (var item in PessoaFBase.LoadLista())
+                foreach (var item in PessoaFBase.LoadList())
                 {
                     Txt_ListaPessoa.Items.Add(item.ToString());
                 }

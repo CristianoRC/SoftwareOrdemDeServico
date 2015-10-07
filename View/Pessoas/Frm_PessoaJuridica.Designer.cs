@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_PessoaJuridica));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Txt_Sexo = new System.Windows.Forms.TextBox();
-            this.Txt_CPF = new System.Windows.Forms.MaskedTextBox();
-            this.Txt_Celular = new System.Windows.Forms.MaskedTextBox();
-            this.Txt_DataNacimento = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_RazaoSocial = new System.Windows.Forms.TextBox();
+            this.Txt_CNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Contato = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_InscricaoEstadual = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.Txt_Estado = new System.Windows.Forms.ComboBox();
             this.Txt_Observacoes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Txt_Cep = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Txt_Bairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,12 +51,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Txt_Situacao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_Telefone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Txt_Telefone = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,10 +66,10 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.Txt_Sexo);
-            this.panel1.Controls.Add(this.Txt_CPF);
-            this.panel1.Controls.Add(this.Txt_Celular);
-            this.panel1.Controls.Add(this.Txt_DataNacimento);
+            this.panel1.Controls.Add(this.Txt_RazaoSocial);
+            this.panel1.Controls.Add(this.Txt_CNPJ);
+            this.panel1.Controls.Add(this.Txt_Contato);
+            this.panel1.Controls.Add(this.Txt_InscricaoEstadual);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -79,34 +79,34 @@
             this.panel1.Size = new System.Drawing.Size(873, 131);
             this.panel1.TabIndex = 18;
             // 
-            // Txt_Sexo
+            // Txt_RazaoSocial
             // 
-            this.Txt_Sexo.Location = new System.Drawing.Point(525, 58);
-            this.Txt_Sexo.Name = "Txt_Sexo";
-            this.Txt_Sexo.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Sexo.TabIndex = 7;
+            this.Txt_RazaoSocial.Location = new System.Drawing.Point(525, 58);
+            this.Txt_RazaoSocial.Name = "Txt_RazaoSocial";
+            this.Txt_RazaoSocial.Size = new System.Drawing.Size(236, 20);
+            this.Txt_RazaoSocial.TabIndex = 7;
             // 
-            // Txt_CPF
+            // Txt_CNPJ
             // 
-            this.Txt_CPF.Location = new System.Drawing.Point(67, 16);
-            this.Txt_CPF.Mask = "000.000.000-00";
-            this.Txt_CPF.Name = "Txt_CPF";
-            this.Txt_CPF.Size = new System.Drawing.Size(235, 20);
-            this.Txt_CPF.TabIndex = 1;
+            this.Txt_CNPJ.Location = new System.Drawing.Point(67, 16);
+            this.Txt_CNPJ.Mask = "000.000.000-00";
+            this.Txt_CNPJ.Name = "Txt_CNPJ";
+            this.Txt_CNPJ.Size = new System.Drawing.Size(235, 20);
+            this.Txt_CNPJ.TabIndex = 1;
             // 
-            // Txt_Celular
+            // Txt_Contato
             // 
-            this.Txt_Celular.Location = new System.Drawing.Point(67, 61);
-            this.Txt_Celular.Name = "Txt_Celular";
-            this.Txt_Celular.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Celular.TabIndex = 3;
+            this.Txt_Contato.Location = new System.Drawing.Point(67, 61);
+            this.Txt_Contato.Name = "Txt_Contato";
+            this.Txt_Contato.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Contato.TabIndex = 3;
             // 
-            // Txt_DataNacimento
+            // Txt_InscricaoEstadual
             // 
-            this.Txt_DataNacimento.Location = new System.Drawing.Point(525, 13);
-            this.Txt_DataNacimento.Name = "Txt_DataNacimento";
-            this.Txt_DataNacimento.Size = new System.Drawing.Size(235, 20);
-            this.Txt_DataNacimento.TabIndex = 5;
+            this.Txt_InscricaoEstadual.Location = new System.Drawing.Point(525, 13);
+            this.Txt_InscricaoEstadual.Name = "Txt_InscricaoEstadual";
+            this.Txt_InscricaoEstadual.Size = new System.Drawing.Size(235, 20);
+            this.Txt_InscricaoEstadual.TabIndex = 5;
             // 
             // label13
             // 
@@ -215,13 +215,6 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "Observações";
             // 
-            // Txt_Cep
-            // 
-            this.Txt_Cep.Location = new System.Drawing.Point(513, 130);
-            this.Txt_Cep.Name = "Txt_Cep";
-            this.Txt_Cep.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Cep.TabIndex = 15;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -288,13 +281,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Situação";
             // 
-            // Txt_Telefone
-            // 
-            this.Txt_Telefone.Location = new System.Drawing.Point(63, 130);
-            this.Txt_Telefone.Name = "Txt_Telefone";
-            this.Txt_Telefone.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Telefone.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -336,15 +322,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
+            // Txt_Telefone
+            // 
+            this.Txt_Telefone.Location = new System.Drawing.Point(64, 130);
+            this.Txt_Telefone.Mask = "(00)90000-0000";
+            this.Txt_Telefone.Name = "Txt_Telefone";
+            this.Txt_Telefone.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Telefone.TabIndex = 20;
+            // 
+            // Txt_Cep
+            // 
+            this.Txt_Cep.Location = new System.Drawing.Point(513, 127);
+            this.Txt_Cep.Mask = "99999-999";
+            this.Txt_Cep.Name = "Txt_Cep";
+            this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Cep.TabIndex = 21;
+            this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Frm_PessoaJuridica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 395);
+            this.Controls.Add(this.Txt_Cep);
+            this.Controls.Add(this.Txt_Telefone);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.Txt_Observacoes);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Txt_Bairro);
             this.Controls.Add(this.label7);
@@ -353,7 +357,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Txt_Situacao);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Txt_Telefone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label2);
@@ -379,20 +382,19 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox Txt_CPF;
-        private System.Windows.Forms.MaskedTextBox Txt_Celular;
-        private System.Windows.Forms.MaskedTextBox Txt_DataNacimento;
+        private System.Windows.Forms.MaskedTextBox Txt_CNPJ;
+        private System.Windows.Forms.MaskedTextBox Txt_Contato;
+        private System.Windows.Forms.MaskedTextBox Txt_InscricaoEstadual;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Btm_Salvar;
-        private System.Windows.Forms.TextBox Txt_Sexo;
+        private System.Windows.Forms.TextBox Txt_RazaoSocial;
         private System.Windows.Forms.ComboBox Txt_Estado;
         private System.Windows.Forms.TextBox Txt_Observacoes;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Txt_Cep;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox Txt_Bairro;
         private System.Windows.Forms.Label label7;
@@ -401,11 +403,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Txt_Situacao;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Txt_Telefone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox Txt_Telefone;
+        private System.Windows.Forms.MaskedTextBox Txt_Cep;
     }
 }

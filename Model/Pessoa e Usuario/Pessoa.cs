@@ -1,12 +1,12 @@
 ﻿namespace Model.Pessoa_e_Usuario
 {
-     public class Pessoa
+     public abstract class Pessoa
     {
         private string nome;
         private string endereco;
         private string telefone;
-        private char situacao;       //Para a situação usar apenas V para esta tudo certo e F para esta pendente (Devendo).
-        private char tipo;            //Para a situação usar apenas F ou J (Pessoa Fisica ou Jurídica).
+        private string situacao;       //Para a situação usar apenas V para esta tudo certo e F para esta pendente (Devendo).
+       //TODO: private string tipo;           Repensar como verificar o tipo do usuarios.
         private string siglaEstado;
         private string cidade;
         private string bairro;
@@ -52,7 +52,7 @@
             }
         }
 
-        public char Situacao
+        public string Situacao
         {
             get
             {
@@ -64,20 +64,7 @@
                 situacao = value;
             }
         }
-
-        public char Tipo
-        {
-            get
-            {
-                return tipo;
-            }
-
-            set
-            {
-                tipo = value;
-            }
-        }
-
+        
         public string SiglaEstado
         {
             get

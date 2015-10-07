@@ -1,6 +1,6 @@
 ﻿namespace View.Pessoas
 {
-    partial class Frm_ListarJuridica
+    partial class Frm_ListarFisica
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ListarJuridica));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ListarFisica));
             this.Data_Os = new System.Windows.Forms.DataGridView();
             this.Coluna_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@
             this.Data_Os.Name = "Data_Os";
             this.Data_Os.ReadOnly = true;
             this.Data_Os.Size = new System.Drawing.Size(850, 417);
-            this.Data_Os.TabIndex = 1;
+            this.Data_Os.TabIndex = 2;
             // 
             // Coluna_Identificador
             // 
@@ -66,13 +66,13 @@
             // 
             // Coluna_Produto
             // 
-            this.Coluna_Produto.HeaderText = "Contato";
+            this.Coluna_Produto.HeaderText = "Celular";
             this.Coluna_Produto.Name = "Coluna_Produto";
             this.Coluna_Produto.ReadOnly = true;
             // 
             // Coluna_situacao
             // 
-            this.Coluna_situacao.HeaderText = "CNPJ";
+            this.Coluna_situacao.HeaderText = "CPF";
             this.Coluna_situacao.Name = "Coluna_situacao";
             this.Coluna_situacao.ReadOnly = true;
             // 
@@ -88,18 +88,17 @@
             this.Coluna_Data.Name = "Coluna_Data";
             this.Coluna_Data.ReadOnly = true;
             // 
-            // Frm_ListarJuridica
+            // Frm_ListarFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 417);
             this.Controls.Add(this.Data_Os);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "Frm_ListarJuridica";
+            this.Name = "Frm_ListarFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Pessoas Jurídicas";
-            this.Load += new System.EventHandler(this.Frm_ListarJuridica_Load);
+            this.Text = "Lista de Pessoas Físicas";
+            this.Load += new System.EventHandler(this.Frm_ListarFisica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Data_Os)).EndInit();
             this.ResumeLayout(false);
 

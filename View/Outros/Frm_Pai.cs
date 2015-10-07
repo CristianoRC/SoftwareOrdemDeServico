@@ -180,5 +180,14 @@ namespace View
 
             Frm_ListarJuridica.Show();
         }
+
+        private void listarFísicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ListarFisica Frm_ListarFisica = new Pessoas.Frm_ListarFisica();
+
+            Frm_ListarFisica.MdiParent = this;
+
+            Frm_ListarFisica.Show();
+        }
     }
 }

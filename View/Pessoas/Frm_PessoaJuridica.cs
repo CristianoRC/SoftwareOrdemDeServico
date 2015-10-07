@@ -13,48 +13,26 @@ namespace View.Pessoas
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
+            Model.Pessoa_e_Usuario.Juridica PessoaJBase = new Model.Pessoa_e_Usuario.Juridica();
 
-            StreamWriter sw = null;
+            PessoaJBase.Nome = Txt_Nome.Text;
+            PessoaJBase.Endereco = Txt_Endereco.Text;
+            PessoaJBase.Telefone = Txt_Telefone.Text;
+            PessoaJBase.Situacao = Txt_Situacao.Text;
+            PessoaJBase.SiglaEstado = Txt_Estado.Text;
+            PessoaJBase.Cidade = Txt_Cidade.Text;
+            PessoaJBase.Bairro = Txt_Bairro.Text;
+            PessoaJBase.Cep = Txt_Cep.Text;
+            PessoaJBase.Observacoes = Txt_Observacoes.Text;
 
-            try
-            {
-                sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", Txt_Nome.Text.TrimEnd().TrimStart()));
+            //Parte de Pessoa Jurídica
+            PessoaJBase.Cnpj = Txt_CNPJ.Text;
+            PessoaJBase.Contato = Txt_Contato.Text;
+            PessoaJBase.InscricaoEstadual = Txt_InscricaoEstadual.Text;
+            PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
-                sw.WriteLine(Txt_Nome.Text);
-                sw.WriteLine(Txt_Endereco.Text);
-                sw.WriteLine(Txt_Telefone.Text);
-                sw.WriteLine(Txt_Situacao.Text);
-                sw.WriteLine(Txt_Estado.Text);
-                sw.WriteLine(Txt_Cidade.Text);
-                sw.WriteLine(Txt_Bairro.Text);
-                sw.WriteLine(Txt_Cep.Text);
-                sw.WriteLine(Txt_Observacoes.Text);
-
-                //TODO:Arrumar o nome dos txt Parte design
-
-                //Parte de Pessoa Física
-                sw.WriteLine(Txt_CPF.Text);
-                sw.WriteLine(Txt_Celular.Text);
-                sw.WriteLine(Txt_Sexo.Text);
-                sw.WriteLine(Txt_DataNacimento.Text);
-            }
-            catch (Exception Exc)
-            {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
-
-                MessageBox.Show("Ocorreu um erro inesperado! Um arquivo de LOG foi criado no diretorio do seu sotware", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Close();
-
-                    MessageBox.Show("Pessoal Jurídica Salva com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            //A função Save() Retona uma string infomando sobre o que ocorreu.
+            MessageBox.Show(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Telefone, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
         }
     }
 }

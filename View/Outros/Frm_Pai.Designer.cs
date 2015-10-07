@@ -46,6 +46,7 @@
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jurídicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarFísicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opiçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telaInicialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,6 @@
             this.Lbl_NomeEmpresa = new System.Windows.Forms.Label();
             this.Pic_LgoEmpresa = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.listarFísicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_LgoEmpresa)).BeginInit();
@@ -198,6 +198,14 @@
             this.jurídicaToolStripMenuItem.Text = "&Jurídica";
             this.jurídicaToolStripMenuItem.Click += new System.EventHandler(this.jurídicaToolStripMenuItem_Click);
             // 
+            // listarFísicaToolStripMenuItem
+            // 
+            this.listarFísicaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarFísicaToolStripMenuItem.Image")));
+            this.listarFísicaToolStripMenuItem.Name = "listarFísicaToolStripMenuItem";
+            this.listarFísicaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarFísicaToolStripMenuItem.Text = "&Listar Física";
+            this.listarFísicaToolStripMenuItem.Click += new System.EventHandler(this.listarFísicaToolStripMenuItem_Click);
+            // 
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarToolStripMenuItem.Image")));
@@ -303,13 +311,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // listarFísicaToolStripMenuItem
-            // 
-            this.listarFísicaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarFísicaToolStripMenuItem.Image")));
-            this.listarFísicaToolStripMenuItem.Name = "listarFísicaToolStripMenuItem";
-            this.listarFísicaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listarFísicaToolStripMenuItem.Text = "&Listar Física";
             // 
             // Frm_Pai
             // 
