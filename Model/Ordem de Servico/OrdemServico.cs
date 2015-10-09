@@ -16,8 +16,7 @@ namespace Model.Ordem_de_Servico
         private string numeroSerie;
         private string equipamento;
         private string dataEntradaServico;
-        private Fisica pessoaFisica;
-        private Juridica pessoaJuridica;
+        private string cliente;
 
         public string Identificador
         {
@@ -136,47 +135,34 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        public Fisica PessoaFisica
+        public string Cliente
         {
             get
             {
-                return pessoaFisica;
+                return cliente;
             }
 
             set
             {
-                pessoaFisica = value;
+                cliente = value;
             }
         }
 
-        public Juridica PessoaJuridica
-        {
-            get
-            {
-                return pessoaJuridica;
-            }
-
-            set
-            {
-                pessoaJuridica = value;
-            }
-        }
-
-        public string Save(string _Identificador, String _referencia, string _situacao, string _defeito, string _descricao, string _obervacao, string _numeroSerie, string _equipamento, string _dataEntradaServico)
+        public string Save(string Identificador, String Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
 
-            OSBase.Identificador = _Identificador;
-            OSBase.Equipamento = _equipamento;
-            OSBase.Situacao = _situacao;
-            OSBase.NumeroSerie = _numeroSerie;
-            OSBase.Defeito = _defeito;
-            OSBase.Referencia = _referencia;
-            OSBase.DataEntradaServico = _dataEntradaServico;
-            OSBase.Observacao = _obervacao;
-            OSBase.Descricao = _descricao;
-
+            OSBase.Identificador = Identificador;
+            OSBase.Equipamento = Equipamento;
+            OSBase.Situacao = Situacao;
+            OSBase.NumeroSerie = NumeroSerie;
+            OSBase.Defeito = Defeito;
+            OSBase.Referencia = Referencia;
+            OSBase.DataEntradaServico = DataEntradaServico;
+            OSBase.Observacao = Obervacao;
+            OSBase.Descricao = Descricao;
+            OSBase.Cliente = Cliente;
 
             StreamWriter sw = null;
 
@@ -185,10 +171,10 @@ namespace Model.Ordem_de_Servico
             {
                 try
                 {
-                    sw = new StreamWriter(String.Format("OS/{0}.os", _Identificador));
+                    sw = new StreamWriter(String.Format("OS/{0}.os", Identificador));
 
                     sw.WriteLine(OSBase.Identificador);
-                    //sw.WriteLine(OSBase.PessoaFisica);   //TODO: Arruma sistema de pessoa Fisica/Juridica.  
+                    sw.WriteLine(OSBase.Cliente);
                     sw.WriteLine(OSBase.Equipamento);
                     sw.WriteLine(OSBase.Situacao);
                     sw.WriteLine(OSBase.NumeroSerie);
@@ -220,7 +206,7 @@ namespace Model.Ordem_de_Servico
             else
             {
                 //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
+                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico,OSBase.Cliente);
             }
 
 
@@ -228,20 +214,21 @@ namespace Model.Ordem_de_Servico
 
         }
 
-        public string Edit(string _Identificador, String _referencia, string _situacao, string _defeito, string _descricao, string _obervacao, string _numeroSerie, string _equipamento, string _dataEntradaServico)
+        public string Edit(string Identificador, String Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
 
-            OSBase.Identificador = _Identificador;
-            OSBase.Equipamento = _equipamento;
-            OSBase.Situacao = _situacao;
-            OSBase.NumeroSerie = _numeroSerie;
-            OSBase.Defeito = _defeito;
-            OSBase.Referencia = _referencia;
-            OSBase.DataEntradaServico = _dataEntradaServico;
-            OSBase.Observacao = _obervacao;
-            OSBase.Descricao = _descricao;
+            OSBase.Identificador = Identificador;
+            OSBase.Equipamento = Equipamento;
+            OSBase.Situacao = Situacao;
+            OSBase.NumeroSerie = NumeroSerie;
+            OSBase.Defeito = Defeito;
+            OSBase.Referencia = Referencia;
+            OSBase.DataEntradaServico = DataEntradaServico;
+            OSBase.Observacao = Obervacao;
+            OSBase.Descricao = Descricao;
+            OSBase.Cliente = Cliente;
 
 
             StreamWriter sw = null;
@@ -251,9 +238,10 @@ namespace Model.Ordem_de_Servico
             {
                 try
                 {
-                    sw = new StreamWriter(String.Format("OS/{0}.os", _Identificador));
+                    sw = new StreamWriter(String.Format("OS/{0}.os", Identificador));
 
                     sw.WriteLine(OSBase.Identificador);
+                    sw.WriteLine(OSBase.cliente);
                     sw.WriteLine(OSBase.Equipamento);
                     sw.WriteLine(OSBase.Situacao);
                     sw.WriteLine(OSBase.NumeroSerie);
@@ -284,8 +272,7 @@ namespace Model.Ordem_de_Servico
             }
             else
             {
-                //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico);
+                Saida = "Numero de ordem de sefviço inválido!";
             }
 
 
@@ -303,7 +290,7 @@ namespace Model.Ordem_de_Servico
                 sr = new StreamReader(String.Format("OS/{0}.os", _Identificador));
 
                 OSBase.Identificador = sr.ReadLine();
-                // OSBase.PessoaFisica = sr.ReadLine(); //TODO: Arrumar na questão de pessoa Fisica ou Juridica.
+                OSBase.cliente = sr.ReadLine();
                 OSBase.Equipamento = sr.ReadLine();
                 OSBase.Situacao = sr.ReadLine();
                 OSBase.NumeroSerie = sr.ReadLine();

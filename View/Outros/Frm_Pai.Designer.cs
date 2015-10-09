@@ -71,8 +71,10 @@
             this.ordensDeServiçosToolStripMenuItem,
             this.pessoaToolStripMenuItem,
             this.opiçõesToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(1131, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
@@ -150,7 +152,7 @@
             // 
             this.novaF5ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("novaF5ToolStripMenuItem.Image")));
             this.novaF5ToolStripMenuItem.Name = "novaF5ToolStripMenuItem";
-            this.novaF5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaF5ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.novaF5ToolStripMenuItem.Text = "&Nova Ordem";
             this.novaF5ToolStripMenuItem.Click += new System.EventHandler(this.novaF5ToolStripMenuItem_Click);
             // 
@@ -158,7 +160,7 @@
             // 
             this.editarToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("editarToolStripMenuItem1.Image")));
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.editarToolStripMenuItem1.Text = "&Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -166,7 +168,7 @@
             // 
             this.listarToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("listarToolStripMenuItem1.Image")));
             this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.listarToolStripMenuItem1.Text = "&Listar";
             this.listarToolStripMenuItem1.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
             // 
@@ -186,7 +188,7 @@
             // 
             this.cadastrarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrarToolStripMenuItem.Image")));
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.cadastrarToolStripMenuItem.Text = "&Física";
             this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
             // 
@@ -194,7 +196,7 @@
             // 
             this.jurídicaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("jurídicaToolStripMenuItem.Image")));
             this.jurídicaToolStripMenuItem.Name = "jurídicaToolStripMenuItem";
-            this.jurídicaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.jurídicaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.jurídicaToolStripMenuItem.Text = "&Jurídica";
             this.jurídicaToolStripMenuItem.Click += new System.EventHandler(this.jurídicaToolStripMenuItem_Click);
             // 
@@ -202,7 +204,7 @@
             // 
             this.listarFísicaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarFísicaToolStripMenuItem.Image")));
             this.listarFísicaToolStripMenuItem.Name = "listarFísicaToolStripMenuItem";
-            this.listarFísicaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarFísicaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.listarFísicaToolStripMenuItem.Text = "&Listar Física";
             this.listarFísicaToolStripMenuItem.Click += new System.EventHandler(this.listarFísicaToolStripMenuItem_Click);
             // 
@@ -210,7 +212,7 @@
             // 
             this.listarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarToolStripMenuItem.Image")));
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.listarToolStripMenuItem.Text = "&Listar Jurídica";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 

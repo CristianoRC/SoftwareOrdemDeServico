@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
+using Model.Pessoa_e_Usuario;
+using Model.Ordem_de_Servico;
 using System.Windows.Forms;
 
 namespace View.OS
@@ -21,12 +21,23 @@ namespace View.OS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Model.Ordem_de_Servico.OrdemServico OrdemDeServico = new Model.Ordem_de_Servico.OrdemServico();
+            OrdemServico OrdemDeServico = new OrdemServico();
 
-            string Retorno = OrdemDeServico.Save(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text);
+            string Retorno = OrdemDeServico.Save(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+            Txt_Cliente.Clear();
+            Txt_DataEntrada.Clear();
+            Txt_Defeito.Clear();
+            Txt_Descricao.Clear();
+            Txt_Equipamento.Clear();
+            Txt_Nordem.Clear();
+            Txt_Nserie.Clear();
+            Txt_Observacoes.Clear();
+            Txt_Referencia.Clear();
+            
         }
 
 
@@ -37,23 +48,32 @@ namespace View.OS
 
             if (CheckPessoaFisica.Checked == true)
             {
-                Model.Pessoa_e_Usuario.Fisica PessoaFBase = new Model.Pessoa_e_Usuario.Fisica();
+                Fisica PessoaFBase = new Fisica();
 
                 foreach (var item in PessoaFBase.LoadList())
                 {
+                    //Le o nome das pessoas (arquivos) e adiciona ele a cada passada no ComboBox.
+
                     Txt_ListaPessoa.Items.Add(item.ToString());
                 }
             }
 
             if (CheckPessoaJuridica.Checked == true)
             {
-                Model.Pessoa_e_Usuario.Juridica PessoaJBase = new Model.Pessoa_e_Usuario.Juridica();
+                Juridica PessoaJBase = new Juridica();
 
                 foreach (var item in PessoaJBase.LoadList())
-                {
+                { 
                     Txt_ListaPessoa.Items.Add(item.ToString());
                 }
             }
+        }
+
+        private void Txt_ListaPessoa_TextChanged(object sender, EventArgs e)
+        {
+            Txt_Cliente.Text = Txt_ListaPessoa.Text;
+
+            //Passando valor do usuario selecionado para o novo formularios na hora de registrar a ordem de seviço.
         }
     }
 }

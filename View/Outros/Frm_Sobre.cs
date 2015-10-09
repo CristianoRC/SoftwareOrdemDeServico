@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace View
+namespace View.Outros
 {
     partial class Frm_Sobre : Form
     {
@@ -104,7 +104,7 @@ namespace View
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

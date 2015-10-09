@@ -33,6 +33,20 @@ namespace View.Pessoas
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
             MessageBox.Show(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Telefone, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
+
+
+            Txt_Bairro.Clear();
+            Txt_Cep.Clear();
+            Txt_Cidade.Clear();
+            Txt_CNPJ.Clear();
+            Txt_Contato.Clear();
+            Txt_Endereco.Clear();
+            Txt_InscricaoEstadual.Clear();
+            Txt_Nome.Clear();
+            Txt_Observacoes.Clear();
+            Txt_RazaoSocial.Clear();
+            Txt_Situacao.Clear();
+            Txt_Telefone.Clear();
         }
     }
 }

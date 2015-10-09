@@ -5,8 +5,7 @@
         private string nome;
         private string endereco;
         private string telefone;
-        private string situacao;       //Para a situação usar apenas V para esta tudo certo e F para esta pendente (Devendo).
-       //TODO: private string tipo;           Repensar como verificar o tipo do usuarios.
+        private string situacao;
         private string siglaEstado;
         private string cidade;
         private string bairro;

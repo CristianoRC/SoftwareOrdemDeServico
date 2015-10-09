@@ -328,7 +328,7 @@
             this.Txt_Telefone.Mask = "(00)90000-0000";
             this.Txt_Telefone.Name = "Txt_Telefone";
             this.Txt_Telefone.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Telefone.TabIndex = 20;
+            this.Txt_Telefone.TabIndex = 5;
             // 
             // Txt_Cep
             // 
@@ -336,7 +336,7 @@
             this.Txt_Cep.Mask = "99999-999";
             this.Txt_Cep.Name = "Txt_Cep";
             this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Cep.TabIndex = 21;
+            this.Txt_Cep.TabIndex = 15;
             this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Frm_PessoaJuridica

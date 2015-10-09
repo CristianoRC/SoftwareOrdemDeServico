@@ -3,57 +3,18 @@
   <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
     <Name>Camada Model</Name>
     <Language>CSharp</Language>
+    <Entities />
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Model.dll</Name>
+    <Language>CSharp</Language>
     <Entities>
-      <Entity type="Class">
-        <Name>Pessoa</Name>
-        <Access>Public</Access>
-        <Location left="12" top="1014" />
-        <Size width="162" height="451" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private String nome</Member>
-        <Member type="Field">private String endereco</Member>
-        <Member type="Field">private String telefone</Member>
-        <Member type="Field">private Char situacao</Member>
-        <Member type="Field">private Char Tipo</Member>
-        <Member type="Field">private String siglaEstado</Member>
-        <Member type="Field">private String cidade</Member>
-        <Member type="Field">private String bairro</Member>
-        <Member type="Field">private String cep</Member>
-        <Member type="Field">private String observacoes</Member>
-        <Member type="Field">private OrdemServico newOrdemDeSertvico</Member>
-        <Member type="Property">public String Nome { get; set; }</Member>
-        <Member type="Property">public String Endereco { get; set; }</Member>
-        <Member type="Property">public String Telefone { get; set; }</Member>
-        <Member type="Property">public Char Situacao { get; set; }</Member>
-        <Member type="Property">public String SiglaEstado { get; set; }</Member>
-        <Member type="Property">public String Cidade { get; set; }</Member>
-        <Member type="Property">public String Bairro { get; set; }</Member>
-        <Member type="Property">public String Cep { get; set; }</Member>
-        <Member type="Property">public String Observacoes { get; set; }</Member>
-        <Member type="Property">public Char Tipo1 { get; set; }</Member>
-        <Member type="Constructor">public Pessoa()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Usuario</Name>
-        <Access>Public</Access>
-        <Location left="860" top="428" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private String nome</Member>
-        <Member type="Field">private String senha</Member>
-        <Member type="Field">private Char nivelAcesso</Member>
-        <Member type="Property">public String Nome { get; set; }</Member>
-        <Member type="Property">public String Senha { get; set; }</Member>
-        <Member type="Property">public Char NivelAcesso { get; set; }</Member>
-        <Member type="Constructor">public Usuario()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
       <Entity type="Class">
         <Name>Produto</Name>
         <Access>Public</Access>
-        <Location left="648" top="428" />
-        <Size width="162" height="366" />
+        <Location left="12" top="1031" />
+        <Size width="162" height="417" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
         <Member type="Field">private String codigoBarra</Member>
@@ -72,30 +33,37 @@
         <Member type="Property">public Double PrecoVendaAtacado { get; set; }</Member>
         <Member type="Property">public String MarcaProduto { get; set; }</Member>
         <Member type="Constructor">public Produto()</Member>
+        <Member type="Method">public String Save(String _Nome, String _CodigoBarra, String _Referencia, String _Descricao, String _Marcaproduto, Double _PrecoCusto, Double _PrecoVenda, Double _PrecoVendaAtacado)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _CodigoBarra)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Fisica</Name>
         <Access>Public</Access>
-        <Location left="436" top="428" />
-        <Size width="162" height="230" />
+        <Location left="860" top="428" />
+        <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private Char sexo</Member>
+        <Member type="Field">private String sexo</Member>
         <Member type="Field">private String cpf</Member>
         <Member type="Field">private String celular</Member>
         <Member type="Field">private DateTime dataDeNascimento</Member>
-        <Member type="Property">public Char Sexo { get; set; }</Member>
-        <Member type="Property">public String Cpf { get; set; }</Member>
+        <Member type="Property">public String Sexo { get; set; }</Member>
+        <Member type="Property">public String CPF { get; set; }</Member>
         <Member type="Property">public String Celular { get; set; }</Member>
         <Member type="Property">public DateTime DataDeNascimento { get; set; }</Member>
         <Member type="Constructor">public Fisica()</Member>
+        <Member type="Method">public String Save(String _nome, String _endereco, String _telefone, String _situacao, String _siglaEstado, String _cidade, String _bairro, String _cep, String _observacoes, String _cpf, String _celular, String _sexo, DateTime _datadenascimento)</Member>
+        <Member type="Method">public Fisica Load(String _Nome)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Juridica</Name>
         <Access>Public</Access>
-        <Location left="224" top="428" />
-        <Size width="162" height="230" />
+        <Location left="629" top="428" />
+        <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String razaoSocial</Member>
         <Member type="Field">private String cnpj</Member>
@@ -106,41 +74,93 @@
         <Member type="Property">public String Contato { get; set; }</Member>
         <Member type="Property">public String InscricaoEstadual { get; set; }</Member>
         <Member type="Constructor">public Juridica()</Member>
+        <Member type="Method">public String Save(String _nome, String _endereco, String _telefone, String _situacao, String _siglaEstado, String _cidade, String _bairro, String _cep, String _observacoes, String _cnpj, String _contato, String _inscricaoestadual, String _razaosocial)</Member>
+        <Member type="Method">public Juridica Load(String _IdentificadorLoad)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _nome)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Pessoa</Name>
+        <Access>Public</Access>
+        <Location left="436" top="428" />
+        <Size width="162" height="434" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String endereco</Member>
+        <Member type="Field">private String telefone</Member>
+        <Member type="Field">private String situacao</Member>
+        <Member type="Field">private String tipo</Member>
+        <Member type="Field">private String siglaEstado</Member>
+        <Member type="Field">private String cidade</Member>
+        <Member type="Field">private String bairro</Member>
+        <Member type="Field">private String cep</Member>
+        <Member type="Field">private String observacoes</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Endereco { get; set; }</Member>
+        <Member type="Property">public String Telefone { get; set; }</Member>
+        <Member type="Property">public String Situacao { get; set; }</Member>
+        <Member type="Property">public String Tipo { get; set; }</Member>
+        <Member type="Property">public String SiglaEstado { get; set; }</Member>
+        <Member type="Property">public String Cidade { get; set; }</Member>
+        <Member type="Property">public String Bairro { get; set; }</Member>
+        <Member type="Property">public String Cep { get; set; }</Member>
+        <Member type="Property">public String Observacoes { get; set; }</Member>
+        <Member type="Constructor">protected Pessoa()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Usuario</Name>
+        <Access>Public</Access>
+        <Location left="224" top="428" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String senha</Member>
+        <Member type="Field">private Char nivelAcesso</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Senha { get; set; }</Member>
+        <Member type="Property">public Char NivelAcesso { get; set; }</Member>
+        <Member type="Constructor">public Usuario()</Member>
+        <Member type="Method">public String Save(String _Nome, String _Senha, Char _NivelAcesso)</Member>
+        <Member type="Method">public List&lt;Usuario&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>OrdemServico</Name>
         <Access>Public</Access>
         <Location left="12" top="428" />
-        <Size width="162" height="536" />
+        <Size width="162" height="553" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private String identificador</Member>
         <Member type="Field">private String referencia</Member>
-        <Member type="Field">private Char situacao</Member>
+        <Member type="Field">private String situacao</Member>
         <Member type="Field">private String defeito</Member>
         <Member type="Field">private String descricao</Member>
         <Member type="Field">private String observacao</Member>
         <Member type="Field">private String numeroSerie</Member>
         <Member type="Field">private String equipamento</Member>
-        <Member type="Field">private Double descontoservico</Member>
-        <Member type="Field">private Double acrecimoServico</Member>
-        <Member type="Field">private Double descontoProduto</Member>
-        <Member type="Field">private Double acrecimoProduto</Member>
-        <Member type="Field">private DateTime dataEntradaServico</Member>
+        <Member type="Field">private String dataEntradaServico</Member>
+        <Member type="Field">private Fisica pessoaFisica</Member>
+        <Member type="Field">private Juridica pessoaJuridica</Member>
+        <Member type="Property">public String Identificador { get; set; }</Member>
         <Member type="Property">public String Referencia { get; set; }</Member>
-        <Member type="Property">public Char Situacao { get; set; }</Member>
+        <Member type="Property">public String Situacao { get; set; }</Member>
         <Member type="Property">public String Defeito { get; set; }</Member>
         <Member type="Property">public String Descricao { get; set; }</Member>
         <Member type="Property">public String Observacao { get; set; }</Member>
         <Member type="Property">public String NumeroSerie { get; set; }</Member>
         <Member type="Property">public String Equipamento { get; set; }</Member>
-        <Member type="Property">public Double Descontoservico { get; set; }</Member>
-        <Member type="Property">public Double AcrecimoServico { get; set; }</Member>
-        <Member type="Property">public Double DescontoProduto { get; set; }</Member>
-        <Member type="Property">public Double AcrecimoProduto { get; set; }</Member>
-        <Member type="Property">public DateTime DataEntradaServico { get; set; }</Member>
+        <Member type="Property">public String DataEntradaServico { get; set; }</Member>
+        <Member type="Property">public Fisica PessoaFisica { get; set; }</Member>
+        <Member type="Property">public Juridica PessoaJuridica { get; set; }</Member>
         <Member type="Constructor">public OrdemServico()</Member>
-        <Member type="Method">public Void obtemTotalProdutos()</Member>
-        <Member type="Method">public Void obtemTotalServicos()</Member>
+        <Member type="Method">public String Save(String _Identificador, String _referencia, String _situacao, String _defeito, String _descricao, String _obervacao, String _numeroSerie, String _equipamento, String _dataEntradaServico)</Member>
+        <Member type="Method">public String Edit(String _Identificador, String _referencia, String _situacao, String _defeito, String _descricao, String _obervacao, String _numeroSerie, String _equipamento, String _dataEntradaServico)</Member>
+        <Member type="Method">public OrdemServico Load(String _Identificador)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _Identificador)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -218,35 +238,21 @@
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Generalization" first="3" second="0">
-        <StartOrientation>Vertical</StartOrientation>
+      <Relationship type="Generalization" first="1" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>244</X>
-          <Y>1069</Y>
+          <X>812</X>
+          <Y>821</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Generalization" first="7" second="2">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="10" second="2">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>53</X>
-          <Y>377</Y>
+      <Relationship type="Generalization" first="2" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>623</X>
+          <Y>591</Y>
         </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="0" second="5">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartRole>newOrdemDeSertvico</StartRole>
-        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
     </Relationships>
   </ProjectItem>

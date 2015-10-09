@@ -285,6 +285,7 @@
             this.Txt_ListaPessoa.Name = "Txt_ListaPessoa";
             this.Txt_ListaPessoa.Size = new System.Drawing.Size(207, 21);
             this.Txt_ListaPessoa.TabIndex = 25;
+            this.Txt_ListaPessoa.TextChanged += new System.EventHandler(this.Txt_ListaPessoa_TextChanged);
             // 
             // Btm_Pesquisar
             // 

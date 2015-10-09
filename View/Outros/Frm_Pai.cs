@@ -156,7 +156,7 @@ namespace View
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Sobre Sobre = new Frm_Sobre();
+            Outros.Frm_Sobre Sobre = new Outros.Frm_Sobre();
 
             Sobre.MdiParent = this;
 

@@ -28,13 +28,15 @@ namespace View.OS
 
                 Txt_Nordem.Text = OrdemDeServico.Identificador;
                 Txt_Referencia.Text = OrdemDeServico.Referencia;
-                Txt_Situacao.Text = OrdemDeServico.Situacao; Txt_Defeito.Text = OrdemDeServico.Defeito;
+                Txt_Situacao.Text = OrdemDeServico.Situacao;
+                Txt_Defeito.Text = OrdemDeServico.Defeito;
                 Txt_Descricao.Text = OrdemDeServico.Descricao;
                 Txt_Observacoes.Text = OrdemDeServico.Observacao;
                 Txt_Nserie.Text = OrdemDeServico.NumeroSerie;
                 Txt_Equipamento.Text = OrdemDeServico.Equipamento;
                 Txt_DataEntrada.Text = OrdemDeServico.DataEntradaServico;
                 Txt_Descricao.Text = OrdemDeServico.Descricao;
+                Txt_Cliente.Text = OrdemDeServico.Cliente;
 
             }
             else
@@ -49,7 +51,7 @@ namespace View.OS
         {
             Model.Ordem_de_Servico.OrdemServico OrdemDeServico = new Model.Ordem_de_Servico.OrdemServico();
 
-            string Retorno = OrdemDeServico.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text);
+            string Retorno = OrdemDeServico.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text,Txt_Cliente.Text);
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

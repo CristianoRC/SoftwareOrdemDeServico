@@ -76,7 +76,7 @@ namespace Model.Pessoa_e_Usuario
                 try
                 {
 
-                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", _nome.TrimStart().TrimEnd()));
 
                     Juridica PessoaJBase = new Juridica();
 
