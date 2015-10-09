@@ -148,7 +148,7 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        public string Save(string Identificador, String Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
@@ -214,7 +214,7 @@ namespace Model.Ordem_de_Servico
 
         }
 
-        public string Edit(string Identificador, String Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
