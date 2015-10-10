@@ -5,19 +5,13 @@
 
     Cadastro de usuário, com permissão de acesso;
 
-    Controle de ordem de serviço - possível imprimir pra o cliente assinar. A impressão pode ser salva em PDF ou RTF (Word);
+    Controle de ordem de serviço - possível imprimir pra o cliente assinar. A impressão pode ser salva em PDF ou RTF    (Word);
 
     Controle de estoque - controla entrada/saída de cada produto, podendo tirar relatório do que entrou e saiu;
 
     Financeiro - contas a pagar/receber;
 
-    Controle cheques recebidos e emitidos;
-
-    Vendas - impressão de comprovante de venda/cupom simples;
-
     Orçamento;
-
-    Controle de débitos (carnês) de clientes;
 
     Sistema de backup de dados;
 
