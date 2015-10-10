@@ -89,7 +89,7 @@
             // Txt_CNPJ
             // 
             this.Txt_CNPJ.Location = new System.Drawing.Point(67, 16);
-            this.Txt_CNPJ.Mask = "000.000.000-00";
+            this.Txt_CNPJ.Mask = "00.000.000/0000-00";
             this.Txt_CNPJ.Name = "Txt_CNPJ";
             this.Txt_CNPJ.Size = new System.Drawing.Size(235, 20);
             this.Txt_CNPJ.TabIndex = 1;

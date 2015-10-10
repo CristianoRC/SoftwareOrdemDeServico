@@ -1,12 +1,6 @@
 <Project>
   <Name>Diagrama de Classes Ordem de serviço</Name>
   <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>Camada Model</Name>
-    <Language>CSharp</Language>
-    <Entities />
-    <Relationships />
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
     <Name>Model.dll</Name>
     <Language>CSharp</Language>
     <Entities>
