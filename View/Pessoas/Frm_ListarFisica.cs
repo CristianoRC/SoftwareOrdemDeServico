@@ -24,7 +24,7 @@ namespace View.Pessoas
 
             foreach (var item in PessoaFisicaBase.LoadList())
             {
-                Data_Os.Rows.Add(PessoaFisicaBase.Load(item).Nome, PessoaFisicaBase.Load(item).Celular, PessoaFisicaBase.Load(item).CPF, PessoaFisicaBase.Load(item).Cidade, Convert.ToString(PessoaFisicaBase.Load(item).Situacao));
+                Data_Os.Rows.Add(PessoaFisicaBase.Load(item).Nome, PessoaFisicaBase.Load(item).Celular, PessoaFisicaBase.Load(item).CPF, PessoaFisicaBase.Load(item).Cidade, PessoaFisicaBase.Load(item).Situacao);
             }
         }
     }

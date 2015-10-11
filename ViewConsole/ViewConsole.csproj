@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\MenuPrincipal.cs" />
+    <Compile Include="Controller\OrdemDeServico.cs" />
+    <Compile Include="Controller\PessoaFisica.cs" />
+    <Compile Include="Controller\PessoaJuridica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

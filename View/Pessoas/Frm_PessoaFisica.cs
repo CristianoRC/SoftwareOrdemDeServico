@@ -27,7 +27,7 @@ namespace View.Pessoas
             PessoaFBase.Cep = Txt_Cep.Text;
             PessoaFBase.Observacoes = Txt_Observacoes.Text;
 
-            //Parte de Pessoa Jurídica
+            //Parte de Pessoa Física
             PessoaFBase.CPF = Txt_CPF.Text;
             PessoaFBase.Celular = Txt_Celular.Text;
             PessoaFBase.Sexo = Txt_Sexo.Text;
@@ -41,7 +41,7 @@ namespace View.Pessoas
             Txt_Cidade.Clear();
             Txt_CPF.Clear();
             Txt_Celular.Clear();
-            Txt_Endereco.Clear();            
+            Txt_Endereco.Clear();
             Txt_Nome.Clear();
             Txt_Observacoes.Clear();
             Txt_DataNacimento.Clear();

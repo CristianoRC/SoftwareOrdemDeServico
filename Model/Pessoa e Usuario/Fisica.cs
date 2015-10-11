@@ -7,7 +7,7 @@ namespace Model.Pessoa_e_Usuario
 {
     public class Fisica : Pessoa
     {
-        private string sexo; //Usar sempre letra maiuscula.
+        private string sexo;
         private string cpf;
         private string celular;
         private DateTime dataDeNascimento;
@@ -206,10 +206,9 @@ namespace Model.Pessoa_e_Usuario
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
-            bool Encontrado = false;
-            DirectoryInfo Arquivo = new DirectoryInfo(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+             bool Encontrado = false;
 
-            if (Arquivo.Exists)
+            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd())))
             {
                 Encontrado = true;
             }

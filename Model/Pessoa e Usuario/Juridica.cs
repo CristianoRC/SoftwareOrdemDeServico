@@ -205,9 +205,8 @@ namespace Model.Pessoa_e_Usuario
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
-            DirectoryInfo Arquivo = new DirectoryInfo(String.Format("Pessoa/J/{0}.PESSOAJ", _nome.TrimStart().TrimEnd()));
 
-            if (Arquivo.Exists)
+            if (File.Exists(String.Format("Pessoa/J/{0}.pessoaj", _nome.TrimStart().TrimEnd())))
             {
                 Encontrado = true;
             }
