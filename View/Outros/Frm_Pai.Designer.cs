@@ -255,7 +255,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.Lbl_Nome);
             this.panel1.Controls.Add(this.Lbl_HoraData);
             this.panel1.Controls.Add(this.Lbl_NomeEmpresa);

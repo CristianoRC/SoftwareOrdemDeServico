@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using Model.Pessoa_e_Usuario;
+using System.Diagnostics;
+using Microsoft.Reporting.WebForms;
+using Microsoft.ReportingServices;
 
 namespace Model.Ordem_de_Servico
 {
@@ -148,7 +150,58 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+
+        private void GerarPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        {
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+
+            //Caminho para encontrar o relatorio Base.
+            reportViewer.LocalReport.ReportEmbeddedResource = "Model.Ordem_de_Servico.RelatorioOrdemdeServico.rdl";
+
+            //Parametros do relatorio
+            List<ReportParameter> ListaDeParametros = new List<ReportParameter>();
+
+            ListaDeParametros.Add(new ReportParameter("Nome", Cliente));
+            ListaDeParametros.Add(new ReportParameter("Equipamento", Equipamento));
+            ListaDeParametros.Add(new ReportParameter("NumeroDeSerie", NumeroSerie));
+            ListaDeParametros.Add(new ReportParameter("Situacao", Situacao));
+            ListaDeParametros.Add(new ReportParameter("Defeito", Defeito));
+            ListaDeParametros.Add(new ReportParameter("Observacoes", Observacao));
+            ListaDeParametros.Add(new ReportParameter("Descricao", Descricao));
+            ListaDeParametros.Add(new ReportParameter("Referencia", Referencia));
+            ListaDeParametros.Add(new ReportParameter("NumeroOrdem", Identificador));
+            ListaDeParametros.Add(new ReportParameter("DataEntrada", DataEntradaServico));
+
+            //TODO:Arrumar sistema de nome e endereço de empresa quando estiver pronto
+            ListaDeParametros.Add(new ReportParameter("EnderecoEmpresa", "Av. Ferreira Viana 2886"));
+            ListaDeParametros.Add(new ReportParameter("ContatoEmpresa", "CristianoCunha@ti1.info"));
+            ListaDeParametros.Add(new ReportParameter("NomeEmpresa", "Cunha Soluções em TI"));
+
+            //Passando os parametros para o relatorio
+            reportViewer.LocalReport.SetParameters(ListaDeParametros);
+            
+            Warning[] Warnings;
+            string[] Streamids;
+            string Mimetype;
+            string encoding;
+            string extension;
+
+            byte[] bytePDF = reportViewer.LocalReport.Render("pdf", null, out Mimetype, out encoding, out extension, out Streamids, out Warnings);
+
+            FileStream fsPDF = null;
+            string NomeArquivoPDF = String.Format("OS/Teste.pdf");
+
+            fsPDF = new FileStream(NomeArquivoPDF,FileMode.Create);
+
+            fsPDF.Write(bytePDF,0,bytePDF.Length);
+
+            //Abrindo o PDF
+            Process.Start(NomeArquivoPDF);
+
+        }
+
+        public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
@@ -160,7 +213,7 @@ namespace Model.Ordem_de_Servico
             OSBase.Defeito = Defeito;
             OSBase.Referencia = Referencia;
             OSBase.DataEntradaServico = DataEntradaServico;
-            OSBase.Observacao = Obervacao;
+            OSBase.Observacao = Observacao;
             OSBase.Descricao = Descricao;
             OSBase.Cliente = Cliente;
 
@@ -183,6 +236,9 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.DataEntradaServico);
                     sw.WriteLine(OSBase.Observacao);
                     sw.WriteLine(OSBase.Descricao);
+
+                    
+                    GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
                 catch (System.Exception Exc)
                 {
@@ -206,7 +262,7 @@ namespace Model.Ordem_de_Servico
             else
             {
                 //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico,OSBase.Cliente);
+                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
             }
 
 
@@ -214,7 +270,7 @@ namespace Model.Ordem_de_Servico
 
         }
 
-        public string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Obervacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
@@ -226,7 +282,7 @@ namespace Model.Ordem_de_Servico
             OSBase.Defeito = Defeito;
             OSBase.Referencia = Referencia;
             OSBase.DataEntradaServico = DataEntradaServico;
-            OSBase.Observacao = Obervacao;
+            OSBase.Observacao = Observacao;
             OSBase.Descricao = Descricao;
             OSBase.Cliente = Cliente;
 
@@ -250,6 +306,10 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.DataEntradaServico);
                     sw.WriteLine(OSBase.Observacao);
                     sw.WriteLine(OSBase.Descricao);
+
+
+                    GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+
                 }
                 catch (System.Exception Exc)
                 {
