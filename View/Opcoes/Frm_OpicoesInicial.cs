@@ -35,6 +35,8 @@ namespace View.Opicoes
                 sw = new StreamWriter("Empresa.CFG");
 
                 sw.WriteLine(textBox1.Text);
+                sw.WriteLine(Txt_Contato.Text);
+                sw.WriteLine(Txt_Endereco.Text);
             }
             catch (Exception Exc)
             {

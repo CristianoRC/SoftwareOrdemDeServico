@@ -2,8 +2,6 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.Reporting.WebForms;
-using Microsoft.ReportingServices;
 
 namespace Model.Ordem_de_Servico
 {
@@ -150,14 +148,14 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-
-        private void GerarPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        //Problemas em gerara o PDF
+        /*private void GerarPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             ReportViewer reportViewer = new ReportViewer();
             reportViewer.ProcessingMode = ProcessingMode.Local;
 
             //Caminho para encontrar o relatorio Base.
-            reportViewer.LocalReport.ReportEmbeddedResource = "Model.Ordem_de_Servico.RelatorioOrdemdeServico.rdl";
+            reportViewer.LocalReport.ReportEmbeddedResource = "Model.Ordem_de_Servico.ReportBase.rdlc";
 
             //Parametros do relatorio
             List<ReportParameter> ListaDeParametros = new List<ReportParameter>();
@@ -201,6 +199,8 @@ namespace Model.Ordem_de_Servico
 
         }
 
+    */
+
         public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
@@ -238,7 +238,7 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.Descricao);
 
                     
-                    GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                    //GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
                 catch (System.Exception Exc)
                 {
@@ -308,7 +308,7 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.Descricao);
 
 
-                    GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                    //GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
 
                 }
                 catch (System.Exception Exc)
