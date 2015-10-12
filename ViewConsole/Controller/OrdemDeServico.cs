@@ -64,7 +64,20 @@ namespace ViewConsole
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Ordem de serviço salva com sucesso."); //Problemas em retornar o valor da função salvar();
 
-            Console.ReadKey();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.Write("  Vose deseja imprimir a Ornde de serviço? (s/n)");
+            char resposta = EntradaVariaveis.LeChar();
+
+            if (resposta == 'S' || resposta == 's')
+            {
+                OSBase.Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+            }
+
+
+        Console.ReadKey();
 
             Console.WriteLine("  1- Ir para o menu");
             Console.WriteLine("  2- Sar");
@@ -147,6 +160,17 @@ namespace ViewConsole
                 Console.WriteLine("  Observações: {0}", OSBase.Observacao);
                 Console.WriteLine("  Descrição: {0}", OSBase.Descricao);
 
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.Write("  Vose deseja imprimir a Ornde de serviço? (s/n)");
+                char resposta = EntradaVariaveis.LeChar();
+
+                if(resposta == 'S' || resposta == 's')
+                {
+                    OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                }
             }
             else
             {

@@ -54,6 +54,21 @@ namespace View.OS
             string Retorno = OrdemDeServico.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text,Txt_Cliente.Text);
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (MessageBox.Show("Deseja imprimir o arquivo?","Pergunta",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                OrdemDeServico.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+            }
+
+            Txt_Cliente.Clear();
+            Txt_DataEntrada.Clear();
+            Txt_Defeito.Clear();
+            Txt_Descricao.Clear();
+            Txt_Equipamento.Clear();
+            Txt_Nordem.Clear();
+            Txt_Nserie.Clear();
+            Txt_Observacoes.Clear();
+            Txt_Referencia.Clear();
         }
     }
 }

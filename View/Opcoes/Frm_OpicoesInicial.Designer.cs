@@ -63,7 +63,7 @@
             this.Btm_Salvar.Location = new System.Drawing.Point(144, 168);
             this.Btm_Salvar.Name = "Btm_Salvar";
             this.Btm_Salvar.Size = new System.Drawing.Size(81, 28);
-            this.Btm_Salvar.TabIndex = 2;
+            this.Btm_Salvar.TabIndex = 7;
             this.Btm_Salvar.Text = "Salvar";
             this.Btm_Salvar.UseVisualStyleBackColor = true;
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
@@ -96,7 +96,7 @@
             this.Txt_Contato.Location = new System.Drawing.Point(72, 79);
             this.Txt_Contato.Name = "Txt_Contato";
             this.Txt_Contato.Size = new System.Drawing.Size(277, 20);
-            this.Txt_Contato.TabIndex = 8;
+            this.Txt_Contato.TabIndex = 3;
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             this.label2.Location = new System.Drawing.Point(18, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 7;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Contato:";
             // 
             // Txt_Endereco
@@ -112,7 +112,7 @@
             this.Txt_Endereco.Location = new System.Drawing.Point(72, 124);
             this.Txt_Endereco.Name = "Txt_Endereco";
             this.Txt_Endereco.Size = new System.Drawing.Size(277, 20);
-            this.Txt_Endereco.TabIndex = 10;
+            this.Txt_Endereco.TabIndex = 5;
             // 
             // label3
             // 
@@ -120,7 +120,7 @@
             this.label3.Location = new System.Drawing.Point(13, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Endereço:";
             // 
             // Frm_OpicoesInicial

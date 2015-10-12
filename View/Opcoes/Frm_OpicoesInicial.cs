@@ -10,28 +10,35 @@ namespace View.Opicoes
         {
             InitializeComponent();
         }
+        bool TemFoto = false;
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                 pictureBox1.ImageLocation =  openFileDialog1.FileName;  
+                 pictureBox1.ImageLocation =  openFileDialog1.FileName;
+
+                 TemFoto = true;
             }
         }
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-            if (File.Exists("Logo.png"))
-            {
-                File.Delete("Logo.png");
-            }
-
-            File.Copy(openFileDialog1.FileName, "Logo.png");
-
             StreamWriter sw = null;
             
             try
             {
+                if (TemFoto)
+                {
+                    if (File.Exists("Logo.png"))
+                    {
+                        File.Delete("Logo.png");
+                    }
+
+                    File.Copy(openFileDialog1.FileName, "Logo.png");
+
+                }
+
                 sw = new StreamWriter("Empresa.CFG");
 
                 sw.WriteLine(textBox1.Text);

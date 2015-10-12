@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Model.Ordem_de_Servico
 {
@@ -148,58 +150,91 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-        //Problemas em gerara o PDF
-        /*private void GerarPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+
+        public void CreatPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
-            ReportViewer reportViewer = new ReportViewer();
-            reportViewer.ProcessingMode = ProcessingMode.Local;
-
-            //Caminho para encontrar o relatorio Base.
-            reportViewer.LocalReport.ReportEmbeddedResource = "Model.Ordem_de_Servico.ReportBase.rdlc";
-
-            //Parametros do relatorio
-            List<ReportParameter> ListaDeParametros = new List<ReportParameter>();
-
-            ListaDeParametros.Add(new ReportParameter("Nome", Cliente));
-            ListaDeParametros.Add(new ReportParameter("Equipamento", Equipamento));
-            ListaDeParametros.Add(new ReportParameter("NumeroDeSerie", NumeroSerie));
-            ListaDeParametros.Add(new ReportParameter("Situacao", Situacao));
-            ListaDeParametros.Add(new ReportParameter("Defeito", Defeito));
-            ListaDeParametros.Add(new ReportParameter("Observacoes", Observacao));
-            ListaDeParametros.Add(new ReportParameter("Descricao", Descricao));
-            ListaDeParametros.Add(new ReportParameter("Referencia", Referencia));
-            ListaDeParametros.Add(new ReportParameter("NumeroOrdem", Identificador));
-            ListaDeParametros.Add(new ReportParameter("DataEntrada", DataEntradaServico));
-
-            //TODO:Arrumar sistema de nome e endereço de empresa quando estiver pronto
-            ListaDeParametros.Add(new ReportParameter("EnderecoEmpresa", "Av. Ferreira Viana 2886"));
-            ListaDeParametros.Add(new ReportParameter("ContatoEmpresa", "CristianoCunha@ti1.info"));
-            ListaDeParametros.Add(new ReportParameter("NomeEmpresa", "Cunha Soluções em TI"));
-
-            //Passando os parametros para o relatorio
-            reportViewer.LocalReport.SetParameters(ListaDeParametros);
+            Document Documento = new Document();
+            string local = String.Format("{0}/OS.pdf", Path.GetTempPath());
+            PdfWriter.GetInstance(Documento, new FileStream(local, FileMode.Create));
+            Model.Empresa Empresa = new Empresa();
             
-            Warning[] Warnings;
-            string[] Streamids;
-            string Mimetype;
-            string encoding;
-            string extension;
 
-            byte[] bytePDF = reportViewer.LocalReport.Render("pdf", null, out Mimetype, out encoding, out extension, out Streamids, out Warnings);
+            Paragraph _identificador = new Paragraph();
+            Paragraph _cliente = new Paragraph();
+            Paragraph _dataEntrada = new Paragraph();
+            Paragraph _equipamento = new Paragraph();
+            Paragraph _defeito = new Paragraph();
+            Paragraph _situacao = new Paragraph();
+            Paragraph _descricao = new Paragraph();
+            Paragraph _numeroSerie = new Paragraph();
+            Paragraph _referencia = new Paragraph();
+            Paragraph _observacoes = new Paragraph();
+            Paragraph _linha = new Paragraph();
+            Paragraph _linhaEmBranco = new Paragraph();
+            Paragraph _cabecalho = new Paragraph();
+            Paragraph _nomeEmpresa = new Paragraph();
+            Paragraph _contatoEmpresa = new Paragraph();
+            Paragraph _enderecoEmpresa = new Paragraph();
 
-            FileStream fsPDF = null;
-            string NomeArquivoPDF = String.Format("OS/Teste.pdf");
+            _cabecalho.Add("                                                                  Ordem de serviço");
+            _linha.Add("______________________________________________________________________________");
+            _linhaEmBranco.Add("                                                                      ");
+            _identificador.Add(String.Format("Numero da ordem: {0}", Identificador));
+            _cliente.Add(String.Format("Cliente: {0}", Cliente));
+            _dataEntrada.Add(String.Format("Data de entrada: {0}", DataEntradaServico));
+            _equipamento.Add(String.Format("Equipamento: {0}", Equipamento));
+            _situacao.Add(String.Format("Situação: {0}", Situacao));
+            _defeito.Add(String.Format("Defeito: {0}", Defeito));
+            _descricao.Add(String.Format("Descrição: {0}", Descricao));
+            _numeroSerie.Add(String.Format("Numero de serie: {0}", NumeroSerie));
+            _referencia.Add(String.Format("Referência: {0}", Referencia));
+            _observacoes.Add(String.Format("Observações: {0}", Observacao));
 
-            fsPDF = new FileStream(NomeArquivoPDF,FileMode.Create);
+            _nomeEmpresa.Add(Empresa.RetornarValor()[0]);
+            _contatoEmpresa.Add(Empresa.RetornarValor()[1]);
+            _enderecoEmpresa.Add(Empresa.RetornarValor()[2]);
+            
 
-            fsPDF.Write(bytePDF,0,bytePDF.Length);
+            Documento.Open();
 
-            //Abrindo o PDF
-            Process.Start(NomeArquivoPDF);
+            Documento.Add(_cabecalho);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_linhaEmBranco);
 
+            Documento.Add(_nomeEmpresa);
+            Documento.Add(_contatoEmpresa);
+            Documento.Add(_enderecoEmpresa);
+            
+
+            Documento.Add(_linha);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_identificador);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_cliente);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_dataEntrada);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_linha);
+
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_equipamento);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_situacao);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_defeito);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_descricao);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_numeroSerie);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_referencia);
+            Documento.Add(_linhaEmBranco);
+            Documento.Add(_observacoes);
+
+            Documento.Close();
+
+            Process.Start(local);
         }
-
-    */
 
         public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
@@ -237,8 +272,6 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.Observacao);
                     sw.WriteLine(OSBase.Descricao);
 
-                    
-                    //GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
                 catch (System.Exception Exc)
                 {
@@ -306,10 +339,6 @@ namespace Model.Ordem_de_Servico
                     sw.WriteLine(OSBase.DataEntradaServico);
                     sw.WriteLine(OSBase.Observacao);
                     sw.WriteLine(OSBase.Descricao);
-
-
-                    //GerarPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
-
                 }
                 catch (System.Exception Exc)
                 {
@@ -411,6 +440,6 @@ namespace Model.Ordem_de_Servico
 
             return Encontrado;
         }
-
+        
     }
 }
