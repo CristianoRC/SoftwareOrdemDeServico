@@ -48,7 +48,7 @@ namespace Model.Pessoa_e_Usuario
         }
 
 
-        public String Save(String _Nome, String _Senha, Char _NivelAcesso)
+        public String Save(String _Nome, String _Senha, string _NivelAcesso)
         {
             StreamWriter sr = null;
             string Saida = "";
@@ -57,9 +57,11 @@ namespace Model.Pessoa_e_Usuario
             {
                 try
                 {
-                    sr = new StreamWriter("Usuarios.csv", true);
+                    sr = new StreamWriter(String.Format("Usuario/{0}.dat", _Nome));
 
-                    sr.WriteLine("{0},{1},{2}", _Nome, _Senha, _NivelAcesso);
+                    sr.WriteLine(_Nome);
+                    sr.WriteLine(_Senha);
+                    sr.WriteLine(_NivelAcesso);
 
                     Saida = "Usuario registrado com sucesso!";
 
@@ -85,38 +87,30 @@ namespace Model.Pessoa_e_Usuario
             return Saida;
         }
 
-        public List<Usuario> LoadList()
+        public List<string> LoadList()
         {
-            List<Usuario> ListraDeUsuarios = new List<Usuario>();
             Usuario UsuarioBase = new Usuario();
-
-            StreamReader sw = null;
+            List<string> ListaDeUsuarios = new List<string>();
             string[] Linha = new string[3];
-            string LinhaBase = "";
 
             try
             {
-                sw = new StreamReader("usuarios.csv");
 
-                do
+                DirectoryInfo NomesArquivos = new DirectoryInfo("Usuario/");
+                string[] NovoItem = new string[2];
+
+
+                //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
+
+                foreach (var item in NomesArquivos.GetFiles())
                 {
-                    LinhaBase = sw.ReadLine();
+                    NovoItem = item.ToString().Split('.');
 
-                    Linha = LinhaBase.Split(',');
-
-                    UsuarioBase.Nome = Linha[0];
-                    UsuarioBase.Senha = Linha[1];
-                    UsuarioBase.NivelAcesso = Convert.ToChar(Linha[2]);
-
-                    ListraDeUsuarios.Add(UsuarioBase);
+                    ListaDeUsuarios.Add(NovoItem[0]);
 
                 }
-                while (!sw.EndOfStream);
 
 
-            }
-            catch (FileNotFoundException)
-            {
             }
             catch (Exception Exc)
             {
@@ -124,41 +118,52 @@ namespace Model.Pessoa_e_Usuario
 
                 Log.ArquivoExceptionLog(Exc);
             }
-            finally
-            {
-                if (sw != null)
-                    sw.Close();
-            }
 
-            return ListraDeUsuarios;
+            return ListaDeUsuarios;
         }
 
-        public bool Verificar(String _nome)
+        public List<string> Load(string _Nome)
         {
-            StreamReader sw = null;
-            string[] Linha = new string[3];
-            string LinhaBase = "";
-            bool UsuarioEncontrado = false;
-            bool Verificador = true;
+            StreamReader sr = null;
+            List<string> ListaPessoa = new List<string>();
+
 
             try
             {
-                sw = new StreamReader("Usuarios.csv");
+                sr = new StreamReader(string.Format("Usuario/{0}.dat", _Nome));
 
-                do
+                while (!sr.EndOfStream)
                 {
-                    LinhaBase = sw.ReadLine();
-
-                    Linha = LinhaBase.Split(',');
-
-                    if (Linha[0] == _nome)
-                    {
-                        UsuarioEncontrado = true;
-
-                        Verificador = false;
-                    }
+                    ListaPessoa.Add(sr.ReadLine());
                 }
-                while (Verificador == false || sw.EndOfStream);
+
+            }
+            catch (Exception exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
+            }
+
+            return ListaPessoa;
+        }
+
+        public bool Verificar(string _nome)
+        {
+            bool UsuarioEncontrado = false;
+
+            try
+            {
+
+                if (File.Exists(String.Format("Usuario/{0}.dat", _nome)))
+                {
+                    UsuarioEncontrado = true;
+                }
 
 
             }
@@ -173,11 +178,6 @@ namespace Model.Pessoa_e_Usuario
                 Log.ArquivoExceptionLog(Exc);
 
                 UsuarioEncontrado = false;
-            }
-            finally
-            {
-                if (sw != null)
-                    sw.Close();
             }
 
             return UsuarioEncontrado;

@@ -57,6 +57,7 @@
             this.bTM_lOGAR.TabIndex = 2;
             this.bTM_lOGAR.Text = "Logar";
             this.bTM_lOGAR.UseVisualStyleBackColor = true;
+            this.bTM_lOGAR.Click += new System.EventHandler(this.bTM_lOGAR_Click);
             // 
             // Txt_Login
             // 
@@ -118,6 +119,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Login_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

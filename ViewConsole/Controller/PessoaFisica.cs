@@ -34,22 +34,22 @@ namespace ViewConsole
             PessoaFBase.Bairro = EntradaVariaveis.LeString();
 
             Console.Write("CEP: ");
-            PessoaFBase.Cep = EntradaVariaveis.LeString(); //TODO: Arrumar uma forma de verificar se o dgitado esta no formato certo.
+            PessoaFBase.Cep = EntradaVariaveis.LeString();
 
             Console.Write("Observações: ");
             PessoaFBase.Observacoes = EntradaVariaveis.LeString();
 
             //Parte de Pessoa Física
             Console.Write("CPF: ");
-            PessoaFBase.CPF = EntradaVariaveis.LeString(); //TODO: Arrumar uma forma de verificar se o dgitado esta no formato certo.
+            PessoaFBase.CPF = EntradaVariaveis.LeString();
 
             Console.Write("Celular: ");
             PessoaFBase.Celular = EntradaVariaveis.LeString();
 
             Console.Write("Sexo: ");
-            PessoaFBase.Sexo = EntradaVariaveis.LeString();//TODO: Arrumar o LeSexo da minha biblioteca.
+            PessoaFBase.Sexo = EntradaVariaveis.LeString();
 
-            Console.Write("Data de nascimento: ");  //TODO: Arrumar um modo de não salvar o horario apenas a data.        
+            Console.Write("Data de nascimento: ");    
             PessoaFBase.DataDeNascimento = EntradaVariaveis.LeDateTame();
 
             Console.WriteLine(" "); 

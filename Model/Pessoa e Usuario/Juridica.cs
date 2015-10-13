@@ -166,7 +166,6 @@ namespace Model.Pessoa_e_Usuario
             }
             catch (Exception exc)
             {
-                //TODO Implementar sistema de aviso de arquivo para Windows Forms & Console;
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
 
                 Log.ArquivoExceptionLog(exc);

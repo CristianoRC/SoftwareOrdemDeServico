@@ -54,10 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios Usuarios\Frm_NewUsu.cs">
+    <Compile Include="Usuario\Frm_EditUsu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios Usuarios\Frm_NewUsu.Designer.cs">
+    <Compile Include="Usuario\Frm_EditUsu.Designer.cs">
+      <DependentUpon>Frm_EditUsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Frm_NewUsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Frm_NewUsu.Designer.cs">
       <DependentUpon>Frm_NewUsu.cs</DependentUpon>
     </Compile>
     <Compile Include="OS\Frm_ListarOS.cs">
@@ -128,7 +134,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formularios Usuarios\Frm_NewUsu.resx">
+    <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">
+      <DependentUpon>Frm_EditUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Frm_NewUsu.resx">
       <DependentUpon>Frm_NewUsu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ListarOS.resx">

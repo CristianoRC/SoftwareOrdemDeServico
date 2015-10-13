@@ -94,10 +94,9 @@
             // 
             // Txt_Tipo
             // 
-            this.Txt_Tipo.FormattingEnabled = true;
             this.Txt_Tipo.Items.AddRange(new object[] {
             "Administrador",
-            "Vendendor"});
+            "Usuario"});
             this.Txt_Tipo.Location = new System.Drawing.Point(77, 102);
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
@@ -106,10 +105,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(327, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(193, 190);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 

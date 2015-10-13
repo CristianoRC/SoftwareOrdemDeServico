@@ -176,9 +176,13 @@ namespace Model.Ordem_de_Servico
             Paragraph _contatoEmpresa = new Paragraph();
             Paragraph _enderecoEmpresa = new Paragraph();
 
-            _cabecalho.Add("                                                                  Ordem de serviço");
+
+
+            //Alinhado o Cabeçalho no meio da pagina;
+            _cabecalho.Alignment = Element.ALIGN_CENTER;
+            _cabecalho.Add("Ordem de serviço");
             _linha.Add("______________________________________________________________________________");
-            _linhaEmBranco.Add("                                                                      ");
+            _linhaEmBranco.Add(" ");
             _identificador.Add(String.Format("Numero da ordem: {0}", Identificador));
             _cliente.Add(String.Format("Cliente: {0}", Cliente));
             _dataEntrada.Add(String.Format("Data de entrada: {0}", DataEntradaServico));
@@ -189,14 +193,13 @@ namespace Model.Ordem_de_Servico
             _numeroSerie.Add(String.Format("Numero de serie: {0}", NumeroSerie));
             _referencia.Add(String.Format("Referência: {0}", Referencia));
             _observacoes.Add(String.Format("Observações: {0}", Observacao));
-
             _nomeEmpresa.Add(Empresa.RetornarValor()[0]);
             _contatoEmpresa.Add(Empresa.RetornarValor()[1]);
             _enderecoEmpresa.Add(Empresa.RetornarValor()[2]);
+
             
-
             Documento.Open();
-
+           
             Documento.Add(_cabecalho);
             Documento.Add(_linhaEmBranco);
             Documento.Add(_linhaEmBranco);

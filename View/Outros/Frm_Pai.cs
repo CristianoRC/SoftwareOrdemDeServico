@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace View
@@ -13,27 +7,31 @@ namespace View
     public partial class Frm_Pai : Form
     {
 
+
         public Frm_Pai()
         {
             InitializeComponent();
         }
 
         string Usuario;
+        string NivelAcesso;
 
-        public Frm_Pai(Char nivelAcesso, String usuario)
+        public Frm_Pai(string usuario, string nivelAcesso)
         {
+            InitializeComponent();
 
-             Usuario = usuario;
+            Usuario = usuario;
+            NivelAcesso = nivelAcesso;
 
-            if(nivelAcesso == 'U')
+            if (nivelAcesso == "Usuario")
             {
                 MessageBox.Show("É usuario");
             }
-            else if (nivelAcesso == 'A')
+            else if (nivelAcesso == "Administrador")
             {
                 MessageBox.Show("É Adm");
             }
-            InitializeComponent();
+
         }
 
 
@@ -47,7 +45,7 @@ namespace View
 
         private void Frm_Pai_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +59,7 @@ namespace View
 
         private void novaF5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           OS.Frm_NewOrdem Frm_NewOrdem = new OS.Frm_NewOrdem();
+            OS.Frm_NewOrdem Frm_NewOrdem = new OS.Frm_NewOrdem();
 
             Frm_NewOrdem.MdiParent = this;
 
@@ -76,7 +74,7 @@ namespace View
 
             Frm_Editar.Show();
 
-            
+
         }
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,16 +95,6 @@ namespace View
             Pessoa.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Lbl_HoraData.Text = DateTime.Now.ToLongTimeString();
-        }
-
-        private void panel1_DoubleClick(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-        }
-
         private void telaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Opicoes.Frm_OpicoesInicial Tela_Inicial = new Opicoes.Frm_OpicoesInicial();
@@ -116,17 +104,6 @@ namespace View
             Tela_Inicial.Show();
         }
 
-        private void exibirPainelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(panel1.Visible == false)
-            {
-                panel1.Visible = true;
-            }
-            else
-            {
-                panel1.Visible = false;
-            }
-        }
 
         private void Frm_Pai_Load(object sender, EventArgs e)
         {
@@ -138,8 +115,6 @@ namespace View
                 Lbl_NomeEmpresa.Text = sr.ReadLine();
 
                 Lbl_Nome.Text = Usuario;
-
-                Pic_LgoEmpresa.ImageLocation = "Logo.png";
             }
             catch (Exception exc)
             {
@@ -188,6 +163,30 @@ namespace View
             Frm_ListarFisica.MdiParent = this;
 
             Frm_ListarFisica.Show();
+        }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc");
+        }
+
+        private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("Notepad");
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View.Usuario.Frm_EditUsu frm_EdiUso = new View.Usuario.Frm_EditUsu();
+
+            frm_EdiUso.MdiParent = this;
+
+            frm_EdiUso.Show();
+        }
+
+        private void Frm_Pai_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
