@@ -233,8 +233,8 @@
             this.sobreToolStripMenuItem});
             this.opiçõesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opiçõesToolStripMenuItem.Image")));
             this.opiçõesToolStripMenuItem.Name = "opiçõesToolStripMenuItem";
-            this.opiçõesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.opiçõesToolStripMenuItem.Text = "&Opções";
+            this.opiçõesToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.opiçõesToolStripMenuItem.Text = "&Ferramentas";
             // 
             // telaInicialToolStripMenuItem
             // 
@@ -246,8 +246,11 @@
             // 
             // exibirPainelToolStripMenuItem
             // 
+            this.exibirPainelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exibirPainelToolStripMenuItem.Image")));
             this.exibirPainelToolStripMenuItem.Name = "exibirPainelToolStripMenuItem";
             this.exibirPainelToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.exibirPainelToolStripMenuItem.Text = "&Backup";
+            this.exibirPainelToolStripMenuItem.Click += new System.EventHandler(this.exibirPainelToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -301,6 +304,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordem de serviço";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Pai_FormClosing_1);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Pai_FormClosed);
             this.Load += new System.EventHandler(this.Frm_Pai_Load);
             this.menuStrip1.ResumeLayout(false);

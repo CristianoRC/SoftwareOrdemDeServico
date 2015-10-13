@@ -25,11 +25,11 @@ namespace View
 
             if (nivelAcesso == "Usuario")
             {
-                MessageBox.Show("É usuario");
+                
             }
             else if (nivelAcesso == "Administrador")
             {
-                MessageBox.Show("É Adm");
+                
             }
 
         }
@@ -185,6 +185,20 @@ namespace View
         }
 
         private void Frm_Pai_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void exibirPainelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Backup frm_Backup = new Frm_Backup();
+
+            frm_Backup.MdiParent = this;
+
+            frm_Backup.Show();
+        }
+
+        private void Frm_Pai_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

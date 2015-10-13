@@ -51,7 +51,7 @@ namespace View
 
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Dispose();
+            this.Visible = false;
         }
     }
 }

@@ -34,6 +34,10 @@
     <Reference Include="Cunha">
       <HintPath>C:\Users\crist\Documents\Visual Studio 2015\Projects\Cunha\Cunha\bin\Release\Cunha.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
@@ -50,7 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Empresa.cs" />
+    <Compile Include="Outros\Backup.cs" />
+    <Compile Include="Outros\Empresa.cs" />
     <Compile Include="Negocios\Compra.cs" />
     <Compile Include="Negocios\ContasPagar.cs" />
     <Compile Include="Negocios\ContasReceber.cs" />
