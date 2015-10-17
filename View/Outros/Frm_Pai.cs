@@ -23,15 +23,14 @@ namespace View
             Usuario = usuario;
             NivelAcesso = nivelAcesso;
 
-            if (nivelAcesso == "Usuario")
+            if (nivelAcesso == "Usuario" || nivelAcesso == "usuario")
             {
-                
-            }
-            else if (nivelAcesso == "Administrador")
-            {
-                
-            }
+                //Desativando algumas informações que o usario não pode usar.
 
+                usuariosToolStripMenuItem.Visible = false;
+                EmpresaToolStripMenuItem.Enabled = false;
+                BackupexibirPainelToolStripMenuItem.Enabled = false;
+            }
         }
 
 
@@ -103,7 +102,6 @@ namespace View
 
             Tela_Inicial.Show();
         }
-
 
         private void Frm_Pai_Load(object sender, EventArgs e)
         {
@@ -186,7 +184,7 @@ namespace View
 
         private void Frm_Pai_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void exibirPainelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,6 +199,15 @@ namespace View
         private void Frm_Pai_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void imprimirOrdemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ImprimirOS frm_ImprimirOS = new Frm_ImprimirOS();
+
+            frm_ImprimirOS.MdiParent = this;
+
+            frm_ImprimirOS.Show();
         }
     }
 }

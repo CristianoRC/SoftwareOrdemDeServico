@@ -56,10 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_Backup.cs">
+    <Compile Include="OS\Frm_ImprimirOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Backup.Designer.cs">
+    <Compile Include="OS\Frm_ImprimirOS.Designer.cs">
+      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outros\Frm_Backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outros\Frm_Backup.Designer.cs">
       <DependentUpon>Frm_Backup.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Frm_EditUsu.cs">
@@ -142,7 +148,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_Backup.resx">
+    <EmbeddedResource Include="OS\Frm_ImprimirOS.resx">
+      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outros\Frm_Backup.resx">
       <DependentUpon>Frm_Backup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">

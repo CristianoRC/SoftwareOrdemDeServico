@@ -77,7 +77,7 @@ namespace ViewConsole
             }
 
 
-        Console.ReadKey();
+            Console.ReadKey();
 
             Console.WriteLine("  1- Ir para o menu");
             Console.WriteLine("  2- Sar");
@@ -167,7 +167,7 @@ namespace ViewConsole
                 Console.Write("  Vose deseja imprimir a Ornde de serviço? (s/n)");
                 char resposta = EntradaVariaveis.LeChar();
 
-                if(resposta == 'S' || resposta == 's')
+                if (resposta == 'S' || resposta == 's')
                 {
                     OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
@@ -200,6 +200,64 @@ namespace ViewConsole
                 Console.Clear();
                 CarregarOrdemDeServiço();
             }
+        }
+
+        public void imprimir()
+        {
+            Model.Ordem_de_Servico.OrdemServico OSBase = new Model.Ordem_de_Servico.OrdemServico();
+            EntradaDeDados.Variaveis EntradaVariaveis = new EntradaDeDados.Variaveis();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("  Digite o numero da ordem de serviço: ");
+            string Identificador = EntradaVariaveis.LeString();
+            Console.WriteLine("_____________________________________________________________________________________________________________________");
+            Console.WriteLine(" ");
+
+            //Ira verificar se a ordem de serviço existe ou não.
+            if (OSBase.Verificar(Identificador))
+            {
+                OSBase = OSBase.Load(Identificador);
+                Console.ForegroundColor = ConsoleColor.Gray;
+                
+                OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+
+                Console.WriteLine("  Ordem de seviço gerada com sucesso!");
+
+                Console.ReadKey();
+
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.WriteLine("  Ordem de seviço não encontrada em nossa base de dados!");
+
+                Console.ReadKey();
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("_____________________________________________________________________________________________________________________");
+            Console.WriteLine(" ");
+            Console.WriteLine("  1- Ir para o menu");
+            Console.WriteLine("  2- Sar");
+            Console.WriteLine("  3- Repetir operação");
+            Console.WriteLine(" ");
+            Console.Write("  Digite uma das opções acima: ");
+            int Verificador = EntradaVariaveis.LeInt();
+
+            if (Verificador == 1)
+            {
+                Console.Clear();
+
+                MenuPrincipal menuPrincipal = new MenuPrincipal();
+                menuPrincipal.MostrarMenu();
+            }
+            if (Verificador == 3)
+            {
+                Console.Clear();
+                CarregarOrdemDeServiço();
+            }
+
         }
     }
 }

@@ -51,6 +51,7 @@ namespace ViewConsole
             Console.WriteLine(" ");
             Console.WriteLine("                                                          Outros");
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("  10- Imprimir Ordem de serviço");
             Console.WriteLine("  0- Sair");
 
 
@@ -68,7 +69,7 @@ namespace ViewConsole
 
 
 
-            if (Resultado >= 0 && Resultado <= 9)
+            if (Resultado >= 0 && Resultado <= 10)
             {
 
                 switch (Resultado)
@@ -109,6 +110,10 @@ namespace ViewConsole
                     case 9:
                         Console.Clear();
                         pessoaJuridica.CarregarPessoaJuridica();
+                        break;
+                    case 10:
+                        Console.Clear();
+                        oS.imprimir();
                         break;
                 }
             }
