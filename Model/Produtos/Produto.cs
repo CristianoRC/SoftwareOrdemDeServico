@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Collections.Generic;
 
 namespace Model.Produtos
@@ -10,9 +11,9 @@ namespace Model.Produtos
         private string referencia;
         private string descricao;
         private string marcaProduto;
-        private double precoCusto;
-        private double precoVenda;
-        private double precoVendaAtacado;
+        private string precoCusto;
+        private string precoVenda;
+        private string precoVendaAtacado;
 
         public string Nome
         {
@@ -66,7 +67,7 @@ namespace Model.Produtos
             }
         }
 
-        public double PrecoCusto
+        public string PrecoCusto
         {
             get
             {
@@ -79,7 +80,7 @@ namespace Model.Produtos
             }
         }
 
-        public double PrecoVenda
+        public string PrecoVenda
         {
             get
             {
@@ -92,7 +93,7 @@ namespace Model.Produtos
             }
         }
 
-        public double PrecoVendaAtacado
+        public string PrecoVendaAtacado
         {
             get
             {
@@ -119,63 +120,89 @@ namespace Model.Produtos
         }
 
 
-        public string Save(string _Nome, string _CodigoBarra, string _Referencia, string _Descricao, string _Marcaproduto, double _PrecoCusto, double _PrecoVenda, double _PrecoVendaAtacado)
+        public string Save(string _Nome, string _CodigoBarra, string _Referencia, string _Descricao, string _Marcaproduto, string _PrecoCusto, string _PrecoVenda, string _PrecoVendaAtacado)
         {
             Produto ProdutoBase = new Produto();
             StreamWriter sw = null;
             string Saida = null;
 
 
-            if (Verificar(_CodigoBarra) == false)
+            ProdutoBase.Nome = _Nome;
+            ProdutoBase.CodigoBarra = _CodigoBarra;
+            ProdutoBase.Referencia = _Referencia;
+            ProdutoBase.Descricao = _Descricao;
+            ProdutoBase.MarcaProduto = _Marcaproduto;
+            ProdutoBase.PrecoCusto = _PrecoCusto;
+            ProdutoBase.PrecoVenda = _PrecoVenda;
+            ProdutoBase.PrecoVendaAtacado = _PrecoVendaAtacado;
+
+            try
             {
+                sw = new StreamWriter(string.Format("Produtos/{0}.txt", ProdutoBase.CodigoBarra));
 
-                ProdutoBase.Nome = _Nome;
-                ProdutoBase.CodigoBarra = _CodigoBarra;
-                ProdutoBase.Referencia = _Referencia;
-                ProdutoBase.Descricao = _Descricao;
-                ProdutoBase.MarcaProduto = _Marcaproduto;
-                ProdutoBase.PrecoCusto = _PrecoCusto;
-                ProdutoBase.PrecoVenda = _PrecoVenda;
-                ProdutoBase.PrecoVendaAtacado = _PrecoVendaAtacado;
+                sw.WriteLine(ProdutoBase.Nome);
+                sw.WriteLine(ProdutoBase.CodigoBarra);
+                sw.WriteLine(ProdutoBase.Referencia);
+                sw.WriteLine(ProdutoBase.Descricao);
+                sw.WriteLine(ProdutoBase.MarcaProduto);
+                sw.WriteLine(ProdutoBase.PrecoCusto);
+                sw.WriteLine(ProdutoBase.PrecoVenda);
+                sw.WriteLine(ProdutoBase.PrecoVendaAtacado);
 
-                try
-                {
-                    sw = new StreamWriter(string.Format("Produtos/{0}.csv", ProdutoBase.CodigoBarra));
-
-                    sw.WriteLine(ProdutoBase.Nome);
-                    sw.WriteLine(ProdutoBase.CodigoBarra);
-                    sw.WriteLine(ProdutoBase.Referencia);
-                    sw.WriteLine(ProdutoBase.Descricao);
-                    sw.WriteLine(ProdutoBase.MarcaProduto);
-                    sw.WriteLine(ProdutoBase.PrecoCusto);
-                    sw.WriteLine(ProdutoBase.PrecoVenda);
-                    sw.WriteLine(ProdutoBase.PrecoVendaAtacado);
-
-                }
-                catch (System.Exception Exc)
-                {
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(Exc);
-
-                    Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
-                }
-                finally
-                {
-                    if (sw != null)
-                    {
-                        sw.Close();
-
-                        Saida = "Pessoa Física registrada com sucesso!";
-                    }
-                }
             }
-            else
+            catch (System.Exception Exc)
             {
-                Saida = "Eesse código de barras já foi cadastrado em nossa base de dados";
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(Exc);
+
+                Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
+            }
+            finally
+            {
+                if (sw != null)
+                {
+                    sw.Close();
+
+                    Saida = "Produto registrado com sucesso!";
+                }
             }
 
             return Saida;
+        }
+
+        public Produto Load(string _Codigo)
+        {
+            Produto ProdutoBase = new Produto();
+            StreamReader sr = null;
+
+            try
+            {
+                sr = new StreamReader(String.Format("Produtos/{0}.txt", _Codigo));
+
+                ProdutoBase.Nome = sr.ReadLine();
+                ProdutoBase.CodigoBarra = sr.ReadLine();
+                ProdutoBase.Referencia = sr.ReadLine();
+                ProdutoBase.Descricao = sr.ReadLine();
+                ProdutoBase.MarcaProduto = sr.ReadLine();
+                ProdutoBase.PrecoCusto = sr.ReadLine();
+                ProdutoBase.PrecoVenda = sr.ReadLine(); ;
+                ProdutoBase.PrecoVendaAtacado = sr.ReadLine();
+
+            }
+            catch (Exception Exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(Exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
+            }
+
+            return ProdutoBase;
         }
 
         public List<string> LoadList()
@@ -201,10 +228,9 @@ namespace Model.Produtos
         {
             //Verifica de o já há um "produto"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
-            bool Encontrado = false;
-            DirectoryInfo Arquivo = new DirectoryInfo(string.Format("Produtos/{0}.csv", _CodigoBarra.TrimStart().TrimEnd()));
+            bool Encontrado;
 
-            if (Arquivo.Exists)
+            if (File.Exists(string.Format("Produtos/{0}.txt", _CodigoBarra)))
             {
                 Encontrado = true;
             }

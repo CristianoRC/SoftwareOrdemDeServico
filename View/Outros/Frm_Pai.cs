@@ -28,6 +28,8 @@ namespace View
                 //Desativando algumas informações que o usario não pode usar.
 
                 usuariosToolStripMenuItem.Visible = false;
+                produtosToolStripMenuItem.Visible = false;
+
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
             }
@@ -208,6 +210,33 @@ namespace View
             frm_ImprimirOS.MdiParent = this;
 
             frm_ImprimirOS.Show();
+        }
+
+        private void criarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_NovoProduto frm_NewProduto = new Frm_NovoProduto();
+
+            frm_NewProduto.MdiParent = this;
+
+            frm_NewProduto.Show();
+        }
+
+        private void listarProdutosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ListaProdutos frm_ListarProdutos = new Frm_ListaProdutos();
+
+            frm_ListarProdutos.MdiParent = this;
+
+            frm_ListarProdutos.Show();
+        }
+
+        private void editarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_EditarProduto frm_EditarProduto = new Frm_EditarProduto();
+
+            frm_EditarProduto.MdiParent = this;
+
+            frm_EditarProduto.Show();
         }
     }
 }

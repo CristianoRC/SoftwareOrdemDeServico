@@ -56,6 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Produtos\Frm_EditarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\Frm_EditarProduto.Designer.cs">
+      <DependentUpon>Frm_EditarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\Frm_ListaProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\Frm_ListaProdutos.Designer.cs">
+      <DependentUpon>Frm_ListaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\Frm_NovoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\Frm_NovoProduto.Designer.cs">
+      <DependentUpon>Frm_NovoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="OS\Frm_ImprimirOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +166,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Produtos\Frm_EditarProduto.resx">
+      <DependentUpon>Frm_EditarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\Frm_ListaProdutos.resx">
+      <DependentUpon>Frm_ListaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\Frm_NovoProduto.resx">
+      <DependentUpon>Frm_NovoProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ImprimirOS.resx">
       <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +252,7 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
