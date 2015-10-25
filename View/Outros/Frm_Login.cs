@@ -22,15 +22,15 @@ namespace View
         private void bTM_lOGAR_Click(object sender, EventArgs e)
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
-
-            //Chamando o load para atualizar as informações
-            UsuarioBase.Load(Txt_Login.Text);
-
+            
             if (UsuarioBase.Verificar(Txt_Login.Text))                
             {
-                if(UsuarioBase.Load(Txt_Login.Text)[1] == Txt_Senha.Text)
+                //Chamando o load para atualizar as informações
+                UsuarioBase = UsuarioBase.Load(Txt_Login.Text);
+
+                if (UsuarioBase.Senha == Txt_Senha.Text)
                 {
-                    Frm_Pai Pai = new Frm_Pai(UsuarioBase.Load(Txt_Login.Text)[0], UsuarioBase.Load(Txt_Login.Text)[2]);
+                    Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
 
                     this.Visible = false;
 

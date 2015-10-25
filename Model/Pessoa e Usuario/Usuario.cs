@@ -8,7 +8,7 @@ namespace Model.Pessoa_e_Usuario
     {
         private String nome;
         private String senha;
-        private Char nivelAcesso;
+        private String nivelAcesso;
 
         public string Nome
         {
@@ -34,7 +34,7 @@ namespace Model.Pessoa_e_Usuario
                 senha = value;
             }
         }
-        public char NivelAcesso
+        public string NivelAcesso
         {
             get
             {
@@ -58,10 +58,15 @@ namespace Model.Pessoa_e_Usuario
                 try
                 {
                     sr = new StreamWriter(String.Format("Usuario/{0}.dat", _Nome));
+                    Usuario UsuarioBase = new Usuario();
 
-                    sr.WriteLine(_Nome);
-                    sr.WriteLine(_Senha);
-                    sr.WriteLine(_NivelAcesso);
+                    UsuarioBase.Nome = _Nome;
+                    UsuarioBase.Senha = _Senha;
+                    UsuarioBase.NivelAcesso = _NivelAcesso;
+
+                    sr.WriteLine(UsuarioBase.Nome);
+                    sr.WriteLine(UsuarioBase.Senha);
+                    sr.WriteLine(UsuarioBase.NivelAcesso);
 
                     Saida = "Usuario registrado com sucesso!";
 
@@ -122,20 +127,19 @@ namespace Model.Pessoa_e_Usuario
             return ListaDeUsuarios;
         }
 
-        public List<string> Load(string _Nome)
+        public Usuario Load(string _Nome)
         {
             StreamReader sr = null;
-            List<string> ListaPessoa = new List<string>();
+            Usuario UsuarioBase = new Usuario();
 
 
             try
             {
                 sr = new StreamReader(string.Format("Usuario/{0}.dat", _Nome));
 
-                while (!sr.EndOfStream)
-                {
-                    ListaPessoa.Add(sr.ReadLine());
-                }
+                UsuarioBase.Nome = sr.ReadLine();
+                UsuarioBase.Senha = sr.ReadLine();
+                UsuarioBase.NivelAcesso = sr.ReadLine();
 
             }
             catch (Exception exc)
@@ -150,7 +154,7 @@ namespace Model.Pessoa_e_Usuario
                     sr.Close();
             }
 
-            return ListaPessoa;
+            return UsuarioBase;
         }
 
         public bool Verificar(string _nome)

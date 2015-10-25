@@ -25,20 +25,18 @@ namespace View
 
             backup.CriarArquivoZip(Diretorios, string.Format("Backup.rar"));
 
-            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu softwarw", DateTime.Now), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu softwar", DateTime.Now), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
             Model.Backup backup = new Model.Backup();
 
-           
             string diretorio = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetModules()[0].FullyQualifiedName);
 
             openFileDialog1.ShowDialog();
 
-            backup.ExtrairArquivoZip(openFileDialog1.FileName,diretorio);
+            backup.ExtrairArquivoZip(openFileDialog1.FileName, diretorio);
 
             MessageBox.Show(String.Format("Backup recuperado com sucesso!"), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

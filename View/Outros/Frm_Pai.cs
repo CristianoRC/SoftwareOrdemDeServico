@@ -223,7 +223,7 @@ namespace View
 
         private void listarProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ListaProdutos frm_ListarProdutos = new Frm_ListaProdutos();
+            Frm_ListarProdutos frm_ListarProdutos = new Frm_ListarProdutos();
 
             frm_ListarProdutos.MdiParent = this;
 
@@ -237,6 +237,15 @@ namespace View
             frm_EditarProduto.MdiParent = this;
 
             frm_EditarProduto.Show();
+        }
+
+        private void listarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Usuario.Frm_ListarUsuarios frm_ListarUsuarios = new Usuario.Frm_ListarUsuarios();
+
+            frm_ListarUsuarios.MdiParent = this;
+
+            frm_ListarUsuarios.Show();
         }
     }
 }

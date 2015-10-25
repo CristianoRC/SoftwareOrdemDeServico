@@ -92,6 +92,12 @@
     <Compile Include="Usuario\Frm_EditUsu.Designer.cs">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\Frm_ListarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Frm_ListarUsuarios.Designer.cs">
+      <DependentUpon>Frm_ListarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\Frm_NewUsu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Frm_ListarUsuarios.resx">
+      <DependentUpon>Frm_ListarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_NewUsu.resx">
       <DependentUpon>Frm_NewUsu.cs</DependentUpon>
