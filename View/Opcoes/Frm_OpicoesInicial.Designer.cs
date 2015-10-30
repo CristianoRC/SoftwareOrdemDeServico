@@ -62,7 +62,7 @@
             // 
             this.Btm_Salvar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.Btm_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btm_Salvar.Location = new System.Drawing.Point(170, 174);
+            this.Btm_Salvar.Location = new System.Drawing.Point(170, 214);
             this.Btm_Salvar.Name = "Btm_Salvar";
             this.Btm_Salvar.Size = new System.Drawing.Size(81, 28);
             this.Btm_Salvar.TabIndex = 7;
@@ -84,7 +84,7 @@
             // 
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(104, 224);
+            this.button1.Location = new System.Drawing.Point(104, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 28);
             this.button1.TabIndex = 6;

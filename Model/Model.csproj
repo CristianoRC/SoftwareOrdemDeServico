@@ -56,18 +56,13 @@
   <ItemGroup>
     <Compile Include="Outros\Backup.cs" />
     <Compile Include="Outros\Empresa.cs" />
-    <Compile Include="Negocios\Compra.cs" />
-    <Compile Include="Negocios\ContasPagar.cs" />
-    <Compile Include="Negocios\ContasReceber.cs" />
     <Compile Include="Ordem de Servico\OrdemServico.cs" />
     <Compile Include="Ordem de Servico\Servico.cs" />
     <Compile Include="Pessoa e Usuario\Fisica.cs" />
     <Compile Include="Pessoa e Usuario\Juridica.cs" />
     <Compile Include="Pessoa e Usuario\Pessoa.cs" />
     <Compile Include="Pessoa e Usuario\Usuario.cs" />
-    <Compile Include="Produtos\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Negocios\Venda.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

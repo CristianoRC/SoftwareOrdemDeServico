@@ -36,14 +36,14 @@ namespace ViewConsole
             PessoaJBase.Bairro = EntradaVariaveis.LeString();
 
             Console.Write("CEP: ");
-            PessoaJBase.Cep = EntradaVariaveis.LeString(); //TODO: Arrumar uma forma de verificar se o dgitado esta no formato certo.
+            PessoaJBase.Cep = EntradaVariaveis.LeString();
 
             Console.Write("Observações: ");
             PessoaJBase.Observacoes = EntradaVariaveis.LeString();
 
             //Parte de Pessoa Física
             Console.Write("CNPJ: ");
-            PessoaJBase.Cnpj = EntradaVariaveis.LeString(); //TODO: Arrumar uma forma de verificar se o dgitado esta no formato certo.
+            PessoaJBase.Cnpj = EntradaVariaveis.LeString();
 
             Console.Write("Contato: ");
             PessoaJBase.Contato = EntradaVariaveis.LeString();
@@ -51,10 +51,10 @@ namespace ViewConsole
             Console.Write("Inscrição estadual: ");
             PessoaJBase.InscricaoEstadual = EntradaVariaveis.LeString();
 
-            Console.Write("Razão social: ");       
+            Console.Write("Razão social: ");
             PessoaJBase.RazaoSocial = EntradaVariaveis.LeString();
 
-            
+
             Console.WriteLine(" ");
             //A função Save() Retona uma string infomando sobre o que ocorreu.
             Console.WriteLine(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Telefone, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
@@ -137,8 +137,8 @@ namespace ViewConsole
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine(" ");
                 Console.WriteLine(" {0} / {1} / {2} / {3} / {4}", PessoaJuridicaBase.Load(Nome).Nome, PessoaJuridicaBase.Load(Nome).Contato, PessoaJuridicaBase.Load(Nome).Cnpj, PessoaJuridicaBase.Load(Nome).Cidade, PessoaJuridicaBase.Load(Nome).Situacao);
- 
-        }
+
+            }
             else
             {
                 Console.Clear();

@@ -5,37 +5,9 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>Produto</Name>
-        <Access>Public</Access>
-        <Location left="12" top="1031" />
-        <Size width="162" height="417" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private String nome</Member>
-        <Member type="Field">private String codigoBarra</Member>
-        <Member type="Field">private String referencia</Member>
-        <Member type="Field">private String descricao</Member>
-        <Member type="Field">private String marcaProduto</Member>
-        <Member type="Field">private Double precoCusto</Member>
-        <Member type="Field">private Double precoVenda</Member>
-        <Member type="Field">private Double precoVendaAtacado</Member>
-        <Member type="Property">public String Nome { get; set; }</Member>
-        <Member type="Property">public String CodigoBarra { get; set; }</Member>
-        <Member type="Property">public String Referencia { get; set; }</Member>
-        <Member type="Property">public String Descricao { get; set; }</Member>
-        <Member type="Property">public Double PrecoCusto { get; set; }</Member>
-        <Member type="Property">public Double PrecoVenda { get; set; }</Member>
-        <Member type="Property">public Double PrecoVendaAtacado { get; set; }</Member>
-        <Member type="Property">public String MarcaProduto { get; set; }</Member>
-        <Member type="Constructor">public Produto()</Member>
-        <Member type="Method">public String Save(String _Nome, String _CodigoBarra, String _Referencia, String _Descricao, String _Marcaproduto, Double _PrecoCusto, Double _PrecoVenda, Double _PrecoVendaAtacado)</Member>
-        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
-        <Member type="Method">public Boolean Verificar(String _CodigoBarra)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>Fisica</Name>
         <Access>Public</Access>
-        <Location left="860" top="428" />
+        <Location left="890" top="37" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String sexo</Member>
@@ -56,7 +28,7 @@
       <Entity type="Class">
         <Name>Juridica</Name>
         <Access>Public</Access>
-        <Location left="629" top="428" />
+        <Location left="659" top="37" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String razaoSocial</Member>
@@ -77,7 +49,7 @@
       <Entity type="Class">
         <Name>Pessoa</Name>
         <Access>Public</Access>
-        <Location left="436" top="428" />
+        <Location left="466" top="37" />
         <Size width="162" height="434" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
@@ -106,7 +78,7 @@
       <Entity type="Class">
         <Name>Usuario</Name>
         <Access>Public</Access>
-        <Location left="224" top="428" />
+        <Location left="254" top="37" />
         <Size width="162" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
@@ -124,7 +96,7 @@
       <Entity type="Class">
         <Name>OrdemServico</Name>
         <Access>Public</Access>
-        <Location left="12" top="428" />
+        <Location left="42" top="37" />
         <Size width="162" height="553" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String identificador</Member>
@@ -160,7 +132,7 @@
       <Entity type="Class">
         <Name>Servico</Name>
         <Access>Public</Access>
-        <Location left="860" top="12" />
+        <Location left="254" top="340" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String descricao</Member>
@@ -170,82 +142,22 @@
         <Member type="Constructor">public Servico()</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Class">
-        <Name>Compra</Name>
-        <Access>Public</Access>
-        <Location left="648" top="12" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Constructor">public Compra()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>ContasPagar</Name>
-        <Access>Public</Access>
-        <Location left="436" top="12" />
-        <Size width="162" height="366" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private Int32 quantidadeParcelas</Member>
-        <Member type="Field">private DateTime dataVencimento</Member>
-        <Member type="Field">private DateTime dataPagamento</Member>
-        <Member type="Field">private Int32 numeroParcelaAtual</Member>
-        <Member type="Field">private Double desconto</Member>
-        <Member type="Field">private Double juros</Member>
-        <Member type="Field">private Double valorPago</Member>
-        <Member type="Field">private Double valorConta</Member>
-        <Member type="Property">public Int32 QuantidadeParcelas { get; set; }</Member>
-        <Member type="Property">public DateTime DataVencimento { get; set; }</Member>
-        <Member type="Property">public DateTime DataPagamento { get; set; }</Member>
-        <Member type="Property">public Double Desconto { get; set; }</Member>
-        <Member type="Property">public Double Juros { get; set; }</Member>
-        <Member type="Property">public Double ValorPago { get; set; }</Member>
-        <Member type="Property">public Double ValorConta { get; set; }</Member>
-        <Member type="Property">public Int32 NumeroParcelaAtual { get; set; }</Member>
-        <Member type="Constructor">public ContasPagar()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>ContasReceber</Name>
-        <Access>Public</Access>
-        <Location left="224" top="12" />
-        <Size width="162" height="230" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private Int32 quantidadeParcelas</Member>
-        <Member type="Field">private DateTime dataVencimento</Member>
-        <Member type="Field">private DateTime dataPagamento</Member>
-        <Member type="Field">private Int32 numeroParcela</Member>
-        <Member type="Property">public Int32 QuantidadeParcelas { get; set; }</Member>
-        <Member type="Property">public DateTime DataVencimento { get; set; }</Member>
-        <Member type="Property">public DateTime DataPagamento { get; set; }</Member>
-        <Member type="Property">public Int32 NumeroParcela { get; set; }</Member>
-        <Member type="Constructor">public ContasReceber()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Venda</Name>
-        <Access>Public</Access>
-        <Location left="12" top="12" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Constructor">public Venda()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Generalization" first="1" second="3">
+      <Relationship type="Generalization" first="0" second="2">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>812</X>
-          <Y>821</Y>
+          <X>842</X>
+          <Y>430</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Generalization" first="2" second="3">
+      <Relationship type="Generalization" first="1" second="2">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>623</X>
-          <Y>591</Y>
+          <X>653</X>
+          <Y>200</Y>
         </BendPoint>
       </Relationship>
     </Relationships>
