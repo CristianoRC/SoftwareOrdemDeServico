@@ -16,34 +16,48 @@ namespace View.Opicoes
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                 pictureBox1.ImageLocation =  openFileDialog1.FileName;
+                pictureBox1.ImageLocation = openFileDialog1.FileName;
 
-                 TemFoto = true;
+                TemFoto = true;
             }
         }
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
             StreamWriter sw = null;
-            
+
             try
             {
-                if (TemFoto)
+                if (Check_Informações.Checked == true)
                 {
-                    if (File.Exists("Logo.png"))
-                    {
-                        File.Delete("Logo.png");
-                    }
+                    sw = new StreamWriter("Empresa.CFG");
 
-                    File.Copy(openFileDialog1.FileName, "Logo.png");
-
+                    sw.WriteLine(textBox1.Text);
+                    sw.WriteLine(Txt_Contato.Text);
+                    sw.WriteLine(Txt_Endereco.Text);
                 }
 
-                sw = new StreamWriter("Empresa.CFG");
+                if (TemFoto)
+                {
+                    /*
+                        Se o arquivo do logo já existe ele cria um novo com o 1 no final para não dar erro(Arquivo já esta sendo usado), com esse 
+                    erro não  posso excluir nem subistituir o arquivo por isso do numero 1 no final, e toda vez que o FRM_Login for chamado  
+                    ele ira verificar se existe um arquivo "Logo1.png" e ira renomear para "Logo.png". (Na tela de login a imagen ainda não
+                    esta sendo usada, por isso dara para renomer/ excluir).
 
-                sw.WriteLine(textBox1.Text);
-                sw.WriteLine(Txt_Contato.Text);
-                sw.WriteLine(Txt_Endereco.Text);
+                    */
+                    if (File.Exists("Logo.png"))
+                    {
+                        File.Copy(openFileDialog1.FileName, "Logo1.png");
+                    }
+                    else
+                    {
+                        File.Copy(openFileDialog1.FileName, "Logo.png");
+                    }
+
+                    MessageBox.Show("Logo modificado com sucesso! Reinicie seu software para que as modificações sejam feitas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             catch (Exception Exc)
             {
@@ -54,7 +68,7 @@ namespace View.Opicoes
             }
             finally
             {
-                if(sw != null)
+                if (sw != null)
                 {
                     sw.Close();
 

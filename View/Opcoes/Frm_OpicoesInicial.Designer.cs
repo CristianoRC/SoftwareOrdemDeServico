@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Check_Informações = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             this.Btm_Salvar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.Btm_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btm_Salvar.Location = new System.Drawing.Point(170, 214);
+            this.Btm_Salvar.Location = new System.Drawing.Point(170, 239);
             this.Btm_Salvar.Name = "Btm_Salvar";
             this.Btm_Salvar.Size = new System.Drawing.Size(81, 28);
             this.Btm_Salvar.TabIndex = 7;
@@ -84,7 +85,7 @@
             // 
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(104, 159);
+            this.button1.Location = new System.Drawing.Point(104, 184);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 28);
             this.button1.TabIndex = 6;
@@ -128,12 +129,23 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Endereço:";
             // 
+            // Check_Informações
+            // 
+            this.Check_Informações.AutoSize = true;
+            this.Check_Informações.Location = new System.Drawing.Point(72, 150);
+            this.Check_Informações.Name = "Check_Informações";
+            this.Check_Informações.Size = new System.Drawing.Size(189, 17);
+            this.Check_Informações.TabIndex = 8;
+            this.Check_Informações.Text = "Modificar Informações da Empresa";
+            this.Check_Informações.UseVisualStyleBackColor = true;
+            // 
             // Frm_OpicoesInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(683, 296);
+            this.Controls.Add(this.Check_Informações);
             this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Contato);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox Check_Informações;
     }
 }

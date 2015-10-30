@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.IO;
 
 namespace View
 {
@@ -28,7 +29,6 @@ namespace View
                 //Desativando algumas informações que o usario não pode usar.
 
                 usuariosToolStripMenuItem.Visible = false;
-                produtosToolStripMenuItem.Visible = false;
 
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
@@ -107,6 +107,12 @@ namespace View
 
         private void Frm_Pai_Load(object sender, EventArgs e)
         {
+            //Se o logo estiver na pasta do software ele vai ficar no fundo da Tela Pai.
+            if (File.Exists("Logo.png"))
+            {
+                this.BackgroundImage = System.Drawing.Image.FromFile("Logo.png");
+            }
+
             System.IO.StreamReader sr = null;
             try
             {
@@ -210,33 +216,6 @@ namespace View
             frm_ImprimirOS.MdiParent = this;
 
             frm_ImprimirOS.Show();
-        }
-
-        private void criarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_NovoProduto frm_NewProduto = new Frm_NovoProduto();
-
-            frm_NewProduto.MdiParent = this;
-
-            frm_NewProduto.Show();
-        }
-
-        private void listarProdutosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_ListarProdutos frm_ListarProdutos = new Frm_ListarProdutos();
-
-            frm_ListarProdutos.MdiParent = this;
-
-            frm_ListarProdutos.Show();
-        }
-
-        private void editarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_EditarProduto frm_EditarProduto = new Frm_EditarProduto();
-
-            frm_EditarProduto.MdiParent = this;
-
-            frm_EditarProduto.Show();
         }
 
         private void listarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
