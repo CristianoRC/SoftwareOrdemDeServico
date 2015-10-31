@@ -47,7 +47,13 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
-
+        /// <summary>
+        /// Salvando novo usuário
+        /// </summary>
+        /// <param name="_Nome"></param>
+        /// <param name="_Senha"></param>
+        /// <param name="_NivelAcesso"></param>
+        /// <returns></returns>
         public String Save(String _Nome, String _Senha, string _NivelAcesso)
         {
             StreamWriter sr = null;
@@ -92,6 +98,10 @@ namespace Model.Pessoa_e_Usuario
             return Saida;
         }
 
+        /// <summary>
+        /// Carregando Lista com nome de todos usuarios.
+        /// </summary>
+        /// <returns></returns>
         public List<string> LoadList()
         {
             Usuario UsuarioBase = new Usuario();
@@ -127,6 +137,11 @@ namespace Model.Pessoa_e_Usuario
             return ListaDeUsuarios;
         }
 
+        /// <summary>
+        /// Carregando usuario.
+        /// </summary>
+        /// <param name="_Nome"></param>
+        /// <returns>Usuario</returns>
         public Usuario Load(string _Nome)
         {
             StreamReader sr = null;
@@ -157,6 +172,11 @@ namespace Model.Pessoa_e_Usuario
             return UsuarioBase;
         }
 
+        /// <summary>
+        /// Verificando de o suario existe.
+        /// </summary>
+        /// <param name="_nome"></param>
+        /// <returns></returns>
         public bool Verificar(string _nome)
         {
             bool UsuarioEncontrado = false;

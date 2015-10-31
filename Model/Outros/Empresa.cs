@@ -5,6 +5,10 @@ namespace Model
 {
     class Empresa
     {
+        /// <summary>
+        /// Pegando informações da empresa no arquivo de configuração da mesma.
+        /// </summary>
+        /// <returns>Informações da empresa</returns>
         public string[] RetornarValor()
         {
             StreamReader sr = null;

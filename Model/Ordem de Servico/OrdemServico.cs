@@ -150,7 +150,19 @@ namespace Model.Ordem_de_Servico
             }
         }
 
-
+        /// <summary>
+        /// Gerando PDF da ordem de serviço. (A ordem de serviço em PDF não fica salvar ela é gerada cada vez que a função é chamada)
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <param name="Referencia"></param>
+        /// <param name="Situacao"></param>
+        /// <param name="Defeito"></param>
+        /// <param name="Descricao"></param>
+        /// <param name="Observacao"></param>
+        /// <param name="NumeroSerie"></param>
+        /// <param name="Equipamento"></param>
+        /// <param name="DataEntradaServico"></param>
+        /// <param name="Cliente"></param>
         public void CreatPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             Document Documento = new Document();
@@ -239,6 +251,20 @@ namespace Model.Ordem_de_Servico
             Process.Start(local);
         }
 
+        /// <summary>
+        /// Salvando a ordem de serviço em arquivo de Texto.
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <param name="Referencia"></param>
+        /// <param name="Situacao"></param>
+        /// <param name="Defeito"></param>
+        /// <param name="Descricao"></param>
+        /// <param name="Observacao"></param>
+        /// <param name="NumeroSerie"></param>
+        /// <param name="Equipamento"></param>
+        /// <param name="DataEntradaServico"></param>
+        /// <param name="Cliente"></param>
+        /// <returns></returns>
         public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
@@ -306,6 +332,20 @@ namespace Model.Ordem_de_Servico
 
         }
 
+        /// <summary>
+        /// Editar a ordem de serviço, quase a mesam coisa que a Save(), ela só não verifica se o arquivo já existe, apenas salva.
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <param name="Referencia"></param>
+        /// <param name="Situacao"></param>
+        /// <param name="Defeito"></param>
+        /// <param name="Descricao"></param>
+        /// <param name="Observacao"></param>
+        /// <param name="NumeroSerie"></param>
+        /// <param name="Equipamento"></param>
+        /// <param name="DataEntradaServico"></param>
+        /// <param name="Cliente"></param>
+        /// <returns></returns>
         public string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
@@ -372,6 +412,11 @@ namespace Model.Ordem_de_Servico
 
         }
 
+        /// <summary>
+        /// Carregando a ordem de serviço atraves do arquivo de texto.
+        /// </summary>
+        /// <param name="_Identificador"></param>
+        /// <returns>Ordem de serviço</returns>
         public OrdemServico Load(string _Identificador)
         {
             OrdemServico OSBase = new OrdemServico();
@@ -407,6 +452,10 @@ namespace Model.Ordem_de_Servico
             return OSBase;
         }
 
+        /// <summary>
+        /// Carrega uma lista de ordens de serviço.
+        /// </summary>
+        /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
         public List<string> LoadList()
         {
             List<string> ListaDeOS = new List<string>();
@@ -426,6 +475,11 @@ namespace Model.Ordem_de_Servico
             return ListaDeOS;
         }
 
+        /// <summary>
+        /// Verifica se a ordem de serviço existe ou não.
+        /// </summary>
+        /// <param name="_Identificador"></param>
+        /// <returns>Retorna um valor (true/false)</returns>
         public bool Verificar(string _Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .

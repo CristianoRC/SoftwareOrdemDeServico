@@ -23,7 +23,6 @@ namespace Model.Pessoa_e_Usuario
                 razaoSocial = value;
             }
         }
-
         public string Cnpj
         {
             get
@@ -36,7 +35,6 @@ namespace Model.Pessoa_e_Usuario
                 cnpj = value;
             }
         }
-
         public string Contato
         {
             get
@@ -49,7 +47,6 @@ namespace Model.Pessoa_e_Usuario
                 contato = value;
             }
         }
-
         public string InscricaoEstadual
         {
             get
@@ -64,6 +61,23 @@ namespace Model.Pessoa_e_Usuario
         }
 
 
+        /// <summary>
+        /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
+        /// </summary>
+        /// <param name="_nome"></param>
+        /// <param name="_endereco"></param>
+        /// <param name="_telefone"></param>
+        /// <param name="_situacao"></param>
+        /// <param name="_siglaEstado"></param>
+        /// <param name="_cidade"></param>
+        /// <param name="_bairro"></param>
+        /// <param name="_cep"></param>
+        /// <param name="_observacoes"></param>
+        /// <param name="_cnpj"></param>
+        /// <param name="_contato"></param>
+        /// <param name="_inscricaoestadual"></param>
+        /// <param name="_razaosocial"></param>
+        /// <returns></returns>
         public String Save(string _nome, string _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cnpj, string _contato, string _inscricaoestadual, string _razaosocial)
         {
             StreamWriter sw = null;
@@ -138,6 +152,11 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
+        /// <summary>
+        /// Carregando pessoa Física.
+        /// </summary>
+        /// <param name="_IdentificadorLoad"></param>
+        /// <returns>Pessoa Jurídica.</returns>
         public Juridica Load(String _IdentificadorLoad)
         {
             Juridica PessoaJBase = new Juridica();
@@ -179,6 +198,10 @@ namespace Model.Pessoa_e_Usuario
             return PessoaJBase;
         }
 
+        /// <summary>
+        /// Carregando Lista com nome de todas pessoas Jurídicas registradas.
+        /// </summary>
+        /// <returns>Lista de nomes.</returns>
         public List<string> LoadList()
         {
             List<string> ListaDePessoaJuridica = new List<string>();
@@ -199,6 +222,11 @@ namespace Model.Pessoa_e_Usuario
             return ListaDePessoaJuridica;
         }
 
+        /// <summary>
+        /// Verificando de a "Pessoa jurídica" existe.
+        /// </summary>
+        /// <param name="_nome"></param>
+        /// <returns></returns>
         public bool Verificar(String _nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .

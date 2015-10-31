@@ -7,6 +7,11 @@ namespace Model
 {
     public class Backup
     {
+        /// <summary>
+        /// Criando arquivo "Zip" de backup das informações.
+        /// </summary>
+        /// <param name="arquivos"></param>
+        /// <param name="ArquivoDestino"></param>
         public void CriarArquivoZip(List<string> arquivos, string ArquivoDestino)
         {
             ZipFile zip = new ZipFile();
@@ -52,6 +57,11 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Extraindo informações do "Zip" e colocando na pasta do software.
+        /// </summary>
+        /// <param name="localizacaoArquivoZip"></param>
+        /// <param name="destino"></param>
         public void ExtrairArquivoZip(string localizacaoArquivoZip, string destino)
         {
             if (File.Exists(localizacaoArquivoZip))

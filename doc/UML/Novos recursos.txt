@@ -1,0 +1,12 @@
+# Visualizar OS cadastrada por data etc e seu andamento, opção de editar a partir da lista de os
+
+# Enviar aviso por e-mail ou SMS para cliente quando o serviço estiver pronto, os sms podem ser enviando usando modem 3g ou alguma API 
+
+# Visualizar andamento do serviço Online! 
+para cada OS existe uma senha e login
+
+# Imprimir Termo de garantia  no OS.
+ele pode ser editado pela loja.
+
+# Opção de cadastrar serviços e valores para ser usados mais tarde na abertura dos OS, exemplo "Limpeza interna valor R$ 60,00" 
+-Serviços pre-cadastrado.

@@ -24,7 +24,6 @@
                 nome = value;
             }
         }
-
         public string Endereco
         {
             get
@@ -37,7 +36,6 @@
                 endereco = value;
             }
         }
-
         public string Telefone
         {
             get
@@ -50,7 +48,6 @@
                 telefone = value;
             }
         }
-
         public string Situacao
         {
             get
@@ -63,7 +60,6 @@
                 situacao = value;
             }
         }
-        
         public string SiglaEstado
         {
             get
@@ -76,7 +72,6 @@
                 siglaEstado = value;
             }
         }
-
         public string Cidade
         {
             get
@@ -89,7 +84,6 @@
                 cidade = value;
             }
         }
-
         public string Bairro
         {
             get
@@ -102,7 +96,6 @@
                 bairro = value;
             }
         }
-
         public string Cep
         {
             get
@@ -115,7 +108,6 @@
                 cep = value;
             }
         }
-
         public string Observacoes
         {
             get

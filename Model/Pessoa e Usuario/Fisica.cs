@@ -25,7 +25,6 @@ namespace Model.Pessoa_e_Usuario
                 sexo = value;
             }
         }
-
         public string CPF
         {
             get
@@ -38,7 +37,6 @@ namespace Model.Pessoa_e_Usuario
                 cpf = value;
             }
         }
-
         public string Celular
         {
             get
@@ -51,7 +49,6 @@ namespace Model.Pessoa_e_Usuario
                 celular = value;
             }
         }
-
         public DateTime DataDeNascimento
         {
             get
@@ -65,6 +62,24 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
+
+        /// <summary>
+        /// Salvando pessoa Física na pasta "F"(Pasta usada para guardar todas as pessoas físicas no diretorio do software).
+        /// </summary>
+        /// <param name="_nome"></param>
+        /// <param name="_endereco"></param>
+        /// <param name="_telefone"></param>
+        /// <param name="_situacao"></param>
+        /// <param name="_siglaEstado"></param>
+        /// <param name="_cidade"></param>
+        /// <param name="_bairro"></param>
+        /// <param name="_cep"></param>
+        /// <param name="_observacoes"></param>
+        /// <param name="_cpf"></param>
+        /// <param name="_celular"></param>
+        /// <param name="_sexo"></param>
+        /// <param name="_datadenascimento"></param>
+        /// <returns></returns>
         public String Save(String _nome, String _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cpf, string _celular, string _sexo, DateTime _datadenascimento)
         {
             StreamWriter sw = null;
@@ -139,6 +154,11 @@ namespace Model.Pessoa_e_Usuario
             }
         }
 
+        /// <summary>
+        /// Carregando pessoa Física.
+        /// </summary>
+        /// <param name="_Nome"></param>
+        /// <returns>Pessoa Física</returns>
         public Fisica Load(String _Nome)
         {
             Fisica PessoaFBase = new Fisica();
@@ -181,6 +201,10 @@ namespace Model.Pessoa_e_Usuario
             return PessoaFBase;
         }
 
+        /// <summary>
+        /// Carregando Lista com nome de todas pessoas Físicas registradas.
+        /// </summary>
+        /// <returns>Lista de nomes.</returns>
         public List<string> LoadList()
         {
             List<string> ListaDePessoaFisica = new List<string>();
@@ -201,11 +225,16 @@ namespace Model.Pessoa_e_Usuario
             return ListaDePessoaFisica;
         }
 
+        /// <summary>
+        /// Verificando de a "Pessoa física" existe.
+        /// </summary>
+        /// <param name="_nome"></param>
+        /// <returns></returns>
         public bool Verificar(String _nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
-             bool Encontrado = false;
+            bool Encontrado = false;
 
             if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd())))
             {
