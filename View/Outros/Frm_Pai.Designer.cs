@@ -60,6 +60,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.imprimirOrdemDeServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.finalizarOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarServiçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +72,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.ordensDeServiçosToolStripMenuItem,
+            this.serviçoToolStripMenuItem,
             this.pessoaToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.opiçõesToolStripMenuItem});
@@ -209,7 +213,7 @@
             // 
             this.novoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("novoToolStripMenuItem.Image")));
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.novoToolStripMenuItem.Text = "&Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
@@ -217,7 +221,7 @@
             // 
             this.editarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editarToolStripMenuItem.Image")));
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editarToolStripMenuItem.Text = "&Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -225,7 +229,7 @@
             // 
             this.listarUsuáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarUsuáriosToolStripMenuItem.Image")));
             this.listarUsuáriosToolStripMenuItem.Name = "listarUsuáriosToolStripMenuItem";
-            this.listarUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.listarUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listarUsuáriosToolStripMenuItem.Text = "&Listar usuários";
             this.listarUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.listarUsuáriosToolStripMenuItem_Click);
             // 
@@ -322,6 +326,30 @@
             this.imprimirOrdemDeServiçoToolStripMenuItem.Text = "Imprimir Ordem de serviço";
             this.imprimirOrdemDeServiçoToolStripMenuItem.Click += new System.EventHandler(this.imprimirOrdemDeServiçoToolStripMenuItem_Click);
             // 
+            // serviçoToolStripMenuItem
+            // 
+            this.serviçoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.finalizarOSToolStripMenuItem,
+            this.listarServiçosToolStripMenuItem});
+            this.serviçoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("serviçoToolStripMenuItem.Image")));
+            this.serviçoToolStripMenuItem.Name = "serviçoToolStripMenuItem";
+            this.serviçoToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.serviçoToolStripMenuItem.Text = "Serviço";
+            // 
+            // finalizarOSToolStripMenuItem
+            // 
+            this.finalizarOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("finalizarOSToolStripMenuItem.Image")));
+            this.finalizarOSToolStripMenuItem.Name = "finalizarOSToolStripMenuItem";
+            this.finalizarOSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.finalizarOSToolStripMenuItem.Text = "Finalizar OS";
+            // 
+            // listarServiçosToolStripMenuItem
+            // 
+            this.listarServiçosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarServiçosToolStripMenuItem.Image")));
+            this.listarServiçosToolStripMenuItem.Name = "listarServiçosToolStripMenuItem";
+            this.listarServiçosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarServiçosToolStripMenuItem.Text = "Listar serviços";
+            // 
             // Frm_Pai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +410,9 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem imprimirOrdemDeServiçoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarUsuáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviçoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem finalizarOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarServiçosToolStripMenuItem;
     }
 }
 

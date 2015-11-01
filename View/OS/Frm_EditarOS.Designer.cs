@@ -120,8 +120,7 @@
             this.Txt_Situacao.FormattingEnabled = true;
             this.Txt_Situacao.Items.AddRange(new object[] {
             "Avaliação",
-            "Manutenção",
-            "Pronto"});
+            "Manutenção"});
             this.Txt_Situacao.Location = new System.Drawing.Point(94, 160);
             this.Txt_Situacao.Name = "Txt_Situacao";
             this.Txt_Situacao.Size = new System.Drawing.Size(207, 21);

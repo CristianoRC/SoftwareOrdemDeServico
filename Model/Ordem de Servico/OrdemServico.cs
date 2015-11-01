@@ -169,7 +169,7 @@ namespace Model.Ordem_de_Servico
             string local = String.Format("{0}/OS.pdf", Path.GetTempPath());
             PdfWriter.GetInstance(Documento, new FileStream(local, FileMode.Create));
             Model.Empresa Empresa = new Empresa();
-            
+
 
             Paragraph _identificador = new Paragraph();
             Paragraph _cliente = new Paragraph();
@@ -209,9 +209,9 @@ namespace Model.Ordem_de_Servico
             _contatoEmpresa.Add(Empresa.RetornarValor()[1]);
             _enderecoEmpresa.Add(Empresa.RetornarValor()[2]);
 
-            
+
             Documento.Open();
-           
+
             Documento.Add(_cabecalho);
             Documento.Add(_linhaEmBranco);
             Documento.Add(_linhaEmBranco);
@@ -219,7 +219,7 @@ namespace Model.Ordem_de_Servico
             Documento.Add(_nomeEmpresa);
             Documento.Add(_contatoEmpresa);
             Documento.Add(_enderecoEmpresa);
-            
+
 
             Documento.Add(_linha);
             Documento.Add(_linhaEmBranco);
@@ -497,6 +497,36 @@ namespace Model.Ordem_de_Servico
 
             return Encontrado;
         }
-        
+
+        /// <summary>
+        /// Finalizando Ordem de serviço.
+        /// </summary>
+        /// <param name="NumeroOS"></param>
+        /// <returns>Menssagen informando se deu certo ou não</returns>
+        public bool FinalizarOS(string NumeroOS)
+        {
+            bool Saida;
+            OrdemServico OSBase = new OrdemServico();
+
+            if (OSBase.Verificar(NumeroOS))
+            {
+                //Carregando informações para OSBase
+                OSBase = OSBase.Load(NumeroOS);
+                OSBase.Situacao = "Pronto";
+                OSBase.Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+
+                File.Move(String.Format("OS/{0}.os", NumeroOS), String.Format("OS/Finalizadas/{0}.os", NumeroOS));
+
+                Saida = true;
+            }
+            else
+            {
+                //Se não for encotrada a OS ira retornar um valor False.
+                Saida = false;
+            }
+
+            return Saida;
+        }
+
     }
 }
