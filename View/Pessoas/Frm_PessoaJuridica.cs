@@ -17,7 +17,7 @@ namespace View.Pessoas
 
             PessoaJBase.Nome = Txt_Nome.Text;
             PessoaJBase.Endereco = Txt_Endereco.Text;
-            PessoaJBase.Telefone = Txt_Telefone.Text;
+            PessoaJBase.Email = Txt_Email.Text;
             PessoaJBase.Situacao = Txt_Situacao.Text;
             PessoaJBase.SiglaEstado = Txt_Estado.Text;
             PessoaJBase.Cidade = Txt_Cidade.Text;
@@ -32,7 +32,7 @@ namespace View.Pessoas
             PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Telefone, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
+            MessageBox.Show(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
 
 
             Txt_Bairro.Clear();
@@ -46,7 +46,7 @@ namespace View.Pessoas
             Txt_Observacoes.Clear();
             Txt_RazaoSocial.Clear();
             Txt_Situacao.Clear();
-            Txt_Telefone.Clear();
+            Txt_Email.Clear();
         }
     }
 }

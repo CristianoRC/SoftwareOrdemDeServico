@@ -4,7 +4,7 @@
     {
         private string nome;
         private string endereco;
-        private string telefone;
+        private string email;
         private string situacao;
         private string siglaEstado;
         private string cidade;
@@ -36,16 +36,16 @@
                 endereco = value;
             }
         }
-        public string Telefone
+        public string Email
         {
             get
             {
-                return telefone;
+                return email;
             }
 
             set
             {
-                telefone = value;
+                email = value;
             }
         }
         public string Situacao

@@ -5,32 +5,66 @@ namespace Model
 {
     class Empresa
     {
+        //TODO: Fazer a função Save(); Tem pronto direto no formulario;
+        private string nome;
+        private string contato;
+        private string endereco;
+
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+
+            set
+            {
+                nome = value;
+            }
+        }
+        public string Contato
+        {
+            get
+            {
+                return contato;
+            }
+
+            set
+            {
+                contato = value;
+            }
+        }
+        public string Endereco
+        {
+            get
+            {
+                return endereco;
+            }
+
+            set
+            {
+                endereco = value;
+            }
+        }
+
         /// <summary>
         /// Pegando informações da empresa no arquivo de configuração da mesma.
         /// </summary>
         /// <returns>Informações da empresa</returns>
-        public string[] RetornarValor()
+        public Empresa Load()
         {
             StreamReader sr = null;
-            string[] valores = new string[3];
+            Empresa EmpresaBase = new Empresa();
 
             try
             {
                 sr = new StreamReader("Empresa.CFG");
 
-                valores[0] = sr.ReadLine();
-                valores[1] = sr.ReadLine();
-                valores[2] = sr.ReadLine();
+                EmpresaBase.Nome = sr.ReadLine();
+                EmpresaBase.Contato = sr.ReadLine();
+                EmpresaBase.Endereco = sr.ReadLine();
 
             }     
-            catch(FileNotFoundException)
-            {
-                valores[0] = "Erro arquivo não encontrado";
-                valores[2] = "Erro arquivo não encontrado";
-                valores[3] = "Erro arquivo não encontrado";
-
-                return valores;
-            }
             catch (Exception Exc)
             {
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
@@ -45,7 +79,7 @@ namespace Model
                 }
             }
 
-            return valores;
+            return EmpresaBase;
         }
     }
 }

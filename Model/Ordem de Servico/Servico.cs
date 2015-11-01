@@ -154,5 +154,48 @@ namespace Model.Ordem_de_Servico
 
             return listaBase;
         }
+
+        /// <summary>
+        /// Enviando e-mail de conformação do término do serviço para o usuario.
+        /// </summary>
+        /// <param name="NomePessoa"></param>
+        /// <param name="TipoPessoa"></param>
+        /// <returns></returns>
+        public String EnviarEmail(string NomePessoa, string TipoPessoa)
+        {
+            string saida = "";
+            string EmailUsuario;
+
+            Email EmailBase = new Email();
+            Empresa EmpresaBase = new Empresa();
+            Pessoa_e_Usuario.Fisica PessoaFisicaBase = new Pessoa_e_Usuario.Fisica();
+            Pessoa_e_Usuario.Juridica PessoaJuridicaBase = new Pessoa_e_Usuario.Juridica();
+
+            //Veriificando o tipo da pessoa e pegando Email E nome
+            if (TipoPessoa == "F")//Tipo "Fisica".
+            {
+                PessoaFisicaBase = PessoaFisicaBase.Load(NomePessoa);
+                EmailUsuario = PessoaFisicaBase.Email;
+            }
+            else
+            {
+                PessoaJuridicaBase = PessoaJuridicaBase.Load(NomePessoa);
+                EmailUsuario = PessoaJuridicaBase.Email;
+            }
+
+            //Pegando o nome da empresa
+            EmpresaBase = EmpresaBase.Load();
+           
+
+            //TODO:Arrumar quando a parte de email base estiver pronta.
+
+            //Parte de envio do Email.
+            //EmailBase.Enviar(NomePessoa,EmailUsuario,EmpresaBase.Nome,Adicionar aqui o texto de envio 
+
+
+
+                return saida;
+
+        }
     }
 }

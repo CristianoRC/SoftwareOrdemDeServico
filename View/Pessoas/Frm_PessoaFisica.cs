@@ -19,7 +19,7 @@ namespace View.Pessoas
 
             PessoaFBase.Nome = Txt_Nome.Text;
             PessoaFBase.Endereco = Txt_Endereco.Text;
-            PessoaFBase.Telefone = Txt_Telefone.Text;
+            PessoaFBase.Email = Txt_Email.Text;
             PessoaFBase.Situacao = Txt_Situacao.Text;
             PessoaFBase.SiglaEstado = Txt_Estado.Text;
             PessoaFBase.Cidade = Txt_Cidade.Text;
@@ -34,7 +34,7 @@ namespace View.Pessoas
             PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(PessoaFBase.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Telefone, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
+            MessageBox.Show(PessoaFBase.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
 
             Txt_Bairro.Clear();
             Txt_Cep.Clear();
@@ -46,7 +46,7 @@ namespace View.Pessoas
             Txt_Observacoes.Clear();
             Txt_DataNacimento.Clear();
             Txt_Situacao.Clear();
-            Txt_Telefone.Clear();
+            Txt_Email.Clear();
         }
     }
 }

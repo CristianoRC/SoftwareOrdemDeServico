@@ -98,7 +98,7 @@ namespace Model.Pessoa_e_Usuario
 
                     PessoaFBase.Nome = _nome;
                     PessoaFBase.Endereco = _endereco;
-                    PessoaFBase.Telefone = _telefone;
+                    PessoaFBase.Email = _telefone;
                     PessoaFBase.Situacao = _situacao;
                     PessoaFBase.SiglaEstado = _siglaEstado;
                     PessoaFBase.Cidade = _cidade;
@@ -113,7 +113,7 @@ namespace Model.Pessoa_e_Usuario
                     //Parte de Pessoa
                     sw.WriteLine(PessoaFBase.Nome);
                     sw.WriteLine(PessoaFBase.Endereco);
-                    sw.WriteLine(PessoaFBase.Telefone);
+                    sw.WriteLine(PessoaFBase.Email);
                     sw.WriteLine(PessoaFBase.Situacao);
                     sw.WriteLine(PessoaFBase.SiglaEstado);
                     sw.WriteLine(PessoaFBase.Cidade);
@@ -172,7 +172,7 @@ namespace Model.Pessoa_e_Usuario
                 //Parte de Pessoa
                 PessoaFBase.Nome = sr.ReadLine();
                 PessoaFBase.Endereco = sr.ReadLine();
-                PessoaFBase.Telefone = sr.ReadLine();
+                PessoaFBase.Email = sr.ReadLine();
                 PessoaFBase.Situacao = sr.ReadLine();
                 PessoaFBase.SiglaEstado = sr.ReadLine();
                 PessoaFBase.Cidade = sr.ReadLine();

@@ -56,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Txt_Telefone = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -286,9 +286,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Telefone";
+            this.label3.Text = "E-mail";
             // 
             // Txt_Endereco
             // 
@@ -322,13 +322,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // Txt_Telefone
+            // Txt_Email
             // 
-            this.Txt_Telefone.Location = new System.Drawing.Point(64, 130);
-            this.Txt_Telefone.Mask = "(00)90000-0000";
-            this.Txt_Telefone.Name = "Txt_Telefone";
-            this.Txt_Telefone.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Telefone.TabIndex = 5;
+            this.Txt_Email.Location = new System.Drawing.Point(64, 130);
+            this.Txt_Email.Name = "Txt_Email";
+            this.Txt_Email.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Email.TabIndex = 5;
             // 
             // Txt_Cep
             // 
@@ -345,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 395);
             this.Controls.Add(this.Txt_Cep);
-            this.Controls.Add(this.Txt_Telefone);
+            this.Controls.Add(this.Txt_Email);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.Txt_Observacoes);
             this.Controls.Add(this.label9);
@@ -408,7 +407,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox Txt_Telefone;
+        private System.Windows.Forms.MaskedTextBox Txt_Email;
         private System.Windows.Forms.MaskedTextBox Txt_Cep;
     }
 }

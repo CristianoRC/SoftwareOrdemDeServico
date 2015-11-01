@@ -63,6 +63,7 @@
     <Compile Include="Pessoa e Usuario\Pessoa.cs" />
     <Compile Include="Pessoa e Usuario\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Outros\Email.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

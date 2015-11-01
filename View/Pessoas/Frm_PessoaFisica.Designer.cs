@@ -56,7 +56,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
-            this.Txt_Telefone = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,9 +99,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Telefone";
+            this.label3.Text = "E-mail";
             // 
             // Txt_Situacao
             // 
@@ -330,13 +330,12 @@
             this.Btm_Salvar.Text = "Salvar";
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
             // 
-            // Txt_Telefone
+            // Txt_Email
             // 
-            this.Txt_Telefone.Location = new System.Drawing.Point(67, 123);
-            this.Txt_Telefone.Mask = "(00)90000-0000";
-            this.Txt_Telefone.Name = "Txt_Telefone";
-            this.Txt_Telefone.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Telefone.TabIndex = 5;
+            this.Txt_Email.Location = new System.Drawing.Point(67, 123);
+            this.Txt_Email.Name = "Txt_Email";
+            this.Txt_Email.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Email.TabIndex = 5;
             // 
             // Txt_Cep
             // 
@@ -354,7 +353,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(846, 391);
             this.Controls.Add(this.Txt_Cep);
-            this.Controls.Add(this.Txt_Telefone);
+            this.Controls.Add(this.Txt_Email);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.Txt_Observacoes);
@@ -418,7 +417,7 @@
         private System.Windows.Forms.MaskedTextBox Txt_Celular;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Btm_Salvar;
-        private System.Windows.Forms.MaskedTextBox Txt_Telefone;
+        private System.Windows.Forms.MaskedTextBox Txt_Email;
         private System.Windows.Forms.MaskedTextBox Txt_Cep;
     }
 }

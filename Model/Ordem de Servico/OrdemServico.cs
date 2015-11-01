@@ -205,9 +205,12 @@ namespace Model.Ordem_de_Servico
             _numeroSerie.Add(String.Format("Numero de serie: {0}", NumeroSerie));
             _referencia.Add(String.Format("Referência: {0}", Referencia));
             _observacoes.Add(String.Format("Observações: {0}", Observacao));
-            _nomeEmpresa.Add(Empresa.RetornarValor()[0]);
-            _contatoEmpresa.Add(Empresa.RetornarValor()[1]);
-            _enderecoEmpresa.Add(Empresa.RetornarValor()[2]);
+
+            //Carregando informações da empresa
+            Empresa = Empresa.Load();
+            _nomeEmpresa.Add(Empresa.Nome);
+            _contatoEmpresa.Add(Empresa.Contato);
+            _enderecoEmpresa.Add(Empresa.Endereco);
 
 
             Documento.Open();
