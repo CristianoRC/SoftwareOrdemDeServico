@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email\Frm_ConfigEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Email\Frm_ConfigEmail.Designer.cs">
+      <DependentUpon>Frm_ConfigEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Email\Frm_EmailBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Email\Frm_EmailBase.Designer.cs">
+      <DependentUpon>Frm_EmailBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="OS\Frm_ImprimirOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Email\Frm_ConfigEmail.resx">
+      <DependentUpon>Frm_ConfigEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Email\Frm_EmailBase.resx">
+      <DependentUpon>Frm_EmailBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ImprimirOS.resx">
       <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </EmbeddedResource>

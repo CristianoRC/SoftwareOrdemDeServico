@@ -24,17 +24,19 @@ namespace View.Opicoes
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-            StreamWriter sw = null;
+
 
             try
             {
                 if (Check_Informações.Checked == true)
                 {
-                    sw = new StreamWriter("Empresa.CFG");
+                    Model.Empresa EmpresaBase = new Model.Empresa();
 
-                    sw.WriteLine(textBox1.Text);
-                    sw.WriteLine(Txt_Contato.Text);
-                    sw.WriteLine(Txt_Endereco.Text);
+                    EmpresaBase.Nome = Txt_Nome.Text;
+                    EmpresaBase.Contato = Txt_Contato.Text;
+                    EmpresaBase.Endereco = Txt_Endereco.Text;
+
+                    EmpresaBase.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
                 }
 
                 if (TemFoto)
@@ -66,15 +68,16 @@ namespace View.Opicoes
 
                 MessageBox.Show("Ocorreu um erro inesperado, um arquivo de LOG foi criado no diretorio do seu software!");
             }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Close();
+        }
 
-                    MessageBox.Show("Informações salvas com sucesso reinicie seu Software para as por em pratica", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+        private void Frm_OpicoesInicial_Load(object sender, EventArgs e)
+        {
+            Model.Empresa EmpresaBase = new Model.Empresa();
+            EmpresaBase = EmpresaBase.Load();
+
+            Txt_Nome.Text = EmpresaBase.Nome;
+            Txt_Contato.Text = EmpresaBase.Contato;
+            Txt_Endereco.Text = EmpresaBase.Endereco;
         }
     }
 }

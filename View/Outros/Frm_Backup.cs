@@ -15,6 +15,8 @@ namespace View
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
+            //TODO: Arrumar sistema de Backup a cada versão do software.
+
             Model.Backup backup = new Model.Backup();
             List<string> Diretorios = new List<string>();
 

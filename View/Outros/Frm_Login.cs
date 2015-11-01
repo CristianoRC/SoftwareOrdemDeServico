@@ -23,12 +23,12 @@ namespace View
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
 
-            if (UsuarioBase.Verificar(Txt_Login.Text))
+            if (UsuarioBase.Verificar(Txt_Login.Text.TrimEnd()))
             {
                 //Chamando o load para atualizar as informações
-                UsuarioBase = UsuarioBase.Load(Txt_Login.Text);
+                UsuarioBase = UsuarioBase.Load(Txt_Login.Text.TrimEnd());
 
-                if (UsuarioBase.Senha == Txt_Senha.Text)
+                if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
                 {
                     Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
 

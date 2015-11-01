@@ -30,6 +30,7 @@ namespace View
 
                 usuariosToolStripMenuItem.Visible = false;
 
+                emailToolStripMenuItem.Enabled = false;
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
             }
@@ -225,6 +226,24 @@ namespace View
             frm_ListarUsuarios.MdiParent = this;
 
             frm_ListarUsuarios.Show();
+        }
+
+        private void emailBaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_EmailBase frm_EmailBase = new Frm_EmailBase();
+
+            frm_EmailBase.MdiParent = this;
+
+            frm_EmailBase.Show();
+        }
+
+        private void servidorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ConfigEmail frm_ConfigEmail = new Frm_ConfigEmail();
+
+            frm_ConfigEmail.MdiParent = this;
+
+            frm_ConfigEmail.Show();
         }
     }
 }

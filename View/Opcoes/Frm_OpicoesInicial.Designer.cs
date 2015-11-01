@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_OpicoesInicial));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Btm_Salvar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,12 +52,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
-            // textBox1
+            // Txt_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 20);
-            this.textBox1.TabIndex = 1;
+            this.Txt_Nome.Location = new System.Drawing.Point(72, 33);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(277, 20);
+            this.Txt_Nome.TabIndex = 1;
             // 
             // Btm_Salvar
             // 
@@ -153,13 +153,14 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Btm_Salvar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Txt_Nome);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_OpicoesInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sobre a Empresa";
+            this.Load += new System.EventHandler(this.Frm_OpicoesInicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,7 +170,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Button Btm_Salvar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
