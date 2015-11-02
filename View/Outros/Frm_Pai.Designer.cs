@@ -171,15 +171,17 @@
             // 
             this.finalizarOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("finalizarOSToolStripMenuItem.Image")));
             this.finalizarOSToolStripMenuItem.Name = "finalizarOSToolStripMenuItem";
-            this.finalizarOSToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.finalizarOSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.finalizarOSToolStripMenuItem.Text = "Finalizar OS";
+            this.finalizarOSToolStripMenuItem.Click += new System.EventHandler(this.finalizarOSToolStripMenuItem_Click);
             // 
             // listarServiçosToolStripMenuItem
             // 
             this.listarServiçosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listarServiçosToolStripMenuItem.Image")));
             this.listarServiçosToolStripMenuItem.Name = "listarServiçosToolStripMenuItem";
-            this.listarServiçosToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.listarServiçosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listarServiçosToolStripMenuItem.Text = "Listar serviços";
+            this.listarServiçosToolStripMenuItem.Click += new System.EventHandler(this.listarServiçosToolStripMenuItem_Click);
             // 
             // pessoaToolStripMenuItem
             // 
@@ -276,7 +278,7 @@
             // 
             this.EmpresaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("EmpresaToolStripMenuItem.Image")));
             this.EmpresaToolStripMenuItem.Name = "EmpresaToolStripMenuItem";
-            this.EmpresaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EmpresaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.EmpresaToolStripMenuItem.Text = "&Empresa";
             this.EmpresaToolStripMenuItem.Click += new System.EventHandler(this.telaInicialToolStripMenuItem_Click);
             // 
@@ -287,14 +289,14 @@
             this.servidorToolStripMenuItem});
             this.emailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailToolStripMenuItem.Image")));
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.emailToolStripMenuItem.Text = "E-mail";
             // 
             // emailBaseToolStripMenuItem
             // 
             this.emailBaseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailBaseToolStripMenuItem.Image")));
             this.emailBaseToolStripMenuItem.Name = "emailBaseToolStripMenuItem";
-            this.emailBaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emailBaseToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.emailBaseToolStripMenuItem.Text = "&E-mail Base";
             this.emailBaseToolStripMenuItem.Click += new System.EventHandler(this.emailBaseToolStripMenuItem_Click);
             // 
@@ -302,7 +304,7 @@
             // 
             this.servidorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("servidorToolStripMenuItem.Image")));
             this.servidorToolStripMenuItem.Name = "servidorToolStripMenuItem";
-            this.servidorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.servidorToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.servidorToolStripMenuItem.Text = "&Servidor";
             this.servidorToolStripMenuItem.Click += new System.EventHandler(this.servidorToolStripMenuItem_Click);
             // 
@@ -310,7 +312,7 @@
             // 
             this.BackupexibirPainelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("BackupexibirPainelToolStripMenuItem.Image")));
             this.BackupexibirPainelToolStripMenuItem.Name = "BackupexibirPainelToolStripMenuItem";
-            this.BackupexibirPainelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.BackupexibirPainelToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.BackupexibirPainelToolStripMenuItem.Text = "&Backup";
             this.BackupexibirPainelToolStripMenuItem.Click += new System.EventHandler(this.exibirPainelToolStripMenuItem_Click);
             // 
@@ -318,7 +320,7 @@
             // 
             this.sobreToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sobreToolStripMenuItem.Image")));
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.sobreToolStripMenuItem.Text = "&Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 

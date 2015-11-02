@@ -501,6 +501,7 @@ namespace Model.Ordem_de_Servico
             return Encontrado;
         }
 
+        //Ordens finalizadas
         /// <summary>
         /// Finalizando Ordem de serviço.
         /// </summary>
@@ -513,11 +514,7 @@ namespace Model.Ordem_de_Servico
 
             if (OSBase.Verificar(NumeroOS))
             {
-                //Carregando informações para OSBase
-                OSBase = OSBase.Load(NumeroOS);
-                OSBase.Situacao = "Pronto";
-                OSBase.Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
-
+                
                 File.Move(String.Format("OS/{0}.os", NumeroOS), String.Format("OS/Finalizadas/{0}.os", NumeroOS));
 
                 Saida = true;
@@ -529,6 +526,69 @@ namespace Model.Ordem_de_Servico
             }
 
             return Saida;
+        }
+
+        /// <summary>
+        /// Carregando a ordem de serviço(Finalizada) atraves do arquivo de texto.
+        /// </summary>
+        /// <param name="_Identificador"></param>
+        /// <returns>Ordem de serviço</returns>
+        public OrdemServico LoadOSFinalizada(string _Identificador)
+        {
+            OrdemServico OSBase = new OrdemServico();
+            StreamReader sr = null;
+
+            try
+            {
+                sr = new StreamReader(String.Format("OS/Finalizadas/{0}.os", _Identificador));
+
+                OSBase.Identificador = sr.ReadLine();
+                OSBase.cliente = sr.ReadLine();
+                OSBase.Equipamento = sr.ReadLine();
+                OSBase.Situacao = sr.ReadLine();
+                OSBase.NumeroSerie = sr.ReadLine();
+                OSBase.Defeito = sr.ReadLine();
+                OSBase.Referencia = sr.ReadLine();
+                OSBase.DataEntradaServico = sr.ReadLine();
+                OSBase.Observacao = sr.ReadLine();
+                OSBase.Descricao = sr.ReadLine();
+            }
+            catch (Exception Exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(Exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
+            }
+
+            return OSBase;
+        }
+
+        /// <summary>
+        /// Carrega uma lista de ordens de serviço(Finalizadas).
+        /// </summary>
+        /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
+        public List<string> LoadListFinalizadas()
+        {
+            List<string> ListaDeOS = new List<string>();
+            DirectoryInfo NomesArquivos = new DirectoryInfo("OS/Finalizadas");
+            string[] NovoItem = new string[2];
+
+
+            //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
+
+            foreach (var item in NomesArquivos.GetFiles())
+            {
+                NovoItem = item.ToString().Split('.');
+
+                ListaDeOS.Add(NovoItem[0]);
+            }
+
+            return ListaDeOS;
         }
 
     }

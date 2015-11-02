@@ -41,26 +41,26 @@ namespace Model.Ordem_de_Servico
         /// <param name="Valor"></param>
         /// <param name="NumeroOS"></param>
         /// <returns></returns>
-        private bool Save(string Descricao, double Valor, string NumeroOS)
+        public string Save(string Descricao, double Valor, string NumeroOS)
         {
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-            bool saida;
+            string Saida;
             StreamWriter sw = null;
 
             try
             {
-                sw = new StreamWriter(String.Format("Servicos/{0}.txt", NumeroOS));
+                sw = new StreamWriter(String.Format("OS/Servicos/{0}.txt", NumeroOS));
 
                 sw.WriteLine(Descricao);
                 sw.WriteLine(Valor);
 
-                saida = true;
+                Saida = "Serviço gerado com sucesso!";
             }
             catch (Exception exc)
             {
                 Log.ArquivoExceptionLog(exc);
 
-                saida = false;
+                Saida = "Erro ao finalizar o serviço!um arquivo com informações foi criado no diretorio doseu Software (Log.Txt).";
             }
             finally
             {
@@ -68,38 +68,6 @@ namespace Model.Ordem_de_Servico
                     sw.Close();
             }
 
-            return saida;
-        }
-
-        /// <summary>
-        /// Gerando um novo serviço.
-        /// </summary>
-        public string GerarServico(string Descricao, double Valor, string NumeroOS)
-        {
-            string Saida = "";
-            OrdemServico OSBase = new OrdemServico();
-            Servico ServicoBase = new Servico();
-
-            //Tentando finalizar a OS, se ela não for encontrada ira retornar a mensagem doretamente da Função (FinalizarOS()).
-            if (OSBase.FinalizarOS(NumeroOS))
-            {
-                //Criando o arquivo e verificando se ele foi criado corretamente ou ou não (com o valor de retorno da fução Save);
-                if (ServicoBase.Save(Descricao, Valor, NumeroOS))
-                {
-                    Saida = "Serviço gerado com sucesso!";
-                }
-                else
-                {
-                    //Se tiver algum problema na hora de gerar o serviço sera apresentada essa mensagem ao usario.
-
-                    Saida = "Erro ao finalizar o serviço! um arquivo com informações foi criado no diretorio do seu Software (Log.Txt).";
-                }
-            }
-            else
-            {
-                //Se não conseguir finalziar a OS ira aparecer essa mensagem.
-                Saida = "Ordem de serviço não encontrada em nossa base de dados!";
-            }
             return Saida;
         }
 
@@ -116,7 +84,7 @@ namespace Model.Ordem_de_Servico
 
             try
             {
-                sr = new StreamReader(string.Format("Servicos/{0}.txt", NumeroServico));
+                sr = new StreamReader(string.Format("OS/Servicos/{0}.txt", NumeroServico));
 
                 ServicoBase.Descricao = sr.ReadLine();
                 ServicoBase.Valor = Double.Parse(sr.ReadLine());
@@ -153,49 +121,6 @@ namespace Model.Ordem_de_Servico
             }
 
             return listaBase;
-        }
-
-        /// <summary>
-        /// Enviando e-mail de conformação do término do serviço para o usuario.
-        /// </summary>
-        /// <param name="NomePessoa"></param>
-        /// <param name="TipoPessoa"></param>
-        /// <returns></returns>
-        public String EnviarEmail(string NomePessoa, string TipoPessoa)
-        {
-            string saida = "";
-            string EmailUsuario;
-
-            Email EmailBase = new Email();
-            Empresa EmpresaBase = new Empresa();
-            Pessoa_e_Usuario.Fisica PessoaFisicaBase = new Pessoa_e_Usuario.Fisica();
-            Pessoa_e_Usuario.Juridica PessoaJuridicaBase = new Pessoa_e_Usuario.Juridica();
-
-            //Veriificando o tipo da pessoa e pegando Email E nome
-            if (TipoPessoa == "F")//Tipo "Fisica".
-            {
-                PessoaFisicaBase = PessoaFisicaBase.Load(NomePessoa);
-                EmailUsuario = PessoaFisicaBase.Email;
-            }
-            else
-            {
-                PessoaJuridicaBase = PessoaJuridicaBase.Load(NomePessoa);
-                EmailUsuario = PessoaJuridicaBase.Email;
-            }
-
-            //Pegando o nome da empresa
-            EmpresaBase = EmpresaBase.Load();
-           
-
-            //TODO:Arrumar quando a parte de email base estiver pronta.
-
-            //Parte de envio do Email.
-            //EmailBase.Enviar(NomePessoa,EmailUsuario,EmpresaBase.Nome,Adicionar aqui o texto de envio 
-
-
-
-                return saida;
-
         }
     }
 }

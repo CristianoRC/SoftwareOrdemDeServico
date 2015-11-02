@@ -236,7 +236,7 @@ namespace Model.Pessoa_e_Usuario
 
             bool Encontrado = false;
 
-            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd())))
+            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf")))
             {
                 Encontrado = true;
             }

@@ -5,6 +5,7 @@ namespace Model
 {
     public class Email
     {
+        //TODO: Sistema de enviar cópia da OS para o cliente quando ela for criada.
 
         private string email;
         private string senha;
@@ -130,42 +131,59 @@ namespace Model
         }
 
         /// <summary>
-        ///  Configurando e enviando e-mail.
+        ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public void Enviar(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
+        public bool Enviar(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
         {
+            bool Saida = false;
+
             Email EmailBase = new Email();
             EmailBase = EmailBase.LoadConfig();//Carregando informações do servidor.
 
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();   //Servidor
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage(); //Menssagem
             mail.From = new System.Net.Mail.MailAddress(EmailBase.EnderecoEmail);
 
 
-            //Configurando servidor
-            smtp.Host = EmailBase.Host;
-            smtp.Port = EmailBase.Port;
+            //Configurando servidor.
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
 
 
-            //Parte da "Menssagem do E-mail"
+            //Assunto do email.
+            mail.Subject = String.Format("Serviço pronto - {0}",NomeEmpresa);
 
-            if (!string.IsNullOrWhiteSpace(EmailCliente))
+            //Informando sobre o corpo.
+            mail.IsBodyHtml = true;
+
+            //Conteúdo do email.
+            mail.Body = MenssagemBase;
+
+            //Adicionando E-mail do cliente para enviar.
+            mail.To.Add(EmailCliente);
+
+            //Prioridade de Envio.
+            mail.Priority = System.Net.Mail.MailPriority.High;
+
+            try
             {
-                mail.To.Add(new System.Net.Mail.MailAddress(EmailCliente));
+                //Envia o email.
+                smtp.Send(mail);
+
+                Saida = true;
+            }
+            catch(Exception exc)
+            {
+                //Gerando arquivo de Log
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+
+                Saida = false;
             }
 
-            mail.Subject = string.Format("Serviço pronto - {0}", NomeEmpresa); //Assunto do e-mail
-
-            MenssagemBase = DecodificarEmailBase(MenssagemBase, NomeEmpresa, NomeCliente);//Decodificando as informações do Emal Base.
-            mail.Body = MenssagemBase; //Menssagem do e-mail
-
-
-            smtp.Send(mail); //Mandando o E-mail.
-
+            return Saida;
         }
 
         /// <summary>
@@ -240,7 +258,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Decodificando informações do E-mail base EX: &Cliente = Nome do Cliente
+        /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
         /// </summary>
         /// <param name="EmailBase"></param>
         public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente)

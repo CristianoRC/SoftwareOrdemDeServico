@@ -68,6 +68,18 @@
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicos\Frm_Servico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicos\Frm_Servico.Designer.cs">
+      <DependentUpon>Frm_Servico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicos\Frm_ListarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicos\Frm_ListarServico.Designer.cs">
+      <DependentUpon>Frm_ListarServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="OS\Frm_ImprimirOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,11 +184,17 @@
     <EmbeddedResource Include="Email\Frm_EmailBase.resx">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicos\Frm_ListarServico.resx">
+      <DependentUpon>Frm_ListarServico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ImprimirOS.resx">
       <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Outros\Frm_Backup.resx">
       <DependentUpon>Frm_Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicos\Frm_Servico.resx">
+      <DependentUpon>Frm_Servico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
@@ -252,9 +270,7 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Servicos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

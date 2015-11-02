@@ -245,5 +245,23 @@ namespace View
 
             frm_ConfigEmail.Show();
         }
+
+        private void listarServiçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ListarServico frm_ListarServico = new Frm_ListarServico();
+
+            frm_ListarServico.MdiParent = this;
+
+            frm_ListarServico.Show();
+        }
+
+        private void finalizarOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Servico frm_Servico = new Frm_Servico();
+
+            frm_Servico.MdiParent = this;
+
+            frm_Servico.Show();
+        }
     }
 }
