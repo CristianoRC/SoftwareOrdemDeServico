@@ -5,9 +5,60 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
+        <Name>Backup</Name>
+        <Access>Public</Access>
+        <Location left="648" top="615" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Backup()</Member>
+        <Member type="Method">public Void CriarArquivoZip(List&lt;String&gt; arquivos, String ArquivoDestino)</Member>
+        <Member type="Method">public Void ExtrairArquivoZip(String localizacaoArquivoZip, String destino)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Empresa</Name>
+        <Access>Public</Access>
+        <Location left="436" top="615" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String contato</Member>
+        <Member type="Field">private String endereco</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Contato { get; set; }</Member>
+        <Member type="Property">public String Endereco { get; set; }</Member>
+        <Member type="Constructor">public Empresa()</Member>
+        <Member type="Method">public Empresa Load()</Member>
+        <Member type="Method">public String Save(String _Nome, String _Contato, String _Endereco)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Email</Name>
+        <Access>Public</Access>
+        <Location left="224" top="615" />
+        <Size width="162" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String email</Member>
+        <Member type="Field">private String senha</Member>
+        <Member type="Field">private String host</Member>
+        <Member type="Field">private Int32 port</Member>
+        <Member type="Property">public String EnderecoEmail { get; set; }</Member>
+        <Member type="Property">public String Senha { get; set; }</Member>
+        <Member type="Property">public String Host { get; set; }</Member>
+        <Member type="Property">public Int32 Port { get; set; }</Member>
+        <Member type="Constructor">public Email()</Member>
+        <Member type="Method">public String LoadEmailBase()</Member>
+        <Member type="Method">public String SaveEmailBase(String Texto)</Member>
+        <Member type="Method">public Void Enviar(String NomeCliente, String EmailCliente, String NomeEmpresa, String MenssagemBase)</Member>
+        <Member type="Method">public String SaveConfig(String _EnderecoEmail, String _Senha, String _Host, Int32 _Port)</Member>
+        <Member type="Method">public Email LoadConfig()</Member>
+        <Member type="Method">public String DecodificarEmailBase(String TextoEmailBase, String NomeEmpresa, String NomeCliente)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
         <Name>Fisica</Name>
         <Access>Public</Access>
-        <Location left="890" top="37" />
+        <Location left="12" top="615" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String sexo</Member>
@@ -28,7 +79,7 @@
       <Entity type="Class">
         <Name>Juridica</Name>
         <Access>Public</Access>
-        <Location left="659" top="37" />
+        <Location left="860" top="12" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String razaoSocial</Member>
@@ -49,14 +100,13 @@
       <Entity type="Class">
         <Name>Pessoa</Name>
         <Access>Public</Access>
-        <Location left="466" top="37" />
-        <Size width="162" height="434" />
+        <Location left="648" top="12" />
+        <Size width="162" height="400" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
         <Member type="Field">private String endereco</Member>
-        <Member type="Field">private String telefone</Member>
+        <Member type="Field">private String email</Member>
         <Member type="Field">private String situacao</Member>
-        <Member type="Field">private String tipo</Member>
         <Member type="Field">private String siglaEstado</Member>
         <Member type="Field">private String cidade</Member>
         <Member type="Field">private String bairro</Member>
@@ -64,9 +114,8 @@
         <Member type="Field">private String observacoes</Member>
         <Member type="Property">public String Nome { get; set; }</Member>
         <Member type="Property">public String Endereco { get; set; }</Member>
-        <Member type="Property">public String Telefone { get; set; }</Member>
+        <Member type="Property">public String Email { get; set; }</Member>
         <Member type="Property">public String Situacao { get; set; }</Member>
-        <Member type="Property">public String Tipo { get; set; }</Member>
         <Member type="Property">public String SiglaEstado { get; set; }</Member>
         <Member type="Property">public String Cidade { get; set; }</Member>
         <Member type="Property">public String Bairro { get; set; }</Member>
@@ -78,25 +127,26 @@
       <Entity type="Class">
         <Name>Usuario</Name>
         <Access>Public</Access>
-        <Location left="254" top="37" />
-        <Size width="162" height="247" />
+        <Location left="436" top="12" />
+        <Size width="162" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
         <Member type="Field">private String senha</Member>
-        <Member type="Field">private Char nivelAcesso</Member>
+        <Member type="Field">private String nivelAcesso</Member>
         <Member type="Property">public String Nome { get; set; }</Member>
         <Member type="Property">public String Senha { get; set; }</Member>
-        <Member type="Property">public Char NivelAcesso { get; set; }</Member>
+        <Member type="Property">public String NivelAcesso { get; set; }</Member>
         <Member type="Constructor">public Usuario()</Member>
-        <Member type="Method">public String Save(String _Nome, String _Senha, Char _NivelAcesso)</Member>
-        <Member type="Method">public List&lt;Usuario&gt; LoadList()</Member>
+        <Member type="Method">public String Save(String _Nome, String _Senha, String _NivelAcesso)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Usuario Load(String _Nome)</Member>
         <Member type="Method">public Boolean Verificar(String _nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>OrdemServico</Name>
         <Access>Public</Access>
-        <Location left="42" top="37" />
+        <Location left="224" top="12" />
         <Size width="162" height="553" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String identificador</Member>
@@ -108,8 +158,7 @@
         <Member type="Field">private String numeroSerie</Member>
         <Member type="Field">private String equipamento</Member>
         <Member type="Field">private String dataEntradaServico</Member>
-        <Member type="Field">private Fisica pessoaFisica</Member>
-        <Member type="Field">private Juridica pessoaJuridica</Member>
+        <Member type="Field">private String cliente</Member>
         <Member type="Property">public String Identificador { get; set; }</Member>
         <Member type="Property">public String Referencia { get; set; }</Member>
         <Member type="Property">public String Situacao { get; set; }</Member>
@@ -119,46 +168,48 @@
         <Member type="Property">public String NumeroSerie { get; set; }</Member>
         <Member type="Property">public String Equipamento { get; set; }</Member>
         <Member type="Property">public String DataEntradaServico { get; set; }</Member>
-        <Member type="Property">public Fisica PessoaFisica { get; set; }</Member>
-        <Member type="Property">public Juridica PessoaJuridica { get; set; }</Member>
+        <Member type="Property">public String Cliente { get; set; }</Member>
         <Member type="Constructor">public OrdemServico()</Member>
-        <Member type="Method">public String Save(String _Identificador, String _referencia, String _situacao, String _defeito, String _descricao, String _obervacao, String _numeroSerie, String _equipamento, String _dataEntradaServico)</Member>
-        <Member type="Method">public String Edit(String _Identificador, String _referencia, String _situacao, String _defeito, String _descricao, String _obervacao, String _numeroSerie, String _equipamento, String _dataEntradaServico)</Member>
+        <Member type="Method">public Void CreatPDF(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
+        <Member type="Method">public String Save(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
+        <Member type="Method">public String Edit(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
         <Member type="Method">public OrdemServico Load(String _Identificador)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
         <Member type="Method">public Boolean Verificar(String _Identificador)</Member>
+        <Member type="Method">public Boolean FinalizarOS(String NumeroOS)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Servico</Name>
         <Access>Public</Access>
-        <Location left="254" top="340" />
-        <Size width="162" height="216" />
+        <Location left="12" top="12" />
+        <Size width="162" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String descricao</Member>
         <Member type="Field">private Double valor</Member>
         <Member type="Property">public String Descricao { get; set; }</Member>
         <Member type="Property">public Double Valor { get; set; }</Member>
         <Member type="Constructor">public Servico()</Member>
+        <Member type="Method">private Boolean Save(String Descricao, Double Valor, String NumeroOS)</Member>
+        <Member type="Method">public String GerarServico(String Descricao, Double Valor, String NumeroOS)</Member>
+        <Member type="Method">public Servico Load(String NumeroServico)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public String EnviarEmail(String NomePessoa, String TipoPessoa)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Generalization" first="0" second="2">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>842</X>
-          <Y>430</Y>
+      <Relationship type="Generalization" first="3" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>645</X>
+          <Y>577</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Generalization" first="1" second="2">
+      <Relationship type="Generalization" first="4" second="5">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>653</X>
-          <Y>200</Y>
-        </BendPoint>
       </Relationship>
     </Relationships>
   </ProjectItem>
