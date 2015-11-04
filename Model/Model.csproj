@@ -51,7 +51,7 @@
       <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Spartacus">
-      <HintPath>..\packages\Spartacus.dll.0.39.18\lib\net40\Spartacus.dll</HintPath>
+      <HintPath>..\packages\Spartacus.0.39.19\lib\net40\Spartacus.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
