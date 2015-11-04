@@ -201,7 +201,7 @@ namespace Model
             string Saida = "";
 
             StreamWriter sw = null;
-            cr = new Spartacus.Utils.Cryptor("p@$$w0rd");
+            cr = new Cryptor("p@$$w0rd");
 
             try
             {
@@ -239,7 +239,7 @@ namespace Model
 
             Email EmailBase = new Email();
             StreamReader sr = null;
-            cr = new Spartacus.Utils.Cryptor("p@$$w0rd");
+            cr = new Cryptor("p@$$w0rd");
 
             try
             {
