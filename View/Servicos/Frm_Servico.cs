@@ -19,7 +19,7 @@ namespace View
 
         private void finalizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Txt_OS.Text)) // Se o valor for != de Null/""; 
+            if (!string.IsNullOrEmpty(Txt_OS.Text))
             {
                 Model.Ordem_de_Servico.OrdemServico OSbase = new Model.Ordem_de_Servico.OrdemServico();
                 Model.Ordem_de_Servico.Servico ServicoBase = new Model.Ordem_de_Servico.Servico();
@@ -46,15 +46,20 @@ namespace View
                     {
                         Model.Email EmailBase = new Model.Email();
 
+                        //Decodificando Email Base para enviar!
+                        String EmailDecoficado = EmailBase.DecodificarEmailBase(RecuperandoEmailBase(),NomeEmpresa(),InformacaoCliente()[0]);
+
+                        MessageBox.Show(EmailDecoficado);
+
                         bool ResultadoEnvio = EmailBase.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), RecuperandoEmailBase());
 
                         if (ResultadoEnvio)
                         {
-                            MessageBox.Show("E-mail enviado com sucesso!", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            MessageBox.Show("E-mail enviado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Ocorreu um problema ao enviar o E-mail!", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            MessageBox.Show("Ocorreu um problema ao enviar o E-mail!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -75,11 +80,12 @@ namespace View
             string[] Informacoes = new string[2];
 
             NomeDoCliente = OSBase.LoadOSFinalizada(Txt_OS.Text).Cliente;
-            MessageBox.Show(NomeDoCliente);
 
             //TODO:Arrumar para verificar o tipo de pessoa
 
             //Verificando o tipo e o Email do usuario
+            
+
             if (true) //Verifica se é PessoaFisica
             {
                 EmailCliente = PessoaFisicaBase.Load(NomeDoCliente).Email;
@@ -88,7 +94,7 @@ namespace View
                 Informacoes[0] = NomeDoCliente;
                 Informacoes[1] = EmailCliente;
             }
-            else if (PessoaJuridicaBase.Verificar(OSBase.LoadOSFinalizada(Txt_OS.Text).Cliente)) //Verifica se é pessoa Juridica
+            else if (PessoaJuridicaBase.Verificar(NomeDoCliente)) //Verifica se é pessoa Juridica
             {
                 PessoaJuridicaBase = PessoaJuridicaBase.Load(NomeDoCliente);
                 EmailCliente = PessoaFisicaBase.Email;

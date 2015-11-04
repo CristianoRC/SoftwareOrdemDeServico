@@ -276,8 +276,10 @@ namespace Model
 
             //Transformando os "Códigos digitados pelo usuario" em seu resultado;
             EmailTemporario = TextoEmail.Replace("**Cliente",NomeCliente);
-            EmailTemporario = TextoEmail.Replace("**Empresa",NomeEmpresa);
-            EmailTemporario = TextoEmail.Replace("**Data", DateTime.Now.ToString());
+            
+            EmailTemporario = EmailTemporario.Replace("**Empresa",NomeEmpresa);
+
+            EmailTemporario = EmailTemporario.Replace("**Data", DateTime.Now.ToString());
             TextoEmail = EmailTemporario;
 
             return TextoEmail;

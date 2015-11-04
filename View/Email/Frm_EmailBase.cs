@@ -14,8 +14,6 @@ namespace View
     {
         public Frm_EmailBase()
         {
-            //TODO: FImcrementar sistema de códigos para informações
-
             InitializeComponent();
         }
 
