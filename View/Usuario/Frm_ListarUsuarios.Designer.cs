@@ -74,7 +74,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_ListarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de usuários";
+            this.Text = "Lista de técnicos";
             this.Load += new System.EventHandler(this.Frm_ListarUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Data_Os)).EndInit();
             this.ResumeLayout(false);

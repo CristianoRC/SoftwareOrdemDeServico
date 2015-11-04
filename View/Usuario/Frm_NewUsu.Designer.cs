@@ -95,8 +95,8 @@
             // Txt_Tipo
             // 
             this.Txt_Tipo.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuario"});
+            "Técnico",
+            "Administrador"});
             this.Txt_Tipo.Location = new System.Drawing.Point(77, 102);
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
@@ -130,7 +130,7 @@
             this.MaximizeBox = false;
             this.Name = "Frm_NewUsu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Novo Usuários";
+            this.Text = "Novo técnico";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

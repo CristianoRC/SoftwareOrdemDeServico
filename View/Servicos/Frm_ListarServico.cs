@@ -26,7 +26,7 @@ namespace View
 
                 if (!string.IsNullOrWhiteSpace(OSBase.LoadOSFinalizada(itemOS).Identificador))
                 {
-                    TemInformacao = false;
+                    TemInformacao = true;
                 }
 
                 foreach (var item in ServicoBase.LoadList()) //Carregando informações do serviço

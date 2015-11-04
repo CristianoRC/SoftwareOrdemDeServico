@@ -38,9 +38,9 @@
             this.Txt_Senha = new System.Windows.Forms.TextBox();
             this.Txt_Login = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Txt_Pesquisa = new System.Windows.Forms.TextBox();
-            this.Btm_Pesquisar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Btm_Pesquisar = new System.Windows.Forms.Button();
+            this.Txt_Pesquisa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,8 +58,8 @@
             // Txt_Tipo
             // 
             this.Txt_Tipo.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuario"});
+            "Técnico",
+            "Administrador"});
             this.Txt_Tipo.Location = new System.Drawing.Point(72, 133);
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
@@ -128,12 +128,14 @@
             this.panel1.Size = new System.Drawing.Size(537, 36);
             this.panel1.TabIndex = 0;
             // 
-            // Txt_Pesquisa
+            // label3
             // 
-            this.Txt_Pesquisa.Location = new System.Drawing.Point(76, 10);
-            this.Txt_Pesquisa.Name = "Txt_Pesquisa";
-            this.Txt_Pesquisa.Size = new System.Drawing.Size(206, 20);
-            this.Txt_Pesquisa.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Login";
             // 
             // Btm_Pesquisar
             // 
@@ -145,14 +147,12 @@
             this.Btm_Pesquisar.UseVisualStyleBackColor = true;
             this.Btm_Pesquisar.Click += new System.EventHandler(this.Btm_Pesquisar_Click);
             // 
-            // label3
+            // Txt_Pesquisa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Login";
+            this.Txt_Pesquisa.Location = new System.Drawing.Point(76, 10);
+            this.Txt_Pesquisa.Name = "Txt_Pesquisa";
+            this.Txt_Pesquisa.Size = new System.Drawing.Size(206, 20);
+            this.Txt_Pesquisa.TabIndex = 1;
             // 
             // Frm_EditUsu
             // 
@@ -171,7 +171,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_EditUsu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar Usuário";
+            this.Text = "Editar técnico";
             this.Load += new System.EventHandler(this.Frm_EditUsu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

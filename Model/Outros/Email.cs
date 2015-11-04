@@ -79,7 +79,7 @@ namespace Model
                 Saida = sr.ReadToEnd();
 
             }
-            catch (Exception exc)
+            catch (System.Exception exc)
             {
                 Saida = "Ocorreu um arro ao tentar ler o arquivo com as informações.";
 
@@ -114,7 +114,7 @@ namespace Model
 
                 saida = "Arquivo de Email Base gerado com sucesso!";
             }
-            catch (Exception exc)
+            catch (System.Exception exc)
             {
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
                 Log.ArquivoExceptionLog(exc);
@@ -175,7 +175,7 @@ namespace Model
 
                 Saida = true;
             }
-            catch(Exception exc)
+            catch(System.Exception exc)
             {
                 //Gerando arquivo de Log
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
@@ -210,11 +210,11 @@ namespace Model
                 sw.WriteLine(cr.Encrypt(_EnderecoEmail));
                 sw.WriteLine(cr.Encrypt(_Senha));
                 sw.WriteLine(cr.Encrypt(_Host));
-                sw.WriteLine(cr.Encrypt(_Port));
+                sw.WriteLine(cr.Encrypt(_Port.ToString()));
 
                 Saida = "Arquivo de configuração gerado com sucesso!";
             }
-            catch (Exception exc)
+            catch (System.Exception exc)
             {
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
                 Log.ArquivoExceptionLog(exc);
@@ -250,7 +250,7 @@ namespace Model
                 EmailBase.Host = cr.Decrypt(sr.ReadLine());
                 EmailBase.Port = int.Parse(cr.Decrypt(sr.ReadLine()));
             }
-            catch (Exception exc)
+            catch (System.Exception exc)
             {
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
                 Log.ArquivoExceptionLog(exc);
