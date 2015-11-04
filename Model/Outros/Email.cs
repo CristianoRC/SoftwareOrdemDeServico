@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Spartacus.Utils;
 
 namespace Model
 {
@@ -196,18 +197,20 @@ namespace Model
         /// <returns></returns>
         public string SaveConfig(string _EnderecoEmail, string _Senha, string _Host, int _Port)
         {
+            Cryptor cr;
             string Saida = "";
 
             StreamWriter sw = null;
+            cr = new Cryptor("p@$$w0rd");
 
             try
             {
                 sw = new StreamWriter("Email.dat");
 
-                sw.WriteLine(_EnderecoEmail);
-                sw.WriteLine(_Senha);
-                sw.WriteLine(_Host);
-                sw.WriteLine(_Port);
+                sw.WriteLine(cr.Encrypt(_EnderecoEmail));
+                sw.WriteLine(cr.Encrypt(_Senha));
+                sw.WriteLine(cr.Encrypt(_Host));
+                sw.WriteLine(cr.Encrypt(_Port));
 
                 Saida = "Arquivo de configuração gerado com sucesso!";
             }
@@ -232,17 +235,20 @@ namespace Model
         /// <returns></returns>
         public Email LoadConfig()
         {
+            Cryptor cr;
+
             Email EmailBase = new Email();
             StreamReader sr = null;
+            cr = new Cryptor("p@$$w0rd");
 
             try
             {
                 sr = new StreamReader("Email.dat");
 
-                EmailBase.EnderecoEmail = sr.ReadLine();
-                EmailBase.Senha = sr.ReadLine();
-                EmailBase.Host = sr.ReadLine();
-                EmailBase.Port = int.Parse(sr.ReadLine());
+                EmailBase.EnderecoEmail = cr.Decrypt(sr.ReadLine());
+                EmailBase.Senha = cr.Decrypt(sr.ReadLine());
+                EmailBase.Host = cr.Decrypt(sr.ReadLine());
+                EmailBase.Port = int.Parse(cr.Decrypt(sr.ReadLine()));
             }
             catch (Exception exc)
             {
