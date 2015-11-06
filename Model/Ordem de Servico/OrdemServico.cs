@@ -512,6 +512,8 @@ namespace Model.Ordem_de_Servico
             bool Saida;
             OrdemServico OSBase = new OrdemServico();
 
+            //TODO:trocar situação da ordem de serviço para finaliza aqui.
+
             if (OSBase.Verificar(NumeroOS))
             {
                 

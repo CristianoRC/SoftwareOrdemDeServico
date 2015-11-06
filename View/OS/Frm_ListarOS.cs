@@ -20,7 +20,7 @@ namespace View.OS
             {
                 if (!string.IsNullOrWhiteSpace(OSBase.Load(item).Identificador))
                 {
-                    Data_Os.Rows.Add(OSBase.Load(item).Identificador, OSBase.Load(item).Equipamento, OSBase.Load(item).Situacao, OSBase.Load(item).Cliente, OSBase.Load(item).DataEntradaServico);
+                    Data_Os.Rows.Add(OSBase.Load(item).Identificador, OSBase.Load(item).Defeito, OSBase.Load(item).Equipamento, OSBase.Load(item).Situacao, OSBase.Load(item).Cliente, OSBase.Load(item).DataEntradaServico);
 
                     TemInformacao = true;
                 }

@@ -47,11 +47,9 @@ namespace View
                         Model.Email EmailBase = new Model.Email();
 
                         //Decodificando Email Base para enviar!
-                        String EmailDecoficado = EmailBase.DecodificarEmailBase(RecuperandoEmailBase(),NomeEmpresa(),InformacaoCliente()[0]);
+                        String EmailDecoficado = EmailBase.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
 
-                        MessageBox.Show(EmailDecoficado);
-
-                        bool ResultadoEnvio = EmailBase.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), RecuperandoEmailBase());
+                        bool ResultadoEnvio = EmailBase.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
 
                         if (ResultadoEnvio)
                         {
@@ -84,7 +82,7 @@ namespace View
             //TODO:Arrumar para verificar o tipo de pessoa
 
             //Verificando o tipo e o Email do usuario
-            
+
 
             if (true) //Verifica se é PessoaFisica
             {

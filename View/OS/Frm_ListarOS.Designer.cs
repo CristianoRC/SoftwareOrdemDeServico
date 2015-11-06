@@ -32,6 +32,7 @@
             this.Data_Os = new System.Windows.Forms.DataGridView();
             this.Coluna_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Defeito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cluna_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +50,7 @@
             this.Data_Os.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Coluna_Identificador,
             this.Coluna_Produto,
+            this.Defeito,
             this.Coluna_situacao,
             this.Cluna_Cliente,
             this.Coluna_Data});
@@ -57,7 +59,7 @@
             this.Data_Os.Location = new System.Drawing.Point(0, 0);
             this.Data_Os.MultiSelect = false;
             this.Data_Os.Name = "Data_Os";
-            this.Data_Os.Size = new System.Drawing.Size(985, 444);
+            this.Data_Os.Size = new System.Drawing.Size(1082, 444);
             this.Data_Os.TabIndex = 0;
             // 
             // Coluna_Identificador
@@ -69,6 +71,11 @@
             // 
             this.Coluna_Produto.HeaderText = "Equipamento";
             this.Coluna_Produto.Name = "Coluna_Produto";
+            // 
+            // Defeito
+            // 
+            this.Defeito.HeaderText = "Defeito";
+            this.Defeito.Name = "Defeito";
             // 
             // Coluna_situacao
             // 
@@ -89,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 444);
+            this.ClientSize = new System.Drawing.Size(1082, 444);
             this.Controls.Add(this.Data_Os);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -103,11 +110,12 @@
         }
 
         #endregion
+        private System.Windows.Forms.DataGridView Data_Os;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Identificador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Defeito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_situacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cluna_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Data;
-        private System.Windows.Forms.DataGridView Data_Os;
     }
 }

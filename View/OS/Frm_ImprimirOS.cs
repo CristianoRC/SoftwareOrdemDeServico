@@ -21,16 +21,26 @@ namespace View
         {
             Model.Ordem_de_Servico.OrdemServico OSBase = new Model.Ordem_de_Servico.OrdemServico();
 
-            //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
-            if (OSBase.Verificar(Txt_Pesquisa.Text) == true)
+            //checkBox1.Checked = Verifica se a ordem já foi finalizada, se for = true é que já foi finalizada  se for = false não.
+            if (checkBox1.Checked == false)
             {
-                OSBase = OSBase.Load(Txt_Pesquisa.Text);
-
-                OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
+                if (OSBase.Verificar(Txt_Pesquisa.Text) == true)
+                {
+                    OSBase = OSBase.Load(Txt_Pesquisa.Text);
+                    OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                }
+                else
+                {
+                    MessageBox.Show("Numero da ordem de serviço não encontrado em nossa base de dados!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                MessageBox.Show("Numero da ordem de serviço não encontrado em nossa base de dados!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //TODO:Fazer sistema de verificar OS finalizada refazer esse código!
+
+                OSBase = OSBase.LoadOSFinalizada(Txt_Pesquisa.Text);
+                OSBase.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
             }
         }
     }
