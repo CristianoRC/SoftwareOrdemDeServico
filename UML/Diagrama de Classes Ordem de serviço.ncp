@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>Backup</Name>
         <Access>Public</Access>
-        <Location left="648" top="615" />
+        <Location left="648" top="649" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public Backup()</Member>
@@ -18,7 +18,7 @@
       <Entity type="Class">
         <Name>Empresa</Name>
         <Access>Public</Access>
-        <Location left="436" top="615" />
+        <Location left="436" top="649" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String nome</Member>
@@ -35,7 +35,7 @@
       <Entity type="Class">
         <Name>Email</Name>
         <Access>Public</Access>
-        <Location left="224" top="615" />
+        <Location left="224" top="649" />
         <Size width="162" height="332" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String email</Member>
@@ -49,7 +49,7 @@
         <Member type="Constructor">public Email()</Member>
         <Member type="Method">public String LoadEmailBase()</Member>
         <Member type="Method">public String SaveEmailBase(String Texto)</Member>
-        <Member type="Method">public Void Enviar(String NomeCliente, String EmailCliente, String NomeEmpresa, String MenssagemBase)</Member>
+        <Member type="Method">public Boolean Enviar(String NomeCliente, String EmailCliente, String NomeEmpresa, String MenssagemBase)</Member>
         <Member type="Method">public String SaveConfig(String _EnderecoEmail, String _Senha, String _Host, Int32 _Port)</Member>
         <Member type="Method">public Email LoadConfig()</Member>
         <Member type="Method">public String DecodificarEmailBase(String TextoEmailBase, String NomeEmpresa, String NomeCliente)</Member>
@@ -58,7 +58,7 @@
       <Entity type="Class">
         <Name>Fisica</Name>
         <Access>Public</Access>
-        <Location left="12" top="615" />
+        <Location left="12" top="649" />
         <Size width="162" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String sexo</Member>
@@ -147,7 +147,7 @@
         <Name>OrdemServico</Name>
         <Access>Public</Access>
         <Location left="224" top="12" />
-        <Size width="162" height="553" />
+        <Size width="162" height="587" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String identificador</Member>
         <Member type="Field">private String referencia</Member>
@@ -177,24 +177,24 @@
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
         <Member type="Method">public Boolean Verificar(String _Identificador)</Member>
         <Member type="Method">public Boolean FinalizarOS(String NumeroOS)</Member>
+        <Member type="Method">public OrdemServico LoadOSFinalizada(String _Identificador)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadListFinalizadas()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Servico</Name>
         <Access>Public</Access>
         <Location left="12" top="12" />
-        <Size width="162" height="247" />
+        <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String descricao</Member>
         <Member type="Field">private Double valor</Member>
         <Member type="Property">public String Descricao { get; set; }</Member>
         <Member type="Property">public Double Valor { get; set; }</Member>
         <Member type="Constructor">public Servico()</Member>
-        <Member type="Method">private Boolean Save(String Descricao, Double Valor, String NumeroOS)</Member>
-        <Member type="Method">public String GerarServico(String Descricao, Double Valor, String NumeroOS)</Member>
+        <Member type="Method">public String Save(String Descricao, Double Valor, String NumeroOS)</Member>
         <Member type="Method">public Servico Load(String NumeroServico)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
-        <Member type="Method">public String EnviarEmail(String NomePessoa, String TipoPessoa)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -202,9 +202,9 @@
       <Relationship type="Generalization" first="3" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>645</X>
-          <Y>577</Y>
+        <BendPoint relativeToStartShape="False">
+          <X>767</X>
+          <Y>601</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="4" second="5">
