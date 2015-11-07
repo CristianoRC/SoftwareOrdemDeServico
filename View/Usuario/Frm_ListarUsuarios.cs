@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Controller;
 using System.Windows.Forms;
 
 namespace View.Usuario
@@ -19,11 +13,11 @@ namespace View.Usuario
 
         private void Frm_ListarUsuarios_Load(object sender, EventArgs e)
         {
-            Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+            ControllerUsuario controllerUsuario = new ControllerUsuario();
 
-            foreach (var item in UsuarioBase.LoadList())
+            foreach (var item in controllerUsuario.LoadList())
             {
-                Data_Os.Rows.Add(UsuarioBase.Load(item).Nome, UsuarioBase.Load(item).NivelAcesso);
+                Data_Os.Rows.Add(controllerUsuario.Load(item).Nome, controllerUsuario.Load(item).NivelAcesso);
             }
         }
     }

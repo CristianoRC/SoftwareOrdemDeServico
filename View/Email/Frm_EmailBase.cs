@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Controller;
 using System.Windows.Forms;
 
 namespace View
@@ -19,18 +13,18 @@ namespace View
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Email EmailBase = new Model.Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
 
-            EmailBase.SaveEmailBase(Txt_EmailBase.Text);
+            controllerEmail.SaveEmailBase(Txt_EmailBase.Text);
 
-            MessageBox.Show(EmailBase.SaveEmailBase(Txt_EmailBase.Text), "Indormação", MessageBoxButtons.OK, MessageBoxIcon.Information); //Mostrando o resultado da função SaveEmailBase.
+            MessageBox.Show(controllerEmail.SaveEmailBase(Txt_EmailBase.Text), "Indormação", MessageBoxButtons.OK, MessageBoxIcon.Information); //Mostrando o resultado da função SaveEmailBase.
         }
 
         private void Frm_EmailBase_Load(object sender, EventArgs e)
         {
-            Model.Email EmailBase = new Model.Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
 
-            Txt_EmailBase.Text = EmailBase.LoadEmailBase();
+            Txt_EmailBase.Text = controllerEmail.LoadEmailBase();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using Controller;
 using System.Windows.Forms;
 
 namespace View.Pessoas
@@ -14,6 +14,7 @@ namespace View.Pessoas
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
             Model.Pessoa_e_Usuario.Juridica PessoaJBase = new Model.Pessoa_e_Usuario.Juridica();
+            ControllerJuridica controllerPJ = new ControllerJuridica();
 
             PessoaJBase.Nome = Txt_Nome.Text;
             PessoaJBase.Endereco = Txt_Endereco.Text;
@@ -32,7 +33,7 @@ namespace View.Pessoas
             PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(PessoaJBase.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
+            MessageBox.Show(controllerPJ.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
 
 
             Txt_Bairro.Clear();

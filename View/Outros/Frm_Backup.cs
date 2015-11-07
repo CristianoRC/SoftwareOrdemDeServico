@@ -17,7 +17,7 @@ namespace View
         {
             //TODO: Arrumar sistema de Backup a cada versão do software.
 
-            Model.Backup backup = new Model.Backup();
+            Controller.ControllerBackup backup = new Controller.ControllerBackup();
             List<string> Diretorios = new List<string>();
 
             Diretorios.Add("Os/");
@@ -32,7 +32,7 @@ namespace View
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
-            Model.Backup backup = new Model.Backup();
+            Controller.ControllerBackup backup = new Controller.ControllerBackup();
 
             string diretorio = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetModules()[0].FullyQualifiedName);
 

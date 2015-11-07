@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model.Ordem_de_Servico;
+using Controller;
+using Model.Pessoa_e_Usuario;
+using Model;
 
 namespace View
 {
@@ -17,17 +14,25 @@ namespace View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Finalizando Ordem de serviço (Botão).
+        /// </summary>
         private void finalizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Txt_OS.Text))
             {
-                Model.Ordem_de_Servico.OrdemServico OSbase = new Model.Ordem_de_Servico.OrdemServico();
-                Model.Ordem_de_Servico.Servico ServicoBase = new Model.Ordem_de_Servico.Servico();
+                OrdemServico OSbase = new OrdemServico();
+                Servico ServicoBase = new Servico();
+
+                ControllerOrdemServico controllerOS = new ControllerOrdemServico();
+                ControllerServico controllerServico = new ControllerServico();
+                ControllerEmail controllerEmail = new ControllerEmail();
+
                 bool Resultado = false;
 
-                if (OSbase.Verificar(Txt_OS.Text))//Verifica se a OS existe ou não
+                if (controllerOS.Verificar(Txt_OS.Text))//Verifica se a OS existe ou não
                 {
-                    Resultado = OSbase.FinalizarOS(Txt_OS.Text);
+                    Resultado = controllerOS.FinalizarOS(Txt_OS.Text);
 
                     if (Resultado)
                     {
@@ -39,7 +44,7 @@ namespace View
                     }
 
                     //Gerando o serviço
-                    ServicoBase.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text);
+                    controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text);
 
 
                     if (MessageBox.Show("Enviar E-mail para o cliente informando sobre o término do serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -47,18 +52,11 @@ namespace View
                         Model.Email EmailBase = new Model.Email();
 
                         //Decodificando Email Base para enviar!
-                        String EmailDecoficado = EmailBase.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
+                        String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
 
-                        bool ResultadoEnvio = EmailBase.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
+                        string ResultadoEnvio = controllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
 
-                        if (ResultadoEnvio)
-                        {
-                            MessageBox.Show("E-mail enviado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ocorreu um problema ao enviar o E-mail!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -68,16 +66,26 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Recuperando informações do cliente.
+        /// </summary>
+        /// <returns>Nome e E-mail do cliente</returns>
         private string[] InformacaoCliente()
         {
-            Model.Ordem_de_Servico.OrdemServico OSBase = new Model.Ordem_de_Servico.OrdemServico();
-            Model.Pessoa_e_Usuario.Fisica PessoaFisicaBase = new Model.Pessoa_e_Usuario.Fisica();
-            Model.Pessoa_e_Usuario.Juridica PessoaJuridicaBase = new Model.Pessoa_e_Usuario.Juridica();
+            OrdemServico OSBase = new OrdemServico();
+            Fisica PessoaFisicaBase = new Fisica();
+            Juridica PessoaJuridicaBase = new Juridica();
+
+
+            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
+            ControllerFisica controllerPF = new ControllerFisica();
+            ControllerJuridica controllerPJ = new ControllerJuridica();
+
             string NomeDoCliente = "Não Econtrado";
             string EmailCliente = "Não encontrado";
             string[] Informacoes = new string[2];
 
-            NomeDoCliente = OSBase.LoadOSFinalizada(Txt_OS.Text).Cliente;
+            NomeDoCliente = controllerOS.LoadOSFinalizada(Txt_OS.Text).Cliente;
 
             //TODO:Arrumar para verificar o tipo de pessoa
 
@@ -86,15 +94,15 @@ namespace View
 
             if (true) //Verifica se é PessoaFisica
             {
-                EmailCliente = PessoaFisicaBase.Load(NomeDoCliente).Email;
-                NomeDoCliente = PessoaFisicaBase.Load(NomeDoCliente).Nome;
+                EmailCliente = controllerPF.Load(NomeDoCliente).Email;
+                NomeDoCliente = controllerPF.Load(NomeDoCliente).Nome;
 
                 Informacoes[0] = NomeDoCliente;
                 Informacoes[1] = EmailCliente;
             }
-            else if (PessoaJuridicaBase.Verificar(NomeDoCliente)) //Verifica se é pessoa Juridica
+            else if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é pessoa Juridica
             {
-                PessoaJuridicaBase = PessoaJuridicaBase.Load(NomeDoCliente);
+                PessoaJuridicaBase = controllerPJ.Load(NomeDoCliente);
                 EmailCliente = PessoaFisicaBase.Email;
                 NomeDoCliente = PessoaFisicaBase.Nome;
 
@@ -105,23 +113,35 @@ namespace View
             return Informacoes;
         }
 
+        /// <summary>
+        /// Recuperando informações da empresa
+        /// </summary>
+        /// <returns>Nome da empresa</returns>
         private string NomeEmpresa()
         {
 
-            Model.Empresa EmpresaBase = new Model.Empresa();
+            Empresa EmpresaBase = new Empresa();
+            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
+
             string NomeEmpresa = "Não encontrado";
 
-            NomeEmpresa = EmpresaBase.Load().Nome;
+            NomeEmpresa = controllerEmpresa.Load().Nome;
 
             return NomeEmpresa;
         }
 
+        /// <summary>
+        /// Recuperando E-mail base;
+        /// </summary>
+        /// <returns>Texto do E-mail base ainda codificado.</returns>
         private string RecuperandoEmailBase()
         {
-            Model.Email Email = new Model.Email();
+            Email Email = new Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
+
             string TextoEmail = "Não encontrado";
 
-            TextoEmail = Email.LoadEmailBase();
+            TextoEmail = controllerEmail.LoadEmailBase();
 
             return TextoEmail;
         }

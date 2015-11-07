@@ -1,11 +1,10 @@
 ﻿using Ionic.Zip;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Model
+namespace Controller
 {
-    public class Backup
+    public class ControllerBackup
     {
         /// <summary>
         /// Criando arquivo "Zip" de backup das informações.

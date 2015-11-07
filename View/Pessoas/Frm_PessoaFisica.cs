@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
+using Controller;
 using System.Windows.Forms;
 
 namespace View.Pessoas
@@ -16,6 +15,7 @@ namespace View.Pessoas
         {
 
             Model.Pessoa_e_Usuario.Fisica PessoaFBase = new Model.Pessoa_e_Usuario.Fisica();
+            ControllerFisica controllerPF = new ControllerFisica();
 
             PessoaFBase.Nome = Txt_Nome.Text;
             PessoaFBase.Endereco = Txt_Endereco.Text;
@@ -34,7 +34,7 @@ namespace View.Pessoas
             PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(PessoaFBase.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
+            MessageBox.Show(controllerPF.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
 
             Txt_Bairro.Clear();
             Txt_Cep.Clear();

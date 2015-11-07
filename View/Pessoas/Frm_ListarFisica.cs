@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Controller;
 using System.Windows.Forms;
 
 namespace View.Pessoas
@@ -21,10 +15,13 @@ namespace View.Pessoas
         {
 
             Model.Pessoa_e_Usuario.Fisica PessoaFisicaBase = new Model.Pessoa_e_Usuario.Fisica();
+            ControllerFisica controllerPF = new ControllerFisica();
 
-            foreach (var item in PessoaFisicaBase.LoadList())
+            foreach (var item in controllerPF.LoadList())
             {
-                Data_Os.Rows.Add(PessoaFisicaBase.Load(item).Nome, PessoaFisicaBase.Load(item).Celular, PessoaFisicaBase.Load(item).CPF, PessoaFisicaBase.Load(item).Cidade, PessoaFisicaBase.Load(item).Situacao);
+                PessoaFisicaBase = controllerPF.Load(item);
+
+                Data_Os.Rows.Add(PessoaFisicaBase.Nome, PessoaFisicaBase.Celular, PessoaFisicaBase.CPF, PessoaFisicaBase.Cidade, PessoaFisicaBase.Situacao);
             }
         }
     }

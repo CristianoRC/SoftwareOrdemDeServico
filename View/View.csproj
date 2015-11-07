@@ -270,6 +270,10 @@
     <Content Include="Icone.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Control\Controller.csproj">
+      <Project>{6e3fa1d7-ddeb-41f6-8e11-d361f47f68de}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{3ad6dc90-0da9-4621-a529-b0d7bd4012c4}</Project>
       <Name>Model</Name>

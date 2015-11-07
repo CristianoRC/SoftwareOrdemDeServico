@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Controller;
 
 namespace View.Opicoes
 {
@@ -24,19 +25,18 @@ namespace View.Opicoes
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (Check_Informações.Checked == true)
                 {
                     Model.Empresa EmpresaBase = new Model.Empresa();
+                    ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
                     EmpresaBase.Nome = Txt_Nome.Text;
                     EmpresaBase.Contato = Txt_Contato.Text;
                     EmpresaBase.Endereco = Txt_Endereco.Text;
 
-                    EmpresaBase.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
+                    controllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
                 }
 
                 if (TemFoto)
@@ -73,7 +73,9 @@ namespace View.Opicoes
         private void Frm_OpicoesInicial_Load(object sender, EventArgs e)
         {
             Model.Empresa EmpresaBase = new Model.Empresa();
-            EmpresaBase = EmpresaBase.Load();
+            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
+
+            EmpresaBase = controllerEmpresa.Load();
 
             Txt_Nome.Text = EmpresaBase.Nome;
             Txt_Contato.Text = EmpresaBase.Contato;

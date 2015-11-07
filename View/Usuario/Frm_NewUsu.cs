@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Controller;
 
 namespace View.Formularios_Usuarios
 {
@@ -14,13 +15,13 @@ namespace View.Formularios_Usuarios
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
             
-            Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+            ControllerUsuario controllerUsuario = new ControllerUsuario();
             string saida = "";
 
-            if (! UsuarioBase.Verificar(Txt_Login.Text))
+            if (! controllerUsuario.Verificar(Txt_Login.Text))
             {   
                 //Salvando e passando o resulado para a saida.
-                saida = UsuarioBase.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+                saida = controllerUsuario.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
 
                 Txt_Login.Clear();
                 Txt_Senha.Clear();

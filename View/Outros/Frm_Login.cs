@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Controller;
 
 namespace View
 {
@@ -19,14 +20,16 @@ namespace View
             }
         }
 
+
         private void bTM_lOGAR_Click(object sender, EventArgs e)
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+            ControllerUsuario controllerUsuario = new ControllerUsuario();
 
-            if (UsuarioBase.Verificar(Txt_Login.Text.TrimEnd()))
+            if (controllerUsuario.Verificar(Txt_Login.Text.TrimEnd()))
             {
                 //Chamando o load para atualizar as informações
-                UsuarioBase = UsuarioBase.Load(Txt_Login.Text.TrimEnd());
+                UsuarioBase = controllerUsuario.Load(Txt_Login.Text.TrimEnd());
 
                 if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
                 {
@@ -49,10 +52,12 @@ namespace View
             }
         }
 
+
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Visible = false;
         }
+
 
         private void Frm_Login_Load(object sender, EventArgs e)
         {

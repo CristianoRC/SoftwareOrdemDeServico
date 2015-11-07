@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Controller;
 
 namespace View
 {
@@ -13,26 +14,26 @@ namespace View
 
         private void Frm_ListarServico_Load(object sender, EventArgs e)
         {
+            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
+            ControllerServico controllerServico = new ControllerServico();
 
-            Model.Ordem_de_Servico.Servico ServicoBase = new Model.Ordem_de_Servico.Servico();
-            Model.Ordem_de_Servico.OrdemServico OSBase = new Model.Ordem_de_Servico.OrdemServico();
             List<String> ListaDeInformações = new List<string>();
             bool TemInformacao = false; //Verifica se achou algo.
 
-            foreach (var itemOS in OSBase.LoadListFinalizadas()) //Carregando informações da Os
+            foreach (var itemOS in controllerOS.LoadListFinalizadas()) //Carregando informações da Os
             {
-                ListaDeInformações.Add(OSBase.LoadOSFinalizada(itemOS).Identificador);
-                ListaDeInformações.Add(OSBase.LoadOSFinalizada(itemOS).Cliente);
+                ListaDeInformações.Add(controllerOS.LoadOSFinalizada(itemOS).Identificador);
+                ListaDeInformações.Add(controllerOS.LoadOSFinalizada(itemOS).Cliente);
 
-                if (!string.IsNullOrWhiteSpace(OSBase.LoadOSFinalizada(itemOS).Identificador))
+                if (!string.IsNullOrWhiteSpace(controllerOS.LoadOSFinalizada(itemOS).Identificador))
                 {
                     TemInformacao = true;
                 }
 
-                foreach (var item in ServicoBase.LoadList()) //Carregando informações do serviço
+                foreach (var item in controllerServico.LoadList()) //Carregando informações do serviço
                 {
-                    ListaDeInformações.Add(ServicoBase.Load(item).Descricao);
-                    ListaDeInformações.Add(ServicoBase.Load(item).Valor.ToString());
+                    ListaDeInformações.Add(controllerServico.Load(item).Descricao);
+                    ListaDeInformações.Add(controllerServico.Load(item).Valor.ToString());
                 }
 
                 if (TemInformacao)

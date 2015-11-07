@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Model.Pessoa_e_Usuario;
+using Controller;
 
 namespace View.Pessoas
 {
@@ -15,10 +16,13 @@ namespace View.Pessoas
         {
 
             Juridica PessoaJuridicaBase = new Juridica();
+            ControllerJuridica controllerPJ = new ControllerJuridica();
 
-            foreach (var item in PessoaJuridicaBase.LoadList())
+            foreach (var item in controllerPJ.LoadList())
             {
-                Data_Os.Rows.Add(PessoaJuridicaBase.Load(item).Nome, PessoaJuridicaBase.Load(item).Contato, PessoaJuridicaBase.Load(item).Cnpj, PessoaJuridicaBase.Load(item).Cidade, PessoaJuridicaBase.Load(item).Situacao);
+                PessoaJuridicaBase = controllerPJ.Load(item);
+
+                Data_Os.Rows.Add(PessoaJuridicaBase.Nome, PessoaJuridicaBase.Contato, PessoaJuridicaBase.Cnpj, PessoaJuridicaBase.Cidade, PessoaJuridicaBase.Situacao);
             }
         }
     }

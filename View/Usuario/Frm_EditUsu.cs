@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using Controller;
 using System.Windows.Forms;
 
 namespace View.Usuario
@@ -20,14 +20,15 @@ namespace View.Usuario
         {
 
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+            ControllerUsuario controllerUsuario = new ControllerUsuario();
             string saida = "";
 
-                //Salvando e passando o resulado para a saida.
-                saida = UsuarioBase.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+            //Salvando e passando o resulado para a saida.
+            saida = controllerUsuario.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
 
-                Txt_Login.Clear();
-                Txt_Senha.Clear();
-                Txt_Tipo.Text = " ";
+            Txt_Login.Clear();
+            Txt_Senha.Clear();
+            Txt_Tipo.Text = " ";
 
 
             MessageBox.Show(String.Format("{0}", saida), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -36,11 +37,11 @@ namespace View.Usuario
         private void Btm_Pesquisar_Click(object sender, EventArgs e)
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
-            
+            ControllerUsuario controllerUsuario = new ControllerUsuario();
 
-            if (UsuarioBase.Verificar(Txt_Pesquisa.Text))
+            if (controllerUsuario.Verificar(Txt_Pesquisa.Text))
             {
-                UsuarioBase =  UsuarioBase.Load(Txt_Pesquisa.Text);
+                UsuarioBase = controllerUsuario.Load(Txt_Pesquisa.Text);
 
                 Txt_Login.Text = UsuarioBase.Nome;
                 Txt_Senha.Text = UsuarioBase.Senha;
@@ -48,7 +49,7 @@ namespace View.Usuario
             }
             else
             {
-                MessageBox.Show("Usuário não encontrado!","Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Usuário não encontrado!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

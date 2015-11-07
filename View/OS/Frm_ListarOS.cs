@@ -1,6 +1,7 @@
 ﻿using System;
 using Model.Ordem_de_Servico;
 using System.Windows.Forms;
+using Controller;
 
 namespace View.OS
 {
@@ -14,13 +15,17 @@ namespace View.OS
         private void Frm_ListarOS_Load(object sender, EventArgs e)
         {
             OrdemServico OSBase = new OrdemServico();
+            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
+
             bool TemInformacao = false;
 
-            foreach (var item in OSBase.LoadList())
+            foreach (var item in controllerOS.LoadList())
             {
-                if (!string.IsNullOrWhiteSpace(OSBase.Load(item).Identificador))
+                if (!string.IsNullOrWhiteSpace(controllerOS.Load(item).Identificador))
                 {
-                    Data_Os.Rows.Add(OSBase.Load(item).Identificador, OSBase.Load(item).Defeito, OSBase.Load(item).Equipamento, OSBase.Load(item).Situacao, OSBase.Load(item).Cliente, OSBase.Load(item).DataEntradaServico);
+                    OSBase = controllerOS.Load(item);
+
+                    Data_Os.Rows.Add(OSBase.Identificador, OSBase.Defeito, OSBase.Equipamento, OSBase.Situacao, OSBase.Cliente, OSBase.DataEntradaServico);
 
                     TemInformacao = true;
                 }
