@@ -54,8 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ordem de Servico\OrdemServico.cs" />
-    <Compile Include="Ordem de Servico\Servico.cs" />
+    <Compile Include="Ordem de Servico\ControllerOrdemServico.cs" />
+    <Compile Include="Ordem de Servico\ControllerServico.cs" />
     <Compile Include="Outros\ControllerBackup.cs" />
     <Compile Include="Outros\ControllerEmail.cs" />
     <Compile Include="Outros\ControllerEmpresa.cs" />

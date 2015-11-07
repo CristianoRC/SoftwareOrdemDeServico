@@ -103,7 +103,7 @@ namespace Controller
 
 
             //Assunto do email.
-            mail.Subject = String.Format("Serviço pronto - {0}", NomeEmpresa);
+            mail.Subject = String.Format("Serviço pronto [ {0} ]", NomeEmpresa);
 
             //Informando sobre o corpo.
             mail.IsBodyHtml = true;

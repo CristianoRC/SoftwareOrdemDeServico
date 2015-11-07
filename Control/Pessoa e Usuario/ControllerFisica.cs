@@ -8,7 +8,7 @@ namespace Controller
 {
     public class ControllerFisica
     {
-       
+
 
         /// <summary>
         /// Salvando pessoa Física na pasta "F"(Pasta usada para guardar todas as pessoas físicas no diretorio do software).
@@ -183,7 +183,7 @@ namespace Controller
 
             bool Encontrado = false;
 
-            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf")))
+            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", _nome).TrimEnd().TrimStart()))
             {
                 Encontrado = true;
             }

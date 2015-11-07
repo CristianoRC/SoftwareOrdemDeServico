@@ -372,27 +372,18 @@ namespace Controller
         /// </summary>
         /// <param name="NumeroOS"></param>
         /// <returns>Menssagen informando se deu certo ou não</returns>
-        public bool FinalizarOS(string NumeroOS)
+        public void FinalizarOS(string NumeroOS)
         {
-            bool Saida;
             OrdemServico OSBase = new OrdemServico();
 
-            //TODO:trocar situação da ordem de serviço para finaliza aqui.
+            //Modificando a situação da ordem de serviço
+            OSBase = Load(NumeroOS);
+            OSBase.Situacao = "Finalizado";
+            Edit(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
 
-            if (Verificar(NumeroOS))
-            {
+            //Movendo a ordem de serviço para a pasta das finalizadas.
+            File.Move(String.Format("OS/{0}.os", NumeroOS), String.Format("OS/Finalizadas/{0}.os", NumeroOS));
 
-                File.Move(String.Format("OS/{0}.os", NumeroOS), String.Format("OS/Finalizadas/{0}.os", NumeroOS));
-
-                Saida = true;
-            }
-            else
-            {
-                //Se não for encotrada a OS ira retornar um valor False.
-                Saida = false;
-            }
-
-            return Saida;
         }
 
         /// <summary>
@@ -456,6 +447,29 @@ namespace Controller
             }
 
             return ListaDeOS;
+        }
+
+        /// <summary>
+        /// Verifica se a ordem de serviço existe ou não.
+        /// </summary>
+        /// <param name="_Identificador"></param>
+        /// <returns>Retorna um valor (true/false)</returns>
+        public bool VerificarFinalizada(string _Identificador)
+        {
+            //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
+
+            bool Encontrado = false;
+
+            if (File.Exists((string.Format("OS/Finalizadas/{0}.os", _Identificador))))
+            {
+                Encontrado = true;
+            }
+            else
+            {
+                Encontrado = false;
+            }
+
+            return Encontrado;
         }
 
     }

@@ -27,36 +27,40 @@ namespace View
                 ControllerOrdemServico controllerOS = new ControllerOrdemServico();
                 ControllerServico controllerServico = new ControllerServico();
                 ControllerEmail controllerEmail = new ControllerEmail();
+                bool Finalizada = false;
 
-                bool Resultado = false;
 
                 if (controllerOS.Verificar(Txt_OS.Text))//Verifica se a OS existe ou não
                 {
-                    Resultado = controllerOS.FinalizarOS(Txt_OS.Text);
 
-                    if (Resultado)
+                    try
                     {
+                        controllerOS.FinalizarOS(Txt_OS.Text);
                         MessageBox.Show("Ordem de serviço Finalizada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Gerando o serviço
+                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text);
+
+                        Finalizada = true;
                     }
-                    else
+                    catch
                     {
                         MessageBox.Show("Ocorreu um problema ao finalizar sua Ordem de serviço, informações foram salvas no arquivo log no diretorio do sue software", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
-                    //Gerando o serviço
-                    controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text);
-
-
-                    if (MessageBox.Show("Enviar E-mail para o cliente informando sobre o término do serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (Finalizada)
                     {
-                        Model.Email EmailBase = new Model.Email();
+                        if (MessageBox.Show("Enviar E-mail para o cliente informando sobre o término do serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Model.Email EmailBase = new Model.Email();
 
-                        //Decodificando Email Base para enviar!
-                        String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
+                            //Decodificando Email Base para enviar!
+                            String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
 
-                        string ResultadoEnvio = controllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
+                            string ResultadoEnvio = controllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
 
-                        MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
@@ -92,19 +96,20 @@ namespace View
             //Verificando o tipo e o Email do usuario
 
 
-            if (true) //Verifica se é PessoaFisica
-            {
-                EmailCliente = controllerPF.Load(NomeDoCliente).Email;
-                NomeDoCliente = controllerPF.Load(NomeDoCliente).Nome;
-
-                Informacoes[0] = NomeDoCliente;
-                Informacoes[1] = EmailCliente;
-            }
-            else if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é pessoa Juridica
+            if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é Juridica
             {
                 PessoaJuridicaBase = controllerPJ.Load(NomeDoCliente);
                 EmailCliente = PessoaFisicaBase.Email;
                 NomeDoCliente = PessoaFisicaBase.Nome;
+
+                Informacoes[0] = NomeDoCliente;
+                Informacoes[1] = EmailCliente;
+
+            }
+            else if (controllerPF.Verificar(NomeDoCliente)) //Verifica se é pessoa Física.
+            {
+                EmailCliente = controllerPF.Load(NomeDoCliente).Email;
+                NomeDoCliente = controllerPF.Load(NomeDoCliente).Nome;
 
                 Informacoes[0] = NomeDoCliente;
                 Informacoes[1] = EmailCliente;

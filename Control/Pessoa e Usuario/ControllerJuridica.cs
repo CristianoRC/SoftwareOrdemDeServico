@@ -7,7 +7,6 @@ namespace Controller
 {
     public class ControllerJuridica
     {
-        
 
         /// <summary>
         /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
