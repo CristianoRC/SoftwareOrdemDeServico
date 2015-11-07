@@ -42,7 +42,7 @@
       <HintPath>C:\Users\crist\Documents\Visual Studio 2015\Projects\Cunha\Cunha\bin\Release\Cunha.dll</HintPath>
     </Reference>
     <Reference Include="Spartacus, Version=0.39.19.29446, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spartacus.dll.0.39.19\lib\net40\Spartacus.dll</HintPath>
+      <HintPath>..\packages\Spartacus.0.39.19\lib\net40\Spartacus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
