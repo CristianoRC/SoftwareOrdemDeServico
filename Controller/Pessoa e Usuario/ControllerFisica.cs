@@ -9,53 +9,52 @@ namespace Controller
     public class ControllerFisica
     {
 
-
         /// <summary>
         /// Salvando pessoa Física na pasta "F"(Pasta usada para guardar todas as pessoas físicas no diretorio do software).
         /// </summary>
-        /// <param name="_nome"></param>
-        /// <param name="_endereco"></param>
-        /// <param name="_telefone"></param>
-        /// <param name="_situacao"></param>
-        /// <param name="_siglaEstado"></param>
-        /// <param name="_cidade"></param>
-        /// <param name="_bairro"></param>
-        /// <param name="_cep"></param>
-        /// <param name="_observacoes"></param>
-        /// <param name="_cpf"></param>
-        /// <param name="_celular"></param>
-        /// <param name="_sexo"></param>
-        /// <param name="_datadenascimento"></param>
+        /// <param name="nome"></param>
+        /// <param name="endereco"></param>
+        /// <param name="email"></param>
+        /// <param name="situacao"></param>
+        /// <param name="siglaEstado"></param>
+        /// <param name="cidade"></param>
+        /// <param name="bairro"></param>
+        /// <param name="cep"></param>
+        /// <param name="observacoes"></param>
+        /// <param name="cpf"></param>
+        /// <param name="celular"></param>
+        /// <param name="sexo"></param>
+        /// <param name="datadenascimento"></param>
         /// <returns></returns>
-        public String Save(String _nome, String _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cpf, string _celular, string _sexo, DateTime _datadenascimento)
+        public String Save(String nome, String endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cpf, string celular, string sexo, DateTime datadenascimento)
         {
             StreamWriter sw = null;
             string Saida = "";
 
             //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
 
-            if (Verificar(_nome) == false)
+            if (Verificar(nome) == false)
             {
 
                 try
                 {
-                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", _nome.TrimStart().TrimEnd()));
+                    sw = new StreamWriter(String.Format("Pessoa/F/{0}.pessoaf", nome.TrimStart().TrimEnd()));
 
                     Fisica PessoaFBase = new Fisica();
 
-                    PessoaFBase.Nome = _nome;
-                    PessoaFBase.Endereco = _endereco;
-                    PessoaFBase.Email = _telefone;
-                    PessoaFBase.Situacao = _situacao;
-                    PessoaFBase.SiglaEstado = _siglaEstado;
-                    PessoaFBase.Cidade = _cidade;
-                    PessoaFBase.Bairro = _bairro;
-                    PessoaFBase.Cep = _cep;
-                    PessoaFBase.Observacoes = _observacoes;
-                    PessoaFBase.CPF = _cpf;
-                    PessoaFBase.Sexo = _sexo;
-                    PessoaFBase.Celular = _celular;
-                    PessoaFBase.DataDeNascimento = _datadenascimento;
+                    PessoaFBase.Nome = nome;
+                    PessoaFBase.Endereco = endereco;
+                    PessoaFBase.Email = email;
+                    PessoaFBase.Situacao = situacao;
+                    PessoaFBase.SiglaEstado = siglaEstado;
+                    PessoaFBase.Cidade = cidade;
+                    PessoaFBase.Bairro = bairro;
+                    PessoaFBase.Cep = cep;
+                    PessoaFBase.Observacoes = observacoes;
+                    PessoaFBase.CPF = cpf;
+                    PessoaFBase.Sexo = sexo;
+                    PessoaFBase.Celular = celular;
+                    PessoaFBase.DataDeNascimento = datadenascimento;
 
                     //Parte de Pessoa
                     sw.WriteLine(PessoaFBase.Nome);
@@ -104,9 +103,9 @@ namespace Controller
         /// <summary>
         /// Carregando pessoa Física.
         /// </summary>
-        /// <param name="_Nome"></param>
+        /// <param name="nome"></param>
         /// <returns>Pessoa Física</returns>
-        public Fisica Load(String _Nome)
+        public Fisica Load(String nome)
         {
             Fisica PessoaFBase = new Fisica();
 
@@ -114,7 +113,7 @@ namespace Controller
             StreamReader sr = null;
             try
             {
-                sr = new StreamReader(String.Format("Pessoa/F/{0}.pessoaf", _Nome));
+                sr = new StreamReader(String.Format("Pessoa/F/{0}.pessoaf", nome));
 
                 //Parte de Pessoa
                 PessoaFBase.Nome = sr.ReadLine();
@@ -175,15 +174,15 @@ namespace Controller
         /// <summary>
         /// Verificando de a "Pessoa física" existe.
         /// </summary>
-        /// <param name="_nome"></param>
+        /// <param name="nome"></param>
         /// <returns></returns>
-        public bool Verificar(String _nome)
+        public bool Verificar(String nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
 
-            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", _nome).TrimEnd().TrimStart()))
+            if (File.Exists(String.Format("Pessoa/F/{0}.pessoaf", nome).TrimEnd().TrimStart()))
             {
                 Encontrado = true;
             }

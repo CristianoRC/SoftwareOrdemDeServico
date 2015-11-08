@@ -11,25 +11,25 @@ namespace Controller
         /// <summary>
         /// Salvando novo usuário
         /// </summary>
-        /// <param name="_Nome"></param>
-        /// <param name="_Senha"></param>
-        /// <param name="_NivelAcesso"></param>
+        /// <param name="Nome"></param>
+        /// <param name="Senha"></param>
+        /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public String Save(String _Nome, String _Senha, string _NivelAcesso)
+        public String Save(String Nome, String Senha, string NivelAcesso)
         {
             StreamWriter sr = null;
             string Saida = "";
 
-            if (Verificar(_Nome) == false)
+            if (Verificar(Nome) == false)
             {
                 try
                 {
-                    sr = new StreamWriter(String.Format("Usuario/{0}.dat", _Nome));
+                    sr = new StreamWriter(String.Format("Usuario/{0}.dat", Nome));
                     Usuario UsuarioBase = new Usuario();
 
-                    UsuarioBase.Nome = _Nome;
-                    UsuarioBase.Senha = _Senha;
-                    UsuarioBase.NivelAcesso = _NivelAcesso;
+                    UsuarioBase.Nome = Nome;
+                    UsuarioBase.Senha = Senha;
+                    UsuarioBase.NivelAcesso = NivelAcesso;
 
                     sr.WriteLine(UsuarioBase.Nome);
                     sr.WriteLine(UsuarioBase.Senha);
@@ -101,9 +101,9 @@ namespace Controller
         /// <summary>
         /// Carregando usuario.
         /// </summary>
-        /// <param name="_Nome"></param>
+        /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public Usuario Load(string _Nome)
+        public Usuario Load(string Nome)
         {
             StreamReader sr = null;
             Usuario UsuarioBase = new Usuario();
@@ -111,7 +111,7 @@ namespace Controller
 
             try
             {
-                sr = new StreamReader(string.Format("Usuario/{0}.dat", _Nome));
+                sr = new StreamReader(string.Format("Usuario/{0}.dat", Nome));
 
                 UsuarioBase.Nome = sr.ReadLine();
                 UsuarioBase.Senha = sr.ReadLine();
@@ -136,16 +136,16 @@ namespace Controller
         /// <summary>
         /// Verificando de o suario existe.
         /// </summary>
-        /// <param name="_nome"></param>
+        /// <param name="Nome"></param>
         /// <returns></returns>
-        public bool Verificar(string _nome)
+        public bool Verificar(string Nome)
         {
             bool UsuarioEncontrado = false;
 
             try
             {
 
-                if (File.Exists(String.Format("Usuario/{0}.dat", _nome)))
+                if (File.Exists(String.Format("Usuario/{0}.dat", Nome)))
                 {
                     UsuarioEncontrado = true;
                 }

@@ -11,49 +11,49 @@ namespace Controller
         /// <summary>
         /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
         /// </summary>
-        /// <param name="_nome"></param>
-        /// <param name="_endereco"></param>
-        /// <param name="_telefone"></param>
-        /// <param name="_situacao"></param>
-        /// <param name="_siglaEstado"></param>
-        /// <param name="_cidade"></param>
-        /// <param name="_bairro"></param>
-        /// <param name="_cep"></param>
-        /// <param name="_observacoes"></param>
-        /// <param name="_cnpj"></param>
-        /// <param name="_contato"></param>
-        /// <param name="_inscricaoestadual"></param>
-        /// <param name="_razaosocial"></param>
+        /// <param name="nome"></param>
+        /// <param name="endereco"></param>
+        /// <param name="email"></param>
+        /// <param name="situacao"></param>
+        /// <param name="siglaEstado"></param>
+        /// <param name="cidade"></param>
+        /// <param name="bairro"></param>
+        /// <param name="cep"></param>
+        /// <param name="observacoes"></param>
+        /// <param name="cnpj"></param>
+        /// <param name="contato"></param>
+        /// <param name="inscricaoestadual"></param>
+        /// <param name="razaosocial"></param>
         /// <returns></returns>
-        public String Save(string _nome, string _endereco, string _telefone, string _situacao, string _siglaEstado, string _cidade, string _bairro, string _cep, string _observacoes, string _cnpj, string _contato, string _inscricaoestadual, string _razaosocial)
+        public String Save(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
         {
             StreamWriter sw = null;
             string Saida = "";
 
             //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
 
-            if (Verificar(_nome) == false)
+            if (Verificar(nome) == false)
             {
                 try
                 {
 
-                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", _nome.TrimStart().TrimEnd()));
+                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd()));
 
                     Juridica PessoaJBase = new Juridica();
 
-                    PessoaJBase.Nome = _nome;
-                    PessoaJBase.Endereco = _endereco;
-                    PessoaJBase.Email = _telefone;
-                    PessoaJBase.Situacao = _situacao;
-                    PessoaJBase.SiglaEstado = _siglaEstado;
-                    PessoaJBase.Cidade = _cidade;
-                    PessoaJBase.Bairro = _bairro;
-                    PessoaJBase.Cep = _cep;
-                    PessoaJBase.Observacoes = _observacoes;
-                    PessoaJBase.Cnpj = _cnpj;
-                    PessoaJBase.Contato = _contato;
-                    PessoaJBase.InscricaoEstadual = _inscricaoestadual;
-                    PessoaJBase.RazaoSocial = _razaosocial;
+                    PessoaJBase.Nome = nome;
+                    PessoaJBase.Endereco = endereco;
+                    PessoaJBase.Email = email;
+                    PessoaJBase.Situacao = situacao;
+                    PessoaJBase.SiglaEstado = siglaEstado;
+                    PessoaJBase.Cidade = cidade;
+                    PessoaJBase.Bairro = bairro;
+                    PessoaJBase.Cep = cep;
+                    PessoaJBase.Observacoes = observacoes;
+                    PessoaJBase.Cnpj = cnpj;
+                    PessoaJBase.Contato = contato;
+                    PessoaJBase.InscricaoEstadual = inscricaoestadual;
+                    PessoaJBase.RazaoSocial = razaosocial;
 
                     //Parte de Pessoa
                     sw.WriteLine(PessoaJBase.Nome);
@@ -102,16 +102,16 @@ namespace Controller
         /// <summary>
         /// Carregando pessoa Física.
         /// </summary>
-        /// <param name="_IdentificadorLoad"></param>
+        /// <param name="IdentificadorLoad"></param>
         /// <returns>Pessoa Jurídica.</returns>
-        public Juridica Load(String _IdentificadorLoad)
+        public Juridica Load(String IdentificadorLoad)
         {
             Juridica PessoaJBase = new Juridica();
 
             StreamReader sr = null;
             try
             {
-                sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", _IdentificadorLoad));
+                sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", IdentificadorLoad));
 
                 //Parte de Pessoa
                 PessoaJBase.Nome = sr.ReadLine();
@@ -172,15 +172,15 @@ namespace Controller
         /// <summary>
         /// Verificando de a "Pessoa jurídica" existe.
         /// </summary>
-        /// <param name="_nome"></param>
+        /// <param name="nome"></param>
         /// <returns></returns>
-        public bool Verificar(String _nome)
+        public bool Verificar(String nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
 
-            if (File.Exists(String.Format("Pessoa/J/{0}.pessoaj", _nome.TrimStart().TrimEnd())))
+            if (File.Exists(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd())))
             {
                 Encontrado = true;
             }

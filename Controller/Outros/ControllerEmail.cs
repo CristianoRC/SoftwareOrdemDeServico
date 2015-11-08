@@ -8,7 +8,6 @@ namespace Controller
 {
     public class ControllerEmail
     {
-        //TODO: Sistema de enviar cópia da OS para o cliente quando ela for criada.
 
         /// <summary>
         /// Carrega as informações do arquivo de email base.
@@ -144,7 +143,7 @@ namespace Controller
         /// <param name="_Host"></param>
         /// <param name="_Port"></param>
         /// <returns></returns>
-        public string SaveConfig(string _EnderecoEmail, string _Senha, string _Host, int _Port)
+        public string SaveConfig(string EnderecoEmail, string Senha, string Host, int Port)
         {
             Cryptor cr;
             string Saida = "";
@@ -156,10 +155,10 @@ namespace Controller
             {
                 sw = new StreamWriter("Email.dat");
 
-                sw.WriteLine(cr.Encrypt(_EnderecoEmail));
-                sw.WriteLine(cr.Encrypt(_Senha));
-                sw.WriteLine(cr.Encrypt(_Host));
-                sw.WriteLine(cr.Encrypt(_Port.ToString()));
+                sw.WriteLine(cr.Encrypt(EnderecoEmail));
+                sw.WriteLine(cr.Encrypt(Senha));
+                sw.WriteLine(cr.Encrypt(Host));
+                sw.WriteLine(cr.Encrypt(Port.ToString()));
 
                 Saida = "Arquivo de configuração gerado com sucesso!";
             }

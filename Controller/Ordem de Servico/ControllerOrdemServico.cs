@@ -285,14 +285,14 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Ordem de serviço</returns>
-        public OrdemServico Load(string _Identificador)
+        public OrdemServico Load(string Identificador)
         {
             OrdemServico OSBase = new OrdemServico();
             StreamReader sr = null;
 
             try
             {
-                sr = new StreamReader(String.Format("OS/{0}.os", _Identificador));
+                sr = new StreamReader(String.Format("OS/{0}.os", Identificador));
 
                 OSBase.Identificador = sr.ReadLine();
                 OSBase.Cliente = sr.ReadLine();
@@ -391,14 +391,14 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Ordem de serviço</returns>
-        public OrdemServico LoadOSFinalizada(string _Identificador)
+        public OrdemServico LoadOSFinalizada(string Identificador)
         {
             OrdemServico OSBase = new OrdemServico();
             StreamReader sr = null;
 
             try
             {
-                sr = new StreamReader(String.Format("OS/Finalizadas/{0}.os", _Identificador));
+                sr = new StreamReader(String.Format("OS/Finalizadas/{0}.os", Identificador));
 
                 OSBase.Identificador = sr.ReadLine();
                 OSBase.Cliente = sr.ReadLine();
@@ -454,13 +454,13 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Retorna um valor (true/false)</returns>
-        public bool VerificarFinalizada(string _Identificador)
+        public bool VerificarFinalizada(string Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
             bool Encontrado = false;
 
-            if (File.Exists((string.Format("OS/Finalizadas/{0}.os", _Identificador))))
+            if (File.Exists((string.Format("OS/Finalizadas/{0}.os", Identificador))))
             {
                 Encontrado = true;
             }

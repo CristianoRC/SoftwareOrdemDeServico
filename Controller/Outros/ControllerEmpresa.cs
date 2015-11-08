@@ -4,9 +4,8 @@ using Model;
 
 namespace Controller
 {
-   public class ControllerEmpresa
+    public class ControllerEmpresa
     {
-
 
         /// <summary>
         /// Pegando informações da empresa no arquivo de configuração da mesma.
@@ -50,7 +49,7 @@ namespace Controller
         /// <param name="_Contato"></param>
         /// <param name="_Endereco"></param>
         /// <returns></returns>
-        public string Save(String _Nome, String _Contato, String _Endereco)
+        public string Save(String Nome, String Contato, String Endereco)
         {
             string Saida = " ";
             StreamWriter sw = null;
@@ -59,9 +58,9 @@ namespace Controller
             {
                 sw = new StreamWriter("Empresa.CFG");
 
-                sw.WriteLine(_Nome);
-                sw.WriteLine(_Contato);
-                sw.WriteLine(_Endereco);
+                sw.WriteLine(Nome);
+                sw.WriteLine(Contato);
+                sw.WriteLine(Endereco);
 
                 Saida = "Operação efetuada com sucesso!";
             }
