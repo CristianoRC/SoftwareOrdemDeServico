@@ -192,8 +192,8 @@
             // 
             this.serviçosBásicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoToolStripMenuItem1,
-            this.listaToolStripMenuItem,
-            this.editarToolStripMenuItem2});
+            this.editarToolStripMenuItem2,
+            this.listaToolStripMenuItem});
             this.serviçosBásicosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("serviçosBásicosToolStripMenuItem.Image")));
             this.serviçosBásicosToolStripMenuItem.Name = "serviçosBásicosToolStripMenuItem";
             this.serviçosBásicosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
@@ -213,6 +213,7 @@
             this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
             this.listaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listaToolStripMenuItem.Text = "Lista";
+            this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem2
             // 

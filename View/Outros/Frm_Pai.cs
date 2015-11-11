@@ -281,5 +281,14 @@ namespace View
 
             frm_EditarServicoBase.Show();
         }
+
+        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ListarServicoBase frm_ListarServicoBase = new Frm_ListarServicoBase();
+
+            frm_ListarServicoBase.MdiParent = this;
+
+            frm_ListarServicoBase.Show();
+        }
     }
 }

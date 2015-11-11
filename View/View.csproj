@@ -72,6 +72,12 @@
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicos bases\Frm_ListarServicoBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicos bases\Frm_ListarServicoBase.Designer.cs">
+      <DependentUpon>Frm_ListarServicoBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicos bases\Frm_EditarServicoBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos bases\Frm_EditarServicoBase.resx">
       <DependentUpon>Frm_EditarServicoBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicos bases\Frm_ListarServicoBase.resx">
+      <DependentUpon>Frm_ListarServicoBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos bases\Frm_NewServicoBase.resx">
       <DependentUpon>Frm_NewServicoBase.cs</DependentUpon>

@@ -17,13 +17,13 @@ namespace View
             ControllerOrdemServico controllerOS = new ControllerOrdemServico();
             ControllerServico controllerServico = new ControllerServico();
 
-            List<String> ListaDeInformações = new List<string>();
+            List<String> ListaDeInformacoes = new List<string>();
             bool TemInformacao = false; //Verifica se achou algo.
 
             foreach (var itemOS in controllerOS.LoadListFinalizadas()) //Carregando informações da Os
             {
-                ListaDeInformações.Add(controllerOS.LoadOSFinalizada(itemOS).Identificador);
-                ListaDeInformações.Add(controllerOS.LoadOSFinalizada(itemOS).Cliente);
+                ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Identificador);
+                ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Cliente);
 
                 if (!string.IsNullOrWhiteSpace(controllerOS.LoadOSFinalizada(itemOS).Identificador))
                 {
@@ -32,13 +32,13 @@ namespace View
 
                 foreach (var item in controllerServico.LoadList()) //Carregando informações do serviço
                 {
-                    ListaDeInformações.Add(controllerServico.Load(item).Descricao);
-                    ListaDeInformações.Add(controllerServico.Load(item).Valor.ToString());
+                    ListaDeInformacoes.Add(controllerServico.Load(item).Descricao);
+                    ListaDeInformacoes.Add(controllerServico.Load(item).Valor.ToString());
                 }
 
                 if (TemInformacao)
                 {
-                    Data_Os.Rows.Add(ListaDeInformações[0], ListaDeInformações[1], ListaDeInformações[2], ListaDeInformações[3]);
+                    Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2], ListaDeInformacoes[3]);
                 }
             }
         }
