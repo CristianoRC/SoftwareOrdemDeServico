@@ -1,6 +1,6 @@
 ﻿using System;
-using Controller;
 using System.Windows.Forms;
+using Controller;
 
 namespace View
 {
@@ -32,10 +32,16 @@ namespace View
             }
             else
             {
-                //TODO:Fazer sistema de verificar OS finalizada refazer esse código!
-
-                OSBase = controllerOS.LoadOSFinalizada(Txt_Pesquisa.Text);
-                controllerOS.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
+                if (controllerOS.VerificarFinalizada(Txt_Pesquisa.Text) == true)
+                {
+                    OSBase = controllerOS.LoadOSFinalizada(Txt_Pesquisa.Text);
+                    controllerOS.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                }
+                else
+                {
+                    MessageBox.Show("Numero da ordem de serviço não encontrado em nossa base de dados!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
     }

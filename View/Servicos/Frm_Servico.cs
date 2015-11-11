@@ -91,10 +91,8 @@ namespace View
 
             NomeDoCliente = controllerOS.LoadOSFinalizada(Txt_OS.Text).Cliente;
 
-            //TODO:Arrumar para verificar o tipo de pessoa
 
             //Verificando o tipo e o Email do usuario
-
 
             if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é Juridica
             {

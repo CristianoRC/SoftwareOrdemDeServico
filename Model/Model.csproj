@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="Outros\Empresa.cs" />
     <Compile Include="Ordem de Servico\OrdemServico.cs" />
-    <Compile Include="Ordem de Servico\Servico.cs" />
+    <Compile Include="Servico\Servico.cs" />
     <Compile Include="Pessoa e Usuario\Fisica.cs" />
     <Compile Include="Pessoa e Usuario\Juridica.cs" />
     <Compile Include="Pessoa e Usuario\Pessoa.cs" />
