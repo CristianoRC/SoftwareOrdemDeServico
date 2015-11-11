@@ -24,7 +24,7 @@ namespace View
             Usuario = usuario;
             NivelAcesso = nivelAcesso;
 
-            if (nivelAcesso == "Usuario" || nivelAcesso == "usuario")
+            if (nivelAcesso == "Técnico") // Técnico e o que faz a manutenção;
             {
                 //Desativando algumas informações que o usario não pode usar.
 
@@ -33,9 +33,9 @@ namespace View
                 emailToolStripMenuItem.Enabled = false;
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
+                serviçosBásicosToolStripMenuItem.Enabled = false;
             }
         }
-
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -262,6 +262,24 @@ namespace View
             frm_Servico.MdiParent = this;
 
             frm_Servico.Show();
+        }
+
+        private void novoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_NewServicoBase frm_NewServicoBase = new Frm_NewServicoBase();
+
+            frm_NewServicoBase.MdiParent = this;
+
+            frm_NewServicoBase.Show();
+        }
+
+        private void editarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Frm_EditarServicoBase frm_EditarServicoBase = new Frm_EditarServicoBase();
+
+            frm_EditarServicoBase.MdiParent = this;
+
+            frm_EditarServicoBase.Show();
         }
     }
 }

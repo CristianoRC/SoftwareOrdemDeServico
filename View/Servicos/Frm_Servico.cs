@@ -39,7 +39,7 @@ namespace View
                         MessageBox.Show("Ordem de serviço Finalizada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //Gerando o serviço
-                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text);
+                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text,Txt_Servico.Text);
 
                         Finalizada = true;
                     }
@@ -147,6 +147,21 @@ namespace View
             TextoEmail = controllerEmail.LoadEmailBase();
 
             return TextoEmail;
+        }
+
+        /// <summary>
+        /// Carregando o nome de todos os serviços e os adicionando no combo Box(Txt_Servicos).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Frm_Servico_Load(object sender, EventArgs e)
+        {
+            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
+
+            foreach (var Valores in controllerServicoBase.LoadList())
+            {
+                Txt_Servico.Items.Add(Valores);
+            }
         }
     }
 }

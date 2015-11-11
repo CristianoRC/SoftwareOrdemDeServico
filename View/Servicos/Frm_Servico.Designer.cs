@@ -39,12 +39,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.finalizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.Txt_Servico = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Txt_OS
             // 
-            this.Txt_OS.Location = new System.Drawing.Point(83, 34);
+            this.Txt_OS.Location = new System.Drawing.Point(103, 35);
             this.Txt_OS.Name = "Txt_OS";
             this.Txt_OS.Size = new System.Drawing.Size(208, 20);
             this.Txt_OS.TabIndex = 0;
@@ -61,15 +63,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 88);
+            this.label2.Location = new System.Drawing.Point(12, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Valor:";
+            this.label2.Text = "Valor Adicional:";
             // 
             // Txt_Valor
             // 
-            this.Txt_Valor.Location = new System.Drawing.Point(83, 81);
+            this.Txt_Valor.Location = new System.Drawing.Point(103, 110);
             this.Txt_Valor.Name = "Txt_Valor";
             this.Txt_Valor.Size = new System.Drawing.Size(208, 20);
             this.Txt_Valor.TabIndex = 2;
@@ -78,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 140);
+            this.label3.Location = new System.Drawing.Point(12, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 5;
@@ -86,7 +88,7 @@
             // 
             // Txt_Descricao
             // 
-            this.Txt_Descricao.Location = new System.Drawing.Point(83, 133);
+            this.Txt_Descricao.Location = new System.Drawing.Point(103, 147);
             this.Txt_Descricao.Multiline = true;
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(208, 116);
@@ -110,12 +112,31 @@
             this.finalizarToolStripMenuItem.Text = "Finalizar";
             this.finalizarToolStripMenuItem.Click += new System.EventHandler(this.finalizarToolStripMenuItem_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Serviço:";
+            // 
+            // Txt_Servico
+            // 
+            this.Txt_Servico.FormattingEnabled = true;
+            this.Txt_Servico.Location = new System.Drawing.Point(103, 73);
+            this.Txt_Servico.Name = "Txt_Servico";
+            this.Txt_Servico.Size = new System.Drawing.Size(208, 21);
+            this.Txt_Servico.TabIndex = 9;
+            // 
             // Frm_Servico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(347, 273);
+            this.Controls.Add(this.Txt_Servico);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Descricao);
             this.Controls.Add(this.label2);
@@ -130,6 +151,7 @@
             this.Name = "Frm_Servico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Finalizar Ordem de serviço";
+            this.Load += new System.EventHandler(this.Frm_Servico_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -148,5 +170,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem finalizarToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox Txt_Servico;
     }
 }

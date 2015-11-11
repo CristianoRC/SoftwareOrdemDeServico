@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ListarOS));
             this.Data_Os = new System.Windows.Forms.DataGridView();
             this.Coluna_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coluna_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Defeito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coluna_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cluna_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +49,8 @@
             this.Data_Os.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Data_Os.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Coluna_Identificador,
-            this.Coluna_Produto,
             this.Defeito,
+            this.Coluna_Produto,
             this.Coluna_situacao,
             this.Cluna_Cliente,
             this.Coluna_Data});
@@ -67,15 +67,15 @@
             this.Coluna_Identificador.HeaderText = "Ordem de serviço";
             this.Coluna_Identificador.Name = "Coluna_Identificador";
             // 
-            // Coluna_Produto
-            // 
-            this.Coluna_Produto.HeaderText = "Equipamento";
-            this.Coluna_Produto.Name = "Coluna_Produto";
-            // 
             // Defeito
             // 
             this.Defeito.HeaderText = "Defeito";
             this.Defeito.Name = "Defeito";
+            // 
+            // Coluna_Produto
+            // 
+            this.Coluna_Produto.HeaderText = "Equipamento";
+            this.Coluna_Produto.Name = "Coluna_Produto";
             // 
             // Coluna_situacao
             // 
@@ -112,8 +112,8 @@
         #endregion
         private System.Windows.Forms.DataGridView Data_Os;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Identificador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Defeito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_situacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cluna_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Data;

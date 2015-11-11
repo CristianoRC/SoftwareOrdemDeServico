@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using Model.Ordem_de_Servico;
+using Model;
 
 namespace Controller
 {
@@ -15,7 +16,7 @@ namespace Controller
         /// <param name="Valor"></param>
         /// <param name="NumeroOS"></param>
         /// <returns></returns>
-        public string Save(string Descricao, double Valor, string NumeroOS)
+        public string Save(string Descricao, double Valor, string NumeroOS,string servicoBase)
         {
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
             string Saida;
@@ -25,8 +26,10 @@ namespace Controller
             {
                 sw = new StreamWriter(String.Format("OS/Servicos/{0}.txt", NumeroOS));
 
-                sw.WriteLine(Descricao);
+                sw.WriteLine(servicoBase);
                 sw.WriteLine(Valor);
+                sw.WriteLine(Descricao);
+                
 
                 Saida = "Serviço gerado com sucesso!";
             }

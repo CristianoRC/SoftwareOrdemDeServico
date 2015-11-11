@@ -15,15 +15,16 @@ namespace View
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-            //TODO: Arrumar sistema de Backup a cada versão do software.
-
             Controller.ControllerBackup backup = new Controller.ControllerBackup();
             List<string> Diretorios = new List<string>();
 
             Diretorios.Add("Os/");
             Diretorios.Add("Pessoa/");
             Diretorios.Add("Usuario/");
-            Diretorios.Add("Produto/");
+            Diretorios.Add("ServicosBase/");
+            Diretorios.Add("Email.txt");
+            Diretorios.Add("Menssagem.txt");
+            Diretorios.Add("Logo.png");
 
             backup.CriarArquivoZip(Diretorios, string.Format("Backup.rar"));
 
