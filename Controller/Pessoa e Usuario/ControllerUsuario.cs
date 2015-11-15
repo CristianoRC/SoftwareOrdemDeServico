@@ -60,6 +60,54 @@ namespace Controller
         }
 
         /// <summary>
+        /// Editando usuário
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="Senha"></param>
+        /// <param name="NivelAcesso"></param>
+        /// <returns></returns>
+        public String Editar(String Nome, String Senha, string NivelAcesso)
+        {
+            StreamWriter sr = null;
+            string Saida = "";
+
+            try
+            {
+                sr = new StreamWriter(String.Format("Usuario/{0}.dat", Nome));
+                Usuario UsuarioBase = new Usuario();
+
+                UsuarioBase.Nome = Nome;
+                UsuarioBase.Senha = Senha;
+                UsuarioBase.NivelAcesso = NivelAcesso;
+
+                sr.WriteLine(UsuarioBase.Nome);
+                sr.WriteLine(UsuarioBase.Senha);
+                sr.WriteLine(UsuarioBase.NivelAcesso);
+
+                Saida = "Usuario registrado com sucesso!";
+
+            }
+            catch (Exception Exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(Exc);
+
+                Saida = "Ocorreu um erro inesperado!";
+            }
+            finally
+            {
+                if (sr != null)
+                {
+                    sr.Close();
+
+                }
+            }
+
+            return Saida;
+        }
+
+        /// <summary>
         /// Carregando Lista com nome de todos usuarios.
         /// </summary>
         /// <returns></returns>

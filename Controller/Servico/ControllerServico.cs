@@ -2,7 +2,6 @@
 using System.IO;
 using System.Collections.Generic;
 using Model.Ordem_de_Servico;
-using Model;
 
 namespace Controller
 {
@@ -16,7 +15,7 @@ namespace Controller
         /// <param name="Valor"></param>
         /// <param name="NumeroOS"></param>
         /// <returns></returns>
-        public string Save(string Descricao, double Valor, string NumeroOS,string servicoBase)
+        public string Save(string Descricao, double Valor, string NumeroOS,string ServicoBase,string NomeDoTecnico)
         {
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
             string Saida;
@@ -26,10 +25,10 @@ namespace Controller
             {
                 sw = new StreamWriter(String.Format("OS/Servicos/{0}.txt", NumeroOS));
 
-                sw.WriteLine(servicoBase);
+                sw.WriteLine(ServicoBase);
                 sw.WriteLine(Valor);
                 sw.WriteLine(Descricao);
-                
+                sw.WriteLine(NomeDoTecnico);
 
                 Saida = "Serviço gerado com sucesso!";
             }
@@ -53,18 +52,20 @@ namespace Controller
         /// </summary>
         /// <param name="NumeroServico"></param>
         /// <returns>Informações do serviço carregado.</returns>
-        public Servico Load(string NumeroServico)
+        public Servico Load(string NomeServico)
         {
-            Servico ServicoBase = new Servico();
+            Servico servicoSave = new Servico();
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
             StreamReader sr = null;
 
             try
             {
-                sr = new StreamReader(string.Format("OS/Servicos/{0}.txt", NumeroServico));
+                sr = new StreamReader(string.Format("OS/Servicos/{0}.txt", NomeServico));
 
-                ServicoBase.Descricao = sr.ReadLine();
-                ServicoBase.Valor = Double.Parse(sr.ReadLine());
+                servicoSave.ServicoBase = sr.ReadLine();
+                servicoSave.Valor = Double.Parse(sr.ReadLine());
+                servicoSave.Descricao = sr.ReadLine();
+                servicoSave.Tecnico = sr.ReadLine();
             }
             catch (Exception exc)
             {
@@ -76,7 +77,7 @@ namespace Controller
                     sr.Close();
             }
 
-            return ServicoBase;
+            return servicoSave;
         }
 
         /// <summary>

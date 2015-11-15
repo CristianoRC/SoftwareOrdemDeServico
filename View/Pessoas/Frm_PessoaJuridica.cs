@@ -32,9 +32,10 @@ namespace View.Pessoas
             PessoaJBase.InscricaoEstadual = Txt_InscricaoEstadual.Text;
             PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
-            //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(controllerPJ.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial));
+            string saida = controllerPJ.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial);
 
+            //A função Save() Retona uma string infomando sobre o que ocorreu.
+            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Txt_Bairro.Clear();
             Txt_Cep.Clear();

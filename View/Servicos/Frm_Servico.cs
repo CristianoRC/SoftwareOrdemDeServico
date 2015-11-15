@@ -9,10 +9,16 @@ namespace View
 {
     public partial class Frm_Servico : Form
     {
-        public Frm_Servico()
+        public Frm_Servico(string nomeDoTecnico)
         {
             InitializeComponent();
+
+            //Passando o nome do tecnico para a variavel global para ser sado na horade salvar o serviço.
+            NomeDoTecnico = nomeDoTecnico;
         }
+
+        //Usada para salvar o nome do tecnico no serviço.
+        public string NomeDoTecnico;
 
         /// <summary>
         /// Finalizando Ordem de serviço (Botão).
@@ -39,7 +45,7 @@ namespace View
                         MessageBox.Show("Ordem de serviço Finalizada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //Gerando o serviço
-                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text,Txt_Servico.Text);
+                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text,Txt_Servico.Text,NomeDoTecnico);
 
                         Finalizada = true;
                     }
@@ -158,10 +164,22 @@ namespace View
         {
             ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
 
-            foreach (var Valores in controllerServicoBase.LoadList())
+            foreach (var Servicos in controllerServicoBase.LoadList())
             {
-                Txt_Servico.Items.Add(Valores);
+                Txt_Servico.Items.Add(Servicos);
             }
+        }
+
+        /// <summary>
+        /// Carregando o valor do serviço para o TextBox(Usado para valores) cada vez que o algo é selecionado no TextBox dos serviços;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Txt_Servico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
+
+            Txt_Valor.Text = controllerServicoBase.Load(Txt_Servico.Text).Valor.ToString();
         }
     }
 }

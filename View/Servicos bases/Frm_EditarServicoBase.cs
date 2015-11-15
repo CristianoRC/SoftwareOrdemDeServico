@@ -29,7 +29,19 @@ namespace View
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-            controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Double.Parse(Txt_Valor.Text));
+            controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text,Txt_Valor.Text);
+        }
+
+        private void Btm_Carregar_Click(object sender, EventArgs e)
+        {
+            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
+            Model.ServicoBase servicoBase = new Model.ServicoBase();
+
+            servicoBase = controllerServicoBase.Load(Txt_ServicoBase.Text);
+
+            Txt_Nome.Text = servicoBase.Nome;
+            Txt_Observacoes.Text = servicoBase.Observacoes;
+            Txt_Valor.Text = servicoBase.Valor;
         }
     }
 }

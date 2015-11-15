@@ -24,7 +24,7 @@ namespace View.Usuario
             string saida = "";
 
             //Salvando e passando o resulado para a saida.
-            saida = controllerUsuario.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+            saida = controllerUsuario.Editar(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
 
             Txt_Login.Clear();
             Txt_Senha.Clear();

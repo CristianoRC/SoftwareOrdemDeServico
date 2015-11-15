@@ -257,7 +257,7 @@ namespace View
 
         private void finalizarOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Servico frm_Servico = new Frm_Servico();
+            Frm_Servico frm_Servico = new Frm_Servico(Lbl_Nome.Text);
 
             frm_Servico.MdiParent = this;
 

@@ -20,7 +20,9 @@ namespace View
         {
             ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
 
-            controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Double.Parse(Txt_Valor.Text));
+            string saida = controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Txt_Valor.Text);
+
+            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

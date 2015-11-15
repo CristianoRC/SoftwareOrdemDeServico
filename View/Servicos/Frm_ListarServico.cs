@@ -34,11 +34,12 @@ namespace View
                 {
                     ListaDeInformacoes.Add(controllerServico.Load(item).Descricao);
                     ListaDeInformacoes.Add(controllerServico.Load(item).Valor.ToString());
+                    ListaDeInformacoes.Add(controllerServico.Load(item).Tecnico);
                 }
 
                 if (TemInformacao)
                 {
-                    Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2], ListaDeInformacoes[3]);
+                    Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2], ListaDeInformacoes[3], ListaDeInformacoes[4]);
                 }
             }
         }

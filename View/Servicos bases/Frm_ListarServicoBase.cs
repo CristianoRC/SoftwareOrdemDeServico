@@ -18,7 +18,6 @@ namespace View
 
 
             List<String> ListaDeInformacoes = new List<string>();
-            bool TemInformacao = false; //Verifica se achou algo.
 
             foreach (var itemOS in controllerServicoBase.LoadList()) //Carregando informações da Os
             {
@@ -28,12 +27,9 @@ namespace View
 
                 if (!string.IsNullOrWhiteSpace(controllerServicoBase.Load(itemOS).Nome))
                 {
-                    TemInformacao = true;
-                }
-
-                if (TemInformacao)
-                {
                     Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2]);
+
+                    ListaDeInformacoes.Clear();
                 }
             }
         }

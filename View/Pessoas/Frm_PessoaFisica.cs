@@ -34,8 +34,9 @@ namespace View.Pessoas
             PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
-            MessageBox.Show(controllerPF.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento));
+            string saida = controllerPF.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento);
 
+            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Txt_Bairro.Clear();
             Txt_Cep.Clear();
             Txt_Cidade.Clear();

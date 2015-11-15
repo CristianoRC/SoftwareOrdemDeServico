@@ -7,8 +7,7 @@
     {
         private string nome;
         private string observacoes;
-        private double valor;
-        private double valoresAdicionais;
+        private string valor;
 
         public string Nome
         {
@@ -36,11 +35,11 @@
             }
         }
 
-        public double Valor
+        public string Valor
         {
             get
             {
-                return valor + valoresAdicionais; //Valor(Usado como total), vai retornar o valor dele + os valores adicionais do serviço.
+                return valor;
             }
 
             set
@@ -49,17 +48,5 @@
             }
         }
 
-        public double ValoresAdicionais
-        {
-            get
-            {
-                return valoresAdicionais;
-            }
-
-            set
-            {
-                valoresAdicionais = value;
-            }
-        }
     }
 }

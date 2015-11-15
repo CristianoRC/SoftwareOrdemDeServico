@@ -13,16 +13,16 @@ namespace Controller
         /// <param name="nomeBase"></param>
         /// <param name="observacoes"></param>
         /// <param name="Valor"></param>
-        public void Save(string nomeBase, string observacoes, double Valor)
+        public string Save(string nome, string observacoes, string Valor)
         {
-
+            string Saida = "";
             StreamWriter sw = null;
             try
             {
                 ServicoBase servicoBase = new ServicoBase();
-                sw = new StreamWriter(string.Format("ServicosBase/{0}.txt", nomeBase));
+                sw = new StreamWriter(string.Format("ServicosBase/{0}.txt", nome));
 
-                servicoBase.Nome = nomeBase;
+                servicoBase.Nome = nome;
                 servicoBase.Observacoes = observacoes;
                 servicoBase.Valor = Valor;
 
@@ -30,14 +30,15 @@ namespace Controller
                 sw.WriteLine(servicoBase.Nome);
                 sw.WriteLine(servicoBase.Observacoes);
                 sw.WriteLine(servicoBase.Valor);
-                sw.WriteLine(servicoBase.ValoresAdicionais);
+
+                Saida = "Serviço base salvo com sucesso!";
             }
             catch (Exception exc)
             {
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
                 Log.ArquivoExceptionLog(exc);
 
-                throw new Exception("Ocorreu um erro ao salvar o Serviço base.");
+                Saida = "Ocorreu um erro ao salvar o Serviço base.";
             }
             finally
             {
@@ -46,6 +47,8 @@ namespace Controller
                     sw.Close();
                 }
             }
+
+            return Saida;
         }
 
         /// <summary>
@@ -64,8 +67,7 @@ namespace Controller
 
                 servicoBase.Nome = sr.ReadLine();
                 servicoBase.Observacoes = sr.ReadLine();
-                servicoBase.Valor = Convert.ToDouble(sr.ReadLine());
-                servicoBase.ValoresAdicionais = Convert.ToDouble(sr.ReadLine());
+                servicoBase.Valor = sr.ReadLine();
 
             }
             catch (Exception exc)
@@ -73,7 +75,6 @@ namespace Controller
                 Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
                 Log.ArquivoExceptionLog(exc);
 
-                throw new Exception("Erro ao tentar Carregar as informações do serviço base.");
             }
             finally
             {
@@ -105,7 +106,7 @@ namespace Controller
 
                 ListaBase.Add(NovoItem[0]);
             }
-            
+
             return ListaBase;
         }
 
@@ -122,7 +123,7 @@ namespace Controller
             {
                 Saida = true;
             }
-            
+
             return Saida;
         }
     }

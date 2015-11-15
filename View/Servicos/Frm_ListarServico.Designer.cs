@@ -34,6 +34,7 @@
             this.Cluna_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coluna_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Data_Os)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.Coluna_Identificador,
             this.Cluna_Cliente,
             this.Coluna_Data,
-            this.Valor});
+            this.Valor,
+            this.Column1});
             this.Data_Os.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Data_Os.EnableHeadersVisualStyles = false;
             this.Data_Os.Location = new System.Drawing.Point(0, 0);
@@ -78,6 +80,11 @@
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Técnico";
+            this.Column1.Name = "Column1";
+            // 
             // Frm_ListarServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,5 +110,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cluna_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

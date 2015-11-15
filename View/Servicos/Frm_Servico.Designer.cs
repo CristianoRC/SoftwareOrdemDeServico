@@ -65,9 +65,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Valor Adicional:";
+            this.label2.Text = "Valor:";
             // 
             // Txt_Valor
             // 
@@ -128,6 +128,7 @@
             this.Txt_Servico.Name = "Txt_Servico";
             this.Txt_Servico.Size = new System.Drawing.Size(208, 21);
             this.Txt_Servico.TabIndex = 9;
+            this.Txt_Servico.SelectedIndexChanged += new System.EventHandler(this.Txt_Servico_SelectedIndexChanged);
             // 
             // Frm_Servico
             // 

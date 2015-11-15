@@ -17,8 +17,6 @@ namespace View.OS
             OrdemServico OSBase = new OrdemServico();
             ControllerOrdemServico controllerOS = new ControllerOrdemServico();
 
-            bool TemInformacao = false;
-
             foreach (var item in controllerOS.LoadList())
             {
                 if (!string.IsNullOrWhiteSpace(controllerOS.Load(item).Identificador))
@@ -27,13 +25,7 @@ namespace View.OS
 
                     Data_Os.Rows.Add(OSBase.Identificador, OSBase.Defeito, OSBase.Equipamento, OSBase.Situacao, OSBase.Cliente, OSBase.DataEntradaServico);
 
-                    TemInformacao = true;
                 }
-            }
-
-            if (!TemInformacao)
-            {
-                Data_Os.Rows.Add("Nada foi encontrado", "Nada foi encontrado", "Nada foi encontrado", "Nada foi encontrado");
             }
         }
     }

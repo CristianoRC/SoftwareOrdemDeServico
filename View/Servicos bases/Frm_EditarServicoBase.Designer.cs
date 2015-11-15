@@ -129,6 +129,7 @@
             this.Btm_Carregar.TabIndex = 15;
             this.Btm_Carregar.Text = "Carregar";
             this.Btm_Carregar.UseVisualStyleBackColor = true;
+            this.Btm_Carregar.Click += new System.EventHandler(this.Btm_Carregar_Click);
             // 
             // Txt_ServicoBase
             // 
