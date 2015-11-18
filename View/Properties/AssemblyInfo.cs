@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
 [assembly: AssemblyTitle("Software Ordem de serviço")]
-[assembly: AssemblyDescription("Software desenvolvido para o melhore gerenciamento de ordens de serviço")]
+[assembly: AssemblyDescription("Software desenvolvido para informatizar o sistema de gerenciamento de ordem de serviço.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cristiano Cunha")]
 [assembly: AssemblyProduct("Software OS")]
@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 // Definir ComVisible como false torna invisíveis os tipos neste assembly
 // para componentes COM.  Caso precise acessar um tipo neste assembly a partir de 
 // COM, defina o atributo ComVisible como true nesse tipo.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
 [assembly: Guid("72c53e37-2cbd-4311-bb03-9bbfc9d5a926")]

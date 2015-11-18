@@ -35,13 +35,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.códigosHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,9 +52,10 @@
             // 
             this.Txt_EmailBase.Location = new System.Drawing.Point(0, 27);
             this.Txt_EmailBase.Name = "Txt_EmailBase";
-            this.Txt_EmailBase.Size = new System.Drawing.Size(343, 270);
+            this.Txt_EmailBase.Size = new System.Drawing.Size(638, 257);
             this.Txt_EmailBase.TabIndex = 0;
             this.Txt_EmailBase.Text = "";
+            this.Txt_EmailBase.TextChanged += new System.EventHandler(this.Txt_EmailBase_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -62,10 +65,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salvarToolStripMenuItem});
+            this.salvarToolStripMenuItem,
+            this.códigosHTMLToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(343, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(638, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,7 +83,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label4);
@@ -87,30 +92,50 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 294);
+            this.panel1.Location = new System.Drawing.Point(0, 281);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 120);
+            this.panel1.Size = new System.Drawing.Size(638, 159);
             this.panel1.TabIndex = 3;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Códigos:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(47, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 15);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "= Data/Hora Atual";
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "**Cliente";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 15);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "**Data";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(70, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 15);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "= Nome da empresa";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 15);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "**Empresa";
             // 
             // label3
             // 
@@ -122,51 +147,49 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "= Nome do Cliente";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(70, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "= Nome da empresa";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "**Cliente";
             // 
-            // label5
+            // label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "**Empresa";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Códigos:";
             // 
-            // label6
+            // códigosHTMLToolStripMenuItem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(47, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 15);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "= Data/Hora Atual";
+            this.códigosHTMLToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("códigosHTMLToolStripMenuItem.Image")));
+            this.códigosHTMLToolStripMenuItem.Name = "códigosHTMLToolStripMenuItem";
+            this.códigosHTMLToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.códigosHTMLToolStripMenuItem.Text = "Códigos HTML";
+            this.códigosHTMLToolStripMenuItem.Click += new System.EventHandler(this.códigosHTMLToolStripMenuItem_Click);
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 15);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "**Data";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(399, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(227, 15);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Códigos HTML podem ser usados!";
             // 
             // Frm_EmailBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 408);
+            this.ClientSize = new System.Drawing.Size(638, 428);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Txt_EmailBase);
@@ -201,5 +224,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem códigosHTMLToolStripMenuItem;
+        private System.Windows.Forms.Label label9;
     }
 }

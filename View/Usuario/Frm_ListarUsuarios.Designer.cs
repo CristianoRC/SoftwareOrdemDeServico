@@ -61,7 +61,7 @@
             // 
             // Coluna_Produto
             // 
-            this.Coluna_Produto.HeaderText = "Tipo";
+            this.Coluna_Produto.HeaderText = "Nível de acesso";
             this.Coluna_Produto.Name = "Coluna_Produto";
             // 
             // Frm_ListarUsuarios

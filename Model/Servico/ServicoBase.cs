@@ -1,8 +1,5 @@
 ﻿namespace Model
 {
-    /// <summary>
-    /// Serviçoes basicos que a empresa faz.
-    /// </summary>
     public class ServicoBase
     {
         private string nome;

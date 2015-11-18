@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-
-namespace Model.Ordem_de_Servico
+﻿namespace Model.Ordem_de_Servico
 {
     public class Servico
     {
@@ -10,7 +6,7 @@ namespace Model.Ordem_de_Servico
         private string servicoBase;
         private string tecnico;
         private double valor;
-        
+
         public string Descricao
         {
             get

@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Diagnostics;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
-namespace Model.Ordem_de_Servico
+﻿namespace Model.Ordem_de_Servico
 {
     public class OrdemServico
     {

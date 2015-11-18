@@ -58,6 +58,7 @@
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
             this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
+            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -315,7 +316,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Btm_Salvar});
+            this.Btm_Salvar,
+            this.testeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(846, 24);
@@ -419,5 +421,6 @@
         private System.Windows.Forms.ToolStripMenuItem Btm_Salvar;
         private System.Windows.Forms.MaskedTextBox Txt_Email;
         private System.Windows.Forms.MaskedTextBox Txt_Cep;
+        private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
     }
 }

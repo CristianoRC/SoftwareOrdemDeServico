@@ -26,5 +26,16 @@ namespace View
 
             Txt_EmailBase.Text = controllerEmail.LoadEmailBase();
         }
+
+        private void Txt_EmailBase_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void códigosHTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Abrindo site com os códigos HTML
+            System.Diagnostics.Process.Start(@"http://codigofonte.uol.com.br/artigos/principais-tags-de-html");
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-
-namespace Model.Pessoa_e_Usuario
+﻿namespace Model.Pessoa_e_Usuario
 {
     public class Juridica : Pessoa
     {

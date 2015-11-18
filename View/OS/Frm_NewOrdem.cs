@@ -45,11 +45,11 @@ namespace View.OS
 
         private void Btm_Pesquisar_Click(object sender, EventArgs e)
         {
-
-            Txt_ListaPessoa.Items.Clear();
-
+            
             if (CheckPessoaFisica.Checked == true)
             {
+                Txt_ListaPessoa.Items.Clear();
+
                 ControllerFisica controllerPF = new ControllerFisica();
 
                 foreach (var item in controllerPF.LoadList())
@@ -62,6 +62,8 @@ namespace View.OS
 
             if (CheckPessoaJuridica.Checked == true)
             {
+                Txt_ListaPessoa.Items.Clear();
+
                 ControllerJuridica controllerPJ = new ControllerJuridica();
 
                 foreach (var item in controllerPJ.LoadList())
