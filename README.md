@@ -6,9 +6,9 @@ Diagrama de classe (Controller): http://git.io/v8DA5
 
 Diagrama de classe (Model): http://git.io/v8DpS
 
-Sourceforege: https://sourceforge.net/projects/softwareos
+Sourceforege: https://sourceforge.net/projects/softwareos/
 
-<b>Blog:</b> https://cristianoprogramador.com
+<b>Blog:</b> http://cristianoprogramador.com/
 
 <b>E-mail:</b> cristianocunha@ti1.info
 
