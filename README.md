@@ -10,7 +10,7 @@ Sourceforege: https://sourceforge.net/projects/softwareos/
 
 <b>Blog:</b> http://cristianoprogramador.com/
 
-<b>E-mail:</b> cristianocunha@ti1.info
+<b>E-mail:</b> contato@cristianoprogramador.com
 
 
 <p> </p>
