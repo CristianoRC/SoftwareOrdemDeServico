@@ -100,5 +100,42 @@ namespace Controller
 
             return listaBase;
         }
+
+        /// <summary>
+        /// Verificando se o arquivo do serviço existe ou não.
+        /// </summary>
+        /// <param name="identificador"></param>
+        /// <returns></returns>
+        public bool Verificar(string identificador)
+        {
+            bool saida = false;
+
+            if (File.Exists(string.Format("Os/Servicos/{0}.txt",identificador)))
+            {
+                saida = true;
+            }
+            return saida;
+        }
+
+        /// <summary>
+        /// Excluindo servico
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <returns>Resultado da operação</returns>
+        public string Excluir(string Identificador)
+        {
+            string saida = String.Format("O serviço numero {0} foi excluido com sucesso!", Identificador);
+
+            try
+            {
+                File.Delete(string.Format("OS/Servicos/{0}.txt", Identificador));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir o serviço: {0}", exc.Message);
+            }
+
+            return saida;
+        }
     }
 }

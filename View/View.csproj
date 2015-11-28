@@ -72,6 +72,24 @@
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="OS\Frm_ExcluirOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OS\Frm_ExcluirOS.Designer.cs">
+      <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ExcluirPessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ExcluirPessoaFisica.Designer.cs">
+      <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ExcluirPessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ExcluirPessoaJuridica.Designer.cs">
+      <DependentUpon>Frm_ExcluirPessoaJuridica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicos bases\Frm_ListarServicoBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +107,12 @@
     </Compile>
     <Compile Include="Servicos bases\Frm_NewServicoBase.Designer.cs">
       <DependentUpon>Frm_NewServicoBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicos\Frm_ExcluirServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicos\Frm_ExcluirServico.Designer.cs">
+      <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicos\Frm_Servico.cs">
       <SubType>Form</SubType>
@@ -119,6 +143,12 @@
     </Compile>
     <Compile Include="Usuario\Frm_EditUsu.Designer.cs">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Frm_ExcluirUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Frm_ExcluirUsuario.Designer.cs">
+      <DependentUpon>Frm_ExcluirUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Frm_ListarUsuarios.cs">
       <SubType>Form</SubType>
@@ -206,6 +236,15 @@
     <EmbeddedResource Include="Email\Frm_EmailBase.resx">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OS\Frm_ExcluirOS.resx">
+      <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaFisica.resx">
+      <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaJuridica.resx">
+      <DependentUpon>Frm_ExcluirPessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicos bases\Frm_EditarServicoBase.resx">
       <DependentUpon>Frm_EditarServicoBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos bases\Frm_NewServicoBase.resx">
       <DependentUpon>Frm_NewServicoBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicos\Frm_ExcluirServico.resx">
+      <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ListarServico.resx">
       <DependentUpon>Frm_ListarServico.cs</DependentUpon>
@@ -229,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Frm_ExcluirUsuario.resx">
+      <DependentUpon>Frm_ExcluirUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_ListarUsuarios.resx">
       <DependentUpon>Frm_ListarUsuarios.cs</DependentUpon>
@@ -295,6 +340,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\Lista.png" />
+    <None Include="Resources\Juridica.png" />
+    <None Include="Resources\Fisica.png" />
+    <None Include="Resources\Delete-512.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj">

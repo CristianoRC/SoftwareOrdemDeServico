@@ -34,6 +34,14 @@ namespace View
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
                 serviçosBásicosToolStripMenuItem.Enabled = false;
+
+                //Desativando função de excluir para usuarios
+                excluirToolStripMenuItem3.Enabled = false;
+                excluirToolStripMenuItem2.Enabled = false;
+                excluirToolStripMenuItem1.Enabled = false;
+                excluirToolStripMenuItem.Enabled = false;
+                excluirToolStripMenuItem4.Enabled = false;
+
             }
         }
 
@@ -154,24 +162,6 @@ namespace View
             Frm_ListarOS.Show();
         }
 
-        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Pessoas.Frm_ListarJuridica Frm_ListarJuridica = new Pessoas.Frm_ListarJuridica();
-
-            Frm_ListarJuridica.MdiParent = this;
-
-            Frm_ListarJuridica.Show();
-        }
-
-        private void listarFísicaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Pessoas.Frm_ListarFisica Frm_ListarFisica = new Pessoas.Frm_ListarFisica();
-
-            Frm_ListarFisica.MdiParent = this;
-
-            Frm_ListarFisica.Show();
-        }
-
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("calc");
@@ -289,6 +279,87 @@ namespace View
             frm_ListarServicoBase.MdiParent = this;
 
             frm_ListarServicoBase.Show();
+        }
+
+        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_PessoaFisica Pessoa = new Pessoas.Frm_PessoaFisica();
+
+            Pessoa.MdiParent = this;
+
+            Pessoa.Show();
+        }
+
+        private void cadastrarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_PessoaJuridica Pessoa = new Pessoas.Frm_PessoaJuridica();
+
+            Pessoa.MdiParent = this;
+
+            Pessoa.Show();
+        }
+
+        private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ListarFisica Frm_ListarFisica = new Pessoas.Frm_ListarFisica();
+
+            Frm_ListarFisica.MdiParent = this;
+
+            Frm_ListarFisica.Show();
+        }
+
+        private void listarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ListarJuridica Frm_ListarJuridica = new Pessoas.Frm_ListarJuridica();
+
+            Frm_ListarJuridica.MdiParent = this;
+
+            Frm_ListarJuridica.Show();
+        }
+
+        private void excluirToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            OS.Frm_ExcluirOS frm_ExcluirOS = new OS.Frm_ExcluirOS();
+
+            frm_ExcluirOS.MdiParent = this;
+
+            frm_ExcluirOS.Show();
+        }
+
+        private void excluirToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Servicos.Frm_ExcluirServico frm_ExcluirServico = new Servicos.Frm_ExcluirServico();
+
+            frm_ExcluirServico.MdiParent = this;
+
+            frm_ExcluirServico.Show();
+        }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ExcluirPessoaFisica frm_ExcluirPF = new Pessoas.Frm_ExcluirPessoaFisica();
+
+            frm_ExcluirPF.MdiParent = this;
+
+            frm_ExcluirPF.Show();
+        }
+
+        private void excluirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pessoas.Frm_ExcluirPessoaJuridica frm_ExcluirPJ = new Pessoas.Frm_ExcluirPessoaJuridica();
+
+            frm_ExcluirPJ.MdiParent = this;
+
+            frm_ExcluirPJ.Show();
+        }
+
+        private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            View.Usuario.Frm_ExcluirUsuario frm_ExcluirUsuario = new View.Usuario.Frm_ExcluirUsuario();
+
+            frm_ExcluirUsuario.MdiParent = this;
+
+            frm_ExcluirUsuario.Show();
         }
     }
 }

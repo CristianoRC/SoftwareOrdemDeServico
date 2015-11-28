@@ -472,5 +472,25 @@ namespace Controller
             return Encontrado;
         }
 
+        /// <summary>
+        /// Excluindo ordem de serviço.
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <returns>Resultado da operação</returns>
+        public string Excluir(string Identificador)
+        {
+            string saida = String.Format("A ordem de serviço numero {0} foi excluida com sucesso!",Identificador);
+
+            try
+            {
+                File.Delete(string.Format("OS/{0}.OS",Identificador));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir a ordem de serviço: {0}", exc.Message);
+            }
+
+            return saida;
+        }
     }
 }

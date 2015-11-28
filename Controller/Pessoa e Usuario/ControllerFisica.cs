@@ -194,5 +194,27 @@ namespace Controller
             return Encontrado;
         }
 
+
+        /// <summary>
+        /// Excluindo pessoa física
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns>Resultado da operação</returns>
+        public string Excluir(string Nome)
+        {
+            string saida = String.Format("Pessoa física {0} foi excluida com sucesso!", Nome);
+
+            try
+            {
+                File.Delete(string.Format("Pessoa/F/{0}.pessoaf", Nome));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir a pessoa física: {0}", exc.Message);
+            }
+
+            return saida;
+        }
+
     }
 }

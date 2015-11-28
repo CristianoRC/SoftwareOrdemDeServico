@@ -51,7 +51,6 @@
             this.Coluna_situacao,
             this.Cluna_Cliente,
             this.Coluna_Data});
-            this.Data_Os.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Data_Os.Location = new System.Drawing.Point(0, 0);
             this.Data_Os.Name = "Data_Os";
             this.Data_Os.ReadOnly = true;

@@ -192,5 +192,26 @@ namespace Controller
             return Encontrado;
         }
 
+        /// <summary>
+        /// Excluindo pessoa jurídica
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns>Resultado da operação</returns>
+        public string Excluir(string Nome)
+        {
+            string saida = String.Format("Pessoa jurídica {0} foi excluida com sucesso!", Nome);
+
+            try
+            {
+                File.Delete(string.Format("Pessoa/J/{0}.pessoaj", Nome));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir a pessoa jurídica: {0}", exc.Message);
+            }
+
+            return saida;
+        }
+
     }
 }

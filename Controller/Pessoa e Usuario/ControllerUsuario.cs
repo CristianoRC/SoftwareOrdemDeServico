@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
 
 namespace Controller
-{
+{   
+    /// <summary>
+    /// Usada como classe dos técnicos da empresa, cada um com o seu login.
+    /// </summary>
     public class ControllerUsuario
     {
 
@@ -214,6 +217,27 @@ namespace Controller
             }
 
             return UsuarioEncontrado;
+        }
+
+        /// <summary>
+        /// Excluindo usuario
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns>Resultado da operação</returns>
+        public string Excluir(string Nome)
+        {
+            string saida = String.Format("O técnico {0} foi excluida com sucesso!", Nome);
+
+            try
+            {
+                File.Delete(string.Format("Usuario/{0}.dat", Nome));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir o técnico: {0}", exc.Message);
+            }
+
+            return saida;
         }
     }
 }
