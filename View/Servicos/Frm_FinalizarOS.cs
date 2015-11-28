@@ -61,7 +61,7 @@ namespace View
                             Model.Email EmailBase = new Model.Email();
 
                             //Decodificando Email Base para enviar!
-                            String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0]);
+                            String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0],RecuperarNomeEquipamento());
 
                             string ResultadoEnvio = controllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
 
@@ -153,6 +153,23 @@ namespace View
             TextoEmail = controllerEmail.LoadEmailBase();
 
             return TextoEmail;
+        }
+
+        /// <summary>
+        /// Pegando o nome do equipamento para decodificar na menssagem do e-mail
+        /// </summary>
+        /// <returns></returns>
+        private string RecuperarNomeEquipamento()
+        {
+            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
+            OrdemServico OSBase = new OrdemServico();
+
+            string NomeEquipamento = "Não encontrado";
+
+            OSBase = controllerOS.LoadOSFinalizada(Txt_OS.Text); //Carregando informações da ordem de serviço para a OSBase;
+            NomeEquipamento = OSBase.Equipamento;
+
+            return NomeEquipamento;
         }
 
         /// <summary>

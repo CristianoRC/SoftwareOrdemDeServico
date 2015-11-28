@@ -361,5 +361,14 @@ namespace View
 
             frm_ExcluirUsuario.Show();
         }
+
+        private void finalizarOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_Servico frm_Servico = new Frm_Servico(Lbl_Nome.Text);
+
+            frm_Servico.MdiParent = this;
+
+            frm_Servico.Show();
+        }
     }
 }

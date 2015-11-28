@@ -2,7 +2,6 @@
 using System.IO;
 using Spartacus.Utils;
 using Model;
-using Controller;
 
 namespace Controller
 {
@@ -215,18 +214,20 @@ namespace Controller
         /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
         /// </summary>
         /// <param name="EmailBase"></param>
-        public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente)
+        public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente,string NomeEquipamento)
         {
             string TextoEmail;
             string EmailTemporario;
             ControllerEmail controllerEmail = new ControllerEmail();
 
             TextoEmail = controllerEmail.LoadEmailBase();
-
+            
             //Transformando os "Códigos digitados pelo usuario" em seu resultado;
             EmailTemporario = TextoEmail.Replace("**Cliente", NomeCliente);
 
             EmailTemporario = EmailTemporario.Replace("**Empresa", NomeEmpresa);
+
+            EmailTemporario = EmailTemporario.Replace("**Equipamento", NomeEquipamento);
 
             EmailTemporario = EmailTemporario.Replace("**Data", DateTime.Now.ToString());
             TextoEmail = EmailTemporario;

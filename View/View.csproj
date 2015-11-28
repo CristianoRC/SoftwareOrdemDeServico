@@ -114,11 +114,11 @@
     <Compile Include="Servicos\Frm_ExcluirServico.Designer.cs">
       <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicos\Frm_Servico.cs">
+    <Compile Include="Servicos\Frm_FinalizarOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicos\Frm_Servico.Designer.cs">
-      <DependentUpon>Frm_Servico.cs</DependentUpon>
+    <Compile Include="Servicos\Frm_FinalizarOS.Designer.cs">
+      <DependentUpon>Frm_FinalizarOS.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicos\Frm_ListarServico.cs">
       <SubType>Form</SubType>
@@ -266,8 +266,8 @@
     <EmbeddedResource Include="Outros\Frm_Backup.resx">
       <DependentUpon>Frm_Backup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicos\Frm_Servico.resx">
-      <DependentUpon>Frm_Servico.cs</DependentUpon>
+    <EmbeddedResource Include="Servicos\Frm_FinalizarOS.resx">
+      <DependentUpon>Frm_FinalizarOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Frm_EditUsu.resx">
       <DependentUpon>Frm_EditUsu.cs</DependentUpon>
