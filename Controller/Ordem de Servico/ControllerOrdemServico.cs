@@ -28,6 +28,7 @@ namespace Controller
         /// <param name="Cliente"></param>
         public void CreatPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
+            
             Document Documento = new Document();
             string local = String.Format("{0}/OS.pdf", Path.GetTempPath());
             PdfWriter.GetInstance(Documento, new FileStream(local, FileMode.Create));
