@@ -61,8 +61,10 @@ namespace Controller
         /// </summary>
         /// <param name="localizacaoArquivoZip"></param>
         /// <param name="destino"></param>
-        public void ExtrairArquivoZip(string localizacaoArquivoZip, string destino)
+        public string ExtrairArquivoZip(string localizacaoArquivoZip, string destino)
         {
+            string saida;
+
             if (File.Exists(localizacaoArquivoZip))
             {
                 //recebe a localização do arquivo zip
@@ -74,25 +76,34 @@ namespace Controller
                         try
                         {
                             //extrai o arquivo zip para o destino
+                            zip.ExtractExistingFile = ExtractExistingFileAction.OverwriteSilently; // Sobrepor os arquivos para não dar erro de arquivo já existente.
                             zip.ExtractAll(destino);
-                        }
-                        catch
-                        {
+                           
 
+                            saida = "O backup fou restaurado com sucesso. Reinicie o software para finalizar a operação.";
+                        }
+                        catch (System.Exception exc)
+                        {
+                            saida = "Falha ao restaurar o backup";
+
+                            Arquivos.ArquivoLog arquivolog = new Arquivos.ArquivoLog();
+
+                            arquivolog.ArquivoExceptionLog(exc);
                         }
                     }
                     else
                     {
                         //lança uma exceção se o destino não existe
-                        throw new DirectoryNotFoundException("O arquivo destino não foi localizado");
+                        saida = "O arquivo destino não foi localizado";
                     }
                 }
             }
             else
             {
                 //lança uma exceção se a origem não existe
-                throw new FileNotFoundException("O Arquivo Zip não foi localizado");
+                saida = "O Arquivo Zip não foi localizado";
             }
+            return saida;
         }
     }
 }

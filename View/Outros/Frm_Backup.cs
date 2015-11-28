@@ -22,13 +22,15 @@ namespace View
             Diretorios.Add("Pessoa/");
             Diretorios.Add("Usuario/");
             Diretorios.Add("ServicosBase/");
-            Diretorios.Add("Email.txt");
-            Diretorios.Add("Menssagem.txt");
+            Diretorios.Add("Email.dat");
+            Diretorios.Add("Menssagem.dat");
             Diretorios.Add("Logo.png");
+            Diretorios.Add("Empresa.CFG");
+            Diretorios.Add("Log.txt");
 
             backup.CriarArquivoZip(Diretorios, string.Format("Backup.rar"));
 
-            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu softwar", DateTime.Now), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu software", DateTime.Now), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
@@ -39,9 +41,9 @@ namespace View
 
             openFileDialog1.ShowDialog();
 
-            backup.ExtrairArquivoZip(openFileDialog1.FileName, diretorio);
+            string saida = backup.ExtrairArquivoZip(openFileDialog1.FileName, diretorio);
 
-            MessageBox.Show(String.Format("Backup recuperado com sucesso!"), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

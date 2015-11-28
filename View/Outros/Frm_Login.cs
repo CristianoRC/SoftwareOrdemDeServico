@@ -12,16 +12,7 @@ namespace View
             InitializeComponent();
         }
 
-        private void Btm_Sair_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseja realmente sair", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-
-        private void bTM_lOGAR_Click(object sender, EventArgs e)
+        private void logar()
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
             ControllerUsuario controllerUsuario = new ControllerUsuario();
@@ -52,12 +43,23 @@ namespace View
             }
         }
 
+        private void Btm_Sair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente sair", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void bTM_lOGAR_Click(object sender, EventArgs e)
+        {
+            logar();
+        }
 
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Visible = false;
         }
-
 
         private void Frm_Login_Load(object sender, EventArgs e)
         {
@@ -86,6 +88,22 @@ namespace View
             {
                 //Carregando o logo da empresa para o PictureBox
                 pictureBox1.ImageLocation = "Logo.png";
+            }
+        }
+
+        private void Txt_Senha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                logar();
+            }
+        }
+
+        private void Txt_Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                logar();
             }
         }
     }
