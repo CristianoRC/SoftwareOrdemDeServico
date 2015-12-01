@@ -56,17 +56,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
+            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
-            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Txt_Lista = new System.Windows.Forms.ComboBox();
+            this.Btm_Carregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Location = new System.Drawing.Point(12, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -74,14 +80,14 @@
             // 
             // Txt_Nome
             // 
-            this.Txt_Nome.Location = new System.Drawing.Point(69, 46);
+            this.Txt_Nome.Location = new System.Drawing.Point(69, 99);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(236, 20);
             this.Txt_Nome.TabIndex = 1;
             // 
             // Txt_Endereco
             // 
-            this.Txt_Endereco.Location = new System.Drawing.Point(69, 84);
+            this.Txt_Endereco.Location = new System.Drawing.Point(69, 137);
             this.Txt_Endereco.Name = "Txt_Endereco";
             this.Txt_Endereco.Size = new System.Drawing.Size(236, 20);
             this.Txt_Endereco.TabIndex = 3;
@@ -89,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 88);
+            this.label2.Location = new System.Drawing.Point(12, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
@@ -98,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 130);
+            this.label3.Location = new System.Drawing.Point(12, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
@@ -106,7 +112,7 @@
             // 
             // Txt_Situacao
             // 
-            this.Txt_Situacao.Location = new System.Drawing.Point(69, 168);
+            this.Txt_Situacao.Location = new System.Drawing.Point(69, 221);
             this.Txt_Situacao.Name = "Txt_Situacao";
             this.Txt_Situacao.Size = new System.Drawing.Size(236, 20);
             this.Txt_Situacao.TabIndex = 7;
@@ -114,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 172);
+            this.label4.Location = new System.Drawing.Point(12, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 6;
@@ -123,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 219);
+            this.label5.Location = new System.Drawing.Point(12, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 8;
@@ -131,7 +137,7 @@
             // 
             // Txt_Cidade
             // 
-            this.Txt_Cidade.Location = new System.Drawing.Point(519, 49);
+            this.Txt_Cidade.Location = new System.Drawing.Point(519, 102);
             this.Txt_Cidade.Name = "Txt_Cidade";
             this.Txt_Cidade.Size = new System.Drawing.Size(236, 20);
             this.Txt_Cidade.TabIndex = 11;
@@ -139,7 +145,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(440, 53);
+            this.label6.Location = new System.Drawing.Point(440, 106);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 10;
@@ -147,7 +153,7 @@
             // 
             // Txt_Bairro
             // 
-            this.Txt_Bairro.Location = new System.Drawing.Point(519, 84);
+            this.Txt_Bairro.Location = new System.Drawing.Point(519, 137);
             this.Txt_Bairro.Name = "Txt_Bairro";
             this.Txt_Bairro.Size = new System.Drawing.Size(236, 20);
             this.Txt_Bairro.TabIndex = 13;
@@ -155,7 +161,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 88);
+            this.label7.Location = new System.Drawing.Point(440, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 12;
@@ -164,7 +170,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(440, 130);
+            this.label8.Location = new System.Drawing.Point(440, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 13);
             this.label8.TabIndex = 14;
@@ -172,7 +178,7 @@
             // 
             // Txt_Observacoes
             // 
-            this.Txt_Observacoes.Location = new System.Drawing.Point(519, 168);
+            this.Txt_Observacoes.Location = new System.Drawing.Point(519, 221);
             this.Txt_Observacoes.Multiline = true;
             this.Txt_Observacoes.Name = "Txt_Observacoes";
             this.Txt_Observacoes.Size = new System.Drawing.Size(236, 73);
@@ -181,7 +187,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(440, 168);
+            this.label9.Location = new System.Drawing.Point(440, 221);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 13);
             this.label9.TabIndex = 16;
@@ -218,7 +224,7 @@
             "São Paulo - SP",
             "Sergipe - SE",
             "Tocantins - TO"});
-            this.Txt_Estado.Location = new System.Drawing.Point(69, 215);
+            this.Txt_Estado.Location = new System.Drawing.Point(69, 268);
             this.Txt_Estado.Name = "Txt_Estado";
             this.Txt_Estado.Size = new System.Drawing.Size(236, 21);
             this.Txt_Estado.TabIndex = 9;
@@ -235,9 +241,9 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(0, 258);
+            this.panel1.Location = new System.Drawing.Point(0, 311);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 131);
+            this.panel1.Size = new System.Drawing.Size(873, 109);
             this.panel1.TabIndex = 18;
             // 
             // Txt_CPF
@@ -317,7 +323,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Btm_Salvar,
-            this.testeToolStripMenuItem});
+            this.testeToolStripMenuItem,
+            this.editarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(846, 24);
@@ -332,28 +339,80 @@
             this.Btm_Salvar.Text = "Salvar";
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
             // 
+            // testeToolStripMenuItem
+            // 
+            this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
+            this.testeToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Image = global::View.Properties.Resources.Edit_User_100;
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
             // Txt_Email
             // 
-            this.Txt_Email.Location = new System.Drawing.Point(67, 123);
+            this.Txt_Email.Location = new System.Drawing.Point(67, 176);
             this.Txt_Email.Name = "Txt_Email";
             this.Txt_Email.Size = new System.Drawing.Size(235, 20);
             this.Txt_Email.TabIndex = 5;
             // 
             // Txt_Cep
             // 
-            this.Txt_Cep.Location = new System.Drawing.Point(519, 123);
+            this.Txt_Cep.Location = new System.Drawing.Point(519, 176);
             this.Txt_Cep.Mask = "99999-999";
             this.Txt_Cep.Name = "Txt_Cep";
             this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
             this.Txt_Cep.TabIndex = 15;
             this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.Txt_Lista);
+            this.panel2.Controls.Add(this.Btm_Carregar);
+            this.panel2.Location = new System.Drawing.Point(0, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(862, 40);
+            this.panel2.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(17, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Lista";
+            // 
+            // Txt_Lista
+            // 
+            this.Txt_Lista.FormattingEnabled = true;
+            this.Txt_Lista.Location = new System.Drawing.Point(64, 9);
+            this.Txt_Lista.Name = "Txt_Lista";
+            this.Txt_Lista.Size = new System.Drawing.Size(241, 21);
+            this.Txt_Lista.TabIndex = 21;
+            // 
+            // Btm_Carregar
+            // 
+            this.Btm_Carregar.Location = new System.Drawing.Point(340, 9);
+            this.Btm_Carregar.Name = "Btm_Carregar";
+            this.Btm_Carregar.Size = new System.Drawing.Size(75, 23);
+            this.Btm_Carregar.TabIndex = 22;
+            this.Btm_Carregar.Text = "Carregar";
+            this.Btm_Carregar.UseVisualStyleBackColor = true;
+            this.Btm_Carregar.Click += new System.EventHandler(this.Btm_Carregar_Click);
+            // 
             // Frm_PessoaFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(846, 391);
+            this.ClientSize = new System.Drawing.Size(846, 418);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.Txt_Email);
             this.Controls.Add(this.panel1);
@@ -381,10 +440,13 @@
             this.Name = "Frm_PessoaFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de pessoa Física";
+            this.Load += new System.EventHandler(this.Frm_PessoaFisica_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,5 +484,10 @@
         private System.Windows.Forms.MaskedTextBox Txt_Email;
         private System.Windows.Forms.MaskedTextBox Txt_Cep;
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox Txt_Lista;
+        private System.Windows.Forms.Button Btm_Carregar;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
     }
 }

@@ -93,10 +93,93 @@ namespace Controller
             }
             else
             {
-                Saida = "Pessoa Jurpidica já cadastrada.";
+                //Se o a pessoa jurídica já for cadastrada caira nesse código como retorno e nada sera salvo.
+                Saida = "Pessoa Jurídica já cadastrada.";
 
                 return Saida;
             }
+        }
+
+        /// <summary>
+        /// Editando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="endereco"></param>
+        /// <param name="email"></param>
+        /// <param name="situacao"></param>
+        /// <param name="siglaEstado"></param>
+        /// <param name="cidade"></param>
+        /// <param name="bairro"></param>
+        /// <param name="cep"></param>
+        /// <param name="observacoes"></param>
+        /// <param name="cnpj"></param>
+        /// <param name="contato"></param>
+        /// <param name="inscricaoestadual"></param>
+        /// <param name="razaosocial"></param>
+        /// <returns></returns>
+        public String Edit(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+        {
+            StreamWriter sw = null;
+            string Saida = "";
+
+            //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
+
+            try
+            {
+
+                sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd()));
+
+                Juridica PessoaJBase = new Juridica();
+
+                PessoaJBase.Nome = nome;
+                PessoaJBase.Endereco = endereco;
+                PessoaJBase.Email = email;
+                PessoaJBase.Situacao = situacao;
+                PessoaJBase.SiglaEstado = siglaEstado;
+                PessoaJBase.Cidade = cidade;
+                PessoaJBase.Bairro = bairro;
+                PessoaJBase.Cep = cep;
+                PessoaJBase.Observacoes = observacoes;
+                PessoaJBase.Cnpj = cnpj;
+                PessoaJBase.Contato = contato;
+                PessoaJBase.InscricaoEstadual = inscricaoestadual;
+                PessoaJBase.RazaoSocial = razaosocial;
+
+                //Parte de Pessoa
+                sw.WriteLine(PessoaJBase.Nome);
+                sw.WriteLine(PessoaJBase.Endereco);
+                sw.WriteLine(PessoaJBase.Email);
+                sw.WriteLine(PessoaJBase.Situacao);
+                sw.WriteLine(PessoaJBase.SiglaEstado);
+                sw.WriteLine(PessoaJBase.Cidade);
+                sw.WriteLine(PessoaJBase.Bairro);
+                sw.WriteLine(PessoaJBase.Cep);
+                sw.WriteLine(PessoaJBase.Observacoes);
+
+                //Parte de Pessoa Jurídica
+                sw.WriteLine(PessoaJBase.Cnpj);
+                sw.WriteLine(PessoaJBase.Contato);
+                sw.WriteLine(PessoaJBase.InscricaoEstadual);
+                sw.WriteLine(PessoaJBase.RazaoSocial);
+            }
+
+            catch (Exception exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+
+                Log.ArquivoExceptionLog(exc);
+
+                Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
+            }
+            finally
+            {
+                if (sw != null)
+                    sw.Close();
+
+                Saida = "Pessoa Jurídica editada com sucesso!";
+            }
+
+            return Saida;
         }
 
         /// <summary>

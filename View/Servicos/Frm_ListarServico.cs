@@ -25,9 +25,9 @@ namespace View
                 ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Identificador);
                 ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Cliente);
 
-                if (!string.IsNullOrWhiteSpace(controllerOS.LoadOSFinalizada(itemOS).Identificador))
+                if (string.IsNullOrWhiteSpace(controllerOS.LoadOSFinalizada(itemOS).Identificador))
                 {
-                    TemInformacao = true;
+                    TemInformacao = false;
                 }
 
                 foreach (var item in controllerServico.LoadList()) //Carregando informações do serviço

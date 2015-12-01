@@ -340,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\Edit User-100.png" />
     <None Include="Resources\Lista.png" />
     <None Include="Resources\Juridica.png" />
     <None Include="Resources\Fisica.png" />
