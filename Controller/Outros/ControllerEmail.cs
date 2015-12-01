@@ -2,6 +2,7 @@
 using System.IO;
 using Spartacus.Utils;
 using Model;
+using System.Net.Mail;
 
 namespace Controller
 {
@@ -89,9 +90,9 @@ namespace Controller
 
             EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
 
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage(); //Menssagem
-            mail.From = new System.Net.Mail.MailAddress(EmailBase.EnderecoEmail);
+            SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
+            MailMessage mail = new MailMessage(); //Menssagem
+            mail.From = new MailAddress(EmailBase.EnderecoEmail);
 
 
             //Configurando servidor.
@@ -114,6 +115,72 @@ namespace Controller
 
             //Prioridade de Envio.
             mail.Priority = System.Net.Mail.MailPriority.High;
+
+            try
+            {
+                //Envia o email.
+                smtp.Send(mail);
+
+                Saida = "E-mail enviado com sucesso!";
+            }
+            catch (System.Exception exc)
+            {
+                //Gerando arquivo de Log
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+
+                Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
+            }
+
+            return Saida;
+        }
+
+        /// <summary>
+        ///  Configurando e enviando e-mail. (Decodificando)
+        /// </summary>
+        /// <param name="NomeUsuario"></param>
+        public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
+        {
+            string Saida = " ";
+
+            Email EmailBase = new Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
+
+            //TODO:Fazer sistema de Menssagem de E-mail com anexo.
+            EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
+
+            SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
+            MailMessage mail = new MailMessage(); //Menssagem
+            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+
+
+            //Configurando servidor.
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+
+
+            //Assunto do email.
+            mail.Subject = String.Format("Ordem de serviço [ {0} ]", NomeEmpresa);
+
+            //Informando sobre o corpo.
+            mail.IsBodyHtml = true;
+
+            //Conteúdo do email.
+            mail.Body = MenssagemBase;
+
+            //Adicionando E-mail do cliente para enviar.
+            mail.To.Add(EmailCliente);
+
+            //Prioridade de Envio.
+            mail.Priority = MailPriority.High;
+
+            // Criar o arquivo anexo para esse e-mail.
+            string file = String.Format("{0}/OS.pdf", Path.GetTempPath());
+            Attachment data = new Attachment(file);
+
+            //Inclui o arquivo anexo.
+            mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.
 
             try
             {
@@ -214,14 +281,14 @@ namespace Controller
         /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
         /// </summary>
         /// <param name="EmailBase"></param>
-        public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente,string NomeEquipamento)
+        public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento)
         {
             string TextoEmail;
             string EmailTemporario;
             ControllerEmail controllerEmail = new ControllerEmail();
 
             TextoEmail = controllerEmail.LoadEmailBase();
-            
+
             //Transformando os "Códigos digitados pelo usuario" em seu resultado;
             EmailTemporario = TextoEmail.Replace("**Cliente", NomeCliente);
 

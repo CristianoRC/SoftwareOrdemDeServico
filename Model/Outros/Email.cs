@@ -57,5 +57,6 @@
             }
         }
 
+        public static object Attachments { get; set; }
     }
 }

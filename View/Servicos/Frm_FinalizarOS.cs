@@ -58,7 +58,7 @@ namespace View
                     {
                         if (MessageBox.Show("Enviar E-mail para o cliente informando sobre o término do serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            Model.Email EmailBase = new Model.Email();
+                            Email EmailBase = new Email();
 
                             //Decodificando Email Base para enviar!
                             String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0],RecuperarNomeEquipamento());
