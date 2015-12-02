@@ -39,7 +39,7 @@ namespace View.OS
                 ControllerEmail controllerEmail = new ControllerEmail();
                 Email EmailBase = new Email();
 
-                string ResultadoEnvio = controllerEmail.EnviarOrdemDeServiço("Cristiano", "Contato@cristianoprogramador.com", NomeEmpresa(), Txt_Nordem.Text);
+                string ResultadoEnvio = controllerEmail.EnviarOrdemDeServiço(RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[0], RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[1], NomeEmpresa(), Txt_Nordem.Text);
 
                 //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
 
@@ -94,7 +94,6 @@ namespace View.OS
             //Passando valor do usuario selecionado para o novo formularios na hora de registrar a ordem de seviço.
         }
 
-        //TODO:Arrumar sistema de e-mail  só para esse tipo(com Anexo da Ordem de serviço).
 
         /// <summary>
         /// Recuperando informações da empresa
@@ -114,25 +113,19 @@ namespace View.OS
         }
 
         /// <summary>
-        /// Recuperando E-mail base;
+        /// Recuperando informações do cliente
         /// </summary>
-        /// <returns>Texto do E-mail base ainda codificado.</returns>
-        private string RecuperandoEmailBase()
+        /// <param name="NomePessoa"></param>
+        /// <param name="Tipo"></param>
+        /// <returns></returns>
+        private List<string> RecuperarInformacoesCliente(String NomePessoa, Char Tipo)
         {
-            Email Email = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
+            ControllerFisica ControllerPF = new ControllerFisica();
+            ControllerJuridica ControllerPJ = new ControllerJuridica();
 
-            string TextoEmail = "Não encontrado";
+            Fisica PessoaFisicaBase = new Fisica(); ;
+            Juridica PessoaJuridicaBase = new Juridica();
 
-            TextoEmail = controllerEmail.LoadEmailBase();
-
-            return TextoEmail;
-        }
-
-        private List<string> InformacoesCliente(String Nome, Char Tipo)
-        {
-            ControllerFisica PessoaFisicaBase = new ControllerFisica();
-            ControllerJuridica PessoaJuridicaBase = new ControllerJuridica();
             List<String> ListaDeVolta = new List<string>();
 
             ListaDeVolta.Add("Nada foi encontrado");
@@ -140,18 +133,38 @@ namespace View.OS
 
             if (Tipo == 'J')
             {
-                PessoaJuridicaBase.Load(Nome);
+                PessoaJuridicaBase = ControllerPJ.Load(NomePessoa);
+
+                ListaDeVolta[0] = PessoaJuridicaBase.Nome;
+
+                ListaDeVolta[1] = PessoaJuridicaBase.Email;
             }
             else if (Tipo == 'F')
             {
-                PessoaFisicaBase.Load(Nome);
-            }
-            else
-            {
+                PessoaFisicaBase = ControllerPF.Load(NomePessoa);
 
+                ListaDeVolta[0] = PessoaFisicaBase.Nome;
+
+                ListaDeVolta[1] = PessoaFisicaBase.Email;
             }
 
             return ListaDeVolta;
+        }
+
+        /// <summary>
+        /// Recupera o tipo de pessoa que foi carregada.
+        /// </summary>
+        /// <returns></returns>
+        private char RecuperarTipo()
+        {
+            char saida = 'F'; // Inicia com o F porque ele já vem marcado como padrão.
+
+            if (CheckPessoaJuridica.Checked)
+            {
+                saida = 'J';
+            }
+
+            return saida;
         }
     }
 }

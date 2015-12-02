@@ -142,7 +142,7 @@ namespace Controller
         public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
         {
             string Saida = " ";
-            string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi gerado com sucesso, ela esta anexo a esse e-mail.", NomeCliente, NumeroDaOrdem);
+            string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", NomeCliente, NumeroDaOrdem);
 
 
             Email EmailBase = new Email();
@@ -178,7 +178,10 @@ namespace Controller
             mail.Priority = MailPriority.High;
             // Criar o arquivo anexo para esse e-mail.
             string file = String.Format("{0}/OS.pdf", Path.GetTempPath());
+
             Attachment data = new Attachment(file);
+
+            data.Name = String.Format("{0}.pdf", NumeroDaOrdem); //Mudando o nome do arquivo antes de enviar o E-mail.
 
             //Inclui o arquivo anexo.
             mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.
