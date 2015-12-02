@@ -139,9 +139,11 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
+        public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
         {
             string Saida = " ";
+            string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi gerado com sucesso, ela esta anexo a esse e-mail.", NomeCliente, NumeroDaOrdem);
+
 
             Email EmailBase = new Email();
             ControllerEmail controllerEmail = new ControllerEmail();
@@ -174,7 +176,6 @@ namespace Controller
 
             //Prioridade de Envio.
             mail.Priority = MailPriority.High;
-
             // Criar o arquivo anexo para esse e-mail.
             string file = String.Format("{0}/OS.pdf", Path.GetTempPath());
             Attachment data = new Attachment(file);

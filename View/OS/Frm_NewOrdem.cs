@@ -2,7 +2,7 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using Model.Ordem_de_Servico;
+using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
 
 namespace View.OS
@@ -39,10 +39,7 @@ namespace View.OS
                 ControllerEmail controllerEmail = new ControllerEmail();
                 Email EmailBase = new Email();
 
-                //Decodificando Email Base para enviar!
-                String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), "Cristiano", RecuperarNomeEquipamento());
-
-                string ResultadoEnvio = controllerEmail.EnviarOrdemDeServiço("Cristiano", "Contato@cristianoprogramador.com", NomeEmpresa(), EmailDecoficado);
+                string ResultadoEnvio = controllerEmail.EnviarOrdemDeServiço("Cristiano", "Contato@cristianoprogramador.com", NomeEmpresa(), Txt_Nordem.Text);
 
                 //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
 
@@ -99,7 +96,6 @@ namespace View.OS
 
         //TODO:Arrumar sistema de e-mail  só para esse tipo(com Anexo da Ordem de serviço).
 
-
         /// <summary>
         /// Recuperando informações da empresa
         /// </summary>
@@ -133,22 +129,29 @@ namespace View.OS
             return TextoEmail;
         }
 
-        /// <summary>
-        /// Pegando o nome do equipamento para decodificar na menssagem do e-mail
-        /// </summary>
-        /// <returns></returns>
-        private string RecuperarNomeEquipamento()
+        private List<string> InformacoesCliente(String Nome, Char Tipo)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-            OrdemServico OSBase = new OrdemServico();
+            ControllerFisica PessoaFisicaBase = new ControllerFisica();
+            ControllerJuridica PessoaJuridicaBase = new ControllerJuridica();
+            List<String> ListaDeVolta = new List<string>();
 
-            string NomeEquipamento = "Não encontrado";
+            ListaDeVolta.Add("Nada foi encontrado");
+            ListaDeVolta.Add("Nada foi encontrado");
 
-            OSBase = controllerOS.LoadOSFinalizada(Txt_Nordem.Text); //Carregando informações da ordem de serviço para a OSBase;
-            NomeEquipamento = OSBase.Equipamento;
+            if (Tipo == 'J')
+            {
+                PessoaJuridicaBase.Load(Nome);
+            }
+            else if (Tipo == 'F')
+            {
+                PessoaFisicaBase.Load(Nome);
+            }
+            else
+            {
 
-            return NomeEquipamento;
+            }
+
+            return ListaDeVolta;
         }
-
     }
 }
