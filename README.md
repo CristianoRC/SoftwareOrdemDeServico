@@ -8,7 +8,9 @@ Diagrama de classe (Model): http://git.io/v8DpS
 
 Sourceforege: https://sourceforge.net/projects/softwareos/
 
-<b>Blog:</b> http://cristianoprogramador.com/
+<b>Site:</b> http://cristianoprogramador.com/
+
+<b>Blog:</b> http://cristianoprogramador.wordpress.com/
 
 <b>E-mail:</b> contato@cristianoprogramador.com
 
