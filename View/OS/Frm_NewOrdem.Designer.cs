@@ -182,7 +182,7 @@
             // 
             this.Txt_Situacao.FormattingEnabled = true;
             this.Txt_Situacao.Items.AddRange(new object[] {
-            "Avaliação",
+            "Orçamento",
             "Manutenção"});
             this.Txt_Situacao.Location = new System.Drawing.Point(99, 145);
             this.Txt_Situacao.Name = "Txt_Situacao";
