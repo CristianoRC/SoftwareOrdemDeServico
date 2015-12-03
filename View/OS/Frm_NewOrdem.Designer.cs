@@ -231,9 +231,11 @@
             // 
             // Txt_Cliente
             // 
+            this.Txt_Cliente.Enabled = false;
+            this.Txt_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.Txt_Cliente.Location = new System.Drawing.Point(99, 65);
             this.Txt_Cliente.Name = "Txt_Cliente";
-            this.Txt_Cliente.Size = new System.Drawing.Size(207, 20);
+            this.Txt_Cliente.Size = new System.Drawing.Size(207, 21);
             this.Txt_Cliente.TabIndex = 1;
             // 
             // label3

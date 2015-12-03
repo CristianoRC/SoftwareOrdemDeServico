@@ -53,11 +53,6 @@ namespace View
             }
         }
 
-        private void Frm_Pai_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Formularios_Usuarios.Frm_NewUsu Frm_NewUso = new Formularios_Usuarios.Frm_NewUsu();
@@ -83,7 +78,6 @@ namespace View
             Frm_Editar.MdiParent = this;
 
             Frm_Editar.Show();
-
 
         }
 
@@ -193,11 +187,6 @@ namespace View
             frm_Backup.MdiParent = this;
 
             frm_Backup.Show();
-        }
-
-        private void Frm_Pai_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void imprimirOrdemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,13 +351,18 @@ namespace View
             frm_ExcluirUsuario.Show();
         }
 
-        private void finalizarOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void finalizarOrdemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Servico frm_Servico = new Frm_Servico(Lbl_Nome.Text);
 
             frm_Servico.MdiParent = this;
 
             frm_Servico.Show();
+        }
+
+        private void Frm_Pai_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -49,7 +49,7 @@
             this.Txt_OS.Location = new System.Drawing.Point(103, 35);
             this.Txt_OS.Name = "Txt_OS";
             this.Txt_OS.Size = new System.Drawing.Size(208, 20);
-            this.Txt_OS.TabIndex = 0;
+            this.Txt_OS.TabIndex = 1;
             // 
             // label1
             // 
@@ -57,7 +57,7 @@
             this.label1.Location = new System.Drawing.Point(12, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Numero OS:";
             // 
             // label2
@@ -66,7 +66,7 @@
             this.label2.Location = new System.Drawing.Point(12, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Valor:";
             // 
             // Txt_Valor
@@ -74,7 +74,7 @@
             this.Txt_Valor.Location = new System.Drawing.Point(103, 110);
             this.Txt_Valor.Name = "Txt_Valor";
             this.Txt_Valor.Size = new System.Drawing.Size(208, 20);
-            this.Txt_Valor.TabIndex = 2;
+            this.Txt_Valor.TabIndex = 5;
             this.toolTip1.SetToolTip(this.Txt_Valor, "Apenas Numeros");
             // 
             // label3
@@ -83,7 +83,7 @@
             this.label3.Location = new System.Drawing.Point(12, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Descrição:";
             // 
             // Txt_Descricao
@@ -92,7 +92,7 @@
             this.Txt_Descricao.Multiline = true;
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(208, 116);
-            this.Txt_Descricao.TabIndex = 4;
+            this.Txt_Descricao.TabIndex = 7;
             // 
             // menuStrip1
             // 
@@ -101,7 +101,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(347, 24);
-            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // finalizarToolStripMenuItem
@@ -118,7 +118,7 @@
             this.label4.Location = new System.Drawing.Point(12, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 2;
             this.label4.Text = "Serviço:";
             // 
             // Txt_Servico
@@ -127,7 +127,7 @@
             this.Txt_Servico.Location = new System.Drawing.Point(103, 73);
             this.Txt_Servico.Name = "Txt_Servico";
             this.Txt_Servico.Size = new System.Drawing.Size(208, 21);
-            this.Txt_Servico.TabIndex = 9;
+            this.Txt_Servico.TabIndex = 3;
             this.Txt_Servico.SelectedIndexChanged += new System.EventHandler(this.Txt_Servico_SelectedIndexChanged);
             // 
             // Frm_Servico

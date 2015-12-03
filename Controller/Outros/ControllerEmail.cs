@@ -148,7 +148,6 @@ namespace Controller
             Email EmailBase = new Email();
             ControllerEmail controllerEmail = new ControllerEmail();
 
-            //TODO:Fazer sistema de Menssagem de E-mail com anexo.
             EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
