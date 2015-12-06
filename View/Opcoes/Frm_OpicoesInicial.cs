@@ -36,7 +36,9 @@ namespace View.Opicoes
                     EmpresaBase.Contato = Txt_Contato.Text;
                     EmpresaBase.Endereco = Txt_Endereco.Text;
 
-                    controllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
+                    string Resultado = controllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
+
+                    MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 if (TemFoto)

@@ -26,9 +26,9 @@ namespace Controller
         /// <param name="Equipamento"></param>
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
-        public void CreatPDF(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public void CreatPDF(string Identificador, string Referencia, string Tipo, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
-            
+
             Document Documento = new Document();
             string local = String.Format("{0}/OS.pdf", Path.GetTempPath());
             PdfWriter.GetInstance(Documento, new FileStream(local, FileMode.Create));
@@ -64,7 +64,7 @@ namespace Controller
             _cliente.Add(String.Format("Cliente: {0}", Cliente));
             _dataEntrada.Add(String.Format("Data de entrada: {0}", DataEntradaServico));
             _equipamento.Add(String.Format("Equipamento: {0}", Equipamento));
-            _situacao.Add(String.Format("Situação: {0}", Situacao));
+            _situacao.Add(String.Format("Tipo: {0}", Tipo));
             _defeito.Add(String.Format("Defeito: {0}", Defeito));
             _descricao.Add(String.Format("Descrição: {0}", Descricao));
             _numeroSerie.Add(String.Format("Numero de serie: {0}", NumeroSerie));
@@ -480,11 +480,11 @@ namespace Controller
         /// <returns>Resultado da operação</returns>
         public string Excluir(string Identificador)
         {
-            string saida = String.Format("A ordem de serviço numero {0} foi excluida com sucesso!",Identificador);
+            string saida = String.Format("A ordem de serviço numero {0} foi excluida com sucesso!", Identificador);
 
             try
             {
-                File.Delete(string.Format("OS/{0}.OS",Identificador));
+                File.Delete(string.Format("OS/{0}.OS", Identificador));
             }
             catch (Exception exc)
             {

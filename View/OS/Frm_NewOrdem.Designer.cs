@@ -83,9 +83,9 @@
             this.Lbl_Situacao.AutoSize = true;
             this.Lbl_Situacao.Location = new System.Drawing.Point(24, 151);
             this.Lbl_Situacao.Name = "Lbl_Situacao";
-            this.Lbl_Situacao.Size = new System.Drawing.Size(49, 13);
+            this.Lbl_Situacao.Size = new System.Drawing.Size(28, 13);
             this.Lbl_Situacao.TabIndex = 4;
-            this.Lbl_Situacao.Text = "Situação";
+            this.Lbl_Situacao.Text = "Tipo";
             // 
             // Txt_Observacoes
             // 

@@ -116,7 +116,7 @@ namespace View
                 this.BackgroundImage = System.Drawing.Image.FromFile("Logo.png");
             }
 
-            System.IO.StreamReader sr = null;
+            StreamReader sr = null;
             try
             {
                 sr = new System.IO.StreamReader("Empresa.CFG");
@@ -135,7 +135,6 @@ namespace View
                 if (sr != null)
                     sr.Close();
             }
-
         }
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -363,6 +362,33 @@ namespace View
         private void Frm_Pai_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Frm_NewOrcamento frm_NewOrcamento = new Frm_NewOrcamento();
+
+            frm_NewOrcamento.MdiParent = this;
+
+            frm_NewOrcamento.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Servicos.Frm_ListarOrcamento frm_ListarOrcamento = new Servicos.Frm_ListarOrcamento();
+
+            frm_ListarOrcamento.MdiParent = this;
+
+            frm_ListarOrcamento.Show();
+        }
+
+        private void excluirToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Frm_ExcluirOrcamento frm_ExcluirOrcamento = new Frm_ExcluirOrcamento();
+
+            frm_ExcluirOrcamento.MdiParent = this;
+
+            frm_ExcluirOrcamento.Show();
         }
     }
 }

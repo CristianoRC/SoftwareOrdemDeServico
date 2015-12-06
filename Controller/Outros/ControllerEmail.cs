@@ -139,6 +139,68 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
+        public string EnviarOrcamento(string NomeCliente, string EmailCliente, string NomeEmpresa, string Valor, string Equipamento, string Observacoes)
+        {
+            //TODO:Fazer sistema de decodificar messagem e formularios dos 3 "tipos" de e-mail.
+
+            string Saida = " ";
+            string MenssagemBase = string.Format(@"Olá {0} seu orçamento foi finalizado com sucesso, o valor estimado é de {1} no equipamento R$ {2}
+                                                 <p></p> Observaçoes:{3}", NomeCliente, Valor, Equipamento, Observacoes);
+
+            Email EmailBase = new Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
+
+            EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
+
+            SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
+            MailMessage mail = new MailMessage(); //Menssagem
+            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+
+
+            //Configurando servidor.
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+
+
+            //Assunto do email.
+            mail.Subject = String.Format("Orçamento pronto [ {0} ]", NomeEmpresa);
+
+            //Informando sobre o corpo.
+            mail.IsBodyHtml = true;
+
+            //Conteúdo do email.
+            mail.Body = MenssagemBase;
+
+            //Adicionando E-mail do cliente para enviar.
+            mail.To.Add(EmailCliente);
+
+            //Prioridade de Envio.
+            mail.Priority = System.Net.Mail.MailPriority.High;
+
+            try
+            {
+                //Envia o email.
+                smtp.Send(mail);
+
+                Saida = "E-mail enviado com sucesso!";
+            }
+            catch (System.Exception exc)
+            {
+                //Gerando arquivo de Log
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+
+                Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
+            }
+
+            return Saida;
+        }
+
+        /// <summary>
+        ///  Configurando e enviando e-mail. (Decodificando)
+        /// </summary>
+        /// <param name="NomeUsuario"></param>
         public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
         {
             string Saida = " ";

@@ -72,6 +72,24 @@
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orcamento\Frm_ExcluirOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orcamento\Frm_ExcluirOrcamento.Designer.cs">
+      <DependentUpon>Frm_ExcluirOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orcamento\Frm_ListarOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orcamento\Frm_ListarOrcamento.Designer.cs">
+      <DependentUpon>Frm_ListarOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orcamento\Frm_NewOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orcamento\Frm_NewOrcamento.Designer.cs">
+      <DependentUpon>Frm_NewOrcamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="OS\Frm_ExcluirOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +254,15 @@
     <EmbeddedResource Include="Email\Frm_EmailBase.resx">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Orcamento\Frm_ExcluirOrcamento.resx">
+      <DependentUpon>Frm_ExcluirOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orcamento\Frm_ListarOrcamento.resx">
+      <DependentUpon>Frm_ListarOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orcamento\Frm_NewOrcamento.resx">
+      <DependentUpon>Frm_NewOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ExcluirOS.resx">
       <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +367,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\Save-32.png" />
+    <None Include="Resources\Search-32.png" />
     <None Include="Resources\Create New-100.png" />
     <None Include="Resources\Add List-100.png" />
     <None Include="Resources\Service Bell-100.png" />
