@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Model.Ordem_de_Servico.OrdemServico" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAAABAABAAQCgAACAgAAAjAQAAAUGAAABAkA=</HashCode>
+      <FileName>Ordem de Servico\OrdemServico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Ordem_de_Servico.Servico" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAwAAAAJAAAAAQAAAAAEAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Servicos\Servico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Email" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAEgAAAAIAAACCAACAgAAAgAAAAAAAA=</HashCode>
+      <FileName>Outros\Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Empresa" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAQAAEAEAA=</HashCode>
+      <FileName>Outros\Empresa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Orcamento" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAACAEACEgAAAhAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Servicos\Orcamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.ServicoBase" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAQAAAAEAAEAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Servicos\ServicoBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Pessoa_e_Usuario.Fisica" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAAAAAACAAAAAgAAAAACAAAgAAAAAAIAAAAgAAAA=</HashCode>
+      <FileName>Pessoa e Usuario\Fisica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Pessoa_e_Usuario.Juridica" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIAAAAAAAEAABABAQAAAAEAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Pessoa e Usuario\Juridica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Pessoa_e_Usuario.Pessoa" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CRAAACgQACAgAAA0AAAAFACAAAAAgAAAAAAQAAEAEAA=</HashCode>
+      <FileName>Pessoa e Usuario\Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Pessoa_e_Usuario.Usuario" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAQAAAAAAAAAAIAAAACAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Pessoa e Usuario\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

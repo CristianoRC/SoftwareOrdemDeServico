@@ -30,7 +30,7 @@ namespace View
 
             backup.CriarArquivoZip(Diretorios, string.Format("Backup.rar"));
 
-            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu software", DateTime.Now), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(String.Format("Backup criado com sucesso no diretorio do seu software"), "Inormação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Btm_Carregar_Click(object sender, EventArgs e)

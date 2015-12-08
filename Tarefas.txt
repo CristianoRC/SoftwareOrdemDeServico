@@ -1,3 +1,0 @@
-. Sistema de Oreçamentos de serviço.
-
-. Melhorar o sistema de "Informações da Empresa".
