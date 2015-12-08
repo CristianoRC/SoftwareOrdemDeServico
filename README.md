@@ -6,7 +6,7 @@ Diagrama de classe (Controller): http://git.io/v8DA5
 
 Diagrama de classe (Model): http://git.io/v8DpS
 
-Lista de tarefas: https://goo.gl/jIkkrM
+Lista de tarefas: https://trello.com/b/EPjBXFAQ
 
 <b>Site:</b> http://cristianoprogramador.com/
 
