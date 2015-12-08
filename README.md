@@ -6,7 +6,7 @@ Diagrama de classe (Controller): http://git.io/v8DA5
 
 Diagrama de classe (Model): http://git.io/v8DpS
 
-Sourceforege: https://sourceforge.net/projects/softwareos/
+Lista de tarefas: https://goo.gl/jIkkrM
 
 <b>Site:</b> http://cristianoprogramador.com/
 
