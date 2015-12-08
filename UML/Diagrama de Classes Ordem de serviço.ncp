@@ -5,6 +5,25 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
+        <Name>Orcamento</Name>
+        <Access>Public</Access>
+        <Location left="860" top="496" />
+        <Size width="162" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String identificador</Member>
+        <Member type="Field">private String equipamento</Member>
+        <Member type="Field">private String cliente</Member>
+        <Member type="Field">private String valor</Member>
+        <Member type="Field">private String observacoes</Member>
+        <Member type="Property">public String Identificador { get; set; }</Member>
+        <Member type="Property">public String Equipamento { get; set; }</Member>
+        <Member type="Property">public String Cliente { get; set; }</Member>
+        <Member type="Property">public String Valor { get; set; }</Member>
+        <Member type="Property">public String Observacoes { get; set; }</Member>
+        <Member type="Constructor">public Orcamento()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
         <Name>Empresa</Name>
         <Access>Public</Access>
         <Location left="648" top="496" />
@@ -20,10 +39,25 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Email</Name>
+        <Name>ServicoBase</Name>
         <Access>Public</Access>
         <Location left="436" top="496" />
-        <Size width="162" height="230" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private String observacoes</Member>
+        <Member type="Field">private String valor</Member>
+        <Member type="Property">public String Nome { get; set; }</Member>
+        <Member type="Property">public String Observacoes { get; set; }</Member>
+        <Member type="Property">public String Valor { get; set; }</Member>
+        <Member type="Constructor">public ServicoBase()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Email</Name>
+        <Access>Public</Access>
+        <Location left="224" top="496" />
+        <Size width="162" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String email</Member>
         <Member type="Field">private String senha</Member>
@@ -33,13 +67,14 @@
         <Member type="Property">public String Senha { get; set; }</Member>
         <Member type="Property">public String Host { get; set; }</Member>
         <Member type="Property">public Int32 Port { get; set; }</Member>
+        <Member type="Property">public static Object Attachments { get; set; }</Member>
         <Member type="Constructor">public Email()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Fisica</Name>
         <Access>Public</Access>
-        <Location left="224" top="496" />
+        <Location left="12" top="496" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String sexo</Member>
@@ -56,7 +91,7 @@
       <Entity type="Class">
         <Name>Juridica</Name>
         <Access>Public</Access>
-        <Location left="12" top="496" />
+        <Location left="860" top="12" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String razaoSocial</Member>
@@ -145,24 +180,28 @@
         <Name>Servico</Name>
         <Access>Public</Access>
         <Location left="12" top="12" />
-        <Size width="162" height="216" />
+        <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String descricao</Member>
+        <Member type="Field">private String servicoBase</Member>
+        <Member type="Field">private String tecnico</Member>
         <Member type="Field">private Double valor</Member>
         <Member type="Property">public String Descricao { get; set; }</Member>
+        <Member type="Property">public String ServicoBase { get; set; }</Member>
+        <Member type="Property">public String Tecnico { get; set; }</Member>
         <Member type="Property">public Double Valor { get; set; }</Member>
         <Member type="Constructor">public Servico()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Generalization" first="2" second="4">
+      <Relationship type="Generalization" first="4" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Generalization" first="3" second="4">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+      <Relationship type="Generalization" first="5" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
@@ -171,59 +210,92 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>ControllerOrdemServico</Name>
+        <Name>ControllerOrcamento</Name>
         <Access>Public</Access>
-        <Location left="648" top="278" />
-        <Size width="162" height="247" />
+        <Location left="860" top="292" />
+        <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Constructor">public ControllerOrdemServico()</Member>
-        <Member type="Method">public Void CreatPDF(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
-        <Member type="Method">public String Save(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
-        <Member type="Method">public String Edit(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
-        <Member type="Method">public OrdemServico Load(String _Identificador)</Member>
+        <Member type="Constructor">public ControllerOrcamento()</Member>
+        <Member type="Method">public String Save(String Identificador, String Equipamento, String Cliente, String Valor, String Observações)</Member>
+        <Member type="Method">public Orcamento Load(String Identificador)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
         <Member type="Method">public Boolean Verificar(String _Identificador)</Member>
-        <Member type="Method">public Boolean FinalizarOS(String NumeroOS)</Member>
-        <Member type="Method">public OrdemServico LoadOSFinalizada(String _Identificador)</Member>
+        <Member type="Method">public String Excluir(String Identificador)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ControllerServicoBase</Name>
+        <Access>Public</Access>
+        <Location left="648" top="292" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ControllerServicoBase()</Member>
+        <Member type="Method">public String Save(String nome, String observacoes, String Valor)</Member>
+        <Member type="Method">public ServicoBase Load(String Nome)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String Nome)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ControllerOrdemServico</Name>
+        <Access>Public</Access>
+        <Location left="436" top="292" />
+        <Size width="162" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ControllerOrdemServico()</Member>
+        <Member type="Method">public Void CreatPDF(String Identificador, String Referencia, String Tipo, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
+        <Member type="Method">public String Save(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
+        <Member type="Method">public String Edit(String Identificador, String Referencia, String Situacao, String Defeito, String Descricao, String Observacao, String NumeroSerie, String Equipamento, String DataEntradaServico, String Cliente)</Member>
+        <Member type="Method">public OrdemServico Load(String Identificador)</Member>
+        <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String _Identificador)</Member>
+        <Member type="Method">public Void FinalizarOS(String NumeroOS)</Member>
+        <Member type="Method">public OrdemServico LoadOSFinalizada(String Identificador)</Member>
         <Member type="Method">public List&lt;String&gt; LoadListFinalizadas()</Member>
+        <Member type="Method">public Boolean VerificarFinalizada(String Identificador)</Member>
+        <Member type="Method">public String Excluir(String Identificador)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>ControllerServico</Name>
         <Access>Public</Access>
-        <Location left="436" top="278" />
+        <Location left="224" top="292" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerServico()</Member>
-        <Member type="Method">public String Save(String Descricao, Double Valor, String NumeroOS)</Member>
-        <Member type="Method">public Servico Load(String NumeroServico)</Member>
+        <Member type="Method">public String Save(String Descricao, Double Valor, String NumeroOS, String ServicoBase, String NomeDoTecnico)</Member>
+        <Member type="Method">public Servico Load(String NomeServico)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
+        <Member type="Method">public Boolean Verificar(String identificador)</Member>
+        <Member type="Method">public String Excluir(String Identificador)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>ControllerBackup</Name>
         <Access>Public</Access>
-        <Location left="224" top="278" />
+        <Location left="12" top="292" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerBackup()</Member>
         <Member type="Method">public Void CriarArquivoZip(List&lt;String&gt; arquivos, String ArquivoDestino)</Member>
-        <Member type="Method">public Void ExtrairArquivoZip(String localizacaoArquivoZip, String destino)</Member>
+        <Member type="Method">public String ExtrairArquivoZip(String localizacaoArquivoZip, String destino)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>ControllerEmail</Name>
         <Access>Public</Access>
-        <Location left="12" top="278" />
-        <Size width="162" height="216" />
+        <Location left="860" top="12" />
+        <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerEmail()</Member>
         <Member type="Method">public String LoadEmailBase()</Member>
         <Member type="Method">public String SaveEmailBase(String Texto)</Member>
         <Member type="Method">public String Enviar(String NomeCliente, String EmailCliente, String NomeEmpresa, String MenssagemBase)</Member>
-        <Member type="Method">public String SaveConfig(String _EnderecoEmail, String _Senha, String _Host, Int32 _Port)</Member>
+        <Member type="Method">public String EnviarOrcamento(String NomeCliente, String EmailCliente, String NomeEmpresa, String Valor, String Equipamento, String Observacoes)</Member>
+        <Member type="Method">public String EnviarOrdemDeServiço(String NomeCliente, String EmailCliente, String NomeEmpresa, String NumeroDaOrdem)</Member>
+        <Member type="Method">public String SaveConfig(String EnderecoEmail, String Senha, String Host, Int32 Port)</Member>
         <Member type="Method">public Email LoadConfig()</Member>
-        <Member type="Method">public String DecodificarEmailBase(String TextoEmailBase, String NomeEmpresa, String NomeCliente)</Member>
+        <Member type="Method">public String DecodificarEmailBase(String TextoEmailBase, String NomeEmpresa, String NomeCliente, String NomeEquipamento)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -234,7 +306,7 @@
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerEmpresa()</Member>
         <Member type="Method">public Empresa Load()</Member>
-        <Member type="Method">public String Save(String _Nome, String _Contato, String _Endereco)</Member>
+        <Member type="Method">public String Save(String Nome, String Contato, String Endereco)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -244,10 +316,12 @@
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerFisica()</Member>
-        <Member type="Method">public String Save(String _nome, String _endereco, String _telefone, String _situacao, String _siglaEstado, String _cidade, String _bairro, String _cep, String _observacoes, String _cpf, String _celular, String _sexo, DateTime _datadenascimento)</Member>
-        <Member type="Method">public Fisica Load(String _Nome)</Member>
+        <Member type="Method">public String Save(String nome, String endereco, String email, String situacao, String siglaEstado, String cidade, String bairro, String cep, String observacoes, String cpf, String celular, String sexo, DateTime datadenascimento)</Member>
+        <Member type="Method">public String Edit(String nome, String endereco, String email, String situacao, String siglaEstado, String cidade, String bairro, String cep, String observacoes, String cpf, String celular, String sexo, DateTime datadenascimento)</Member>
+        <Member type="Method">public Fisica Load(String nome)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
-        <Member type="Method">public Boolean Verificar(String _nome)</Member>
+        <Member type="Method">public Boolean Verificar(String nome)</Member>
+        <Member type="Method">public String Excluir(String Nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -257,10 +331,12 @@
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerJuridica()</Member>
-        <Member type="Method">public String Save(String _nome, String _endereco, String _telefone, String _situacao, String _siglaEstado, String _cidade, String _bairro, String _cep, String _observacoes, String _cnpj, String _contato, String _inscricaoestadual, String _razaosocial)</Member>
-        <Member type="Method">public Juridica Load(String _IdentificadorLoad)</Member>
+        <Member type="Method">public String Save(String nome, String endereco, String email, String situacao, String siglaEstado, String cidade, String bairro, String cep, String observacoes, String cnpj, String contato, String inscricaoestadual, String razaosocial)</Member>
+        <Member type="Method">public String Edit(String nome, String endereco, String email, String situacao, String siglaEstado, String cidade, String bairro, String cep, String observacoes, String cnpj, String contato, String inscricaoestadual, String razaosocial)</Member>
+        <Member type="Method">public Juridica Load(String IdentificadorLoad)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
-        <Member type="Method">public Boolean Verificar(String _nome)</Member>
+        <Member type="Method">public Boolean Verificar(String nome)</Member>
+        <Member type="Method">public String Excluir(String Nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -270,10 +346,12 @@
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public ControllerUsuario()</Member>
-        <Member type="Method">public String Save(String _Nome, String _Senha, String _NivelAcesso)</Member>
+        <Member type="Method">public String Save(String Nome, String Senha, String NivelAcesso)</Member>
+        <Member type="Method">public String Editar(String Nome, String Senha, String NivelAcesso)</Member>
         <Member type="Method">public List&lt;String&gt; LoadList()</Member>
-        <Member type="Method">public Usuario Load(String _Nome)</Member>
-        <Member type="Method">public Boolean Verificar(String _nome)</Member>
+        <Member type="Method">public Usuario Load(String Nome)</Member>
+        <Member type="Method">public Boolean Verificar(String Nome)</Member>
+        <Member type="Method">public String Excluir(String Nome)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
