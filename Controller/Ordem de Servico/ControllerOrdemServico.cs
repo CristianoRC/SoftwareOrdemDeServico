@@ -171,7 +171,7 @@ namespace Controller
                     sw.WriteLine(OSBase.Descricao);
 
                 }
-                catch (System.Exception Exc)
+                catch (Exception Exc)
                 {
                     Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
 

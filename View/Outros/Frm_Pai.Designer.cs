@@ -32,14 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Pai));
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.Lbl_Nome = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Lbl_NomeEmpresa = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.imprimirOrdemDeServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blocoDeNotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +74,15 @@
             this.servidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupexibirPainelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.Lbl_Nome = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Lbl_NomeEmpresa = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.imprimirOrdemDeServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.termosDeGarantiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -104,71 +105,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1131, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Lbl_Nome,
-            this.toolStripStatusLabel2,
-            this.Lbl_NomeEmpresa,
-            this.toolStripStatusLabel1,
-            this.toolStripSplitButton1,
-            this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1131, 22);
-            this.statusStrip1.TabIndex = 8;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // Lbl_Nome
-            // 
-            this.Lbl_Nome.Name = "Lbl_Nome";
-            this.Lbl_Nome.Size = new System.Drawing.Size(47, 17);
-            this.Lbl_Nome.Text = "Usuario";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel2.Text = "|";
-            // 
-            // Lbl_NomeEmpresa
-            // 
-            this.Lbl_NomeEmpresa.Name = "Lbl_NomeEmpresa";
-            this.Lbl_NomeEmpresa.Size = new System.Drawing.Size(107, 17);
-            this.Lbl_NomeEmpresa.Text = "Nome  da empresa";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel1.Text = "|";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel3.Text = "|";
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imprimirOrdemDeServiçoToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "Print_OS";
-            // 
-            // imprimirOrdemDeServiçoToolStripMenuItem
-            // 
-            this.imprimirOrdemDeServiçoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("imprimirOrdemDeServiçoToolStripMenuItem.Image")));
-            this.imprimirOrdemDeServiçoToolStripMenuItem.Name = "imprimirOrdemDeServiçoToolStripMenuItem";
-            this.imprimirOrdemDeServiçoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.imprimirOrdemDeServiçoToolStripMenuItem.Text = "Imprimir Ordem de serviço";
-            this.imprimirOrdemDeServiçoToolStripMenuItem.Click += new System.EventHandler(this.imprimirOrdemDeServiçoToolStripMenuItem_Click);
             // 
             // inicioToolStripMenuItem
             // 
@@ -335,7 +271,7 @@
             // 
             this.novoToolStripMenuItem2.Image = global::View.Properties.Resources.Create_New_100;
             this.novoToolStripMenuItem2.Name = "novoToolStripMenuItem2";
-            this.novoToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.novoToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
             this.novoToolStripMenuItem2.Text = "&Finalizar";
             this.novoToolStripMenuItem2.Click += new System.EventHandler(this.novoToolStripMenuItem2_Click);
             // 
@@ -343,7 +279,7 @@
             // 
             this.listarToolStripMenuItem.Image = global::View.Properties.Resources.List_100;
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.listarToolStripMenuItem.Text = "&Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -351,7 +287,7 @@
             // 
             this.excluirToolStripMenuItem5.Image = global::View.Properties.Resources.Delete_512;
             this.excluirToolStripMenuItem5.Name = "excluirToolStripMenuItem5";
-            this.excluirToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.excluirToolStripMenuItem5.Size = new System.Drawing.Size(117, 22);
             this.excluirToolStripMenuItem5.Text = "&Excluir";
             this.excluirToolStripMenuItem5.Click += new System.EventHandler(this.excluirToolStripMenuItem5_Click);
             // 
@@ -541,6 +477,79 @@
             this.sobreToolStripMenuItem.Text = "&Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Lbl_Nome,
+            this.toolStripStatusLabel2,
+            this.Lbl_NomeEmpresa,
+            this.toolStripStatusLabel1,
+            this.toolStripSplitButton1,
+            this.toolStripStatusLabel3});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1131, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // Lbl_Nome
+            // 
+            this.Lbl_Nome.Name = "Lbl_Nome";
+            this.Lbl_Nome.Size = new System.Drawing.Size(47, 17);
+            this.Lbl_Nome.Text = "Usuario";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel2.Text = "|";
+            // 
+            // Lbl_NomeEmpresa
+            // 
+            this.Lbl_NomeEmpresa.Name = "Lbl_NomeEmpresa";
+            this.Lbl_NomeEmpresa.Size = new System.Drawing.Size(107, 17);
+            this.Lbl_NomeEmpresa.Text = "Nome  da empresa";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imprimirOrdemDeServiçoToolStripMenuItem,
+            this.termosDeGarantiaToolStripMenuItem});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Text = "Print_OS";
+            // 
+            // imprimirOrdemDeServiçoToolStripMenuItem
+            // 
+            this.imprimirOrdemDeServiçoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("imprimirOrdemDeServiçoToolStripMenuItem.Image")));
+            this.imprimirOrdemDeServiçoToolStripMenuItem.Name = "imprimirOrdemDeServiçoToolStripMenuItem";
+            this.imprimirOrdemDeServiçoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.imprimirOrdemDeServiçoToolStripMenuItem.Text = "Imprimir Ordem de serviço";
+            this.imprimirOrdemDeServiçoToolStripMenuItem.Click += new System.EventHandler(this.imprimirOrdemDeServiçoToolStripMenuItem_Click);
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel3.Text = "|";
+            // 
+            // termosDeGarantiaToolStripMenuItem
+            // 
+            this.termosDeGarantiaToolStripMenuItem.Image = global::View.Properties.Resources.Bill_100;
+            this.termosDeGarantiaToolStripMenuItem.Name = "termosDeGarantiaToolStripMenuItem";
+            this.termosDeGarantiaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.termosDeGarantiaToolStripMenuItem.Text = "Termos de garantia";
+            // 
             // Frm_Pai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +631,7 @@
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem termosDeGarantiaToolStripMenuItem;
     }
 }
 
