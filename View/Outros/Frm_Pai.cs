@@ -390,5 +390,14 @@ namespace View
 
             frm_ExcluirOrcamento.Show();
         }
+
+        private void reportarBugsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Report frm_Report = new Frm_Report();
+
+            frm_Report.MdiParent = this;
+
+            frm_Report.Show();
+        }
     }
 }

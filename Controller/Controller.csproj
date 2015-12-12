@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Outros\TermosDeGarantia.cs" />
+    <Compile Include="Report\ControllerLog.cs" />
     <Compile Include="Servico\ControllerOrcamento.cs" />
     <Compile Include="Servico\ControllerServicoBase.cs" />
     <Compile Include="Ordem de Servico\ControllerOrdemServico.cs" />

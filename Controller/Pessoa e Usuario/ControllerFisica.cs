@@ -80,7 +80,7 @@ namespace Controller
 
                     Log.ArquivoExceptionLog(exc);
 
-                    Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
+                    Saida = "Ocorreu um erro inesperado: " + exc.Message;
                 }
                 finally
                 {

@@ -267,6 +267,73 @@ namespace Controller
         }
 
         /// <summary>
+        ///  Configurando e enviando e-mail. (Decodificando)
+        /// </summary>
+        /// <param name="NomeUsuario"></param>
+        public string EnviarArquivoLog(string NomeEmpresa, string Menssagem)
+        {
+            string Saida = " ";
+            string MenssagemBase = string.Format(Menssagem);
+
+
+            Email EmailBase = new Email();
+            ControllerEmail controllerEmail = new ControllerEmail();
+            EmailBase = controllerEmail.LoadConfig();
+
+
+            SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
+            MailMessage mail = new MailMessage(); //Menssagem
+            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+
+
+            //Configurando servidor.
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+
+
+            //Assunto do email.
+            mail.Subject = String.Format("Arquivo de log [ {0} ]", NomeEmpresa);
+
+            //Informando sobre o corpo.
+            mail.IsBodyHtml = true;
+
+            //Conteúdo do email.
+            mail.Body = MenssagemBase;
+
+            //Adicionando E-mail do cliente para enviar.
+            mail.To.Add("contato@cristianoprogramador.com");
+
+            //Prioridade de Envio.
+            mail.Priority = MailPriority.High;
+            // Criar o arquivo anexo para esse e-mail.
+            string file = String.Format("Log.txt");
+
+            Attachment data = new Attachment(file);
+
+            //Inclui o arquivo anexo.
+            mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.
+
+            try
+            {
+                //Envia o email.
+                smtp.Send(mail);
+
+                Saida = "E-mail enviado com sucesso!";
+            }
+            catch (System.Exception exc)
+            {
+                //Gerando arquivo de Log
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+
+                Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
+            }
+
+            return Saida;
+        }
+
+        /// <summary>
         /// Criando arquivo de configuração do email
         /// </summary>
         /// <param name="_EnderecoEmail"></param>
