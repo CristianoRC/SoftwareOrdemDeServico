@@ -68,13 +68,13 @@
     <Compile Include="Pessoa e Usuario\ControllerUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DiagramaDeClasse.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{3ad6dc90-0da9-4621-a529-b0d7bd4012c4}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrama de Classe.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

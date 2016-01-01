@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Fisica" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fisica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Lista" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +129,9 @@
   </data>
   <data name="Bill-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bill-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="System Report-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System Report-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Juridica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Juridica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,6 +145,9 @@
   <data name="List-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Add List-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add List-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Service Bell-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Service Bell-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,13 +157,13 @@
   <data name="Create New-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create New-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add List-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add List-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fisica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fisica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delete-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="System Report-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\System Report-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="US Dollar-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\US Dollar-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -14,7 +14,6 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO:Fazer sistema para verificar se a ordem existe antes de salvar.
 
         /// <summary>
         /// Finalizando o orçamento

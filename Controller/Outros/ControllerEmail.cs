@@ -141,8 +141,6 @@ namespace Controller
         /// <param name="NomeUsuario"></param>
         public string EnviarOrcamento(string NomeCliente, string EmailCliente, string NomeEmpresa, string Valor, string Equipamento, string Observacoes)
         {
-            //TODO:Fazer sistema de decodificar messagem e formularios dos 3 "tipos" de e-mail.
-
             string Saida = " ";
             string MenssagemBase = string.Format(@"Olá {0} seu orçamento foi finalizado com sucesso, o valor estimado é de {1} no equipamento R$ {2}
                                                  <p></p> Observaçoes:{3}", NomeCliente, Valor, Equipamento, Observacoes);
@@ -432,6 +430,102 @@ namespace Controller
             TextoEmail = EmailTemporario;
 
             return TextoEmail;
+        }
+
+        /// <summary>
+        /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
+        /// </summary>
+        /// <param name="EmailBase"></param>
+        public string DecodificarEmailBaseOrcamento(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento, string Valor)
+        {
+            string TextoEmail;
+            string EmailTemporario;
+            ControllerEmail controllerEmail = new ControllerEmail();
+
+            TextoEmail = controllerEmail.LoadEmailBase();
+
+            //Transformando os "Códigos digitados pelo usuario" em seu resultado;
+            EmailTemporario = TextoEmail.Replace("**Cliente", NomeCliente);
+
+            EmailTemporario = EmailTemporario.Replace("**Empresa", NomeEmpresa);
+
+            EmailTemporario = EmailTemporario.Replace("**Equipamento", NomeEquipamento);
+
+            EmailTemporario = EmailTemporario.Replace("**Data", DateTime.Now.ToString());
+
+            EmailTemporario = EmailTemporario.Replace("**Valor", Valor);
+
+            TextoEmail = EmailTemporario;
+
+            return TextoEmail;
+        }
+
+        /// <summary>
+        /// Carrega as informações do arquivo de email base.
+        /// </summary>
+        /// <returns></returns>
+        public string LoadEmailBaseOrcamento()
+        {
+            StreamReader sr = null;
+            string Saida;
+
+            try
+            {
+                sr = new StreamReader("MenssagemO.dat");
+
+                Saida = sr.ReadToEnd();
+
+            }
+            catch (System.Exception exc)
+            {
+                Saida = "Ocorreu um arro ao tentar ler o arquivo com as informações.";
+
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+            }
+            finally
+            {
+                if (sr != null)
+                    sr.Close();
+            }
+
+            return Saida;
+        }
+
+        /// <summary>
+        /// Salvando E-mail base(Orçamento) que é enviado para todos os clientes quando o serviço termina.
+        /// </summary>
+        /// <param name="Texto"></param>
+        /// <returns></returns>
+        public string SaveEmailBaseOrcamento(string Texto)
+        {
+            string saida = " ";
+
+            StreamWriter sw = null;
+
+            try
+            {
+                sw = new StreamWriter("MenssagemO.dat");
+
+                sw.WriteLine(Texto);
+
+                saida = "Arquivo de Email Base gerado com sucesso!";
+            }
+            catch (System.Exception exc)
+            {
+                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
+                Log.ArquivoExceptionLog(exc);
+
+                saida = "Ocorreu um erro ao tentar criar o Email Base! um arquivo de Log foi criado no diretorio do seu software com mais informações";
+            }
+            finally
+            {
+                if (sw != null)
+                    sw.Close();
+            }
+
+
+            return saida;
         }
     }
 }

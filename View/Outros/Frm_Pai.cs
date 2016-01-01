@@ -7,8 +7,6 @@ namespace View
 {
     public partial class Frm_Pai : Form
     {
-
-
         public Frm_Pai()
         {
             InitializeComponent();
@@ -398,6 +396,15 @@ namespace View
             frm_Report.MdiParent = this;
 
             frm_Report.Show();
+        }
+
+        private void emailBaseOrçamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_EmailBaseOrcamento frm_EmailBaseOrcamento = new Frm_EmailBaseOrcamento();
+
+            frm_EmailBaseOrcamento.MdiParent = this;
+
+            frm_EmailBaseOrcamento.Show();
         }
     }
 }

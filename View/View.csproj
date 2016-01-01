@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>View</RootNamespace>
-    <AssemblyName>View</AssemblyName>
+    <AssemblyName>Software de ordem de serviço</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Email\Frm_EmailBaseOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Email\Frm_EmailBaseOrcamento.Designer.cs">
+      <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Outros\Frm_Report.cs">
       <SubType>Form</SubType>
@@ -260,6 +266,9 @@
     <EmbeddedResource Include="Email\Frm_EmailBase.resx">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Email\Frm_EmailBaseOrcamento.resx">
+      <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Orcamento\Frm_ExcluirOrcamento.resx">
       <DependentUpon>Frm_ExcluirOrcamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\US Dollar-100.png" />
     <None Include="Resources\System Report-32.png" />
     <None Include="Resources\Save-32.png" />
     <None Include="Resources\Search-32.png" />

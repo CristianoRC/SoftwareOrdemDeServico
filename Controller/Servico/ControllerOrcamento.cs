@@ -79,7 +79,7 @@ namespace Controller
                 OrcamentoBase.Cliente = sr.ReadLine();
                 OrcamentoBase.Observacoes = sr.ReadLine();
                 OrcamentoBase.Valor = sr.ReadLine();
-                OrcamentoBase.Identificador = Identificador; //TODO:Verificar novamente essa linha de código.
+                OrcamentoBase.Identificador = Identificador; //Ele não le do arquivo por o identificador é o "nome dele", e ele tem que ser passado pelo usuario.
 
             }
             catch (Exception Exc)
