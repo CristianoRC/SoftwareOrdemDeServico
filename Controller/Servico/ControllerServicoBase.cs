@@ -5,7 +5,7 @@ using Model;
 
 namespace Controller
 {
-    public class ControllerServicoBase
+    public static class ControllerServicoBase
     {
         /// <summary>
         /// Salvando/ Gerando arquivo de serviço base -> Exemplo:Manutenção preventiva.
@@ -13,7 +13,7 @@ namespace Controller
         /// <param name="nomeBase"></param>
         /// <param name="observacoes"></param>
         /// <param name="Valor"></param>
-        public string Save(string nome, string observacoes, string Valor)
+        public static string Save(string nome, string observacoes, string Valor)
         {
             string Saida = "";
             StreamWriter sw = null;
@@ -56,7 +56,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public ServicoBase Load(string Nome)
+        public static ServicoBase Load(string Nome)
         {
             ServicoBase servicoBase = new ServicoBase();
             StreamReader sr = null;
@@ -91,7 +91,7 @@ namespace Controller
         /// Carregando Lista de "nomes" de todos sos serviçoes base.
         /// </summary>
         /// <returns></returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             List<string> ListaBase = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("ServicosBase/");
@@ -115,7 +115,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public bool Verificar(string Nome)
+        public static bool Verificar(string Nome)
         {
             bool Saida = false;
 

@@ -17,7 +17,6 @@ namespace View.Pessoas
             if (Txt_DataNacimento.Text != "  /  /")//Verifica se algo foi digitado na data de nascimento da pessoa.   "  /  /" -> é como fica a mascara de data em branco/Null
             {
                 Fisica PessoaFBase = new Fisica();
-                ControllerFisica controllerPF = new ControllerFisica();
 
                 PessoaFBase.Nome = Txt_Nome.Text;
                 PessoaFBase.Endereco = Txt_Endereco.Text;
@@ -36,7 +35,7 @@ namespace View.Pessoas
                 PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
                 //A função Save() Retona uma string infomando sobre o que ocorreu.
-                string saida = controllerPF.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento);
+                string saida = ControllerFisica.Save(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento);
 
                 MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -63,11 +62,9 @@ namespace View.Pessoas
 
         private void Frm_PessoaFisica_Load(object sender, EventArgs e)
         {
-
             Fisica PessoaFisicaBase = new Fisica();
-            ControllerFisica controllerPF = new ControllerFisica();
 
-            foreach (var item in controllerPF.LoadList())
+            foreach (var item in ControllerFisica.LoadList())
             {
                 Txt_Lista.Items.Add(item.ToString());
             }
@@ -76,9 +73,8 @@ namespace View.Pessoas
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
             Fisica PessoaFBase = new Fisica();
-            ControllerFisica controllerPF = new ControllerFisica();
 
-            PessoaFBase = controllerPF.Load(Txt_Lista.Text);
+            PessoaFBase = ControllerFisica.Load(Txt_Lista.Text);
 
             Txt_Nome.Text = PessoaFBase.Nome;
             Txt_Endereco.Text = PessoaFBase.Endereco;
@@ -102,7 +98,6 @@ namespace View.Pessoas
             if (Txt_DataNacimento.Text != "  /  /")//Verifica se algo foi digitado na data de nascimento da pessoa.   "  /  /" -> é como fica a mascara de data em branco/Null
             {
                 Fisica PessoaFBase = new Fisica();
-                ControllerFisica controllerPF = new ControllerFisica();
 
                 PessoaFBase.Nome = Txt_Nome.Text;
                 PessoaFBase.Endereco = Txt_Endereco.Text;
@@ -121,7 +116,7 @@ namespace View.Pessoas
                 PessoaFBase.DataDeNascimento = DateTime.Parse(Txt_DataNacimento.Text);
 
                 //A função Save() Retona uma string infomando sobre o que ocorreu.
-                string saida = controllerPF.Edit(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento);
+                string saida = ControllerFisica.Edit(PessoaFBase.Nome, PessoaFBase.Endereco, PessoaFBase.Email, PessoaFBase.Situacao, PessoaFBase.SiglaEstado, PessoaFBase.Cidade, PessoaFBase.Bairro, PessoaFBase.Cep, PessoaFBase.Observacoes, PessoaFBase.CPF, PessoaFBase.Celular, PessoaFBase.Sexo, PessoaFBase.DataDeNascimento);
 
                 MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

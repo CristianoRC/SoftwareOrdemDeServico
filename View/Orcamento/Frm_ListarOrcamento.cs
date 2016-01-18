@@ -16,15 +16,14 @@ namespace View.Servicos
         private void Frm_ListarOrcamento_Load(object sender, EventArgs e)
         {
             Orcamento OrcamentoBase = new Orcamento();
-            ControllerOrcamento controllerOrcamento = new ControllerOrcamento();
 
-            foreach (var item in controllerOrcamento.LoadList())
+            foreach (var item in ControllerOrcamento.LoadList())
             {
-                OrcamentoBase = controllerOrcamento.Load(item);
+                OrcamentoBase = ControllerOrcamento.Load(item);
 
                 if (!string.IsNullOrWhiteSpace(OrcamentoBase.Identificador))
                 {
-                    OrcamentoBase = controllerOrcamento.Load(item);
+                    OrcamentoBase = ControllerOrcamento.Load(item);
 
                     Data_Os.Rows.Add(OrcamentoBase.Identificador, OrcamentoBase.Equipamento, OrcamentoBase.Valor, OrcamentoBase.Cliente, OrcamentoBase.Observacoes);
                 }

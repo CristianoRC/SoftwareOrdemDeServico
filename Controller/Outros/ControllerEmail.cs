@@ -6,14 +6,14 @@ using System.Net.Mail;
 
 namespace Controller
 {
-    public class ControllerEmail
+    public static class ControllerEmail
     {
 
         /// <summary>
         /// Carrega as informações do arquivo de email base.
         /// </summary>
         /// <returns></returns>
-        public string LoadEmailBase()
+        public static string LoadEmailBase()
         {
             StreamReader sr = null;
             string Saida;
@@ -46,7 +46,7 @@ namespace Controller
         /// </summary>
         /// <param name="Texto"></param>
         /// <returns></returns>
-        public string SaveEmailBase(string Texto)
+        public static string SaveEmailBase(string Texto)
         {
             string saida = " ";
 
@@ -81,14 +81,13 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public string Enviar(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
+        public static string Enviar(string NomeCliente, string EmailCliente, string NomeEmpresa, string MenssagemBase)
         {
             string Saida = " ";
 
             Email EmailBase = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
 
-            EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
+            EmailBase = ControllerEmail.LoadConfig();//Carregando informações do servidor.
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
@@ -139,16 +138,15 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public string EnviarOrcamento(string NomeCliente, string EmailCliente, string NomeEmpresa, string Valor, string Equipamento, string Observacoes)
+        public static string EnviarOrcamento(string NomeCliente, string EmailCliente, string NomeEmpresa, string Valor, string Equipamento, string Observacoes)
         {
             string Saida = " ";
             string MenssagemBase = string.Format(@"Olá {0} seu orçamento foi finalizado com sucesso, o valor estimado é de {1} no equipamento R$ {2}
                                                  <p></p> Observaçoes:{3}", NomeCliente, Valor, Equipamento, Observacoes);
 
             Email EmailBase = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
 
-            EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
+            EmailBase = ControllerEmail.LoadConfig();//Carregando informações do servidor.
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
@@ -199,16 +197,15 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
+        public static string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
         {
             string Saida = " ";
             string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", NomeCliente, NumeroDaOrdem);
 
 
             Email EmailBase = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
 
-            EmailBase = controllerEmail.LoadConfig();//Carregando informações do servidor.
+            EmailBase = ControllerEmail.LoadConfig();//Carregando informações do servidor.
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
@@ -268,15 +265,14 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public string EnviarArquivoLog(string NomeEmpresa, string Menssagem)
+        public static string EnviarArquivoLog(string NomeEmpresa, string Menssagem)
         {
             string Saida = " ";
             string MenssagemBase = string.Format(Menssagem);
 
 
             Email EmailBase = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
-            EmailBase = controllerEmail.LoadConfig();
+            EmailBase = ControllerEmail.LoadConfig();
 
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
@@ -339,7 +335,7 @@ namespace Controller
         /// <param name="_Host"></param>
         /// <param name="_Port"></param>
         /// <returns></returns>
-        public string SaveConfig(string EnderecoEmail, string Senha, string Host, int Port)
+        public static string SaveConfig(string EnderecoEmail, string Senha, string Host, int Port)
         {
             Cryptor cr;
             string Saida = "";
@@ -377,7 +373,7 @@ namespace Controller
         /// Carrega as informações do arquivo de configuração do E-mail.
         /// </summary>
         /// <returns></returns>
-        public Email LoadConfig()
+        public static Email LoadConfig()
         {
             Cryptor cr;
 
@@ -411,13 +407,12 @@ namespace Controller
         /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
         /// </summary>
         /// <param name="EmailBase"></param>
-        public string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento)
+        public static string DecodificarEmailBase(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento)
         {
             string TextoEmail;
             string EmailTemporario;
-            ControllerEmail controllerEmail = new ControllerEmail();
 
-            TextoEmail = controllerEmail.LoadEmailBase();
+            TextoEmail = ControllerEmail.LoadEmailBase();
 
             //Transformando os "Códigos digitados pelo usuario" em seu resultado;
             EmailTemporario = TextoEmail.Replace("**Cliente", NomeCliente);
@@ -436,13 +431,12 @@ namespace Controller
         /// Decodificando informações do E-mail base EX: **Cliente = Nome do Cliente
         /// </summary>
         /// <param name="EmailBase"></param>
-        public string DecodificarEmailBaseOrcamento(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento, string Valor)
+        public static string DecodificarEmailBaseOrcamento(string TextoEmailBase, string NomeEmpresa, string NomeCliente, string NomeEquipamento, string Valor)
         {
             string TextoEmail;
             string EmailTemporario;
-            ControllerEmail controllerEmail = new ControllerEmail();
 
-            TextoEmail = controllerEmail.LoadEmailBase();
+            TextoEmail = ControllerEmail.LoadEmailBase();
 
             //Transformando os "Códigos digitados pelo usuario" em seu resultado;
             EmailTemporario = TextoEmail.Replace("**Cliente", NomeCliente);
@@ -464,7 +458,7 @@ namespace Controller
         /// Carrega as informações do arquivo de email base.
         /// </summary>
         /// <returns></returns>
-        public string LoadEmailBaseOrcamento()
+        public static string LoadEmailBaseOrcamento()
         {
             StreamReader sr = null;
             string Saida;
@@ -497,7 +491,7 @@ namespace Controller
         /// </summary>
         /// <param name="Texto"></param>
         /// <returns></returns>
-        public string SaveEmailBaseOrcamento(string Texto)
+        public static string SaveEmailBaseOrcamento(string Texto)
         {
             string saida = " ";
 

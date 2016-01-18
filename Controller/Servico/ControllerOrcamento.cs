@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Controller
 {
-    public class ControllerOrcamento
+    public static class ControllerOrcamento
     {
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Controller
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
         /// <returns></returns>
-        public string Save(String Identificador, String Equipamento, String Cliente, String Valor, String Observações)
+        public static string Save(String Identificador, String Equipamento, String Cliente, String Valor, String Observações)
         {
             string Saida = null;
 
@@ -66,7 +66,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Ordem de serviço</returns>
-        public Orcamento Load(string Identificador)
+        public static Orcamento Load(string Identificador)
         {
             Orcamento OrcamentoBase = new Orcamento();
             StreamReader sr = null;
@@ -101,7 +101,7 @@ namespace Controller
         /// Carrega uma lista de ordens de serviço.
         /// </summary>
         /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             List<string> ListaDeOrcamentos = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("Orcamentos/");
@@ -125,7 +125,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Retorna um valor (true/false)</returns>
-        public bool Verificar(string _Identificador)
+        public static bool Verificar(string _Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
@@ -143,7 +143,12 @@ namespace Controller
             return Encontrado;
         }
 
-        public string Excluir(string Identificador)
+        /// <summary>
+        /// Excluindo orçamento
+        /// </summary>
+        /// <param name="Identificador"></param>
+        /// <returns></returns>
+        public static string Excluir(string Identificador)
         {
             string saida = " ";
 

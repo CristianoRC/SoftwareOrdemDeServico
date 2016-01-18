@@ -13,15 +13,13 @@ namespace View.Pessoas
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-            ControllerJuridica controllerJuridica = new ControllerJuridica();
-
             if (!string.IsNullOrWhiteSpace(Txt_Nome.Text)) //Verifica se o valor do txt é nulo ou em branco
             {
-                if (controllerJuridica.Verificar(Txt_Nome.Text))
+                if (ControllerJuridica.Verificar(Txt_Nome.Text))
                 {
                     if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
                     {
-                        string saida = controllerJuridica.Excluir(Txt_Nome.Text);
+                        string saida = ControllerJuridica.Excluir(Txt_Nome.Text);
 
                         MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

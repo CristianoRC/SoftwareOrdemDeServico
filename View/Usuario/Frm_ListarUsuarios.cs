@@ -13,11 +13,9 @@ namespace View.Usuario
 
         private void Frm_ListarUsuarios_Load(object sender, EventArgs e)
         {
-            ControllerUsuario controllerUsuario = new ControllerUsuario();
-
-            foreach (var item in controllerUsuario.LoadList())
+            foreach (var item in ControllerUsuario.LoadList())
             {
-                Data_Os.Rows.Add(controllerUsuario.Load(item).Nome, controllerUsuario.Load(item).NivelAcesso);
+                Data_Os.Rows.Add(ControllerUsuario.Load(item).Nome, ControllerUsuario.Load(item).NivelAcesso);
             }
         }
     }

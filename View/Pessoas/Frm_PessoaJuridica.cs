@@ -15,7 +15,6 @@ namespace View.Pessoas
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
             Juridica PessoaJBase = new Juridica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
 
             PessoaJBase.Nome = Txt_Nome.Text;
             PessoaJBase.Endereco = Txt_Endereco.Text;
@@ -33,7 +32,7 @@ namespace View.Pessoas
             PessoaJBase.InscricaoEstadual = Txt_InscricaoEstadual.Text;
             PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
-            string saida = controllerPJ.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial);
+            string saida = ControllerJuridica.Save(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial);
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
             MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,9 +59,8 @@ namespace View.Pessoas
         {
 
             Juridica PessoaJuridicaBase = new Juridica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
 
-            foreach (var item in controllerPJ.LoadList())
+            foreach (var item in ControllerJuridica.LoadList())
             {
                 Txt_Lista.Items.Add(item.ToString());
             }
@@ -71,9 +69,8 @@ namespace View.Pessoas
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
             Juridica PessoaJBase = new Juridica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
 
-            PessoaJBase = controllerPJ.Load(Txt_Lista.Text);
+            PessoaJBase = ControllerJuridica.Load(Txt_Lista.Text);
 
             Txt_Nome.Text = PessoaJBase.Nome;
             Txt_Endereco.Text = PessoaJBase.Endereco;
@@ -95,7 +92,6 @@ namespace View.Pessoas
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Juridica PessoaJBase = new Juridica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
 
             PessoaJBase.Nome = Txt_Nome.Text;
             PessoaJBase.Endereco = Txt_Endereco.Text;
@@ -113,7 +109,7 @@ namespace View.Pessoas
             PessoaJBase.InscricaoEstadual = Txt_InscricaoEstadual.Text;
             PessoaJBase.RazaoSocial = Txt_RazaoSocial.Text;
 
-            string saida = controllerPJ.Edit(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial);
+            string saida = ControllerJuridica.Edit(PessoaJBase.Nome, PessoaJBase.Endereco, PessoaJBase.Email, PessoaJBase.Situacao, PessoaJBase.SiglaEstado, PessoaJBase.Cidade, PessoaJBase.Bairro, PessoaJBase.Cep, PessoaJBase.Observacoes, PessoaJBase.Cnpj, PessoaJBase.Contato, PessoaJBase.InscricaoEstadual, PessoaJBase.RazaoSocial);
 
             //A função Save() Retona uma string infomando sobre o que ocorreu.
             MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -4,14 +4,14 @@ using Model;
 
 namespace Controller
 {
-    public class ControllerEmpresa
+    public static class ControllerEmpresa
     {
 
         /// <summary>
         /// Pegando informações da empresa no arquivo de configuração da mesma.
         /// </summary>
         /// <returns>Informações da empresa</returns>
-        public Empresa Load()
+        public static Empresa Load()
         {
             StreamReader sr = null;
             Empresa EmpresaBase = new Empresa();
@@ -49,7 +49,7 @@ namespace Controller
         /// <param name="_Contato"></param>
         /// <param name="_Endereco"></param>
         /// <returns></returns>
-        public string Save(String Nome, String Contato, String Endereco)
+        public static string Save(String Nome, String Contato, String Endereco)
         {
             string Saida = " ";
             StreamWriter sw = null;

@@ -13,9 +13,7 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ControllerLog controllerLog = new ControllerLog();
-
-            String Saida = controllerLog.enviar(Txt_Report.Text);
+            String Saida = ControllerLog.enviar(Txt_Report.Text);
 
             if (Saida == "E-mail enviado com sucesso!")
             {

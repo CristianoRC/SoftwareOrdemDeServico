@@ -29,23 +29,19 @@ namespace View
             {
                 OrdemServico OSbase = new OrdemServico();
                 Servico ServicoBase = new Servico();
-
-                ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-                ControllerServico controllerServico = new ControllerServico();
-                ControllerEmail controllerEmail = new ControllerEmail();
                 bool Finalizada = false;
 
 
-                if (controllerOS.Verificar(Txt_OS.Text))//Verifica se a OS existe ou não
+                if (ControllerOrdemServico.Verificar(Txt_OS.Text))//Verifica se a OS existe ou não
                 {
 
                     try
                     {
-                        controllerOS.FinalizarOS(Txt_OS.Text);
+                        ControllerOrdemServico.FinalizarOS(Txt_OS.Text);
                         MessageBox.Show("Ordem de serviço Finalizada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //Gerando o serviço
-                        controllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text,Txt_Servico.Text,NomeDoTecnico);
+                        ControllerServico.Save(Txt_Descricao.Text, double.Parse(Txt_Valor.Text), Txt_OS.Text, Txt_Servico.Text, NomeDoTecnico);
 
                         Finalizada = true;
                     }
@@ -61,9 +57,9 @@ namespace View
                             Email EmailBase = new Email();
 
                             //Decodificando Email Base para enviar!
-                            String EmailDecoficado = controllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0],RecuperarNomeEquipamento());
+                            String EmailDecoficado = ControllerEmail.DecodificarEmailBase(RecuperandoEmailBase(), NomeEmpresa(), InformacaoCliente()[0], RecuperarNomeEquipamento());
 
-                            string ResultadoEnvio = controllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
+                            string ResultadoEnvio = ControllerEmail.Enviar(InformacaoCliente()[0], InformacaoCliente()[1], NomeEmpresa(), EmailDecoficado);
 
                             MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -86,23 +82,18 @@ namespace View
             Fisica PessoaFisicaBase = new Fisica();
             Juridica PessoaJuridicaBase = new Juridica();
 
-
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-            ControllerFisica controllerPF = new ControllerFisica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
-
             string NomeDoCliente = "Não Econtrado";
             string EmailCliente = "Não encontrado";
             string[] Informacoes = new string[2];
 
-            NomeDoCliente = controllerOS.LoadOSFinalizada(Txt_OS.Text).Cliente;
+            NomeDoCliente = ControllerOrdemServico.LoadOSFinalizada(Txt_OS.Text).Cliente;
 
 
             //Verificando o tipo e o Email do usuario
 
-            if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é Juridica
+            if (ControllerJuridica.Verificar(NomeDoCliente)) //Verifica se é Juridica
             {
-                PessoaJuridicaBase = controllerPJ.Load(NomeDoCliente);
+                PessoaJuridicaBase = ControllerJuridica.Load(NomeDoCliente);
                 EmailCliente = PessoaFisicaBase.Email;
                 NomeDoCliente = PessoaFisicaBase.Nome;
 
@@ -110,10 +101,10 @@ namespace View
                 Informacoes[1] = EmailCliente;
 
             }
-            else if (controllerPF.Verificar(NomeDoCliente)) //Verifica se é pessoa Física.
+            else if (ControllerFisica.Verificar(NomeDoCliente)) //Verifica se é pessoa Física.
             {
-                EmailCliente = controllerPF.Load(NomeDoCliente).Email;
-                NomeDoCliente = controllerPF.Load(NomeDoCliente).Nome;
+                EmailCliente = ControllerFisica.Load(NomeDoCliente).Email;
+                NomeDoCliente = ControllerFisica.Load(NomeDoCliente).Nome;
 
                 Informacoes[0] = NomeDoCliente;
                 Informacoes[1] = EmailCliente;
@@ -130,11 +121,9 @@ namespace View
         {
 
             Empresa EmpresaBase = new Empresa();
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
-
             string NomeEmpresa = "Não encontrado";
 
-            NomeEmpresa = controllerEmpresa.Load().Nome;
+            NomeEmpresa = ControllerEmpresa.Load().Nome;
 
             return NomeEmpresa;
         }
@@ -146,11 +135,9 @@ namespace View
         private string RecuperandoEmailBase()
         {
             Email Email = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
-
             string TextoEmail = "Não encontrado";
 
-            TextoEmail = controllerEmail.LoadEmailBase();
+            TextoEmail = ControllerEmail.LoadEmailBase();
 
             return TextoEmail;
         }
@@ -161,12 +148,11 @@ namespace View
         /// <returns></returns>
         private string RecuperarNomeEquipamento()
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
             OrdemServico OSBase = new OrdemServico();
 
             string NomeEquipamento = "Não encontrado";
 
-            OSBase = controllerOS.LoadOSFinalizada(Txt_OS.Text); //Carregando informações da ordem de serviço para a OSBase;
+            OSBase = ControllerOrdemServico.LoadOSFinalizada(Txt_OS.Text); //Carregando informações da ordem de serviço para a OSBase;
             NomeEquipamento = OSBase.Equipamento;
 
             return NomeEquipamento;
@@ -179,9 +165,7 @@ namespace View
         /// <param name="e"></param>
         private void Frm_Servico_Load(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-
-            foreach (var Servicos in controllerServicoBase.LoadList())
+            foreach (var Servicos in ControllerServicoBase.LoadList())
             {
                 Txt_Servico.Items.Add(Servicos);
             }
@@ -194,9 +178,7 @@ namespace View
         /// <param name="e"></param>
         private void Txt_Servico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-
-            Txt_Valor.Text = controllerServicoBase.Load(Txt_Servico.Text).Valor.ToString();
+            Txt_Valor.Text = ControllerServicoBase.Load(Txt_Servico.Text).Valor.ToString();
         }
     }
 }

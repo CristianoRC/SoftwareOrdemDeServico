@@ -13,9 +13,7 @@ namespace View
 
         private void Frm_EditarServicoBase_Load(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-
-            foreach (var item in controllerServicoBase.LoadList())
+            foreach (var item in ControllerServicoBase.LoadList())
             {
                 Txt_ServicoBase.Items.Add(item);
             }
@@ -28,16 +26,14 @@ namespace View
         /// <param name="e"></param>
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-            controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text,Txt_Valor.Text);
+            ControllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Txt_Valor.Text);
         }
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
             Model.ServicoBase servicoBase = new Model.ServicoBase();
 
-            servicoBase = controllerServicoBase.Load(Txt_ServicoBase.Text);
+            servicoBase = ControllerServicoBase.Load(Txt_ServicoBase.Text);
 
             Txt_Nome.Text = servicoBase.Nome;
             Txt_Observacoes.Text = servicoBase.Observacoes;

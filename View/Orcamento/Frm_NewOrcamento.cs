@@ -22,11 +22,8 @@ namespace View
         /// <param name="e"></param>
         private void finalizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-
-            if (controllerOS.Verificar(Txt_NOrdem.Text)) //Verifica se a ordem de serviço existe ou não.
+            if (ControllerOrdemServico.Verificar(Txt_NOrdem.Text)) //Verifica se a ordem de serviço existe ou não.
             {
-                ControllerOrcamento controllerOrcamento = new ControllerOrcamento();
                 Orcamento OrcamentoBase = new Orcamento();
 
                 OrcamentoBase.Identificador = Txt_NOrdem.Text;
@@ -35,7 +32,7 @@ namespace View
                 OrcamentoBase.Observacoes = Txt_Observacoes.Text;
                 OrcamentoBase.Valor = Txt_ValorFinal.Text;
 
-                string Menssagem = controllerOrcamento.Save(OrcamentoBase.Identificador, OrcamentoBase.Equipamento, OrcamentoBase.Cliente, OrcamentoBase.Valor, OrcamentoBase.Observacoes);
+                string Menssagem = ControllerOrcamento.Save(OrcamentoBase.Identificador, OrcamentoBase.Equipamento, OrcamentoBase.Cliente, OrcamentoBase.Valor, OrcamentoBase.Observacoes);
 
                 MessageBox.Show(Menssagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -45,9 +42,7 @@ namespace View
                 {
                     if (MessageBox.Show("Você deseja enviar um e-mail para o cliente com as informações?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        ControllerEmail controllerEmail = new ControllerEmail();
-
-                        string Resultado = controllerEmail.EnviarOrcamento(Txt_NomeCliente.Text, InformacaoCliente()[1], NomeEmpresa(), OrcamentoBase.Equipamento, OrcamentoBase.Valor, OrcamentoBase.Observacoes);
+                        string Resultado = ControllerEmail.EnviarOrcamento(Txt_NomeCliente.Text, InformacaoCliente()[1], NomeEmpresa(), OrcamentoBase.Equipamento, OrcamentoBase.Valor, OrcamentoBase.Observacoes);
 
                         MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -69,11 +64,6 @@ namespace View
             Fisica PessoaFisicaBase = new Fisica();
             Juridica PessoaJuridicaBase = new Juridica();
 
-
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-            ControllerFisica controllerPF = new ControllerFisica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
-
             string NomeDoCliente = "Não Econtrado";
             string EmailCliente = "Não encontrado";
             string[] Informacoes = new string[2];
@@ -83,9 +73,9 @@ namespace View
 
             //Verificando o tipo e o Email do usuario
 
-            if (controllerPJ.Verificar(NomeDoCliente)) //Verifica se é Juridica
+            if (ControllerJuridica.Verificar(NomeDoCliente)) //Verifica se é Juridica
             {
-                PessoaJuridicaBase = controllerPJ.Load(NomeDoCliente);
+                PessoaJuridicaBase = ControllerJuridica.Load(NomeDoCliente);
                 EmailCliente = PessoaFisicaBase.Email;
                 NomeDoCliente = PessoaFisicaBase.Nome;
 
@@ -93,10 +83,10 @@ namespace View
                 Informacoes[1] = EmailCliente;
 
             }
-            else if (controllerPF.Verificar(NomeDoCliente)) //Verifica se é pessoa Física.
+            else if (ControllerFisica.Verificar(NomeDoCliente)) //Verifica se é pessoa Física.
             {
-                EmailCliente = controllerPF.Load(NomeDoCliente).Email;
-                NomeDoCliente = controllerPF.Load(NomeDoCliente).Nome;
+                EmailCliente = ControllerFisica.Load(NomeDoCliente).Email;
+                NomeDoCliente = ControllerFisica.Load(NomeDoCliente).Nome;
 
                 Informacoes[0] = NomeDoCliente;
                 Informacoes[1] = EmailCliente;
@@ -113,11 +103,10 @@ namespace View
         {
 
             Empresa EmpresaBase = new Empresa();
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
             string NomeEmpresa = "Não encontrado";
 
-            NomeEmpresa = controllerEmpresa.Load().Nome;
+            NomeEmpresa = ControllerEmpresa.Load().Nome;
 
             return NomeEmpresa;
         }
@@ -129,11 +118,10 @@ namespace View
         private string RecuperandoEmailBase()
         {
             Email Email = new Email();
-            ControllerEmail controllerEmail = new ControllerEmail();
 
             string TextoEmail = "Não encontrado";
 
-            TextoEmail = controllerEmail.LoadEmailBase();
+            TextoEmail = ControllerEmail.LoadEmailBase();
 
             return TextoEmail;
         }
@@ -144,12 +132,11 @@ namespace View
         /// <returns></returns>
         private string RecuperarNomeEquipamento()
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
             OrdemServico OSBase = new OrdemServico();
 
             string NomeEquipamento = "Não encontrado";
 
-            OSBase = controllerOS.Load(Txt_NOrdem.Text); //Carregando informações da ordem de serviço para a OSBase;
+            OSBase = ControllerOrdemServico.Load(Txt_NOrdem.Text); //Carregando informações da ordem de serviço para a OSBase;
             NomeEquipamento = OSBase.Equipamento;
 
             return NomeEquipamento;
@@ -157,12 +144,11 @@ namespace View
 
         private void verificarNomeDoClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
             string Saida;
 
-            if (controllerOS.Verificar(Txt_NOrdem.Text))
+            if (ControllerOrdemServico.Verificar(Txt_NOrdem.Text))
             {
-                Saida = controllerOS.Load(Txt_NOrdem.Text).Cliente;
+                Saida = ControllerOrdemServico.Load(Txt_NOrdem.Text).Cliente;
             }
             else
             {

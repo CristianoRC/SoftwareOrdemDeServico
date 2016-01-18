@@ -4,14 +4,14 @@ using System.IO;
 
 namespace Controller
 {
-    public class ControllerBackup
+    public static class ControllerBackup
     {
         /// <summary>
         /// Criando arquivo "Zip" de backup das informações.
         /// </summary>
         /// <param name="arquivos"></param>
         /// <param name="ArquivoDestino"></param>
-        public void CriarArquivoZip(List<string> arquivos, string ArquivoDestino)
+        public static void CriarArquivoZip(List<string> arquivos, string ArquivoDestino)
         {
             ZipFile zip = new ZipFile();
 
@@ -61,7 +61,7 @@ namespace Controller
         /// </summary>
         /// <param name="localizacaoArquivoZip"></param>
         /// <param name="destino"></param>
-        public string ExtrairArquivoZip(string localizacaoArquivoZip, string destino)
+        public static string ExtrairArquivoZip(string localizacaoArquivoZip, string destino)
         {
             string saida;
 

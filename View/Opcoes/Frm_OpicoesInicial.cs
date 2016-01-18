@@ -30,13 +30,12 @@ namespace View.Opicoes
                 if (Check_Informações.Checked == true)
                 {
                     Model.Empresa EmpresaBase = new Model.Empresa();
-                    ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
                     EmpresaBase.Nome = Txt_Nome.Text;
                     EmpresaBase.Contato = Txt_Contato.Text;
                     EmpresaBase.Endereco = Txt_Endereco.Text;
 
-                    string Resultado = controllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
+                    string Resultado = ControllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
 
                     MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -75,9 +74,8 @@ namespace View.Opicoes
         private void Frm_OpicoesInicial_Load(object sender, EventArgs e)
         {
             Model.Empresa EmpresaBase = new Model.Empresa();
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
-            EmpresaBase = controllerEmpresa.Load();
+            EmpresaBase = ControllerEmpresa.Load();
 
             Txt_Nome.Text = EmpresaBase.Nome;
             Txt_Contato.Text = EmpresaBase.Contato;

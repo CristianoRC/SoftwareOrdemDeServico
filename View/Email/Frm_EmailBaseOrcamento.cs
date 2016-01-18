@@ -19,16 +19,12 @@ namespace View
 
         private void Frm_EmailBaseOrcamento_Load(object sender, EventArgs e)
         {
-            ControllerEmail controllerEmail = new ControllerEmail();
-
-            Txt_EmailBase.Text = controllerEmail.LoadEmailBaseOrcamento();
+            Txt_EmailBase.Text = ControllerEmail.LoadEmailBaseOrcamento();
         }
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerEmail controllerEmail = new ControllerEmail();
-
-            controllerEmail.SaveEmailBaseOrcamento(Txt_EmailBase.Text);
+            ControllerEmail.SaveEmailBaseOrcamento(Txt_EmailBase.Text);
         }
     }
 }

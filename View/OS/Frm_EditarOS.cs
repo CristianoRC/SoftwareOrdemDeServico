@@ -19,12 +19,11 @@ namespace View.OS
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
         {
             Model.Ordem_de_Servico.OrdemServico OrdemDeServico = new Model.Ordem_de_Servico.OrdemServico();
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
 
             //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
-            if (controllerOS.Verificar(Txt_Pesquisa.Text) == true)
+            if (ControllerOrdemServico.Verificar(Txt_Pesquisa.Text) == true)
             {
-                OrdemDeServico = controllerOS.Load(Txt_Pesquisa.Text);
+                OrdemDeServico = ControllerOrdemServico.Load(Txt_Pesquisa.Text);
 
                 Txt_Nordem.Text = OrdemDeServico.Identificador;
                 Txt_Referencia.Text = OrdemDeServico.Referencia;
@@ -41,23 +40,21 @@ namespace View.OS
             }
             else
             {
-                MessageBox.Show("Ordem de serviço não encontrada!","Informações",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Ordem de serviço não encontrada!", "Informações", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-
-            string Retorno = controllerOS.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text,Txt_Cliente.Text);
+            string Retorno = ControllerOrdemServico.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (MessageBox.Show("Deseja imprimir o arquivo?","Pergunta",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja imprimir o arquivo?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                controllerOS.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+                ControllerOrdemServico.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
             }
 
             Txt_Cliente.Clear();

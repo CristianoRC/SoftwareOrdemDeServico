@@ -5,9 +5,9 @@ using Model.Pessoa_e_Usuario;
 
 namespace Controller
 {
-    public class ControllerJuridica
+    public static class ControllerJuridica
     {
-
+        //TODO: Dar manutenção as classes abaixo, muitos parâmetros;
         /// <summary>
         /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
         /// </summary>
@@ -25,7 +25,7 @@ namespace Controller
         /// <param name="inscricaoestadual"></param>
         /// <param name="razaosocial"></param>
         /// <returns></returns>
-        public String Save(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+        public static String Save(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -117,7 +117,7 @@ namespace Controller
         /// <param name="inscricaoestadual"></param>
         /// <param name="razaosocial"></param>
         /// <returns></returns>
-        public String Edit(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+        public static String Edit(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -187,7 +187,7 @@ namespace Controller
         /// </summary>
         /// <param name="IdentificadorLoad"></param>
         /// <returns>Pessoa Jurídica.</returns>
-        public Juridica Load(String IdentificadorLoad)
+        public static Juridica Load(String IdentificadorLoad)
         {
             Juridica PessoaJBase = new Juridica();
 
@@ -232,7 +232,7 @@ namespace Controller
         /// Carregando Lista com nome de todas pessoas Jurídicas registradas.
         /// </summary>
         /// <returns>Lista de nomes.</returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             List<string> ListaDePessoaJuridica = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("Pessoa/J/");
@@ -257,7 +257,7 @@ namespace Controller
         /// </summary>
         /// <param name="nome"></param>
         /// <returns></returns>
-        public bool Verificar(String nome)
+        public static bool Verificar(String nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
@@ -280,7 +280,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
-        public string Excluir(string Nome)
+        public static string Excluir(string Nome)
         {
             string saida = String.Format("Pessoa jurídica {0} foi excluida com sucesso!", Nome);
 

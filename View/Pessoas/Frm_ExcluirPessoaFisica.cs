@@ -13,15 +13,14 @@ namespace View.Pessoas
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-            ControllerFisica controllerFisica = new ControllerFisica();
 
             if (!string.IsNullOrWhiteSpace(Txt_Nome.Text)) //Verifica se o valor do txt é nulo ou em branco
             {
-                if (controllerFisica.Verificar(Txt_Nome.Text))
+                if (ControllerFisica.Verificar(Txt_Nome.Text))
                 {
                     if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
                     {
-                        string saida = controllerFisica.Excluir(Txt_Nome.Text);
+                        string saida = ControllerFisica.Excluir(Txt_Nome.Text);
 
                         MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

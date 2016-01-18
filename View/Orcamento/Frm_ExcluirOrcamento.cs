@@ -14,15 +14,13 @@ namespace View
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
 
-            ControllerOrcamento controllerOrcamento = new ControllerOrcamento();
-
             if (!string.IsNullOrWhiteSpace(Txt_OS.Text)) //Verifica se o valor do txt é nulo ou em branco
             {
-                if (controllerOrcamento.Verificar(Txt_OS.Text))
+                if (ControllerOrcamento.Verificar(Txt_OS.Text))
                 {
                     if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
                     {
-                        string saida = controllerOrcamento.Excluir(Txt_OS.Text);
+                        string saida = ControllerOrcamento.Excluir(Txt_OS.Text);
 
                         MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

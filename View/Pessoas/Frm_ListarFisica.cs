@@ -1,6 +1,7 @@
 ﻿using System;
 using Controller;
 using System.Windows.Forms;
+using Model.Pessoa_e_Usuario;
 
 namespace View.Pessoas
 {
@@ -14,12 +15,11 @@ namespace View.Pessoas
         private void Frm_ListarFisica_Load(object sender, EventArgs e)
         {
 
-            Model.Pessoa_e_Usuario.Fisica PessoaFisicaBase = new Model.Pessoa_e_Usuario.Fisica();
-            ControllerFisica controllerPF = new ControllerFisica();
+            Fisica PessoaFisicaBase = new Fisica();
 
-            foreach (var item in controllerPF.LoadList())
+            foreach (var item in ControllerFisica.LoadList())
             {
-                PessoaFisicaBase = controllerPF.Load(item);
+                PessoaFisicaBase = ControllerFisica.Load(item);
 
                 Data_Os.Rows.Add(PessoaFisicaBase.Nome, PessoaFisicaBase.Celular, PessoaFisicaBase.CPF, PessoaFisicaBase.Cidade, PessoaFisicaBase.Situacao);
             }

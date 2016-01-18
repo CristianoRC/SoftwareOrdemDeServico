@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace Controller
 {
-    public class ControllerFisica
+    public static class ControllerFisica
     {
-
+        //TODO: Dar manutenção nos métodos com muitos parâmetros;
         /// <summary>
         /// Salvando pessoa Física na pasta "F"(Pasta usada para guardar todas as pessoas físicas no diretorio do software).
         /// </summary>
@@ -26,7 +26,7 @@ namespace Controller
         /// <param name="sexo"></param>
         /// <param name="datadenascimento"></param>
         /// <returns></returns>
-        public String Save(String nome, String endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cpf, string celular, string sexo, DateTime datadenascimento)
+        public static String Save(String nome, String endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cpf, string celular, string sexo, DateTime datadenascimento)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -117,7 +117,7 @@ namespace Controller
         /// <param name="sexo"></param>
         /// <param name="datadenascimento"></param>
         /// <returns></returns>
-        public String Edit(String nome, String endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cpf, string celular, string sexo, DateTime datadenascimento)
+        public static String Edit(String nome, String endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cpf, string celular, string sexo, DateTime datadenascimento)
         {
             StreamWriter sw = null;
             string Saida = "";
@@ -186,7 +186,7 @@ namespace Controller
         /// </summary>
         /// <param name="nome"></param>
         /// <returns>Pessoa Física</returns>
-        public Fisica Load(String nome)
+        public static Fisica Load(String nome)
         {
             Fisica PessoaFBase = new Fisica();
 
@@ -232,7 +232,7 @@ namespace Controller
         /// Carregando Lista com nome de todas pessoas Físicas registradas.
         /// </summary>
         /// <returns>Lista de nomes.</returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             List<string> ListaDePessoaFisica = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("Pessoa/F/");
@@ -257,7 +257,7 @@ namespace Controller
         /// </summary>
         /// <param name="nome"></param>
         /// <returns></returns>
-        public bool Verificar(String nome)
+        public static bool Verificar(String nome)
         {
             //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
@@ -280,7 +280,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
-        public string Excluir(string Nome)
+        public static string Excluir(string Nome)
         {
             string saida = String.Format("Pessoa física {0} foi excluida com sucesso!", Nome);
 

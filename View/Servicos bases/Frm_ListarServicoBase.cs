@@ -14,18 +14,15 @@ namespace View
 
         private void Frm_ListarServicoBase_Load(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-
-
             List<String> ListaDeInformacoes = new List<string>();
 
-            foreach (var itemOS in controllerServicoBase.LoadList()) //Carregando informações da Os
+            foreach (var itemOS in ControllerServicoBase.LoadList()) //Carregando informações da Os
             {
-                ListaDeInformacoes.Add(controllerServicoBase.Load(itemOS).Nome);
-                ListaDeInformacoes.Add(controllerServicoBase.Load(itemOS).Valor.ToString());
-                ListaDeInformacoes.Add(controllerServicoBase.Load(itemOS).Observacoes);
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Nome);
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Valor.ToString());
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Observacoes);
 
-                if (!string.IsNullOrWhiteSpace(controllerServicoBase.Load(itemOS).Nome))
+                if (!string.IsNullOrWhiteSpace(ControllerServicoBase.Load(itemOS).Nome))
                 {
                     Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2]);
 

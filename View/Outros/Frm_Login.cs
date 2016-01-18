@@ -15,12 +15,11 @@ namespace View
         private void logar()
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
-            ControllerUsuario controllerUsuario = new ControllerUsuario();
 
-            if (controllerUsuario.Verificar(Txt_Login.Text.TrimEnd()))
+            if (ControllerUsuario.Verificar(Txt_Login.Text.TrimEnd()))
             {
                 //Chamando o load para atualizar as informações
-                UsuarioBase = controllerUsuario.Load(Txt_Login.Text.TrimEnd());
+                UsuarioBase = ControllerUsuario.Load(Txt_Login.Text.TrimEnd());
 
                 if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
                 {

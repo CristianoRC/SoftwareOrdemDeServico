@@ -18,9 +18,7 @@ namespace View
         /// <param name="e"></param>
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerServicoBase controllerServicoBase = new ControllerServicoBase();
-
-            string saida = controllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Txt_Valor.Text);
+            string saida = ControllerServicoBase.Save(Txt_Nome.Text, Txt_Observacoes.Text, Txt_Valor.Text);
 
             MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

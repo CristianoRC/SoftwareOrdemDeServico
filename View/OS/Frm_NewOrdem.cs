@@ -23,23 +23,20 @@ namespace View.OS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-
-            string Retorno = controllerOS.Save(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+            string Retorno = ControllerOrdemServico.Save(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                controllerOS.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+                ControllerOrdemServico.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
             }
 
             if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ControllerEmail controllerEmail = new ControllerEmail();
                 Email EmailBase = new Email();
 
-                string ResultadoEnvio = controllerEmail.EnviarOrdemDeServiço(RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[0], RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[1], NomeEmpresa(), Txt_Nordem.Text);
+                string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[0], RecuperarInformacoesCliente(Txt_Cliente.Text, RecuperarTipo())[1], NomeEmpresa(), Txt_Nordem.Text);
 
                 //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
 
@@ -64,9 +61,7 @@ namespace View.OS
             {
                 Txt_ListaPessoa.Items.Clear();
 
-                ControllerFisica controllerPF = new ControllerFisica();
-
-                foreach (var item in controllerPF.LoadList())
+                foreach (var item in ControllerFisica.LoadList())
                 {
                     //Le o nome das pessoas (arquivos) e adiciona ele a cada passada no ComboBox.
 
@@ -78,9 +73,7 @@ namespace View.OS
             {
                 Txt_ListaPessoa.Items.Clear();
 
-                ControllerJuridica controllerPJ = new ControllerJuridica();
-
-                foreach (var item in controllerPJ.LoadList())
+                foreach (var item in ControllerJuridica.LoadList())
                 {
                     Txt_ListaPessoa.Items.Add(item.ToString());
                 }
@@ -103,11 +96,10 @@ namespace View.OS
         {
 
             Empresa EmpresaBase = new Empresa();
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
             string NomeEmpresa = "Não encontrado";
 
-            NomeEmpresa = controllerEmpresa.Load().Nome;
+            NomeEmpresa = ControllerEmpresa.Load().Nome;
 
             return NomeEmpresa;
         }
@@ -120,9 +112,6 @@ namespace View.OS
         /// <returns></returns>
         private List<string> RecuperarInformacoesCliente(String NomePessoa, Char Tipo)
         {
-            ControllerFisica ControllerPF = new ControllerFisica();
-            ControllerJuridica ControllerPJ = new ControllerJuridica();
-
             Fisica PessoaFisicaBase = new Fisica(); ;
             Juridica PessoaJuridicaBase = new Juridica();
 
@@ -133,7 +122,7 @@ namespace View.OS
 
             if (Tipo == 'J')
             {
-                PessoaJuridicaBase = ControllerPJ.Load(NomePessoa);
+                PessoaJuridicaBase = ControllerJuridica.Load(NomePessoa);
 
                 ListaDeVolta[0] = PessoaJuridicaBase.Nome;
 
@@ -141,7 +130,7 @@ namespace View.OS
             }
             else if (Tipo == 'F')
             {
-                PessoaFisicaBase = ControllerPF.Load(NomePessoa);
+                PessoaFisicaBase = ControllerFisica.Load(NomePessoa);
 
                 ListaDeVolta[0] = PessoaFisicaBase.Nome;
 
@@ -157,7 +146,7 @@ namespace View.OS
         /// <returns></returns>
         private char RecuperarTipo()
         {
-            char saida = 'F'; // Inicia com o F porque ele já vem marcado como padrão.
+            char saida = 'F'; // Inicia com o F porque ele já vem marcado como padrão no formulário.
 
             if (CheckPessoaJuridica.Checked)
             {

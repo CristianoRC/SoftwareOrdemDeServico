@@ -3,20 +3,18 @@ using System.IO;
 
 namespace Controller
 {
-    public class ControllerLog
+    public static class ControllerLog
     {
         /// <summary>
         /// Enviando informações sobre problemas no software e arquivo de log.
         /// </summary>
         /// <param name="Menssagem"></param>
         /// <returns></returns>
-        public string enviar(String Menssagem)
+        public static string enviar(String Menssagem)
         {
-            ControllerEmail controllerEmail = new ControllerEmail();
             string saida;
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
-            saida = controllerEmail.EnviarArquivoLog(controllerEmpresa.Load().Nome, Menssagem);
+            saida = ControllerEmail.EnviarArquivoLog(ControllerEmpresa.Load().Nome, Menssagem);
 
             return saida;
         }
@@ -24,7 +22,7 @@ namespace Controller
         /// <summary>
         /// Apagando o arquivo de Log
         /// </summary>
-        public void apagar()
+        public static void apagar()
         {
             if (File.Exists("Log.txt"))
             {

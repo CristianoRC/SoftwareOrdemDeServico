@@ -9,7 +9,7 @@ using Model.Ordem_de_Servico;
 
 namespace Controller
 {
-    public class ControllerOrdemServico
+    public static class ControllerOrdemServico
     {
 
 
@@ -26,14 +26,13 @@ namespace Controller
         /// <param name="Equipamento"></param>
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
-        public void CreatPDF(string Identificador, string Referencia, string Tipo, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public static void CreatPDF(string Identificador, string Referencia, string Tipo, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
 
             Document Documento = new Document();
             string local = String.Format("{0}/OS.pdf", Path.GetTempPath());
             PdfWriter.GetInstance(Documento, new FileStream(local, FileMode.Create));
             Empresa Empresa = new Empresa();
-            ControllerEmpresa controllerEmpresa = new ControllerEmpresa();
 
 
             Paragraph _identificador = new Paragraph();
@@ -72,7 +71,7 @@ namespace Controller
             _observacoes.Add(String.Format("Observações: {0}", Observacao));
 
             //Carregando informações da empresa
-            Empresa = controllerEmpresa.Load();
+            Empresa = ControllerEmpresa.Load();
             _nomeEmpresa.Add(Empresa.Nome);
             _contatoEmpresa.Add(Empresa.Contato);
             _enderecoEmpresa.Add(Empresa.Endereco);
@@ -133,7 +132,7 @@ namespace Controller
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
         /// <returns></returns>
-        public string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public static string Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
 
@@ -215,7 +214,7 @@ namespace Controller
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
         /// <returns></returns>
-        public string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public static string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
         {
             OrdemServico OSBase = new OrdemServico();
             string Saida = null;
@@ -286,7 +285,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Ordem de serviço</returns>
-        public OrdemServico Load(string Identificador)
+        public static OrdemServico Load(string Identificador)
         {
             OrdemServico OSBase = new OrdemServico();
             StreamReader sr = null;
@@ -325,7 +324,7 @@ namespace Controller
         /// Carrega uma lista de ordens de serviço.
         /// </summary>
         /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             List<string> ListaDeOS = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("OS/");
@@ -349,7 +348,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Retorna um valor (true/false)</returns>
-        public bool Verificar(string _Identificador)
+        public static bool Verificar(string _Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
@@ -373,7 +372,7 @@ namespace Controller
         /// </summary>
         /// <param name="NumeroOS"></param>
         /// <returns>Menssagen informando se deu certo ou não</returns>
-        public void FinalizarOS(string NumeroOS)
+        public static void FinalizarOS(string NumeroOS)
         {
             OrdemServico OSBase = new OrdemServico();
 
@@ -392,7 +391,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Ordem de serviço</returns>
-        public OrdemServico LoadOSFinalizada(string Identificador)
+        public static OrdemServico LoadOSFinalizada(string Identificador)
         {
             OrdemServico OSBase = new OrdemServico();
             StreamReader sr = null;
@@ -431,7 +430,7 @@ namespace Controller
         /// Carrega uma lista de ordens de serviço(Finalizadas).
         /// </summary>
         /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
-        public List<string> LoadListFinalizadas()
+        public static List<string> LoadListFinalizadas()
         {
             List<string> ListaDeOS = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("OS/Finalizadas");
@@ -455,7 +454,7 @@ namespace Controller
         /// </summary>
         /// <param name="_Identificador"></param>
         /// <returns>Retorna um valor (true/false)</returns>
-        public bool VerificarFinalizada(string Identificador)
+        public static bool VerificarFinalizada(string Identificador)
         {
             //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
 
@@ -478,7 +477,7 @@ namespace Controller
         /// </summary>
         /// <param name="Identificador"></param>
         /// <returns>Resultado da operação</returns>
-        public string Excluir(string Identificador)
+        public static string Excluir(string Identificador)
         {
             string saida = String.Format("A ordem de serviço numero {0} foi excluida com sucesso!", Identificador);
 

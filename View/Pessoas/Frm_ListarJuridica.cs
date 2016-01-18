@@ -16,11 +16,10 @@ namespace View.Pessoas
         {
 
             Juridica PessoaJuridicaBase = new Juridica();
-            ControllerJuridica controllerPJ = new ControllerJuridica();
 
-            foreach (var item in controllerPJ.LoadList())
+            foreach (var item in ControllerJuridica.LoadList())
             {
-                PessoaJuridicaBase = controllerPJ.Load(item);
+                PessoaJuridicaBase = ControllerJuridica.Load(item);
 
                 Data_Os.Rows.Add(PessoaJuridicaBase.Nome, PessoaJuridicaBase.Contato, PessoaJuridicaBase.Cnpj, PessoaJuridicaBase.Cidade, PessoaJuridicaBase.Situacao);
             }

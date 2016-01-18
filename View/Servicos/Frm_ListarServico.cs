@@ -14,27 +14,24 @@ namespace View
 
         private void Frm_ListarServico_Load(object sender, EventArgs e)
         {
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
-            ControllerServico controllerServico = new ControllerServico();
-
             List<String> ListaDeInformacoes = new List<string>();
             bool TemInformacao = false; //Verifica se achou algo.
 
-            foreach (var itemOS in controllerOS.LoadListFinalizadas()) //Carregando informações da Os
+            foreach (var itemOS in ControllerOrdemServico.LoadListFinalizadas()) //Carregando informações da Os
             {
-                ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Identificador);
-                ListaDeInformacoes.Add(controllerOS.LoadOSFinalizada(itemOS).Cliente);
+                ListaDeInformacoes.Add(ControllerOrdemServico.LoadOSFinalizada(itemOS).Identificador);
+                ListaDeInformacoes.Add(ControllerOrdemServico.LoadOSFinalizada(itemOS).Cliente);
 
-                if (!string.IsNullOrWhiteSpace(controllerOS.LoadOSFinalizada(itemOS).Identificador))
+                if (!string.IsNullOrWhiteSpace(ControllerOrdemServico.LoadOSFinalizada(itemOS).Identificador))
                 {
                     TemInformacao = true;
                 }
 
-                foreach (var item in controllerServico.LoadList()) //Carregando informações do serviço
+                foreach (var item in ControllerServico.LoadList()) //Carregando informações do serviço
                 {
-                    ListaDeInformacoes.Add(controllerServico.Load(item).Descricao);
-                    ListaDeInformacoes.Add(controllerServico.Load(item).Valor.ToString());
-                    ListaDeInformacoes.Add(controllerServico.Load(item).Tecnico);
+                    ListaDeInformacoes.Add(ControllerServico.Load(item).Descricao);
+                    ListaDeInformacoes.Add(ControllerServico.Load(item).Valor.ToString());
+                    ListaDeInformacoes.Add(ControllerServico.Load(item).Tecnico);
                 }
 
                 if (TemInformacao)

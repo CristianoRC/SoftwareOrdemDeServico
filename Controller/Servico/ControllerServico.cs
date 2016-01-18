@@ -5,7 +5,7 @@ using Model.Ordem_de_Servico;
 
 namespace Controller
 {
-    public class ControllerServico
+    public static class ControllerServico
     {
 
         /// <summary>
@@ -15,7 +15,7 @@ namespace Controller
         /// <param name="Valor"></param>
         /// <param name="NumeroOS"></param>
         /// <returns></returns>
-        public string Save(string Descricao, double Valor, string NumeroOS,string ServicoBase,string NomeDoTecnico)
+        public static string Save(string Descricao, double Valor, string NumeroOS, string ServicoBase, string NomeDoTecnico)
         {
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
             string Saida;
@@ -52,7 +52,7 @@ namespace Controller
         /// </summary>
         /// <param name="NumeroServico"></param>
         /// <returns>Informações do serviço carregado.</returns>
-        public Servico Load(string NomeServico)
+        public static Servico Load(string NomeServico)
         {
             Servico servicoSave = new Servico();
             Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
@@ -84,7 +84,7 @@ namespace Controller
         /// Carregando Lista de Serviços finalizados.
         /// </summary>
         /// <returns>Lista de nomes de todos os serviços finalizados.</returns>
-        public List<String> LoadList()
+        public static List<String> LoadList()
         {
             List<string> listaBase = new List<string>();
             DirectoryInfo NomesArquivos = new DirectoryInfo("OS/Servicos/");
@@ -106,11 +106,11 @@ namespace Controller
         /// </summary>
         /// <param name="identificador"></param>
         /// <returns></returns>
-        public bool Verificar(string identificador)
+        public static bool Verificar(string identificador)
         {
             bool saida = false;
 
-            if (File.Exists(string.Format("Os/Servicos/{0}.txt",identificador)))
+            if (File.Exists(string.Format("Os/Servicos/{0}.txt", identificador)))
             {
                 saida = true;
             }
@@ -122,7 +122,7 @@ namespace Controller
         /// </summary>
         /// <param name="Identificador"></param>
         /// <returns>Resultado da operação</returns>
-        public string Excluir(string Identificador)
+        public static string Excluir(string Identificador)
         {
             string saida = String.Format("O serviço numero {0} foi excluido com sucesso!", Identificador);
 

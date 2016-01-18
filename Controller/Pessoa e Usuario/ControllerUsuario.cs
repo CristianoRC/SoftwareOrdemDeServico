@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
 
 namespace Controller
-{   
+{
     /// <summary>
     /// Usada como classe dos técnicos da empresa, cada um com o seu login.
     /// </summary>
-    public class ControllerUsuario
+    public static class ControllerUsuario
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public String Save(String Nome, String Senha, string NivelAcesso)
+        public static String Save(String Nome, String Senha, string NivelAcesso)
         {
             StreamWriter sr = null;
             string Saida = "";
@@ -69,7 +69,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public String Editar(String Nome, String Senha, string NivelAcesso)
+        public static String Editar(String Nome, String Senha, string NivelAcesso)
         {
             StreamWriter sr = null;
             string Saida = "";
@@ -114,7 +114,7 @@ namespace Controller
         /// Carregando Lista com nome de todos usuarios.
         /// </summary>
         /// <returns></returns>
-        public List<string> LoadList()
+        public static List<string> LoadList()
         {
             Usuario UsuarioBase = new Usuario();
             List<string> ListaDeUsuarios = new List<string>();
@@ -154,7 +154,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public Usuario Load(string Nome)
+        public static Usuario Load(string Nome)
         {
             StreamReader sr = null;
             Usuario UsuarioBase = new Usuario();
@@ -189,7 +189,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public bool Verificar(string Nome)
+        public static bool Verificar(string Nome)
         {
             bool UsuarioEncontrado = false;
 
@@ -224,7 +224,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
-        public string Excluir(string Nome)
+        public static string Excluir(string Nome)
         {
             string saida = String.Format("O técnico {0} foi excluida com sucesso!", Nome);
 

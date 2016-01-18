@@ -20,11 +20,10 @@ namespace View.Usuario
         {
 
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
-            ControllerUsuario controllerUsuario = new ControllerUsuario();
             string saida = "";
 
             //Salvando e passando o resulado para a saida.
-            saida = controllerUsuario.Editar(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+            saida = ControllerUsuario.Editar(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
 
             Txt_Login.Clear();
             Txt_Senha.Clear();
@@ -37,11 +36,10 @@ namespace View.Usuario
         private void Btm_Pesquisar_Click(object sender, EventArgs e)
         {
             Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
-            ControllerUsuario controllerUsuario = new ControllerUsuario();
 
-            if (controllerUsuario.Verificar(Txt_Pesquisa.Text))
+            if (ControllerUsuario.Verificar(Txt_Pesquisa.Text))
             {
-                UsuarioBase = controllerUsuario.Load(Txt_Pesquisa.Text);
+                UsuarioBase = ControllerUsuario.Load(Txt_Pesquisa.Text);
 
                 Txt_Login.Text = UsuarioBase.Nome;
                 Txt_Senha.Text = UsuarioBase.Senha;

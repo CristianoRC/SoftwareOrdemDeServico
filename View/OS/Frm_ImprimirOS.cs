@@ -14,16 +14,15 @@ namespace View
         private void Btm_Imprimir_Click(object sender, EventArgs e)
         {
             Model.Ordem_de_Servico.OrdemServico OSBase = new Model.Ordem_de_Servico.OrdemServico();
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
 
             //checkBox1.Checked = Verifica se a ordem já foi finalizada, se for = true é que já foi finalizada  se for = false não.
             if (checkBox1.Checked == false)
             {
                 //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
-                if (controllerOS.Verificar(Txt_Pesquisa.Text) == true)
+                if (ControllerOrdemServico.Verificar(Txt_Pesquisa.Text) == true)
                 {
-                    OSBase = controllerOS.Load(Txt_Pesquisa.Text);
-                    controllerOS.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                    OSBase = ControllerOrdemServico.Load(Txt_Pesquisa.Text);
+                    ControllerOrdemServico.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
                 else
                 {
@@ -33,10 +32,10 @@ namespace View
             else
             {
                 //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
-                if (controllerOS.VerificarFinalizada(Txt_Pesquisa.Text) == true)
+                if (ControllerOrdemServico.VerificarFinalizada(Txt_Pesquisa.Text) == true)
                 {
-                    OSBase = controllerOS.LoadOSFinalizada(Txt_Pesquisa.Text);
-                    controllerOS.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
+                    OSBase = ControllerOrdemServico.LoadOSFinalizada(Txt_Pesquisa.Text);
+                    ControllerOrdemServico.CreatPDF(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
                 }
                 else
                 {

@@ -15,13 +15,12 @@ namespace View.OS
         private void Frm_ListarOS_Load(object sender, EventArgs e)
         {
             OrdemServico OSBase = new OrdemServico();
-            ControllerOrdemServico controllerOS = new ControllerOrdemServico();
 
-            foreach (var item in controllerOS.LoadList())
+            foreach (var item in ControllerOrdemServico.LoadList())
             {
-                if (!string.IsNullOrWhiteSpace(controllerOS.Load(item).Identificador))
+                if (!string.IsNullOrWhiteSpace(ControllerOrdemServico.Load(item).Identificador))
                 {
-                    OSBase = controllerOS.Load(item);
+                    OSBase = ControllerOrdemServico.Load(item);
 
                     Data_Os.Rows.Add(OSBase.Identificador, OSBase.Defeito, OSBase.Equipamento, OSBase.Situacao, OSBase.Cliente, OSBase.DataEntradaServico);
 
