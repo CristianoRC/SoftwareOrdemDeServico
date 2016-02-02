@@ -30,7 +30,8 @@ Desenvolvido na plataforma .NET(Windows Forms), utilizando o .NET Framework 4.5.
 <li>Gerenciamento de ordem de serviço.</li>
 <li>Gerenciamento de serviços básicos.</li>
 <li>Gerenciamento de serviços finalizados.</li>
-<li>Sistema de envio de E-mail informando término do serviço.</li>
+<li>Sistema de orçamentos.</li>
+<li>Sistema de envio de E-mail informando término do serviço/Orçamento.</li>
 <li>Sistema de técnicos.</li>
 <li>Sistema de nível de acesso.</li>
 </ul>
