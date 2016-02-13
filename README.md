@@ -45,6 +45,7 @@ Desenvolvido na plataforma .NET(Windows Forms), utilizando o .NET Framework 4.5.
 
 <hr> </hr>
 
-<b>License:</b> <a href="https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/LICENSE.txt" target="License" >License.</a>
+<b>License:</b> <a href="https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/LICENSE.txt" target="License" >
+The MIT License (MIT)</a>
 
 <hr> </hr>
