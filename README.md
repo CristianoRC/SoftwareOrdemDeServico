@@ -36,6 +36,10 @@ Desenvolvido na plataforma .NET(Windows Forms), utilizando o .NET Framework 4.5.
 <li>Sistema de nível de acesso.</li>
 </ul>
 
+
+<h1> License </h1>
+<a href="https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/LICENSE.txt" target="License" >License.</a>
+
 <h1> Agradecimentos </h1>
 <a href="http://williamivanski.com.br/" target="_blank" >Professor William Ivanski.</a>
 
