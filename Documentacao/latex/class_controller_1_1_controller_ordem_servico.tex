@@ -1,0 +1,312 @@
+\hypertarget{class_controller_1_1_controller_ordem_servico}{}\section{Referência à classe Controller.\+Controller\+Ordem\+Servico}
+\label{class_controller_1_1_controller_ordem_servico}\index{Controller.\+Controller\+Ordem\+Servico@{Controller.\+Controller\+Ordem\+Servico}}
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_controller_1_1_controller_ordem_servico_a76b75426b392271af3622e757ded651e}{Creat\+P\+D\+F} (string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)
+\begin{DoxyCompactList}\small\item\em Gerando P\+D\+F da ordem de serviço. (A ordem de serviço em P\+D\+F não fica salvar ela é gerada cada vez que a função é chamada) \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_ordem_servico_adfd037a51c630b9964949ee7d9055666}{Save} (string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)
+\begin{DoxyCompactList}\small\item\em Salvando a ordem de serviço em arquivo de Texto. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_ordem_servico_a885602b4f0f6b6b34b3fd8a56b992c5e}{Edit} (string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)
+\begin{DoxyCompactList}\small\item\em Editar a ordem de serviço, quase a mesam coisa que a \hyperlink{class_controller_1_1_controller_ordem_servico_adfd037a51c630b9964949ee7d9055666}{Save()}, ela só não verifica se o arquivo já existe, apenas salva. \end{DoxyCompactList}\item 
+\hyperlink{class_model_1_1_ordem__de___servico_1_1_ordem_servico}{Ordem\+Servico} \hyperlink{class_controller_1_1_controller_ordem_servico_a653df4dd9e6b634c87bda7a907f664ce}{Load} (string Identificador)
+\begin{DoxyCompactList}\small\item\em Carregando a ordem de serviço atraves do arquivo de texto. \end{DoxyCompactList}\item 
+List$<$ string $>$ \hyperlink{class_controller_1_1_controller_ordem_servico_a7bb252edd88519efa90c0810a4b0825c}{Load\+List} ()
+\begin{DoxyCompactList}\small\item\em Carrega uma lista de ordens de serviço. \end{DoxyCompactList}\item 
+bool \hyperlink{class_controller_1_1_controller_ordem_servico_a91c7d4d0f13ceafa345d85e54aa18da3}{Verificar} (string \+\_\+\+Identificador)
+\begin{DoxyCompactList}\small\item\em Verifica se a ordem de serviço existe ou não. \end{DoxyCompactList}\item 
+void \hyperlink{class_controller_1_1_controller_ordem_servico_a4cd1431c6a085671e7ed21b4c7f626d9}{Finalizar\+O\+S} (string Numero\+O\+S)
+\begin{DoxyCompactList}\small\item\em Finalizando Ordem de serviço. \end{DoxyCompactList}\item 
+\hyperlink{class_model_1_1_ordem__de___servico_1_1_ordem_servico}{Ordem\+Servico} \hyperlink{class_controller_1_1_controller_ordem_servico_a4ec374bede265381d09624216fcb54bd}{Load\+O\+S\+Finalizada} (string Identificador)
+\begin{DoxyCompactList}\small\item\em Carregando a ordem de serviço(\+Finalizada) atraves do arquivo de texto. \end{DoxyCompactList}\item 
+List$<$ string $>$ \hyperlink{class_controller_1_1_controller_ordem_servico_aca9a2b08002c4b46b47c9d532aee6302}{Load\+List\+Finalizadas} ()
+\begin{DoxyCompactList}\small\item\em Carrega uma lista de ordens de serviço(\+Finalizadas). \end{DoxyCompactList}\item 
+bool \hyperlink{class_controller_1_1_controller_ordem_servico_a946cace2b4d0032e80d78647c3a10da4}{Verificar\+Finalizada} (string Identificador)
+\begin{DoxyCompactList}\small\item\em Verifica se a ordem de serviço existe ou não. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_ordem_servico_a1dfea7cad50ba5333bee17f4ad96265b}{Excluir} (string Identificador)
+\begin{DoxyCompactList}\small\item\em Excluindo ordem de serviço. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a76b75426b392271af3622e757ded651e}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Creat\+P\+D\+F@{Creat\+P\+D\+F}}
+\index{Creat\+P\+D\+F@{Creat\+P\+D\+F}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Creat\+P\+D\+F(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)}]{\setlength{\rightskip}{0pt plus 5cm}void Controller.\+Controller\+Ordem\+Servico.\+Creat\+P\+D\+F (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador, }
+\item[{string}]{Referencia, }
+\item[{string}]{Situacao, }
+\item[{string}]{Defeito, }
+\item[{string}]{Descricao, }
+\item[{string}]{Observacao, }
+\item[{string}]{Numero\+Serie, }
+\item[{string}]{Equipamento, }
+\item[{string}]{Data\+Entrada\+Servico, }
+\item[{string}]{Cliente}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a76b75426b392271af3622e757ded651e}
+
+
+Gerando P\+D\+F da ordem de serviço. (A ordem de serviço em P\+D\+F não fica salvar ela é gerada cada vez que a função é chamada) 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Identificador} & \\
+\hline
+{\em Referencia} & \\
+\hline
+{\em Situacao} & \\
+\hline
+{\em Defeito} & \\
+\hline
+{\em Descricao} & \\
+\hline
+{\em Observacao} & \\
+\hline
+{\em Numero\+Serie} & \\
+\hline
+{\em Equipamento} & \\
+\hline
+{\em Data\+Entrada\+Servico} & \\
+\hline
+{\em Cliente} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a885602b4f0f6b6b34b3fd8a56b992c5e}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Edit@{Edit}}
+\index{Edit@{Edit}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Ordem\+Servico.\+Edit (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador, }
+\item[{string}]{Referencia, }
+\item[{string}]{Situacao, }
+\item[{string}]{Defeito, }
+\item[{string}]{Descricao, }
+\item[{string}]{Observacao, }
+\item[{string}]{Numero\+Serie, }
+\item[{string}]{Equipamento, }
+\item[{string}]{Data\+Entrada\+Servico, }
+\item[{string}]{Cliente}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a885602b4f0f6b6b34b3fd8a56b992c5e}
+
+
+Editar a ordem de serviço, quase a mesam coisa que a \hyperlink{class_controller_1_1_controller_ordem_servico_adfd037a51c630b9964949ee7d9055666}{Save()}, ela só não verifica se o arquivo já existe, apenas salva. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Identificador} & \\
+\hline
+{\em Referencia} & \\
+\hline
+{\em Situacao} & \\
+\hline
+{\em Defeito} & \\
+\hline
+{\em Descricao} & \\
+\hline
+{\em Observacao} & \\
+\hline
+{\em Numero\+Serie} & \\
+\hline
+{\em Equipamento} & \\
+\hline
+{\em Data\+Entrada\+Servico} & \\
+\hline
+{\em Cliente} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a1dfea7cad50ba5333bee17f4ad96265b}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Excluir@{Excluir}}
+\index{Excluir@{Excluir}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Excluir(string Identificador)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Ordem\+Servico.\+Excluir (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a1dfea7cad50ba5333bee17f4ad96265b}
+
+
+Excluindo ordem de serviço. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Identificador} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Resultado da operação
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a4cd1431c6a085671e7ed21b4c7f626d9}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Finalizar\+O\+S@{Finalizar\+O\+S}}
+\index{Finalizar\+O\+S@{Finalizar\+O\+S}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Finalizar\+O\+S(string Numero\+O\+S)}]{\setlength{\rightskip}{0pt plus 5cm}void Controller.\+Controller\+Ordem\+Servico.\+Finalizar\+O\+S (
+\begin{DoxyParamCaption}
+\item[{string}]{Numero\+O\+S}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a4cd1431c6a085671e7ed21b4c7f626d9}
+
+
+Finalizando Ordem de serviço. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Numero\+O\+S} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Menssagen informando se deu certo ou não
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a653df4dd9e6b634c87bda7a907f664ce}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Load@{Load}}
+\index{Load@{Load}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Load(string Identificador)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordem\+Servico} Controller.\+Controller\+Ordem\+Servico.\+Load (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a653df4dd9e6b634c87bda7a907f664ce}
+
+
+Carregando a ordem de serviço atraves do arquivo de texto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+\+Identificador} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ordem de serviço
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a7bb252edd88519efa90c0810a4b0825c}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Load\+List@{Load\+List}}
+\index{Load\+List@{Load\+List}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Load\+List()}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Controller.\+Controller\+Ordem\+Servico.\+Load\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a7bb252edd88519efa90c0810a4b0825c}
+
+
+Carrega uma lista de ordens de serviço. 
+
+\begin{DoxyReturn}{Retorna}
+Lista com nome de todas Ordens de serviço registrada
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_aca9a2b08002c4b46b47c9d532aee6302}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Load\+List\+Finalizadas@{Load\+List\+Finalizadas}}
+\index{Load\+List\+Finalizadas@{Load\+List\+Finalizadas}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Load\+List\+Finalizadas()}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Controller.\+Controller\+Ordem\+Servico.\+Load\+List\+Finalizadas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_aca9a2b08002c4b46b47c9d532aee6302}
+
+
+Carrega uma lista de ordens de serviço(\+Finalizadas). 
+
+\begin{DoxyReturn}{Retorna}
+Lista com nome de todas Ordens de serviço registrada
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a4ec374bede265381d09624216fcb54bd}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Load\+O\+S\+Finalizada@{Load\+O\+S\+Finalizada}}
+\index{Load\+O\+S\+Finalizada@{Load\+O\+S\+Finalizada}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Load\+O\+S\+Finalizada(string Identificador)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordem\+Servico} Controller.\+Controller\+Ordem\+Servico.\+Load\+O\+S\+Finalizada (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a4ec374bede265381d09624216fcb54bd}
+
+
+Carregando a ordem de serviço(\+Finalizada) atraves do arquivo de texto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+\+Identificador} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ordem de serviço
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_adfd037a51c630b9964949ee7d9055666}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Save@{Save}}
+\index{Save@{Save}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Save(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string Numero\+Serie, string Equipamento, string Data\+Entrada\+Servico, string Cliente)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Ordem\+Servico.\+Save (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador, }
+\item[{string}]{Referencia, }
+\item[{string}]{Situacao, }
+\item[{string}]{Defeito, }
+\item[{string}]{Descricao, }
+\item[{string}]{Observacao, }
+\item[{string}]{Numero\+Serie, }
+\item[{string}]{Equipamento, }
+\item[{string}]{Data\+Entrada\+Servico, }
+\item[{string}]{Cliente}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_adfd037a51c630b9964949ee7d9055666}
+
+
+Salvando a ordem de serviço em arquivo de Texto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Identificador} & \\
+\hline
+{\em Referencia} & \\
+\hline
+{\em Situacao} & \\
+\hline
+{\em Defeito} & \\
+\hline
+{\em Descricao} & \\
+\hline
+{\em Observacao} & \\
+\hline
+{\em Numero\+Serie} & \\
+\hline
+{\em Equipamento} & \\
+\hline
+{\em Data\+Entrada\+Servico} & \\
+\hline
+{\em Cliente} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a91c7d4d0f13ceafa345d85e54aa18da3}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Verificar@{Verificar}}
+\index{Verificar@{Verificar}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Verificar(string \+\_\+\+Identificador)}]{\setlength{\rightskip}{0pt plus 5cm}bool Controller.\+Controller\+Ordem\+Servico.\+Verificar (
+\begin{DoxyParamCaption}
+\item[{string}]{\+\_\+\+Identificador}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a91c7d4d0f13ceafa345d85e54aa18da3}
+
+
+Verifica se a ordem de serviço existe ou não. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+\+Identificador} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna um valor (true/false)
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_ordem_servico_a946cace2b4d0032e80d78647c3a10da4}{}\index{Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}!Verificar\+Finalizada@{Verificar\+Finalizada}}
+\index{Verificar\+Finalizada@{Verificar\+Finalizada}!Controller\+::\+Controller\+Ordem\+Servico@{Controller\+::\+Controller\+Ordem\+Servico}}
+\subsubsection[{Verificar\+Finalizada(string Identificador)}]{\setlength{\rightskip}{0pt plus 5cm}bool Controller.\+Controller\+Ordem\+Servico.\+Verificar\+Finalizada (
+\begin{DoxyParamCaption}
+\item[{string}]{Identificador}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_ordem_servico_a946cace2b4d0032e80d78647c3a10da4}
+
+
+Verifica se a ordem de serviço existe ou não. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+\+Identificador} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna um valor (true/false)
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Cristiano/\+Projetos/\+Software\+Ordem\+De\+Servico/\+Controller/\+Ordem de Servico/Controller\+Ordem\+Servico.\+cs\end{DoxyCompactItemize}

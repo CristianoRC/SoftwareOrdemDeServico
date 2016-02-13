@@ -1,0 +1,137 @@
+\hypertarget{class_controller_1_1_controller_email}{}\section{Referência à classe Controller.\+Controller\+Email}
+\label{class_controller_1_1_controller_email}\index{Controller.\+Controller\+Email@{Controller.\+Controller\+Email}}
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_controller_1_1_controller_email_aba9e68104660bfbcf3a2caa6eb48f8a6}{Load\+Email\+Base} ()
+\begin{DoxyCompactList}\small\item\em Carrega as informações do arquivo de email base. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_email_ae385f232504c37cf399bebb18eec5db4}{Save\+Email\+Base} (string Texto)
+\begin{DoxyCompactList}\small\item\em Salvando E-\/mail base(padrão) que é enviado para todos os clientes quando o serviço termina. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_email_a217fd55ecff35c4f8650490c70f1e4ef}{Enviar} (string Nome\+Cliente, string Email\+Cliente, string Nome\+Empresa, string Menssagem\+Base)
+\begin{DoxyCompactList}\small\item\em Configurando e enviando e-\/mail. (Decodificando) \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_email_a2828b4061bb034bc569fc0f2418078b0}{Save\+Config} (string Endereco\+Email, string Senha, string Host, int Port)
+\begin{DoxyCompactList}\small\item\em Criando arquivo de configuração do email \end{DoxyCompactList}\item 
+\hyperlink{class_model_1_1_email}{Email} \hyperlink{class_controller_1_1_controller_email_ab776dc8eeaf2b91f2f9b13b38b312f28}{Load\+Config} ()
+\begin{DoxyCompactList}\small\item\em Carrega as informações do arquivo de configuração do E-\/mail. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_email_aa79f86500acbe3ba95ada44ec866c6d9}{Decodificar\+Email\+Base} (string Texto\+Email\+Base, string Nome\+Empresa, string Nome\+Cliente)
+\begin{DoxyCompactList}\small\item\em Decodificando informações do E-\/mail base E\+X\+: $\ast$$\ast$\+Cliente = Nome do Cliente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_controller_1_1_controller_email_aa79f86500acbe3ba95ada44ec866c6d9}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Decodificar\+Email\+Base@{Decodificar\+Email\+Base}}
+\index{Decodificar\+Email\+Base@{Decodificar\+Email\+Base}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Decodificar\+Email\+Base(string Texto\+Email\+Base, string Nome\+Empresa, string Nome\+Cliente)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Email.\+Decodificar\+Email\+Base (
+\begin{DoxyParamCaption}
+\item[{string}]{Texto\+Email\+Base, }
+\item[{string}]{Nome\+Empresa, }
+\item[{string}]{Nome\+Cliente}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_aa79f86500acbe3ba95ada44ec866c6d9}
+
+
+Decodificando informações do E-\/mail base E\+X\+: $\ast$$\ast$\+Cliente = Nome do Cliente 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Email\+Base} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_controller_1_1_controller_email_a217fd55ecff35c4f8650490c70f1e4ef}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Enviar@{Enviar}}
+\index{Enviar@{Enviar}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Enviar(string Nome\+Cliente, string Email\+Cliente, string Nome\+Empresa, string Menssagem\+Base)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Email.\+Enviar (
+\begin{DoxyParamCaption}
+\item[{string}]{Nome\+Cliente, }
+\item[{string}]{Email\+Cliente, }
+\item[{string}]{Nome\+Empresa, }
+\item[{string}]{Menssagem\+Base}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_a217fd55ecff35c4f8650490c70f1e4ef}
+
+
+Configurando e enviando e-\/mail. (Decodificando) 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Nome\+Usuario} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_controller_1_1_controller_email_ab776dc8eeaf2b91f2f9b13b38b312f28}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Load\+Config@{Load\+Config}}
+\index{Load\+Config@{Load\+Config}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Load\+Config()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Email} Controller.\+Controller\+Email.\+Load\+Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_ab776dc8eeaf2b91f2f9b13b38b312f28}
+
+
+Carrega as informações do arquivo de configuração do E-\/mail. 
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_email_aba9e68104660bfbcf3a2caa6eb48f8a6}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Load\+Email\+Base@{Load\+Email\+Base}}
+\index{Load\+Email\+Base@{Load\+Email\+Base}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Load\+Email\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Email.\+Load\+Email\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_aba9e68104660bfbcf3a2caa6eb48f8a6}
+
+
+Carrega as informações do arquivo de email base. 
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_email_a2828b4061bb034bc569fc0f2418078b0}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Save\+Config@{Save\+Config}}
+\index{Save\+Config@{Save\+Config}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Save\+Config(string Endereco\+Email, string Senha, string Host, int Port)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Email.\+Save\+Config (
+\begin{DoxyParamCaption}
+\item[{string}]{Endereco\+Email, }
+\item[{string}]{Senha, }
+\item[{string}]{Host, }
+\item[{int}]{Port}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_a2828b4061bb034bc569fc0f2418078b0}
+
+
+Criando arquivo de configuração do email 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+\+Endereco\+Email} & \\
+\hline
+{\em \+\_\+\+Senha} & \\
+\hline
+{\em \+\_\+\+Host} & \\
+\hline
+{\em \+\_\+\+Port} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_email_ae385f232504c37cf399bebb18eec5db4}{}\index{Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}!Save\+Email\+Base@{Save\+Email\+Base}}
+\index{Save\+Email\+Base@{Save\+Email\+Base}!Controller\+::\+Controller\+Email@{Controller\+::\+Controller\+Email}}
+\subsubsection[{Save\+Email\+Base(string Texto)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Email.\+Save\+Email\+Base (
+\begin{DoxyParamCaption}
+\item[{string}]{Texto}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_email_ae385f232504c37cf399bebb18eec5db4}
+
+
+Salvando E-\/mail base(padrão) que é enviado para todos os clientes quando o serviço termina. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Texto} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Cristiano/\+Projetos/\+Software\+Ordem\+De\+Servico/\+Controller/\+Outros/Controller\+Email.\+cs\end{DoxyCompactItemize}

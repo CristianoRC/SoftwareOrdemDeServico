@@ -1,0 +1,149 @@
+\hypertarget{class_controller_1_1_controller_juridica}{}\section{Referência à classe Controller.\+Controller\+Juridica}
+\label{class_controller_1_1_controller_juridica}\index{Controller.\+Controller\+Juridica@{Controller.\+Controller\+Juridica}}
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{class_controller_1_1_controller_juridica_ae63ddd121c72c893e6a3238d9e328f97}{Save} (string nome, string endereco, string email, string situacao, string sigla\+Estado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+\begin{DoxyCompactList}\small\item\em Salvando pessoa Jurídica na pasta \char`\"{}\+J\char`\"{}(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software) \end{DoxyCompactList}\item 
+\hyperlink{class_model_1_1_pessoa__e___usuario_1_1_juridica}{Juridica} \hyperlink{class_controller_1_1_controller_juridica_a7370540d60c12756550d8e637c511fdb}{Load} (String Identificador\+Load)
+\begin{DoxyCompactList}\small\item\em Carregando pessoa Física. \end{DoxyCompactList}\item 
+List$<$ string $>$ \hyperlink{class_controller_1_1_controller_juridica_a489991081882ef77ad15c83ae0122bcd}{Load\+List} ()
+\begin{DoxyCompactList}\small\item\em Carregando Lista com nome de todas pessoas Jurídicas registradas. \end{DoxyCompactList}\item 
+bool \hyperlink{class_controller_1_1_controller_juridica_ad7235f882d75bd27a125df467e77c5b7}{Verificar} (String nome)
+\begin{DoxyCompactList}\small\item\em Verificando de a \char`\"{}\+Pessoa jurídica\char`\"{} existe. \end{DoxyCompactList}\item 
+string \hyperlink{class_controller_1_1_controller_juridica_ac378290f0dce2fc5f3f97800a6c8a5e6}{Excluir} (string Nome)
+\begin{DoxyCompactList}\small\item\em Excluindo pessoa jurídica \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_controller_1_1_controller_juridica_ac378290f0dce2fc5f3f97800a6c8a5e6}{}\index{Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}!Excluir@{Excluir}}
+\index{Excluir@{Excluir}!Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}}
+\subsubsection[{Excluir(string Nome)}]{\setlength{\rightskip}{0pt plus 5cm}string Controller.\+Controller\+Juridica.\+Excluir (
+\begin{DoxyParamCaption}
+\item[{string}]{Nome}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_juridica_ac378290f0dce2fc5f3f97800a6c8a5e6}
+
+
+Excluindo pessoa jurídica 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Nome} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Resultado da operação
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_juridica_a7370540d60c12756550d8e637c511fdb}{}\index{Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}!Load@{Load}}
+\index{Load@{Load}!Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}}
+\subsubsection[{Load(\+String Identificador\+Load)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Juridica} Controller.\+Controller\+Juridica.\+Load (
+\begin{DoxyParamCaption}
+\item[{String}]{Identificador\+Load}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_juridica_a7370540d60c12756550d8e637c511fdb}
+
+
+Carregando pessoa Física. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Identificador\+Load} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Pessoa Jurídica.
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_juridica_a489991081882ef77ad15c83ae0122bcd}{}\index{Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}!Load\+List@{Load\+List}}
+\index{Load\+List@{Load\+List}!Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}}
+\subsubsection[{Load\+List()}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Controller.\+Controller\+Juridica.\+Load\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_juridica_a489991081882ef77ad15c83ae0122bcd}
+
+
+Carregando Lista com nome de todas pessoas Jurídicas registradas. 
+
+\begin{DoxyReturn}{Retorna}
+Lista de nomes.
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_juridica_ae63ddd121c72c893e6a3238d9e328f97}{}\index{Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}!Save@{Save}}
+\index{Save@{Save}!Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}}
+\subsubsection[{Save(string nome, string endereco, string email, string situacao, string sigla\+Estado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)}]{\setlength{\rightskip}{0pt plus 5cm}String Controller.\+Controller\+Juridica.\+Save (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{string}]{endereco, }
+\item[{string}]{email, }
+\item[{string}]{situacao, }
+\item[{string}]{sigla\+Estado, }
+\item[{string}]{cidade, }
+\item[{string}]{bairro, }
+\item[{string}]{cep, }
+\item[{string}]{observacoes, }
+\item[{string}]{cnpj, }
+\item[{string}]{contato, }
+\item[{string}]{inscricaoestadual, }
+\item[{string}]{razaosocial}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_juridica_ae63ddd121c72c893e6a3238d9e328f97}
+
+
+Salvando pessoa Jurídica na pasta \char`\"{}\+J\char`\"{}(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software) 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & \\
+\hline
+{\em endereco} & \\
+\hline
+{\em email} & \\
+\hline
+{\em situacao} & \\
+\hline
+{\em sigla\+Estado} & \\
+\hline
+{\em cidade} & \\
+\hline
+{\em bairro} & \\
+\hline
+{\em cep} & \\
+\hline
+{\em observacoes} & \\
+\hline
+{\em cnpj} & \\
+\hline
+{\em contato} & \\
+\hline
+{\em inscricaoestadual} & \\
+\hline
+{\em razaosocial} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{class_controller_1_1_controller_juridica_ad7235f882d75bd27a125df467e77c5b7}{}\index{Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}!Verificar@{Verificar}}
+\index{Verificar@{Verificar}!Controller\+::\+Controller\+Juridica@{Controller\+::\+Controller\+Juridica}}
+\subsubsection[{Verificar(\+String nome)}]{\setlength{\rightskip}{0pt plus 5cm}bool Controller.\+Controller\+Juridica.\+Verificar (
+\begin{DoxyParamCaption}
+\item[{String}]{nome}
+\end{DoxyParamCaption}
+)}\label{class_controller_1_1_controller_juridica_ad7235f882d75bd27a125df467e77c5b7}
+
+
+Verificando de a \char`\"{}\+Pessoa jurídica\char`\"{} existe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Cristiano/\+Projetos/\+Software\+Ordem\+De\+Servico/\+Controller/\+Pessoa e Usuario/Controller\+Juridica.\+cs\end{DoxyCompactItemize}
