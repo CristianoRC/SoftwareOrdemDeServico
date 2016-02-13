@@ -1,6 +1,6 @@
 # Software de ordem de servico
 
-Documentação do projeto: http://cristianorc.github.io/index
+Documentação do projeto: http://cristianoprogramador.com/DocumentacaoOS/
 
 Diagrama de classe (Controller): http://git.io/v8DA5
 
