@@ -13,16 +13,24 @@ namespace View
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Email EmailBase = new Model.Email();
 
-            EmailBase.EnderecoEmail = Txt_Email.Text;
-            EmailBase.Senha = Txt_Senha.Text;
-            EmailBase.Host = Txt_Host.Text;
-            EmailBase.Port = int.Parse(Txt_Porta.Text);
-            ControllerEmail.SaveConfig(EmailBase.EnderecoEmail, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
+            if (!string.IsNullOrWhiteSpace(Txt_Porta.Text))
+            {
+                Model.Email EmailBase = new Model.Email();
 
-            MessageBox.Show(ControllerEmail.SaveConfig(EmailBase.EnderecoEmail, EmailBase.Senha, EmailBase.Host, EmailBase.Port), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //Mostrando o resultado da Função SaveConfig();
+                EmailBase.EnderecoEmail = Txt_Email.Text;
+                EmailBase.Senha = Txt_Senha.Text;
+                EmailBase.Host = Txt_Host.Text;
+                EmailBase.Port = int.Parse(Txt_Porta.Text);
+                string saida =  ControllerEmail.SaveConfig(EmailBase.EnderecoEmail, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
+
+                MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Mostrando o resultado da Função SaveConfig();
+            }
+            else
+            {
+                MessageBox.Show("Insira um valor válido para a porta do seu servidor","Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void Frm_ConfigEmail_Load(object sender, EventArgs e)

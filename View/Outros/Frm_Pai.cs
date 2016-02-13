@@ -186,15 +186,6 @@ namespace View
             frm_Backup.Show();
         }
 
-        private void imprimirOrdemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_ImprimirOS frm_ImprimirOS = new Frm_ImprimirOS();
-
-            frm_ImprimirOS.MdiParent = this;
-
-            frm_ImprimirOS.Show();
-        }
-
         private void listarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Usuario.Frm_ListarUsuarios frm_ListarUsuarios = new Usuario.Frm_ListarUsuarios();
@@ -405,6 +396,15 @@ namespace View
             frm_EmailBaseOrcamento.MdiParent = this;
 
             frm_EmailBaseOrcamento.Show();
+        }
+
+        private void ordemDeServiçoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Frm_ImprimirOS Imprimir = new Frm_ImprimirOS();
+
+            Imprimir.MdiParent = this;
+
+            Imprimir.Show();
         }
     }
 }

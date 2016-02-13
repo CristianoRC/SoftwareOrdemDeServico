@@ -68,6 +68,8 @@
     <Reference Include="Cunha">
       <HintPath>..\Model\bin\Debug\Cunha.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Spartacus, Version=0.39.19.29446, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Spartacus.0.39.19\lib\net40\Spartacus.dll</HintPath>
       <Private>True</Private>
@@ -105,6 +107,12 @@
     </Compile>
     <Compile Include="Email\Frm_EmailBaseOrcamento.Designer.cs">
       <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outros\Frm_ImprimirOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outros\Frm_ImprimirOS.Designer.cs">
+      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </Compile>
     <Compile Include="Outros\Frm_Report.cs">
       <SubType>Form</SubType>
@@ -183,12 +191,6 @@
     </Compile>
     <Compile Include="Servicos\Frm_ListarServico.Designer.cs">
       <DependentUpon>Frm_ListarServico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OS\Frm_ImprimirOS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OS\Frm_ImprimirOS.Designer.cs">
-      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </Compile>
     <Compile Include="Outros\Frm_Backup.cs">
       <SubType>Form</SubType>
@@ -309,6 +311,9 @@
     <EmbeddedResource Include="OS\Frm_ExcluirOS.resx">
       <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Outros\Frm_ImprimirOS.resx">
+      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Outros\Frm_Report.resx">
       <DependentUpon>Frm_Report.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,9 +337,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ListarServico.resx">
       <DependentUpon>Frm_ListarServico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OS\Frm_ImprimirOS.resx">
-      <DependentUpon>Frm_ImprimirOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Outros\Frm_Backup.resx">
       <DependentUpon>Frm_Backup.cs</DependentUpon>
@@ -398,8 +400,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Model.Email.datasource" />
     <None Include="Properties\DataSources\Model.Empresa.datasource" />
+    <None Include="Properties\DataSources\Model.Orcamento.datasource" />
     <None Include="Properties\DataSources\Model.Ordem_de_Servico.OrdemServico.datasource" />
+    <None Include="Properties\DataSources\Model.Ordem_de_Servico.Servico.datasource" />
+    <None Include="Properties\DataSources\Model.ServicoBase.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -415,6 +421,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\Print-96.png" />
+    <None Include="Resources\Bar Chart-96.png" />
     <None Include="Resources\US Dollar-100.png" />
     <None Include="Resources\System Report-32.png" />
     <None Include="Resources\Save-32.png" />

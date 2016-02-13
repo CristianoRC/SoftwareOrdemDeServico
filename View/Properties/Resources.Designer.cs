@@ -73,6 +73,16 @@ namespace View.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bar_Chart_96 {
+            get {
+                object obj = ResourceManager.GetObject("Bar Chart-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bill_100 {
             get {
                 object obj = ResourceManager.GetObject("Bill-100", resourceCulture);
@@ -166,6 +176,16 @@ namespace View.Properties {
         internal static System.Drawing.Bitmap Lista {
             get {
                 object obj = ResourceManager.GetObject("Lista", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_96 {
+            get {
+                object obj = ResourceManager.GetObject("Print-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
