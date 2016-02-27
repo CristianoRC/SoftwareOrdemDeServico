@@ -68,8 +68,6 @@
     <Reference Include="Cunha">
       <HintPath>..\Model\bin\Debug\Cunha.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Spartacus, Version=0.39.19.29446, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Spartacus.0.39.19\lib\net40\Spartacus.dll</HintPath>
       <Private>True</Private>
