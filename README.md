@@ -1,5 +1,7 @@
 # Software de ordem de servico
 
+![OS Icon](https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/View/icon.png)
+
 Documentação do projeto: http://cristianoprogramador.com/DocumentacaoOS/
 
 Diagrama de classe (Controller): http://git.io/v8DA5
