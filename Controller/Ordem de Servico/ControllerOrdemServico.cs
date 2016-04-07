@@ -6,11 +6,14 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Model;
 using Model.Ordem_de_Servico;
+using Ionic.Zip;
 
 namespace Controller
 {
     public static class ControllerOrdemServico
     {
+
+        
 
 
         /// <summary>
