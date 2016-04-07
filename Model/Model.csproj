@@ -57,6 +57,13 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cunha">
+      <HintPath>..\packages\Cunha\Cunha.dll</HintPath>
+    </Reference>
+    <Reference Include="Spartacus, Version=0.40.0.19897, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spartacus.0.40.0\lib\net40\Spartacus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -69,15 +76,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745">
-      <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
-      <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Spartacus">
-      <HintPath>..\packages\Spartacus.0.39.19\lib\net40\Spartacus.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Servicos\Orcamento.cs" />
