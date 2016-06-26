@@ -26,6 +26,11 @@ namespace Controller
 			{
 				GeraraLog(ex);
 			}
+			finally 
+			{
+				if (sw != null)
+					sw.Close ();
+			}
 		}
 
 		public static string RecuperarUltimoLogin()
@@ -46,6 +51,11 @@ namespace Controller
 			catch (Exception ex) 
 			{
 				GeraraLog(ex);
+			}
+			finally
+			{
+				if (sr != null)
+					sr.Close ();
 			}
 
 			return saida;

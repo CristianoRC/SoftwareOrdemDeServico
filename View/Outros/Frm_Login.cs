@@ -10,8 +10,6 @@ namespace View
         public Frm_Login()
         {
             InitializeComponent();
-
-			Txt_Login.Text = Ferramentas.RecuperarUltimoLogin ();
         }
 
         private void logar()
@@ -25,9 +23,9 @@ namespace View
 
                 if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
                 {
-                    Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
-
 					Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
+
+                    Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
 
                     this.Visible = false;
 
@@ -92,6 +90,8 @@ namespace View
                 //Carregando o logo da empresa para o PictureBox
                 pictureBox1.ImageLocation = "Logo.png";
             }
+
+			Txt_Login.Text = Ferramentas.RecuperarUltimoLogin ();
         }
 
         private void Txt_Senha_KeyPress(object sender, KeyPressEventArgs e)

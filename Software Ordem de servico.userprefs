@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Model/Model.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/Opcoes/Frm_OpicoesInicial.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/Outros/Frm_Login.cs">
     <Files>
-      <File FileName="View/Opcoes/Frm_OpicoesInicial.cs" Line="26" Column="66" />
+      <File FileName="View/Outros/Frm_Login.cs" Line="26" Column="6" />
+      <File FileName="Controller/Outros/Ferramentas.cs" Line="15" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
