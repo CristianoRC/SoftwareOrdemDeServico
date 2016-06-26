@@ -35,8 +35,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-                Log.ArquivoExceptionLog(exc);
+				Ferramentas.GeraraLog (exc);
 
                 Saida = "Ocorreu um erro ao salvar o Serviço base.";
             }
@@ -72,9 +71,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-                Log.ArquivoExceptionLog(exc);
-
+				Ferramentas.GeraraLog (exc);
             }
             finally
             {

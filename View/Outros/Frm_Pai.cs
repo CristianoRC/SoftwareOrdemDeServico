@@ -125,8 +125,7 @@ namespace View
             }
             catch (Exception exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-                Log.ArquivoExceptionLog(exc);
+				Controller.Ferramentas.GeraraLog (exc);
             }
             finally
             {

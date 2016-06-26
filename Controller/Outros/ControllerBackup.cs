@@ -86,9 +86,7 @@ namespace Controller
                         {
                             saida = "Falha ao restaurar o backup";
 
-                            Arquivos.ArquivoLog arquivolog = new Arquivos.ArquivoLog();
-
-                            arquivolog.ArquivoExceptionLog(exc);
+							Ferramentas.GeraraLog (exc);
                         }
                     }
                     else

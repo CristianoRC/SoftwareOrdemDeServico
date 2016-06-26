@@ -43,9 +43,7 @@ namespace Controller
                 }
                 catch (Exception Exc)
                 {
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(Exc);
+					Ferramentas.GeraraLog (Exc);
 
                     Saida = "Ocorreu um erro inesperado!";
                 }
@@ -91,10 +89,8 @@ namespace Controller
 
             }
             catch (Exception Exc)
-            {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+			{
+				Ferramentas.GeraraLog (Exc);
 
                 Saida = "Ocorreu um erro inesperado!";
             }
@@ -141,9 +137,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+				Ferramentas.GeraraLog (Exc);
             }
 
             return ListaDeUsuarios;
@@ -170,10 +164,8 @@ namespace Controller
 
             }
             catch (Exception exc)
-            {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(exc);
+			{
+				Ferramentas.GeraraLog (exc);
             }
             finally
             {
@@ -209,9 +201,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+				Ferramentas.GeraraLog (Exc);
 
                 UsuarioEncontrado = false;
             }

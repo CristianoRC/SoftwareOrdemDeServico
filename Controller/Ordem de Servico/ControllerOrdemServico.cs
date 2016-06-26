@@ -175,9 +175,7 @@ namespace Controller
                 }
                 catch (Exception Exc)
                 {
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(Exc);
+					Ferramentas.GeraraLog (Exc);
 
                     Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
                 }
@@ -256,9 +254,7 @@ namespace Controller
                 }
                 catch (System.Exception Exc)
                 {
-                    Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                    Log.ArquivoExceptionLog(Exc);
+					Ferramentas.GeraraLog (Exc);
 
                     Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
                 }
@@ -310,9 +306,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+				Ferramentas.GeraraLog (Exc);
             }
             finally
             {
@@ -416,9 +410,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+				Ferramentas.GeraraLog (Exc);
             }
             finally
             {

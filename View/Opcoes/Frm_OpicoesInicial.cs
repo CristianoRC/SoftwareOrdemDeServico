@@ -64,8 +64,7 @@ namespace View.Opicoes
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-                Log.ArquivoExceptionLog(Exc);
+				Controller.Ferramentas.GeraraLog (Exc);
 
                 MessageBox.Show("Ocorreu um erro inesperado, um arquivo de LOG foi criado no diretorio do seu software!");
             }

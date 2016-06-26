@@ -62,8 +62,6 @@ namespace View.Pessoas
 
         private void Frm_PessoaFisica_Load(object sender, EventArgs e)
         {
-            Fisica PessoaFisicaBase = new Fisica();
-
             foreach (var item in ControllerFisica.LoadList())
             {
                 Txt_Lista.Items.Add(item.ToString());

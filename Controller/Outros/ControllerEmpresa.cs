@@ -27,9 +27,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-                Log.ArquivoExceptionLog(Exc);
+				Ferramentas.GeraraLog (Exc);
             }
             finally
             {
@@ -68,8 +66,7 @@ namespace Controller
             {
                 Saida = "Ocorreu um erro ao tentar salvar o arquivo de configuração.";
 
-                Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-                Log.ArquivoExceptionLog(exc);
+				Ferramentas.GeraraLog (exc);
             }
             finally
             {

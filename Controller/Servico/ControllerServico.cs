@@ -16,9 +16,7 @@ namespace Controller
         /// <param name="NumeroOS"></param>
         /// <returns></returns>
         public static string Save(string Descricao, double Valor, string NumeroOS, string ServicoBase, string NomeDoTecnico)
-        {
-            Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-            string Saida;
+        {   string Saida;
             StreamWriter sw = null;
 
             try
@@ -34,7 +32,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-                Log.ArquivoExceptionLog(exc);
+				Ferramentas.GeraraLog (exc);
 
                 Saida = "Erro ao finalizar o serviço!um arquivo com informações foi criado no diretorio doseu Software (Log.Txt).";
             }
@@ -55,7 +53,6 @@ namespace Controller
         public static Servico Load(string NomeServico)
         {
             Servico servicoSave = new Servico();
-            Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
             StreamReader sr = null;
 
             try
@@ -69,7 +66,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-                Log.ArquivoExceptionLog(exc);
+				Ferramentas.GeraraLog (exc);
             }
             finally
             {

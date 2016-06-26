@@ -57,9 +57,6 @@ namespace View.Pessoas
 
         private void Frm_PessoaJuridica_Load(object sender, EventArgs e)
         {
-
-            Juridica PessoaJuridicaBase = new Juridica();
-
             foreach (var item in ControllerJuridica.LoadList())
             {
                 Txt_Lista.Items.Add(item.ToString());

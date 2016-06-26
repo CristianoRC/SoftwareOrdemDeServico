@@ -18,8 +18,6 @@ namespace View.Usuario
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-
-            Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
             string saida = "";
 
             //Salvando e passando o resulado para a saida.
