@@ -10,6 +10,8 @@ namespace View
         public Frm_Login()
         {
             InitializeComponent();
+
+			Txt_Login.Text = Ferramentas.RecuperarUltimoLogin ();
         }
 
         private void logar()
@@ -24,6 +26,8 @@ namespace View
                 if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
                 {
                     Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
+
+					Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
 
                     this.Visible = false;
 

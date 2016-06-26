@@ -211,7 +211,7 @@
             this.ordensDeServiçosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ordensDeServiçosToolStripMenuItem.Image")));
             this.ordensDeServiçosToolStripMenuItem.Name = "ordensDeServiçosToolStripMenuItem";
             this.ordensDeServiçosToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.ordensDeServiçosToolStripMenuItem.Text = "&Ordens de serviço";
+            this.ordensDeServiçosToolStripMenuItem.Text = "&Ordem de serviço";
             // 
             // novaF5ToolStripMenuItem
             // 

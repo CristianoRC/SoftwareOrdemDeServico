@@ -16,13 +16,13 @@ namespace View
         {
             List<String> ListaDeInformacoes = new List<string>();
 
-            foreach (var itemOS in ControllerServicoBase.LoadList()) //Carregando informações da Os
+            foreach (var item in ControllerServicoBase.LoadList()) //Carregando informações da Os
             {
-                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Nome);
-                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Valor.ToString());
-                ListaDeInformacoes.Add(ControllerServicoBase.Load(itemOS).Observacoes);
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(item).Nome);
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(item).Valor.ToString());
+                ListaDeInformacoes.Add(ControllerServicoBase.Load(item).Observacoes);
 
-                if (!string.IsNullOrWhiteSpace(ControllerServicoBase.Load(itemOS).Nome))
+                if (!string.IsNullOrWhiteSpace(ControllerServicoBase.Load(item).Nome))
                 {
                     Data_Os.Rows.Add(ListaDeInformacoes[0], ListaDeInformacoes[1], ListaDeInformacoes[2]);
 

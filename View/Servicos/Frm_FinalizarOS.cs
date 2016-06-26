@@ -119,8 +119,6 @@ namespace View
         /// <returns>Nome da empresa</returns>
         private string NomeEmpresa()
         {
-
-            Empresa EmpresaBase = new Empresa();
             string NomeEmpresa = "Não encontrado";
 
             NomeEmpresa = ControllerEmpresa.Load().Nome;
