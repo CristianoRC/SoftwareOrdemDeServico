@@ -12,6 +12,7 @@ namespace Controller
 
 			Log.ArquivoExceptionLog(Exc);
 		}
+
 		public static void SalvarUltimoLogin(string Login)
 		{
 			StreamWriter sw = null;
