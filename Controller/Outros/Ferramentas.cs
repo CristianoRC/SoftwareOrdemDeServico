@@ -1,18 +1,10 @@
 ﻿using System;
-using Arquivos;
 using System.IO;
 
 namespace Controller
 {
 	public static class Ferramentas
 	{
-		public static void GeraraLog(Exception Exc)
-		{
-			Arquivos.ArquivoLog Log = new Arquivos.ArquivoLog();
-
-			Log.ArquivoExceptionLog(Exc);
-		}
-
 		public static void SalvarUltimoLogin(string Login)
 		{
 			StreamWriter sw = null;
@@ -25,7 +17,7 @@ namespace Controller
 			}
 			catch (Exception ex) 
 			{
-				GeraraLog(ex);
+                ControllerArquivoLog.GeraraLog(ex);
 			}
 			finally 
 			{
@@ -51,7 +43,7 @@ namespace Controller
 			}
 			catch (Exception ex) 
 			{
-				GeraraLog(ex);
+                ControllerArquivoLog.GeraraLog(ex);
 			}
 			finally
 			{
@@ -63,4 +55,3 @@ namespace Controller
 		}
 	}
 }
-

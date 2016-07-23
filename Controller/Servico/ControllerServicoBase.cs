@@ -35,7 +35,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog (exc);
 
                 Saida = "Ocorreu um erro ao salvar o Serviço base.";
             }
@@ -71,7 +71,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {

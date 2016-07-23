@@ -125,7 +125,7 @@ namespace View
             }
             catch (Exception exc)
             {
-				Controller.Ferramentas.GeraraLog (exc);
+                Controller.ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {

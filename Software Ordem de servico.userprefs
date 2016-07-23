@@ -1,12 +1,14 @@
-﻿<Properties StartupItem="Model/Model.csproj">
+﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/Outros/Frm_Login.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Report/ControllerArquivoLog.cs">
     <Files>
-      <File FileName="View/Outros/Frm_Login.cs" Line="8" Column="42" />
+      <File FileName="Controller/Report/ControllerArquivoLog.cs" Line="15" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/cristianocunha/Projetos/SoftwareOrdemDeServico/Controller/Outros/ControllerEmpresa.cs" line="30" column="47" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

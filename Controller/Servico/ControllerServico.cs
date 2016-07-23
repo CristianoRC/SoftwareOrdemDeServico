@@ -32,7 +32,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog (exc);
 
                 Saida = "Erro ao finalizar o serviço!um arquivo com informações foi criado no diretorio doseu Software (Log.Txt).";
             }
@@ -66,7 +66,7 @@ namespace Controller
             }
             catch (Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog (exc);
             }
             finally
             {

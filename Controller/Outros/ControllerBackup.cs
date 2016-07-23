@@ -86,7 +86,7 @@ namespace Controller
                         {
                             saida = "Falha ao restaurar o backup";
 
-							Ferramentas.GeraraLog (exc);
+                            ControllerArquivoLog.GeraraLog (exc);
                         }
                     }
                     else

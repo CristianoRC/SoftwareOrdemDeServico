@@ -43,7 +43,7 @@ namespace Controller
                 }
                 catch (Exception Exc)
                 {
-					Ferramentas.GeraraLog (Exc);
+                    ControllerArquivoLog.GeraraLog(Exc);
 
                     Saida = "Ocorreu um erro inesperado!";
                 }
@@ -90,7 +90,7 @@ namespace Controller
             }
             catch (Exception Exc)
 			{
-				Ferramentas.GeraraLog (Exc);
+                ControllerArquivoLog.GeraraLog(Exc);
 
                 Saida = "Ocorreu um erro inesperado!";
             }
@@ -137,7 +137,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-				Ferramentas.GeraraLog (Exc);
+                ControllerArquivoLog.GeraraLog(Exc);
             }
 
             return ListaDeUsuarios;
@@ -165,7 +165,7 @@ namespace Controller
             }
             catch (Exception exc)
 			{
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {
@@ -201,7 +201,7 @@ namespace Controller
             }
             catch (Exception Exc)
             {
-				Ferramentas.GeraraLog (Exc);
+                ControllerArquivoLog.GeraraLog(Exc);
 
                 UsuarioEncontrado = false;
             }

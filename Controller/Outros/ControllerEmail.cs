@@ -28,7 +28,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 Saida = "Ocorreu um arro ao tentar ler o arquivo com as informações.";
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog (exc);
             }
             finally
             {
@@ -60,7 +60,7 @@ namespace Controller
             }
             catch (System.Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
                 saida = "Ocorreu um erro ao tentar criar o Email Base! um arquivo de Log foi criado no diretorio do seu software com mais informações";
             }
             finally
@@ -121,7 +121,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 //Gerando arquivo de Log
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
 
                 Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
             }
@@ -179,7 +179,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 //Gerando arquivo de Log
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog (exc);
 
                 Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
             }
@@ -246,7 +246,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 //Gerando arquivo de Log
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
 
                 Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
             }
@@ -311,7 +311,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 //Gerando arquivo de Log
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
                 Saida = "Ocorreu um erro ao enviar o Email " + exc.Message;
             }
 
@@ -347,7 +347,7 @@ namespace Controller
             }
             catch (System.Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
 
                 Saida = "Ocorreu um erro ao tentar configurar! um arquivo de Log foi criado no diretorio do seu software com mais informações";
             }
@@ -382,7 +382,7 @@ namespace Controller
             }
             catch (System.Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {
@@ -463,7 +463,7 @@ namespace Controller
             {
                 Saida = "Ocorreu um arro ao tentar ler o arquivo com as informações.";
 
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {
@@ -495,7 +495,7 @@ namespace Controller
             }
             catch (System.Exception exc)
             {
-				Ferramentas.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
 
                 saida = "Ocorreu um erro ao tentar criar o Email Base! um arquivo de Log foi criado no diretorio do seu software com mais informações";
             }
