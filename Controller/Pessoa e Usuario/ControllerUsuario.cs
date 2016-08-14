@@ -29,7 +29,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 dataBase.Execute(String.Format(
                     @"insert into Tecnicos  
@@ -63,7 +63,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 dataBase.Execute(String.Format(
                     @"update Tecnicos  set 
@@ -98,7 +98,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 Tabela = dataBase.Query("Select * from tecnicos","Tecnicos");
             }
@@ -125,7 +125,7 @@ namespace Controller
             try
             {
                 Tabela = new DataTable("Tecnicos");
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Id = {0}",ID),"Tecnicos");
 
@@ -174,7 +174,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = {0}",Login),"Tecnicos");
 
@@ -221,7 +221,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 Tabela = dataBase.Query(String.Format(
                     @"select * from tecnicos 
@@ -257,7 +257,7 @@ namespace Controller
 
             try
             {
-                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 dataBase.Execute(String.Format("delete from Tecnicos where Id =",ID));
             }

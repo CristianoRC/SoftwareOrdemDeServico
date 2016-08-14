@@ -103,6 +103,7 @@
     <Compile Include="Outros\Ferramentas.cs" />
     <Compile Include="Report\ControllerArquivoLog.cs" />
     <Compile Include="Pessoa e Usuario\ControllerPessoa.cs" />
+    <Compile Include="DB.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
