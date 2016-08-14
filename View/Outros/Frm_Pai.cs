@@ -15,7 +15,7 @@ namespace View
         string Usuario;
         string NivelAcesso;
 
-        public Frm_Pai(string usuario, string nivelAcesso)
+        public Frm_Pai(string usuario, bool nivelAcesso)
         {
             InitializeComponent();
 

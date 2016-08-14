@@ -12,37 +12,28 @@ namespace View
             InitializeComponent();
         }
 
-        private void logar()
+        private void logar(string login, string senha)
         {
-            Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+            Model.Pessoa_e_Usuario.tecnico UsuarioBase = new Model.Pessoa_e_Usuario.tecnico();
 
-            if (ControllerUsuario.Verificar(Txt_Login.Text.TrimEnd()))
+            if (ControllerUsuario.Authenticate(login,senha))
             {
-                //Chamando o load para atualizar as informações
-                UsuarioBase = ControllerUsuario.Load(Txt_Login.Text.TrimEnd());
+                UsuarioBase = ControllerUsuario.Load(login);
 
-                if (UsuarioBase.Senha == Txt_Senha.Text.TrimEnd())
-                {
-					Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
+                Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
 
-                    Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
+                 Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
 
-                    this.Visible = false;
+                 this.Visible = false;
 
-                    Pai.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Senha incorreta", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 Pai.Show();
+             }
+             else
+             {
+                    MessageBox.Show("Login ou senhas incorretos", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Txt_Senha.Clear();
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Usuário inválido!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+             }
+         }
 
         private void Btm_Sair_Click(object sender, EventArgs e)
         {
@@ -54,7 +45,7 @@ namespace View
 
         private void bTM_lOGAR_Click(object sender, EventArgs e)
         {
-            logar();
+            logar(Txt_Login.Text,Txt_Senha.Text);
         }
 
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
@@ -98,7 +89,7 @@ namespace View
         {
             if (e.KeyChar == 13)
             {
-                logar();
+                logar(Txt_Login.Text,Txt_Senha.Text);
             }
         }
 
@@ -106,7 +97,7 @@ namespace View
         {
             if (e.KeyChar == 13)
             {
-                logar();
+                logar(Txt_Login.Text,Txt_Senha.Text);
             }
         }
     }

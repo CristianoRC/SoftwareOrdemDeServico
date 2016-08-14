@@ -8,6 +8,8 @@ namespace Controller
     public static class ControllerJuridica
     {
         //TODO: Dar manutenção as classes abaixo, muitos parâmetros;
+
+
         /// <summary>
         /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
         /// </summary>

@@ -87,13 +87,13 @@ namespace Controller
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
-            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+            mail.From = new MailAddress(EmailBase.email);
 
 
             //Configurando servidor.
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.email, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
 
 
             //Assunto do email.
@@ -145,13 +145,13 @@ namespace Controller
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
-            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+            mail.From = new MailAddress(EmailBase.email);
 
 
             //Configurando servidor.
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.email, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
 
 
             //Assunto do email.
@@ -203,13 +203,13 @@ namespace Controller
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
-            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+            mail.From = new MailAddress(EmailBase.email);
 
 
             //Configurando servidor.
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.email, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
 
 
             //Assunto do email.
@@ -270,13 +270,13 @@ namespace Controller
 
             SmtpClient smtp = new SmtpClient(EmailBase.Host, EmailBase.Port);   //Servidor
             MailMessage mail = new MailMessage(); //Menssagem
-            mail.From = new MailAddress(EmailBase.EnderecoEmail);
+            mail.From = new MailAddress(EmailBase.email);
 
 
             //Configurando servidor.
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.EnderecoEmail, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+            smtp.Credentials = new System.Net.NetworkCredential(EmailBase.email, EmailBase.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
 
 
             //Assunto do email.
@@ -375,7 +375,7 @@ namespace Controller
             {
                 sr = new StreamReader("Email.dat");
 
-                EmailBase.EnderecoEmail = cr.Decrypt(sr.ReadLine());
+                EmailBase.email = cr.Decrypt(sr.ReadLine());
                 EmailBase.Senha = cr.Decrypt(sr.ReadLine());
                 EmailBase.Host = cr.Decrypt(sr.ReadLine());
                 EmailBase.Port = int.Parse(cr.Decrypt(sr.ReadLine()));

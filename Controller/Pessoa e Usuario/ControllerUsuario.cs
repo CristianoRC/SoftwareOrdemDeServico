@@ -91,7 +91,11 @@ namespace Controller
         /// <returns></returns>
         public static DataTable LoadList()
         {
-            
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
+            Tabela = new DataTable("Tecnicos");
+
+
             try
             {
                 dataBase = new Spartacus.Database.Sqlite("DataBase.db");
@@ -120,18 +124,20 @@ namespace Controller
 
             try
             {
+                Tabela = new DataTable("Tecnicos");
                 dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
                 Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Id = {0}",ID),"Tecnicos");
 
-                foreach (DataRow r in Tabela) 
+
+                foreach (DataRow r in Tabela.Rows) 
                 {
-                    foreach (DataColumn c in Tabela) 
+                    foreach (DataColumn c in Tabela.Columns) 
                     {
                         switch (c.ColumnName) 
                         {
                             case  "Id":
-                                UsuarioBase.Id = int.Parse(r[c]);
+                                UsuarioBase.Id = Convert.ToInt32(r[c]);
                                 break;
                             case  "Login":
                                 UsuarioBase.Nome = r[c].ToString();
@@ -140,7 +146,7 @@ namespace Controller
                                 UsuarioBase.Senha = r[c].ToString();
                                 break;
                             case  "NivelAcesso":
-                                UsuarioBase.NivelAcesso = r[c];
+                                UsuarioBase.NivelAcesso = Convert.ToChar(r[c]);
                                 break;
                         }
                     }
@@ -148,6 +154,54 @@ namespace Controller
             }
             catch (Exception exc)
 			{
+                ControllerArquivoLog.GeraraLog(exc);
+            }
+
+            return UsuarioBase;
+        }
+
+        /// <summary>
+        /// Carregando usuario.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns>Usuario</returns>
+        public static tecnico Load(string Login) //Verificar Código que carrega as informações para classe Tecnicos.
+        {
+            tecnico UsuarioBase = new tecnico();
+
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
+
+            try
+            {
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = {0}",Login),"Tecnicos");
+
+                foreach (DataRow r in Tabela.Rows) 
+                {
+                    foreach (DataColumn c in Tabela.Columns) 
+                    {
+                        switch (c.ColumnName) 
+                        {
+                            case  "Id":
+                                UsuarioBase.Id = Convert.ToInt32(r[c]);
+                                break;
+                            case  "Login":
+                                UsuarioBase.Nome = r[c].ToString();
+                                break;
+                            case  "Senha":
+                                UsuarioBase.Senha = r[c].ToString();
+                                break;
+                            case  "NivelAcesso":
+                                UsuarioBase.NivelAcesso = Convert.ToChar(r[c]);
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
                 ControllerArquivoLog.GeraraLog(exc);
             }
 
@@ -176,7 +230,7 @@ namespace Controller
                     Nome,Senha),
                     "Tecnicos");
 
-                if(Tabela.Rows.Count = 1)
+                if(Tabela.Rows.Count == 1)
                 {
                     UsuarioEncontrado = true;
                 }
@@ -205,7 +259,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                dataBase.Execute(String.Format("delete from Tecnicos where Id =",ID),"Tecnicos");
+                dataBase.Execute(String.Format("delete from Tecnicos where Id =",ID));
             }
             catch (Exception exc)
             {

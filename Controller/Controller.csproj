@@ -98,12 +98,11 @@
     <Compile Include="Outros\ControllerBackup.cs" />
     <Compile Include="Outros\ControllerEmail.cs" />
     <Compile Include="Outros\ControllerEmpresa.cs" />
-    <Compile Include="Pessoa e Usuario\ControllerFisica.cs" />
-    <Compile Include="Pessoa e Usuario\ControllerJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pessoa e Usuario\ControllerUsuario.cs" />
     <Compile Include="Outros\Ferramentas.cs" />
     <Compile Include="Report\ControllerArquivoLog.cs" />
+    <Compile Include="Pessoa e Usuario\ControllerPessoa.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
