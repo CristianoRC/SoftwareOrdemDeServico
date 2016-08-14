@@ -4,12 +4,6 @@
 
 Documentação do projeto: http://cristianoprogramador.com/DocumentacaoOS/
 
-Diagrama de classe (Controller): http://git.io/v8DA5
-
-Diagrama de classe (Model): http://git.io/v8DpS
-
-Lista de tarefas: https://trello.com/b/nXgbKgzs/software-de-ordem-de-servico
-
 <b>Site:</b> http://cristianoprogramador.com/
 
 <b>Blog:</b> http://cristianoprogramador.wordpress.com/
