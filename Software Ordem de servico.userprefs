@@ -1,9 +1,18 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Report/ControllerArquivoLog.cs">
-    <Files>
-      <File FileName="Controller/Report/ControllerArquivoLog.cs" Line="15" Column="53" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Software Ordem de servico" expanded="True">
+            <Node name="Model" expanded="True" />
+            <Node name="View" expanded="True">
+              <Node name="Orcamento" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

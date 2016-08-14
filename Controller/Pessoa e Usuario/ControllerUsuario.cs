@@ -148,10 +148,10 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static Usuario Load(string Nome)
+        public static tecnico Load(string Nome)
         {
             StreamReader sr = null;
-            Usuario UsuarioBase = new Usuario();
+            tecnico UsuarioBase = new tecnico();
 
 
             try
@@ -160,7 +160,7 @@ namespace Controller
 
                 UsuarioBase.Nome = sr.ReadLine();
                 UsuarioBase.Senha = sr.ReadLine();
-                UsuarioBase.NivelAcesso = sr.ReadLine();
+               // UsuarioBase.NivelAcesso = sr.ReadLine();
 
             }
             catch (Exception exc)
