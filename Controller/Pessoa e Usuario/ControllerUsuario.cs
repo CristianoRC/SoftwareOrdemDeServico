@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
+using System.Data;
 
 namespace Controller
 {
@@ -18,48 +19,36 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Save(String Nome, String Senha, string NivelAcesso)
+        public static String Create(String Nome, String Senha, char NivelAcesso) //Criar função para verificar a existencia de Login
         {
-            StreamWriter sr = null;
+            // 0 false; 1 True;
+
             string Saida = "";
 
-            if (Verificar(Nome) == false)
+            Spartacus.Database.Generic dataBase;
+
+            try
             {
-                try
-                {
-                    sr = new StreamWriter(String.Format("Usuario/{0}.dat", Nome));
-                    Usuario UsuarioBase = new Usuario();
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                    UsuarioBase.Nome = Nome;
-                    UsuarioBase.Senha = Senha;
-                    UsuarioBase.NivelAcesso = NivelAcesso;
+                dataBase.Execute(String.Format(
+                    @"insert into Tecnicos  
+                      (login,senha,nivelacesso)
+                      values ('{0}','{2}',{3});",
+                      Nome,Senha,NivelAcesso));
 
-                    sr.WriteLine(UsuarioBase.Nome);
-                    sr.WriteLine(UsuarioBase.Senha);
-                    sr.WriteLine(UsuarioBase.NivelAcesso);
+                Saida = "Tecnico cadastrado com sucesso!";
+            }
+            catch (Exception Exc)
+            {
+                ControllerArquivoLog.GeraraLog(Exc);
 
-                    Saida = "Usuario registrado com sucesso!";
-
-                }
-                catch (Exception Exc)
-                {
-                    ControllerArquivoLog.GeraraLog(Exc);
-
-                    Saida = "Ocorreu um erro inesperado!";
-                }
-                finally
-                {
-                    if (sr != null)
-                    {
-                        sr.Close();
-
-                    }
-                }
+                Saida = ("Erro: " + Exc.Message);
             }
 
             return Saida;
-        }
-
+          } 
+            
         /// <summary>
         /// Editando usuário
         /// </summary>
@@ -67,80 +56,54 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Editar(String Nome, String Senha, string NivelAcesso)
+        public static String Edit(int Id,String Nome, String Senha, char NivelAcesso)
         {
-            StreamWriter sr = null;
             string Saida = "";
+            Spartacus.Database.Generic dataBase;
 
             try
             {
-                sr = new StreamWriter(String.Format("Usuario/{0}.dat", Nome));
-                Usuario UsuarioBase = new Usuario();
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                UsuarioBase.Nome = Nome;
-                UsuarioBase.Senha = Senha;
-                UsuarioBase.NivelAcesso = NivelAcesso;
+                dataBase.Execute(String.Format(
+                    @"update Tecnicos  set 
+                      login = '{0}', 
+                      senha = '{1}', 
+                      nivelacesso = {2}  
+                      Where id ={3} ;",
+                      Nome,Senha,NivelAcesso,Id));
 
-                sr.WriteLine(UsuarioBase.Nome);
-                sr.WriteLine(UsuarioBase.Senha);
-                sr.WriteLine(UsuarioBase.NivelAcesso);
-
-                Saida = "Usuario registrado com sucesso!";
-
+                Saida = "Tecnico editado com sucesso!";
             }
             catch (Exception Exc)
 			{
                 ControllerArquivoLog.GeraraLog(Exc);
 
-                Saida = "Ocorreu um erro inesperado!";
-            }
-            finally
-            {
-                if (sr != null)
-                {
-                    sr.Close();
-
-                }
+                Saida = "Erro: " + Exc.Message;
             }
 
-            return Saida;
+             return Saida;
         }
 
         /// <summary>
         /// Carregando Lista com nome de todos usuarios.
         /// </summary>
         /// <returns></returns>
-        public static List<string> LoadList()
+        public static DataTable LoadList()
         {
-            Usuario UsuarioBase = new Usuario();
-            List<string> ListaDeUsuarios = new List<string>();
-            string[] Linha = new string[3];
-
+            
             try
             {
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                DirectoryInfo NomesArquivos = new DirectoryInfo("Usuario/");
-                string[] NovoItem = new string[2];
-
-
-                //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
-
-                foreach (var item in NomesArquivos.GetFiles())
-                {
-                    NovoItem = item.ToString().Split('.');
-
-                    ListaDeUsuarios.Add(NovoItem[0]);
-
-                }
-
-
+                Tabela = dataBase.Query("Select * from tecnicos","Tecnicos");
             }
             catch (Exception Exc)
             {
                 ControllerArquivoLog.GeraraLog(Exc);
             }
 
-            return ListaDeUsuarios;
+            return Tabela;
         }
 
         /// <summary>
@@ -148,29 +111,44 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static tecnico Load(string Nome)
+        public static tecnico Load(int ID) //Verificar Código que carrega as informações para classe Tecnicos.
         {
-            StreamReader sr = null;
             tecnico UsuarioBase = new tecnico();
 
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
 
             try
             {
-                sr = new StreamReader(string.Format("Usuario/{0}.dat", Nome));
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                UsuarioBase.Nome = sr.ReadLine();
-                UsuarioBase.Senha = sr.ReadLine();
-               // UsuarioBase.NivelAcesso = sr.ReadLine();
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Id = {0}",ID),"Tecnicos");
 
+                foreach (DataRow r in Tabela) 
+                {
+                    foreach (DataColumn c in Tabela) 
+                    {
+                        switch (c.ColumnName) 
+                        {
+                            case  "Id":
+                                UsuarioBase.Id = int.Parse(r[c]);
+                                break;
+                            case  "Login":
+                                UsuarioBase.Nome = r[c].ToString();
+                                break;
+                            case  "Senha":
+                                UsuarioBase.Senha = r[c].ToString();
+                                break;
+                            case  "NivelAcesso":
+                                UsuarioBase.NivelAcesso = r[c];
+                                break;
+                        }
+                    }
+                }
             }
             catch (Exception exc)
 			{
                 ControllerArquivoLog.GeraraLog(exc);
-            }
-            finally
-            {
-                if (sr != null)
-                    sr.Close();
             }
 
             return UsuarioBase;
@@ -181,23 +159,27 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public static bool Verificar(string Nome)
+        public static bool Authenticate(string Nome, string Senha)
         {
             bool UsuarioEncontrado = false;
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
 
             try
             {
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
 
-                if (File.Exists(String.Format("Usuario/{0}.dat", Nome)))
+                Tabela = dataBase.Query(String.Format(
+                    @"select * from tecnicos 
+                    where Login = '{0}' 
+                    and Senha = '{1}'",
+                    Nome,Senha),
+                    "Tecnicos");
+
+                if(Tabela.Rows.Count = 1)
                 {
                     UsuarioEncontrado = true;
                 }
-
-
-            }
-            catch (FileNotFoundException)
-            {
-                UsuarioEncontrado = false;
             }
             catch (Exception Exc)
             {
@@ -214,17 +196,20 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
-        public static string Excluir(string Nome)
+        public static string Delete(int ID)
         {
-            string saida = String.Format("O técnico {0} foi excluida com sucesso!", Nome);
+            string saida = String.Format("O técnico foi excluida com sucesso!");
+            Spartacus.Database.Generic dataBase;
 
             try
             {
-                File.Delete(string.Format("Usuario/{0}.dat", Nome));
+                dataBase = new Spartacus.Database.Sqlite("DataBase.db");
+
+                dataBase.Execute(String.Format("delete from Tecnicos where Id =",ID),"Tecnicos");
             }
             catch (Exception exc)
             {
-                saida = string.Format("Ocorreu um erro ao excluir o técnico: {0}", exc.Message);
+                saida = string.Format("Ocorreu um erro ao excluir o técnico:", exc.Message);
             }
 
             return saida;
