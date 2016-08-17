@@ -1,13 +1,30 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Model/Pessoa e tecnico/Tecnico.cs">
-    <Files>
-      <File FileName="Model/Pessoa e tecnico/Tecnico.cs" Line="12" Column="2" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Software Ordem de servico" expanded="True">
+            <Node name="Controller" expanded="True">
+              <Node name="Pessoa e Usuario" expanded="True">
+                <Node name="ControllerPessoa.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Model" expanded="True">
+              <Node name="Pessoa e tecnico" expanded="True" />
+            </Node>
+            <Node name="View" expanded="True">
+              <Node name="Outros" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/cristianocunha/Projetos/SoftwareOrdemDeServico/Controller/Outros/ControllerEmpresa.cs" line="30" column="47" />
+      <Breakpoint file="/home/cristiano/Projetos/SoftwareOrdemDeServico/Controller/Pessoa e Usuario/ControllerPessoa.cs" line="99" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

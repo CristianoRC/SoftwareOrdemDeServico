@@ -5,13 +5,12 @@ using Model.Pessoa_e_Usuario;
 
 namespace Controller
 {
-    public static class ControllerJuridica
+    public static class ControllerPessoa
     {
-        //TODO: Dar manutenção as classes abaixo, muitos parâmetros;
-
+     
 
         /// <summary>
-        /// Salvando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
+        /// Salvando informações de usuario
         /// </summary>
         /// <param name="nome"></param>
         /// <param name="endereco"></param>
@@ -27,66 +26,40 @@ namespace Controller
         /// <param name="inscricaoestadual"></param>
         /// <param name="razaosocial"></param>
         /// <returns></returns>
-        public static String Save(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+        public static String Salvar(Pessoa cliente)
         {
-            StreamWriter sw = null;
             string Saida = "";
 
-            //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
+            Spartacus.Database.Generic database;
 
-            if (Verificar(nome) == false)
+            if (Verificar(cliente.Nome) == false)
             {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
                 try
                 {
+                 
+                    database.Execute(String.Format(
+                        @"insert into pessoa  
+                        (ID,Nome,Tipo,Endereco,Email,
+                         SiglaEstado,Cidade,Bairro,CEP,
+                         Sexo,CPF,Celular,DataDeNascimento,
+                         RazaoSocial,Cnpj,InscricaoEstadual)
+                         values ( '{0}','{2}',{3},'{4}','{5}'
+                                  '{6}','{7}','{8}','{9}','{10}','{11}'
+                                  '{12}','{13}','{14}','{15}','{16}');",
+                    cliente.ID,cliente.Nome,cliente.Tipo,cliente.Endereco,cliente.Email,
+                    cliente.SiglaEstado,cliente.Cidade,cliente.Bairro,cliente.Cep,
+                    cliente.Sexo,cliente.Cpf,cliente.Celular,cliente.DataDeNascimento,
+                    cliente.RazaoSocial,cliente.Cnpj,cliente.InscricaoEstadual));
 
-                    sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd()));
-
-                    Juridica PessoaJBase = new Juridica();
-
-                    PessoaJBase.Nome = nome;
-                    PessoaJBase.Endereco = endereco;
-                    PessoaJBase.Email = email;
-                    PessoaJBase.Situacao = situacao;
-                    PessoaJBase.SiglaEstado = siglaEstado;
-                    PessoaJBase.Cidade = cidade;
-                    PessoaJBase.Bairro = bairro;
-                    PessoaJBase.Cep = cep;
-                    PessoaJBase.Observacoes = observacoes;
-                    PessoaJBase.Cnpj = cnpj;
-                    PessoaJBase.Contato = contato;
-                    PessoaJBase.InscricaoEstadual = inscricaoestadual;
-                    PessoaJBase.RazaoSocial = razaosocial;
-
-                    //Parte de Pessoa
-                    sw.WriteLine(PessoaJBase.Nome);
-                    sw.WriteLine(PessoaJBase.Endereco);
-                    sw.WriteLine(PessoaJBase.Email);
-                    sw.WriteLine(PessoaJBase.Situacao);
-                    sw.WriteLine(PessoaJBase.SiglaEstado);
-                    sw.WriteLine(PessoaJBase.Cidade);
-                    sw.WriteLine(PessoaJBase.Bairro);
-                    sw.WriteLine(PessoaJBase.Cep);
-                    sw.WriteLine(PessoaJBase.Observacoes);
-
-                    //Parte de Pessoa Jurídica
-                    sw.WriteLine(PessoaJBase.Cnpj);
-                    sw.WriteLine(PessoaJBase.Contato);
-                    sw.WriteLine(PessoaJBase.InscricaoEstadual);
-                    sw.WriteLine(PessoaJBase.RazaoSocial);
+                    Saida = "Cliente registrada com sucesso!";
                 }
-
                 catch (Exception exc)
                 {
                     ControllerArquivoLog.GeraraLog(exc);
 
                     Saida = "Ocorreu um erro inesperado: " + exc.Message;
-                }
-                finally
-                {
-                    if (sw != null)
-                        sw.Close();
-
-                    Saida = "Pessoa Jurídica registrada com sucesso!";
                 }
 
                 return Saida;
@@ -94,7 +67,7 @@ namespace Controller
             else
             {
                 //Se o a pessoa jurídica já for cadastrada caira nesse código como retorno e nada sera salvo.
-                Saida = "Pessoa Jurídica já cadastrada.";
+                Saida = "Cliente já cadastrada.";
 
                 return Saida;
             }
@@ -117,180 +90,107 @@ namespace Controller
         /// <param name="inscricaoestadual"></param>
         /// <param name="razaosocial"></param>
         /// <returns></returns>
-        public static String Edit(string nome, string endereco, string email, string situacao, string siglaEstado, string cidade, string bairro, string cep, string observacoes, string cnpj, string contato, string inscricaoestadual, string razaosocial)
+        public static String Editar(Pessoa cliente) //Sempre gravar informações sobre o ultimo usuário carregado(No Form) para poder editar
         {
-            StreamWriter sw = null;
             string Saida = "";
 
-            //Ira verificar com o nome passado na criação da classe para saber se já tem um usuario registrado com esse nome
+            Spartacus.Database.Generic database;
 
-            try
-            {
+            database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                sw = new StreamWriter(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd()));
+                try
+                {
 
-                Juridica PessoaJBase = new Juridica();
+                    database.Execute(String.Format(
+                        @"insert into pessoa  
+                        (ID = '{0}',
+                         Nome = '{1}',
+                         Tipo = '{2}',
+                         Endereco = '{3}',
+                         Email = '{4}',
+                         SiglaEstado = '{5}',
+                         Cidade = '{6}',
+                         Bairro = '{7}',
+                         CEP = '{8}',
+                         Sexo = '{9}',
+                         CPF = '{10}',
+                         Celular = '{11}',
+                         DataDeNascimento = '{12}',
+                         RazaoSocial = '{13}',
+                         Cnpj = '{14}',
+                         InscricaoEstadual = '{15}'",
+                    cliente.ID,cliente.Nome,cliente.Tipo,cliente.Endereco,cliente.Email,
+                    cliente.SiglaEstado,cliente.Cidade,cliente.Bairro,cliente.Cep,
+                    cliente.Sexo,cliente.Cpf,cliente.Celular,cliente.DataDeNascimento,
+                    cliente.RazaoSocial,cliente.Cnpj,cliente.InscricaoEstadual));
 
-                PessoaJBase.Nome = nome;
-                PessoaJBase.Endereco = endereco;
-                PessoaJBase.Email = email;
-                PessoaJBase.Situacao = situacao;
-                PessoaJBase.SiglaEstado = siglaEstado;
-                PessoaJBase.Cidade = cidade;
-                PessoaJBase.Bairro = bairro;
-                PessoaJBase.Cep = cep;
-                PessoaJBase.Observacoes = observacoes;
-                PessoaJBase.Cnpj = cnpj;
-                PessoaJBase.Contato = contato;
-                PessoaJBase.InscricaoEstadual = inscricaoestadual;
-                PessoaJBase.RazaoSocial = razaosocial;
+                    Saida = "Cliente registrada com sucesso!";
+                }
+                catch (Exception exc)
+                {
+                    ControllerArquivoLog.GeraraLog(exc);
 
-                //Parte de Pessoa
-                sw.WriteLine(PessoaJBase.Nome);
-                sw.WriteLine(PessoaJBase.Endereco);
-                sw.WriteLine(PessoaJBase.Email);
-                sw.WriteLine(PessoaJBase.Situacao);
-                sw.WriteLine(PessoaJBase.SiglaEstado);
-                sw.WriteLine(PessoaJBase.Cidade);
-                sw.WriteLine(PessoaJBase.Bairro);
-                sw.WriteLine(PessoaJBase.Cep);
-                sw.WriteLine(PessoaJBase.Observacoes);
+                    Saida = "Ocorreu um erro inesperado: " + exc.Message;
+                }
 
-                //Parte de Pessoa Jurídica
-                sw.WriteLine(PessoaJBase.Cnpj);
-                sw.WriteLine(PessoaJBase.Contato);
-                sw.WriteLine(PessoaJBase.InscricaoEstadual);
-                sw.WriteLine(PessoaJBase.RazaoSocial);
+                return Saida;
             }
-
-            catch (Exception exc)
-            {
-                ControllerArquivoLog.GeraraLog(exc);
-
-                Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
-            }
-            finally
-            {
-                if (sw != null)
-                    sw.Close();
-
-                Saida = "Pessoa Jurídica editada com sucesso!";
-            }
-
-            return Saida;
-        }
 
         /// <summary>
-        /// Carregando pessoa Física.
-        /// </summary>
-        /// <param name="IdentificadorLoad"></param>
-        /// <returns>Pessoa Jurídica.</returns>
-        public static Juridica Load(String IdentificadorLoad)
-        {
-            Juridica PessoaJBase = new Juridica();
-
-            StreamReader sr = null;
-            try
-            {
-                sr = new StreamReader(String.Format("Pessoa/J/{0}.PESSOAJ", IdentificadorLoad));
-
-                //Parte de Pessoa
-                PessoaJBase.Nome = sr.ReadLine();
-                PessoaJBase.Endereco = sr.ReadLine();
-                PessoaJBase.Email = sr.ReadLine();
-                PessoaJBase.Situacao = sr.ReadLine();
-                PessoaJBase.SiglaEstado = sr.ReadLine();
-                PessoaJBase.Cidade = sr.ReadLine();
-                PessoaJBase.Bairro = sr.ReadLine();
-                PessoaJBase.Cep = sr.ReadLine();
-                PessoaJBase.Observacoes = sr.ReadLine();
-
-                //Parte de Pessoa Jurídica
-                PessoaJBase.Cnpj = sr.ReadLine();
-                PessoaJBase.Contato = sr.ReadLine();
-                PessoaJBase.InscricaoEstadual = sr.ReadLine();
-                PessoaJBase.RazaoSocial = sr.ReadLine();
-            }
-            catch (Exception exc)
-            {
-                ControllerArquivoLog.GeraraLog(exc);
-            }
-            finally
-            {
-                if (sr != null)
-                    sr.Close();
-            }
-
-            return PessoaJBase;
-        }
-
-        /// <summary>
-        /// Carregando Lista com nome de todas pessoas Jurídicas registradas.
-        /// </summary>
-        /// <returns>Lista de nomes.</returns>
-        public static List<string> LoadList()
-        {
-            List<string> ListaDePessoaJuridica = new List<string>();
-            DirectoryInfo NomesArquivos = new DirectoryInfo("Pessoa/J/");
-            string[] NovoItem = new string[2];
-
-
-            //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
-
-            foreach (var item in NomesArquivos.GetFiles())
-            {
-                NovoItem = item.ToString().Split('.');
-
-                ListaDePessoaJuridica.Add(NovoItem[0]);
-
-            }
-
-            return ListaDePessoaJuridica;
-        }
-
-        /// <summary>
-        /// Verificando de a "Pessoa jurídica" existe.
-        /// </summary>
-        /// <param name="nome"></param>
-        /// <returns></returns>
-        public static bool Verificar(String nome)
-        {
-            //Verifica de o já há um "usuario"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
-
-            bool Encontrado = false;
-
-            if (File.Exists(String.Format("Pessoa/J/{0}.pessoaj", nome.TrimStart().TrimEnd())))
-            {
-                Encontrado = true;
-            }
-            else
-            {
-                Encontrado = false;
-            }
-
-            return Encontrado;
-        }
-
-        /// <summary>
-        /// Excluindo pessoa jurídica
+        /// Excluindo cliente
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
         public static string Excluir(string Nome)
         {
-            string saida = String.Format("Pessoa jurídica {0} foi excluida com sucesso!", Nome);
+            string saida = String.Format("cliente {0} foi excluido com sucesso!", Nome);
+            Spartacus.Database.Generic database;
 
             try
             {
-                File.Delete(string.Format("Pessoa/J/{0}.pessoaj", Nome));
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                database.Execute(String.Format("delete from pessoa Where Nome = '{0}'",Nome));
             }
             catch (Exception exc)
             {
-                saida = string.Format("Ocorreu um erro ao excluir a pessoa jurídica: {0}", exc.Message);
+                saida = string.Format("Ocorreu um erro ao excluir ao excluir o cliente {0}", exc.Message);
             }
 
             return saida;
         }
 
+        /// <summary>
+        /// /Verificando a existencia do cliente
+        /// </summary>
+        /// <param name="Nome">Nome.</param>
+        public static bool Verificar(string Nome)
+        {
+            bool PessoaEncontrada = false;
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
+
+            try
+            {
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                Tabela = dataBase.Query(String.Format(
+                    @"select * from pessoa 
+                    where Nome = '{0}'",Nome),"Pessoa");
+
+                if(Tabela.Rows.Count != 0)
+                {
+                    PessoaEncontrada = true;
+                }
+            }
+            catch (Exception Exc)
+            {
+                ControllerArquivoLog.GeraraLog(Exc);
+
+                PessoaEncontrada = false;
+            }
+
+            return PessoaEncontrada;
+        }
     }
 }

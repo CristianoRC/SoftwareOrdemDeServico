@@ -19,7 +19,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Create(String Nome, String Senha, char NivelAcesso) //Criar função para verificar a existencia de Login
+        public static String Salvar(String Nome, String Senha, char NivelAcesso) //Criar função para verificar a existencia de Login
         {
             // 0 false; 1 True;
 
@@ -56,7 +56,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Edit(int Id,String Nome, String Senha, char NivelAcesso)
+        public static String Editar(int Id,String Nome, String Senha, char NivelAcesso)
         {
             string Saida = "";
             Spartacus.Database.Generic dataBase;
@@ -89,7 +89,7 @@ namespace Controller
         /// Carregando Lista com nome de todos usuarios.
         /// </summary>
         /// <returns></returns>
-        public static DataTable LoadList()
+        public static DataTable CarregarLista()
         {
             Spartacus.Database.Generic dataBase;
             System.Data.DataTable Tabela;
@@ -115,7 +115,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static tecnico Load(int ID) //Verificar Código que carrega as informações para classe Tecnicos.
+        public static tecnico Carregar(int ID) //Verificar Código que carrega as informações para classe Tecnicos.
         {
             tecnico UsuarioBase = new tecnico();
 
@@ -165,7 +165,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static tecnico Load(string Login) //Verificar Código que carrega as informações para classe Tecnicos.
+        public static tecnico Carregar(string Login) //Verificar Código que carrega as informações para classe Tecnicos.
         {
             tecnico UsuarioBase = new tecnico();
 
@@ -213,7 +213,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public static bool Authenticate(string Nome, string Senha)
+        public static bool Autenticar(string Nome, string Senha)
         {
             bool UsuarioEncontrado = false;
             Spartacus.Database.Generic dataBase;
@@ -229,8 +229,8 @@ namespace Controller
                     and Senha = '{1}'",
                     Nome,Senha),
                     "Tecnicos");
-
-                if(Tabela.Rows.Count == 1)
+                
+                if(Tabela.Rows.Count != 0)
                 {
                     UsuarioEncontrado = true;
                 }
@@ -250,7 +250,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Resultado da operação</returns>
-        public static string Delete(int ID)
+        public static string Deletar(int ID)
         {
             string saida = String.Format("O técnico foi excluida com sucesso!");
             Spartacus.Database.Generic dataBase;
