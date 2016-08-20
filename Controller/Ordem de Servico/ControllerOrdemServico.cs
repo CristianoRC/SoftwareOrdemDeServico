@@ -9,6 +9,7 @@ using Model.Ordem_de_Servico;
 using Ionic.Zip;
 using System.IO;
 
+
 namespace Controller
 {
     public static class ControllerOrdemServico
@@ -64,7 +65,7 @@ namespace Controller
             }
         }
 
-        //Fazer testes com a controller pessoa para ver se o código desenvolvido funciona normalmente.
+        //TODO:Fazer testes com a controller pessoa para ver se o código desenvolvido funciona normalmente.
         public static OrdemServico Carregar(int ID)
         {
             OrdemServico OSBase = new OrdemServico();
@@ -197,3 +198,4 @@ namespace Controller
         }
     }
 }
+//TODO:Orcamento vai estar apenas na opção de Situação, e quando acabar o orcamento gerra um trabalho

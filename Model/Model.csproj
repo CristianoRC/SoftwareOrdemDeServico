@@ -84,7 +84,6 @@
     <Compile Include="Pessoa e tecnico\Pessoa.cs" />
     <Compile Include="Pessoa e tecnico\Tecnico.cs" />
     <Compile Include="Ordem de Servico\Trabalho.cs" />
-    <Compile Include="Ordem de Servico\Orcamento.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

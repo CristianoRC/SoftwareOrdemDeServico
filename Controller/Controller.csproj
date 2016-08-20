@@ -66,9 +66,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cunha">
-      <HintPath>..\packages\Cunha\Cunha.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
     </Reference>
@@ -91,10 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Report\ControllerLog.cs" />
-    <Compile Include="Servico\ControllerOrcamento.cs" />
-    <Compile Include="Servico\ControllerServicoBase.cs" />
     <Compile Include="Ordem de Servico\ControllerOrdemServico.cs" />
-    <Compile Include="Servico\ControllerServico.cs" />
     <Compile Include="Outros\ControllerBackup.cs" />
     <Compile Include="Outros\ControllerEmail.cs" />
     <Compile Include="Outros\ControllerEmpresa.cs" />
@@ -104,6 +98,7 @@
     <Compile Include="Report\ControllerArquivoLog.cs" />
     <Compile Include="Pessoa e Usuario\ControllerPessoa.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Servico\ControllerTrabalho.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
