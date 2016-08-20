@@ -176,7 +176,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = {0}",Login),"Tecnicos");
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = '{0}'",Login),"Tecnicos");
 
                 foreach (DataRow r in Tabela.Rows) 
                 {
@@ -259,7 +259,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format("delete from Tecnicos where Id =",ID));
+                dataBase.Execute(String.Format("delete from Tecnicos where Id = {0}",ID));
             }
             catch (Exception exc)
             {

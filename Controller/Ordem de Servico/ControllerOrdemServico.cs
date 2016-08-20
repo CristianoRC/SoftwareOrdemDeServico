@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Data;
 using System.Collections.Generic;
 using System.Diagnostics;
 using iTextSharp.text;
@@ -7,14 +7,92 @@ using iTextSharp.text.pdf;
 using Model;
 using Model.Ordem_de_Servico;
 using Ionic.Zip;
+using System.IO;
 
 namespace Controller
 {
     public static class ControllerOrdemServico
-    {
+    {   
+        /// <summary>
+        /// Salcando Ordem De Serviço
+        /// </summary>
+        /// <param name="Os">Os.</param>
+        public static string Salvar(OrdemServico Os)
+        {
+            Spartacus.Database.Generic database;
+            string query = string.Format(
+                @"insert into ordemdeservico (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico) 
+                  values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},{8});",
+                  Os.Situacao,Os.Defeito,Os.Descricao, Os.Observacao,Os.NumeroSerie,
+                  Os.Equipamento,Os.dataEntradaServico,Os.IDCliente,Os.IDTecnico);
 
-        
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
+                database.Execute(query);
+                return "Ordem de serviço foi salva com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+                return String.Format("Ocorreu um erro ao tental salvar a Ordem de serviço:{0}",ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Deletando ordem de serviço.
+        /// </summary>
+        /// <param name="id">Identifier.</param>
+        public static string Deletar(int id)
+        {
+            Spartacus.Database.Generic database;
+            string query = string.Format(@"delete from ordemdeservico where id = {0}",id);
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                database.Execute(query);
+
+                return "Ordem de serviço deletada com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+                return "Erro ou excluir a ordem de serviço";
+            }
+        }
+
+        //Fazer testes com a controller pessoa para ver se o código desenvolvido funciona normalmente.
+        public static OrdemServico Carregar(int ID)
+        {
+            OrdemServico OSBase = new OrdemServico();
+
+            return OSBase;
+        }
+
+        /// <summary>
+        /// Retorna um DataTable com todas as Ordens de serviço.
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarLista()
+        {
+            DataTable tabela = new DataTable("ordemdeservico");
+            Spartacus.Database.Generic database;
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query("select * from ordemdeservico","Ordemdeservico");
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return tabela;
+        }
 
         /// <summary>
         /// Gerando PDF da ordem de serviço. (A ordem de serviço em PDF não fica salvar ela é gerada cada vez que a função é chamada)
@@ -29,7 +107,7 @@ namespace Controller
         /// <param name="Equipamento"></param>
         /// <param name="DataEntradaServico"></param>
         /// <param name="Cliente"></param>
-        public static void CreatPDF(string Identificador, string Referencia, string Tipo, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
+        public static void CreatPDF(OrdemServico OSBase)
         {
 
             Document Documento = new Document();
@@ -46,7 +124,6 @@ namespace Controller
             Paragraph _situacao = new Paragraph();
             Paragraph _descricao = new Paragraph();
             Paragraph _numeroSerie = new Paragraph();
-            Paragraph _referencia = new Paragraph();
             Paragraph _observacoes = new Paragraph();
             Paragraph _linha = new Paragraph();
             Paragraph _linhaEmBranco = new Paragraph();
@@ -62,16 +139,15 @@ namespace Controller
             _cabecalho.Add("Ordem de serviço");
             _linha.Add("______________________________________________________________________________");
             _linhaEmBranco.Add(" ");
-            _identificador.Add(String.Format("Numero da ordem: {0}", Identificador));
-            _cliente.Add(String.Format("Cliente: {0}", Cliente));
-            _dataEntrada.Add(String.Format("Data de entrada: {0}", DataEntradaServico));
-            _equipamento.Add(String.Format("Equipamento: {0}", Equipamento));
-            _situacao.Add(String.Format("Tipo: {0}", Tipo));
-            _defeito.Add(String.Format("Defeito: {0}", Defeito));
-            _descricao.Add(String.Format("Descrição: {0}", Descricao));
-            _numeroSerie.Add(String.Format("Numero de serie: {0}", NumeroSerie));
-            _referencia.Add(String.Format("Referência: {0}", Referencia));
-            _observacoes.Add(String.Format("Observações: {0}", Observacao));
+            _identificador.Add(String.Format("Numero da ordem: {0}", OSBase.ID));
+            _cliente.Add(String.Format("Cliente: {0}", OSBase.IDCliente));
+            _dataEntrada.Add(String.Format("Data de entrada: {0}", OSBase.dataEntradaServico));
+            _equipamento.Add(String.Format("Equipamento: {0}", OSBase.Equipamento));
+            //_situacao.Add(String.Format("Tipo: {0}", )); Excluir após a criação do Orçamento
+            _defeito.Add(String.Format("Defeito: {0}", OSBase.Defeito));
+            _descricao.Add(String.Format("Descrição: {0}", OSBase.Descricao));
+            _numeroSerie.Add(String.Format("Numero de serie: {0}", OSBase.NumeroSerie));
+            _observacoes.Add(String.Format("Observações: {0}",OSBase.Observacao));
 
             //Carregando informações da empresa
             Empresa = ControllerEmpresa.Load();
@@ -112,7 +188,6 @@ namespace Controller
             Documento.Add(_linhaEmBranco);
             Documento.Add(_numeroSerie);
             Documento.Add(_linhaEmBranco);
-            Documento.Add(_referencia);
             Documento.Add(_linhaEmBranco);
             Documento.Add(_observacoes);
 
@@ -120,371 +195,5 @@ namespace Controller
 
             Process.Start(local);
         }
-//
-//        /// <summary>
-//        /// Salvando a ordem de serviço em arquivo de Texto.
-//        /// </summary>
-//        /// <param name="Identificador"></param>
-//        /// <param name="Referencia"></param>
-//        /// <param name="Situacao"></param>
-//        /// <param name="Defeito"></param>
-//        /// <param name="Descricao"></param>
-//        /// <param name="Observacao"></param>
-//        /// <param name="NumeroSerie"></param>
-//        /// <param name="Equipamento"></param>
-//        /// <param name="DataEntradaServico"></param>
-//        /// <param name="Cliente"></param>
-//        /// <returns></returns>
-//        public static string Save(int Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, int Cliente)
-//        {
-//            OrdemServico OSBase = new OrdemServico();
-//
-//            string Saida = null;
-//
-//            OSBase.ID = Identificador;
-//            OSBase.Equipamento = Equipamento;
-//            OSBase.Situacao = Situacao;
-//            OSBase.NumeroSerie = NumeroSerie;
-//            OSBase.Defeito = Defeito;
-//            OSBase.dataEntradaServico = DataEntradaServico;
-//            OSBase.Observacao = Observacao;
-//            OSBase.Descricao = Descricao;
-//            OSBase.IDCliente = Cliente;
-//
-//            StreamWriter sw = null;
-//
-//        }
-//            if (Verificar(OSBase.Identificador) == false)
-//            {
-//                try
-//                {
-//                    sw = new StreamWriter(String.Format("OS/{0}.os", Identificador));
-//
-//                    sw.WriteLine(OSBase.Identificador);
-//                    sw.WriteLine(OSBase.Cliente);
-//                    sw.WriteLine(OSBase.Equipamento);
-//                    sw.WriteLine(OSBase.Situacao);
-//                    sw.WriteLine(OSBase.NumeroSerie);
-//                    sw.WriteLine(OSBase.Defeito);
-//                    sw.WriteLine(OSBase.Referencia);
-//                    sw.WriteLine(OSBase.DataEntradaServico);
-//                    sw.WriteLine(OSBase.Observacao);
-//                    sw.WriteLine(OSBase.Descricao);
-//
-//                }
-//                catch (Exception Exc)
-//                {
-//                    ControllerArquivoLog.GeraraLog(Exc);
-//
-//                    Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
-//                }
-//                finally
-//                {
-//                    if (sw != null)
-//                    {
-//                        sw.Close();
-//
-//                        Saida = "Ordem de Serviço registrada com sucesso!";
-//                    }
-//
-//                }
-//            }
-//            else
-//            {
-//                //Chamara a função de salvar novamente se for verificado que o numero "sorteado já existe na base de dados."
-//                Save(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
-//            }
-//
-//
-//            return Saida;
-//
-//        }
-//
-//        /// <summary>
-//        /// Editar a ordem de serviço, quase a mesam coisa que a Save(), ela só não verifica se o arquivo já existe, apenas salva.
-//        /// </summary>
-//        /// <param name="Identificador"></param>
-//        /// <param name="Referencia"></param>
-//        /// <param name="Situacao"></param>
-//        /// <param name="Defeito"></param>
-//        /// <param name="Descricao"></param>
-//        /// <param name="Observacao"></param>
-//        /// <param name="NumeroSerie"></param>
-//        /// <param name="Equipamento"></param>
-//        /// <param name="DataEntradaServico"></param>
-//        /// <param name="Cliente"></param>
-//        /// <returns></returns>
-//        public static string Edit(string Identificador, string Referencia, string Situacao, string Defeito, string Descricao, string Observacao, string NumeroSerie, string Equipamento, string DataEntradaServico, string Cliente)
-//        {
-//            OrdemServico OSBase = new OrdemServico();
-//            string Saida = null;
-//
-//            OSBase.Identificador = Identificador;
-//            OSBase.Equipamento = Equipamento;
-//            OSBase.Situacao = Situacao;
-//            OSBase.NumeroSerie = NumeroSerie;
-//            OSBase.Defeito = Defeito;
-//            OSBase.Referencia = Referencia;
-//            OSBase.DataEntradaServico = DataEntradaServico;
-//            OSBase.Observacao = Observacao;
-//            OSBase.Descricao = Descricao;
-//            OSBase.Cliente = Cliente;
-//
-//
-//            StreamWriter sw = null;
-//
-//
-//            if (Verificar(OSBase.Identificador) == true)
-//            {
-//                try
-//                {
-//                    sw = new StreamWriter(String.Format("OS/{0}.os", Identificador));
-//
-//                    sw.WriteLine(OSBase.Identificador);
-//                    sw.WriteLine(OSBase.Cliente);
-//                    sw.WriteLine(OSBase.Equipamento);
-//                    sw.WriteLine(OSBase.Situacao);
-//                    sw.WriteLine(OSBase.NumeroSerie);
-//                    sw.WriteLine(OSBase.Defeito);
-//                    sw.WriteLine(OSBase.Referencia);
-//                    sw.WriteLine(OSBase.DataEntradaServico);
-//                    sw.WriteLine(OSBase.Observacao);
-//                    sw.WriteLine(OSBase.Descricao);
-//                }
-//                catch (System.Exception Exc)
-//                {
-//                    ControllerArquivoLog.GeraraLog (Exc);
-//
-//                    Saida = "Ocorreu um erro inesperado! Um arquivo com as informações desse erro foi criado no diretorio do seu software";
-//                }
-//                finally
-//                {
-//                    if (sw != null)
-//                    {
-//                        sw.Close();
-//
-//                        Saida = "Ordem de Serviço editada com sucesso!";
-//                    }
-//
-//                }
-//            }
-//            else
-//            {
-//                Saida = "Numero de ordem de sefviço inválido!";
-//            }
-//
-//
-//            return Saida;
-//
-//        }
-//
-//        /// <summary>
-//        /// Carregando a ordem de serviço atraves do arquivo de texto.
-//        /// </summary>
-//        /// <param name="_Identificador"></param>
-//        /// <returns>Ordem de serviço</returns>
-//        public static OrdemServico Load(string Identificador)
-//        {
-//            OrdemServico OSBase = new OrdemServico();
-//            StreamReader sr = null;
-//
-//            try
-//            {
-//                sr = new StreamReader(String.Format("OS/{0}.os", Identificador));
-//
-//                OSBase.Identificador = sr.ReadLine();
-//                OSBase.Cliente = sr.ReadLine();
-//                OSBase.Equipamento = sr.ReadLine();
-//                OSBase.Situacao = sr.ReadLine();
-//                OSBase.NumeroSerie = sr.ReadLine();
-//                OSBase.Defeito = sr.ReadLine();
-//                OSBase.Referencia = sr.ReadLine();
-//                OSBase.DataEntradaServico = sr.ReadLine();
-//                OSBase.Observacao = sr.ReadLine();
-//                OSBase.Descricao = sr.ReadLine();
-//            }
-//            catch (Exception Exc)
-//            {
-//                ControllerArquivoLog.GeraraLog (Exc);
-//            }
-//            finally
-//            {
-//                if (sr != null)
-//                    sr.Close();
-//            }
-//
-//            return OSBase;
-//        }
-//
-//        /// <summary>
-//        /// Carrega uma lista de ordens de serviço.
-//        /// </summary>
-//        /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
-//        public static List<string> LoadList()
-//        {
-//            List<string> ListaDeOS = new List<string>();
-//            DirectoryInfo NomesArquivos = new DirectoryInfo("OS/");
-//            string[] NovoItem = new string[2];
-//
-//
-//            //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
-//
-//            foreach (var item in NomesArquivos.GetFiles())
-//            {
-//                NovoItem = item.ToString().Split('.');
-//
-//                ListaDeOS.Add(NovoItem[0]);
-//            }
-//
-//            return ListaDeOS;
-//        }
-//
-//        /// <summary>
-//        /// Verifica se a ordem de serviço existe ou não.
-//        /// </summary>
-//        /// <param name="_Identificador"></param>
-//        /// <returns>Retorna um valor (true/false)</returns>
-//        public static bool Verificar(string _Identificador)
-//        {
-//            //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
-//
-//            bool Encontrado = false;
-//
-//            if (File.Exists((string.Format("OS/{0}.os", _Identificador))))
-//            {
-//                Encontrado = true;
-//            }
-//            else
-//            {
-//                Encontrado = false;
-//            }
-//
-//            return Encontrado;
-//        }
-//
-//        //Ordens finalizadas
-//        /// <summary>
-//        /// Finalizando Ordem de serviço.
-//        /// </summary>
-//        /// <param name="NumeroOS"></param>
-//        /// <returns>Menssagen informando se deu certo ou não</returns>
-//        public static void FinalizarOS(string NumeroOS)
-//        {
-//            OrdemServico OSBase = new OrdemServico();
-//
-//            //Modificando a situação da ordem de serviço
-//            OSBase = Load(NumeroOS);
-//            OSBase.Situacao = "Finalizado";
-//            Edit(OSBase.Identificador, OSBase.Referencia, OSBase.Situacao, OSBase.Defeito, OSBase.Descricao, OSBase.Observacao, OSBase.NumeroSerie, OSBase.Equipamento, OSBase.DataEntradaServico, OSBase.Cliente);
-//
-//            //Movendo a ordem de serviço para a pasta das finalizadas.
-//            File.Move(String.Format("OS/{0}.os", NumeroOS), String.Format("OS/Finalizadas/{0}.os", NumeroOS));
-//
-//        }
-//
-//        /// <summary>
-//        /// Carregando a ordem de serviço(Finalizada) atraves do arquivo de texto.
-//        /// </summary>
-//        /// <param name="_Identificador"></param>
-//        /// <returns>Ordem de serviço</returns>
-//        public static OrdemServico LoadOSFinalizada(string Identificador)
-//        {
-//            OrdemServico OSBase = new OrdemServico();
-//            StreamReader sr = null;
-//
-//            try
-//            {
-//                sr = new StreamReader(String.Format("OS/Finalizadas/{0}.os", Identificador));
-//
-//                OSBase.Identificador = sr.ReadLine();
-//                OSBase.Cliente = sr.ReadLine();
-//                OSBase.Equipamento = sr.ReadLine();
-//                OSBase.Situacao = sr.ReadLine();
-//                OSBase.NumeroSerie = sr.ReadLine();
-//                OSBase.Defeito = sr.ReadLine();
-//                OSBase.Referencia = sr.ReadLine();
-//                OSBase.DataEntradaServico = sr.ReadLine();
-//                OSBase.Observacao = sr.ReadLine();
-//                OSBase.Descricao = sr.ReadLine();
-//            }
-//            catch (Exception Exc)
-//            {
-//                ControllerArquivoLog.GeraraLog (Exc);
-//            }
-//            finally
-//            {
-//                if (sr != null)
-//                    sr.Close();
-//            }
-//
-//            return OSBase;
-//        }
-//
-//        /// <summary>
-//        /// Carrega uma lista de ordens de serviço(Finalizadas).
-//        /// </summary>
-//        /// <returns>Lista com nome de todas Ordens de serviço registrada</returns>
-//        public static List<string> LoadListFinalizadas()
-//        {
-//            List<string> ListaDeOS = new List<string>();
-//            DirectoryInfo NomesArquivos = new DirectoryInfo("OS/Finalizadas");
-//            string[] NovoItem = new string[2];
-//
-//
-//            //Ira pegar todas os nomes dos arquivos do diretorio ira separar um por um e um array separado por '.' e lgo apos salvar o nome do arquivo sem o seu formato.
-//
-//            foreach (var item in NomesArquivos.GetFiles())
-//            {
-//                NovoItem = item.ToString().Split('.');
-//
-//                ListaDeOS.Add(NovoItem[0]);
-//            }
-//
-//            return ListaDeOS;
-//        }
-//
-//        /// <summary>
-//        /// Verifica se a ordem de serviço existe ou não.
-//        /// </summary>
-//        /// <param name="_Identificador"></param>
-//        /// <returns>Retorna um valor (true/false)</returns>
-//        public static bool VerificarFinalizada(string Identificador)
-//        {
-//            //Verifica de o já há uma "Ordem de Serviço"(arquivo com o nome), no diretorio das pessoas físicas e retorna um valor booleano .
-//
-//            bool Encontrado = false;
-//
-//            if (File.Exists((string.Format("OS/Finalizadas/{0}.os", Identificador))))
-//            {
-//                Encontrado = true;
-//            }
-//            else
-//            {
-//                Encontrado = false;
-//            }
-//
-//            return Encontrado;
-//        }
-//
-//        /// <summary>
-//        /// Excluindo ordem de serviço.
-//        /// </summary>
-//        /// <param name="Identificador"></param>
-//        /// <returns>Resultado da operação</returns>
-//        public static string Excluir(string Identificador)
-//        {
-//            string saida = String.Format("A ordem de serviço numero {0} foi excluida com sucesso!", Identificador);
-//
-//            try
-//            {
-//                File.Delete(string.Format("OS/{0}.OS", Identificador));
-//            }
-//            catch (Exception exc)
-//            {
-//                saida = string.Format("Ocorreu um erro ao excluir a ordem de serviço: {0}", exc.Message);
-//            }
-//
-//            return saida;
-//        }
     }
 }
