@@ -29,21 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ExcluirOS));
-            this.Txt_OS = new System.Windows.Forms.TextBox();
             this.Btm_Excluir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Txt_Os = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // Txt_OS
-            // 
-            this.Txt_OS.Location = new System.Drawing.Point(62, 12);
-            this.Txt_OS.Name = "Txt_OS";
-            this.Txt_OS.Size = new System.Drawing.Size(267, 20);
-            this.Txt_OS.TabIndex = 0;
             // 
             // Btm_Excluir
             // 
-            this.Btm_Excluir.Location = new System.Drawing.Point(254, 38);
+            this.Btm_Excluir.Location = new System.Drawing.Point(314, 12);
             this.Btm_Excluir.Name = "Btm_Excluir";
             this.Btm_Excluir.Size = new System.Drawing.Size(75, 23);
             this.Btm_Excluir.TabIndex = 1;
@@ -60,30 +53,41 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Numero";
             // 
+            // Txt_Os
+            // 
+            this.Txt_Os.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Os.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_Os.Location = new System.Drawing.Point(62, 12);
+            this.Txt_Os.Name = "Txt_Os";
+            this.Txt_Os.Size = new System.Drawing.Size(238, 21);
+            this.Txt_Os.TabIndex = 25;
+            // 
             // Frm_ExcluirOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(341, 75);
+            this.ClientSize = new System.Drawing.Size(401, 57);
+            this.Controls.Add(this.Txt_Os);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btm_Excluir);
-            this.Controls.Add(this.Txt_OS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Frm_ExcluirOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excluir Ordem de serviço";
+            this.Load += new System.EventHandler(this.Frm_ExcluirOS_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Txt_OS;
         private System.Windows.Forms.Button Btm_Excluir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox Txt_Os;
     }
 }

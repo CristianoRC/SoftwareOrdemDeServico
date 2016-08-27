@@ -13,7 +13,7 @@ namespace View
         }
 
         string Usuario;
-        string NivelAcesso;
+        bool NivelAcesso;
 
         public Frm_Pai(string usuario, bool nivelAcesso)
         {
@@ -22,7 +22,7 @@ namespace View
             Usuario = usuario;
             NivelAcesso = nivelAcesso;
 
-            if (nivelAcesso == "Técnico") // Técnico e o que faz a manutenção;
+            if (NivelAcesso == false) // Técnico e o que faz a manutenção;
             {
                 //Desativando algumas informações que o usario não pode usar.
 
@@ -31,13 +31,11 @@ namespace View
                 emailToolStripMenuItem.Enabled = false;
                 EmpresaToolStripMenuItem.Enabled = false;
                 BackupexibirPainelToolStripMenuItem.Enabled = false;
-                serviçosBásicosToolStripMenuItem.Enabled = false;
+                
 
                 //Desativando função de excluir para usuarios
                 excluirToolStripMenuItem3.Enabled = false;
                 excluirToolStripMenuItem2.Enabled = false;
-                excluirToolStripMenuItem1.Enabled = false;
-                excluirToolStripMenuItem.Enabled = false;
                 excluirToolStripMenuItem4.Enabled = false;
 
             }
@@ -90,7 +88,7 @@ namespace View
 
         private void jurídicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_PessoaJuridica Pessoa = new Pessoas.Frm_PessoaJuridica();
+            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
 
             Pessoa.MdiParent = this;
 

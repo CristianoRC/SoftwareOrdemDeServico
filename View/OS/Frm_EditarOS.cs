@@ -1,46 +1,51 @@
 ﻿using System;
 using Controller;
 using System.Windows.Forms;
+using Model.Ordem_de_Servico;
 
 namespace View.OS
 {
     public partial class Frm_EditarOS : Form
     {
-        public Frm_EditarOS()
+        public Frm_EditarOS(int idTecnico)
         {
+            IDTecnico = idTecnico;
+
             InitializeComponent();
         }
 
+        private int IDTecnico;
+        private int IDChamado;
+
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
-
+            Txt_Cliente.DataSource = ControllerPessoa.CarregarListaDeNomes();
         }
 
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
         {
-            Model.Ordem_de_Servico.OrdemServico OrdemDeServico = new Model.Ordem_de_Servico.OrdemServico();
+            OrdemServico OrdemDeServico = new OrdemServico();
 
             //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
-            if (ControllerOrdemServico.Verificar(Txt_Pesquisa.Text) == true)
+            if (!String.IsNullOrEmpty(Txt_IDPesquisa.Text))
             {
-                OrdemDeServico = ControllerOrdemServico.Load(Txt_Pesquisa.Text);
+                OrdemDeServico = ControllerOrdemServico.Carregar(Convert.ToInt32(Txt_IDPesquisa.Text));
 
-                Txt_Nordem.Text = OrdemDeServico.Identificador;
-                Txt_Referencia.Text = OrdemDeServico.Referencia;
+                IDChamado = OrdemDeServico.ID;
                 Txt_Situacao.Text = OrdemDeServico.Situacao;
                 Txt_Defeito.Text = OrdemDeServico.Defeito;
                 Txt_Descricao.Text = OrdemDeServico.Descricao;
                 Txt_Observacoes.Text = OrdemDeServico.Observacao;
                 Txt_Nserie.Text = OrdemDeServico.NumeroSerie;
                 Txt_Equipamento.Text = OrdemDeServico.Equipamento;
-                Txt_DataEntrada.Text = OrdemDeServico.DataEntradaServico;
+                Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
                 Txt_Descricao.Text = OrdemDeServico.Descricao;
-                Txt_Cliente.Text = OrdemDeServico.Cliente;
+                //Criar função para retornar nome atravez do ID do cliente Txt_Cliente.Text = 
 
             }
             else
             {
-                MessageBox.Show("Ordem de serviço não encontrada!", "Informações", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Escolha uma ordem de serviço!", "Informações", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -48,24 +53,43 @@ namespace View.OS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Retorno = ControllerOrdemServico.Edit(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+            string Retorno = ControllerOrdemServico.Editar(PreencherOS());
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (MessageBox.Show("Deseja imprimir o arquivo?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ControllerOrdemServico.CreatPDF(Txt_Nordem.Text, Txt_Referencia.Text, Txt_Situacao.Text, Txt_Defeito.Text, Txt_Descricao.Text, Txt_Observacoes.Text, Txt_Nserie.Text, Txt_Equipamento.Text, Txt_DataEntrada.Text, Txt_Cliente.Text);
+                ControllerOrdemServico.CreatPDF(PreencherOS());
             }
 
-            Txt_Cliente.Clear();
+
             Txt_DataEntrada.Clear();
             Txt_Defeito.Clear();
             Txt_Descricao.Clear();
             Txt_Equipamento.Clear();
-            Txt_Nordem.Clear();
             Txt_Nserie.Clear();
             Txt_Observacoes.Clear();
-            Txt_Referencia.Clear();
+        }
+        /// <summary>
+        /// Carregando as informações dos TxtBox para a Classe OS
+        /// </summary>
+        /// <returns></returns>
+        private OrdemServico PreencherOS()
+        {
+            OrdemServico OSBase = new OrdemServico();
+
+            OSBase.ID = IDChamado; // IDChamado vaeriavel utilizada para salvar o ID que esta sendo editado no momento
+            OSBase.dataEntradaServico = Txt_DataEntrada.Text;
+            OSBase.Defeito = Txt_Defeito.Text;
+            OSBase.Descricao = Txt_Descricao.Text;
+            OSBase.Equipamento = Txt_Equipamento.Text;
+            OSBase.IDCliente = ControllerPessoa.VerificarID(Txt_Cliente.Text);
+            OSBase.IDTecnico = IDTecnico;
+            OSBase.NumeroSerie = Txt_Nserie.Text;
+            OSBase.Observacao = Txt_Observacoes.Text;
+            OSBase.Situacao = Txt_Situacao.Text;
+
+            return OSBase;
         }
     }
 }

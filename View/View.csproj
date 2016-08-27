@@ -123,24 +123,6 @@
     <Compile Include="Outros\Frm_Report.Designer.cs">
       <DependentUpon>Frm_Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orcamento\Frm_ExcluirOrcamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Orcamento\Frm_ExcluirOrcamento.Designer.cs">
-      <DependentUpon>Frm_ExcluirOrcamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orcamento\Frm_ListarOrcamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Orcamento\Frm_ListarOrcamento.Designer.cs">
-      <DependentUpon>Frm_ListarOrcamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orcamento\Frm_NewOrcamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Orcamento\Frm_NewOrcamento.Designer.cs">
-      <DependentUpon>Frm_NewOrcamento.cs</DependentUpon>
-    </Compile>
     <Compile Include="OS\Frm_ExcluirOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,15 +247,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Email\Frm_EmailBaseOrcamento.resx">
       <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orcamento\Frm_ExcluirOrcamento.resx">
-      <DependentUpon>Frm_ExcluirOrcamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orcamento\Frm_ListarOrcamento.resx">
-      <DependentUpon>Frm_ListarOrcamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orcamento\Frm_NewOrcamento.resx">
-      <DependentUpon>Frm_NewOrcamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ExcluirOS.resx">
       <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>

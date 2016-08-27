@@ -13,7 +13,7 @@ using System.IO;
 namespace Controller
 {
     public static class ControllerOrdemServico
-    {   
+    {
         /// <summary>
         /// Salcando Ordem De Serviço
         /// </summary>
@@ -29,25 +29,25 @@ namespace Controller
                                #Equipamento#,#DataEntradaServico#,#IdCliente#,#IdTecnico#);";
 
 
-            cmd.AddParameter("Situacao",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Defeito",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Descricao",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Observacao",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("NumeroDeSerie",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Equipamento",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("DataEntradaServico",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("IdCliente",Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("IdTecnico",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Defeito", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Descricao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Observacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("NumeroDeSerie", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Equipamento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("IdCliente", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("IdTecnico", Spartacus.Database.Type.INTEGER);
 
-            cmd.SetValue("Situacao",Os.Situacao);
-            cmd.SetValue("Defeito",Os.Defeito);
-            cmd.SetValue("Descricao",Os.Descricao);
-            cmd.SetValue("Observacao",Os.Observacao);
-            cmd.SetValue("NumeroDeSerie",Os.NumeroSerie);
-            cmd.SetValue("Equipamento",Os.Equipamento);
-            cmd.SetValue("DataEntradaServico",Os.dataEntradaServico);
-            cmd.SetValue("IdCliente",Os.IDCliente.ToString());
-            cmd.SetValue("IdTecnico",Os.IDTecnico.ToString());
+            cmd.SetValue("Situacao", Os.Situacao);
+            cmd.SetValue("Defeito", Os.Defeito);
+            cmd.SetValue("Descricao", Os.Descricao);
+            cmd.SetValue("Observacao", Os.Observacao);
+            cmd.SetValue("NumeroDeSerie", Os.NumeroSerie);
+            cmd.SetValue("Equipamento", Os.Equipamento);
+            cmd.SetValue("DataEntradaServico", Os.dataEntradaServico);
+            cmd.SetValue("IdCliente", Os.IDCliente.ToString());
+            cmd.SetValue("IdTecnico", Os.IDTecnico.ToString());
 
 
             try
@@ -61,7 +61,7 @@ namespace Controller
             catch (Exception ex)
             {
                 ControllerArquivoLog.GeraraLog(ex);
-                return String.Format("Ocorreu um erro ao tental salvar a Ordem de serviço:{0}",ex.Message);
+                return String.Format("Ocorreu um erro ao tental salvar a Ordem de serviço:{0}", ex.Message);
             }
         }
 
@@ -76,8 +76,8 @@ namespace Controller
 
             cmd.v_text = "delete from ordemdeservico where id = #ID#";
 
-            cmd.AddParameter("ID",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("ID",id.ToString());
+            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("ID", id.ToString());
 
             try
             {
@@ -92,6 +92,67 @@ namespace Controller
                 ControllerArquivoLog.GeraraLog(ex);
                 return "Erro ou excluir a ordem de serviço";
             }
+        }
+
+        public static string Editar(OrdemServico OS)
+        {
+            string Saida = "";
+
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = @"update OrdemDeServico set 
+                       Situacao = #Situacao#,
+                       Defeito = #Defeito#,
+                       Descricao = #Descricao#,
+                       Observacao = #Observacao#,
+                       NumeroDeSerie = #NumeroDeSerie#,
+                       Equipamento = #Equipamento#,
+                       Equipamentoo = #DataEntradaServico#,
+                       IdCliente = #IdCliente#,
+                       IdCliente = #IdTecnico#
+                       Where ID = #ID#";
+
+
+            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Defeito", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Descricao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Observacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("NumeroDeSerie", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Equipamento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("IdCliente", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("IdTecnico", Spartacus.Database.Type.STRING);
+            
+
+            cmd.SetValue("ID", OS.ID.ToString());
+            cmd.SetValue("Situacao", OS.Situacao);
+            cmd.SetValue("Defeito", OS.Defeito);
+            cmd.SetValue("Descricao", OS.Descricao);
+            cmd.SetValue("Observacao", OS.Observacao);
+            cmd.SetValue("NumeroDeSerie", OS.NumeroSerie);
+            cmd.SetValue("Equipamento", OS.Equipamento);
+            cmd.SetValue("DataEntradaServico", OS.dataEntradaServico);
+            cmd.SetValue("IdCliente", OS.IDCliente.ToString());
+            cmd.SetValue("IdTecnico", OS.IDTecnico.ToString());
+            
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                database.Execute(cmd.GetUpdatedText());
+
+                Saida = "Ordem de serviço editada com sucesso!";
+            }
+            catch (Exception exc)
+            {
+                ControllerArquivoLog.GeraraLog(exc);
+
+                Saida = "Ocorreu um erro inesperado: " + exc.Message;
+            }
+
+            return Saida;
         }
 
         //TODO:Fazer testes com a controller pessoa para ver se o código desenvolvido funciona normalmente.
@@ -115,7 +176,29 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select * from ordemdeservico","Ordemdeservico");
+                tabela = database.Query("select * from ordemdeservico", "Ordemdeservico");
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return tabela;
+        }
+
+        /// <summary>
+        /// Retorna um DataTable com todas as Ordens de serviço.
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarListaDeIds()
+        {
+            DataTable tabela = new DataTable("ordemdeservico");
+            Spartacus.Database.Generic database;
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query("select ID from ordemdeservico", "Ordemdeservico");
             }
             catch (Exception ex)
             {
@@ -177,7 +260,7 @@ namespace Controller
             _defeito.Add(String.Format("Defeito: {0}", OSBase.Defeito));
             _descricao.Add(String.Format("Descrição: {0}", OSBase.Descricao));
             _numeroSerie.Add(String.Format("Numero de serie: {0}", OSBase.NumeroSerie));
-            _observacoes.Add(String.Format("Observações: {0}",OSBase.Observacao));
+            _observacoes.Add(String.Format("Observações: {0}", OSBase.Observacao));
 
             //Carregando informações da empresa
             Empresa = ControllerEmpresa.Load();

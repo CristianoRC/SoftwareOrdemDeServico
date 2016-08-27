@@ -1,14 +1,13 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
 using System.Data;
 
 namespace Controller
 {
-    public static class ControllerPessoa 
+    public static class ControllerPessoa
     {
-     
+
         /// <summary>
         /// Salvando informações de usuario
         /// </summary>
@@ -44,38 +43,38 @@ namespace Controller
                                  #RazaoSocial#,#Cnpj#,#InscricaoEstadual#);";
 
 
-            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Tipo",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Endereco",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Email",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("SiglaEstado",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Cidade",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Bairro",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("CEP",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Sexo",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("CPF",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Celular",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("DataDeNascimento",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("RazaoSocial",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Cnpj",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("InscricaoEstadual",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Tipo", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Endereco", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Email", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("SiglaEstado", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Cidade", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Bairro", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("CEP", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Sexo", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("CPF", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Celular", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataDeNascimento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("RazaoSocial", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Cnpj", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("InscricaoEstadual", Spartacus.Database.Type.STRING);
 
 
-            cmd.SetValue("Nome",cliente.Nome);
-            cmd.SetValue("Tipo",cliente.Tipo);
-            cmd.SetValue("Endereco",cliente.Endereco);
-            cmd.SetValue("Email",cliente.Email);
-            cmd.SetValue("SiglaEstado",cliente.SiglaEstado);
-            cmd.SetValue("Cidade",cliente.Cidade);
-            cmd.SetValue("Bairro",cliente.Bairro);
-            cmd.SetValue("CEP",cliente.Cep);
-            cmd.SetValue("Sexo",cliente.Sexo);
-            cmd.SetValue("CPF",cliente.Cpf);
-            cmd.SetValue("Celular",cliente.Celular);
-            cmd.SetValue("DataDeNascimento",cliente.DataDeNascimento);
-            cmd.SetValue("RazaoSocial",cliente.RazaoSocial);
-            cmd.SetValue("Cnpj",cliente.Cnpj);
-            cmd.SetValue("InscricaoEstadual",cliente.InscricaoEstadual);
+            cmd.SetValue("Nome", cliente.Nome);
+            cmd.SetValue("Tipo", cliente.Tipo);
+            cmd.SetValue("Endereco", cliente.Endereco);
+            cmd.SetValue("Email", cliente.Email);
+            cmd.SetValue("SiglaEstado", cliente.SiglaEstado);
+            cmd.SetValue("Cidade", cliente.Cidade);
+            cmd.SetValue("Bairro", cliente.Bairro);
+            cmd.SetValue("CEP", cliente.Cep);
+            cmd.SetValue("Sexo", cliente.Sexo);
+            cmd.SetValue("CPF", cliente.Cpf);
+            cmd.SetValue("Celular", cliente.Celular);
+            cmd.SetValue("DataDeNascimento", cliente.DataDeNascimento);
+            cmd.SetValue("RazaoSocial", cliente.RazaoSocial);
+            cmd.SetValue("Cnpj", cliente.Cnpj);
+            cmd.SetValue("InscricaoEstadual", cliente.InscricaoEstadual);
 
             if (Verificar(cliente.Nome) == false)
             {
@@ -83,7 +82,7 @@ namespace Controller
 
                 try
                 {
-                 
+
                     database.Execute(cmd.GetUpdatedText());
 
                     Saida = "Cliente registrada com sucesso!";
@@ -147,59 +146,59 @@ namespace Controller
                     Cnpj = #Cnpj#,
                     InscricaoEstadual = #InscricaoEstadual#
                     where ID = #Id#";
-                   
 
-            cmd.AddParameter("Id",Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Tipo",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Endereco",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Email",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("SiglaEstado",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Cidade",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Bairro",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("CEP",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Sexo",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("CPF",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Celular",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("DataDeNascimento",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("RazaoSocial",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Cnpj",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("InscricaoEstadual",Spartacus.Database.Type.STRING);
 
-            cmd.SetValue("Id",cliente.ID);
-            cmd.SetValue("Nome",cliente.Nome);
-            cmd.SetValue("Tipo",cliente.Tipo);
-            cmd.SetValue("Endereco",cliente.Endereco);
-            cmd.SetValue("Email",cliente.Email);
-            cmd.SetValue("SiglaEstado",cliente.SiglaEstado);
-            cmd.SetValue("Cidade",cliente.Cidade);
-            cmd.SetValue("Bairro",cliente.Bairro);
-            cmd.SetValue("CEP",cliente.Cep);
-            cmd.SetValue("Sexo",cliente.Sexo);
-            cmd.SetValue("CPF",cliente.Cpf);
-            cmd.SetValue("Celular",cliente.Celular);
-            cmd.SetValue("DataDeNascimento",cliente.DataDeNascimento);
-            cmd.SetValue("RazaoSocial",cliente.RazaoSocial);
-            cmd.SetValue("Cnpj",cliente.Cnpj);
-            cmd.SetValue("InscricaoEstadual",cliente.InscricaoEstadual);
+            cmd.AddParameter("Id", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Tipo", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Endereco", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Email", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("SiglaEstado", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Cidade", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Bairro", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("CEP", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Sexo", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("CPF", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Celular", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataDeNascimento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("RazaoSocial", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Cnpj", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("InscricaoEstadual", Spartacus.Database.Type.STRING);
 
-                try
-                {
-                    database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-                    
-                    database.Execute(cmd.GetUpdatedText());
+            cmd.SetValue("Id", cliente.ID);
+            cmd.SetValue("Nome", cliente.Nome);
+            cmd.SetValue("Tipo", cliente.Tipo);
+            cmd.SetValue("Endereco", cliente.Endereco);
+            cmd.SetValue("Email", cliente.Email);
+            cmd.SetValue("SiglaEstado", cliente.SiglaEstado);
+            cmd.SetValue("Cidade", cliente.Cidade);
+            cmd.SetValue("Bairro", cliente.Bairro);
+            cmd.SetValue("CEP", cliente.Cep);
+            cmd.SetValue("Sexo", cliente.Sexo);
+            cmd.SetValue("CPF", cliente.Cpf);
+            cmd.SetValue("Celular", cliente.Celular);
+            cmd.SetValue("DataDeNascimento", cliente.DataDeNascimento);
+            cmd.SetValue("RazaoSocial", cliente.RazaoSocial);
+            cmd.SetValue("Cnpj", cliente.Cnpj);
+            cmd.SetValue("InscricaoEstadual", cliente.InscricaoEstadual);
 
-                    Saida = "Cliente editado com sucesso!";
-                }
-                catch (Exception exc)
-                {
-                    ControllerArquivoLog.GeraraLog(exc);
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                    Saida = "Ocorreu um erro inesperado: " + exc.Message;
-                }
+                database.Execute(cmd.GetUpdatedText());
 
-                return Saida;
+                Saida = "Cliente editado com sucesso!";
             }
+            catch (Exception exc)
+            {
+                ControllerArquivoLog.GeraraLog(exc);
+
+                Saida = "Ocorreu um erro inesperado: " + exc.Message;
+            }
+
+            return Saida;
+        }
 
         /// <summary>
         /// Excluindo cliente
@@ -214,8 +213,8 @@ namespace Controller
 
             cmd.v_text = "delete from pessoa Where Nome = #Nome#";
 
-            cmd.AddParameter("Nome",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("Nome",Nome);
+            cmd.AddParameter("Nome", Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("Nome", Nome);
 
             try
             {
@@ -245,17 +244,17 @@ namespace Controller
 
             cmd.v_text = "select * from pessoa where Nome = #Nome#";
 
-            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
-            cmd.SetValue("Nome",Nome);
+            cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
+            cmd.SetValue("Nome", Nome);
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query(cmd.GetUpdatedText(),"Pessoa");
+                Tabela = dataBase.Query(cmd.GetUpdatedText(), "Pessoa");
 
 
-                if(Tabela.Rows.Count != 0)
+                if (Tabela.Rows.Count != 0)
                 {
                     PessoaEncontrada = true;
                 }
@@ -281,7 +280,7 @@ namespace Controller
 
             cmd.v_text = "Select * from pessoa where nome = #Nome#";
 
-            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
             cmd.SetValue("Nome", Nome);
 
 
@@ -289,7 +288,7 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(cmd.GetUpdatedText(),"pessoas");
+                tabela = database.Query(cmd.GetUpdatedText(), "pessoas");
             }
             catch (Exception ex)
             {
@@ -308,9 +307,9 @@ namespace Controller
             DataTable tabela = new DataTable("pessoas");
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "Select * from pessoa where nome = #Id#";
+            cmd.v_text = "Select * from pessoa where ID = #Id#";
 
-            cmd.AddParameter("Id",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Id", Spartacus.Database.Type.INTEGER);
             cmd.SetValue("Id", id.ToString());
 
 
@@ -318,7 +317,7 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(cmd.GetUpdatedText(),"pessoas");
+                tabela = database.Query(cmd.GetUpdatedText(), "pessoas");
             }
             catch (Exception ex)
             {
@@ -341,7 +340,30 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select * from pessoa","Pessoas");
+                tabela = database.Query("select * from pessoa", "Pessoas");
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+
+            return tabela;
+        }
+
+        /// <summary>
+        /// Carregando lista com nome de todos clientes
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarListaDeNomes()
+        {
+            Spartacus.Database.Generic database;
+            System.Data.DataTable tabela = new DataTable("Pessoas");
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query("select Nome from pessoa", "Pessoas");
             }
             catch (Exception ex)
             {
@@ -360,15 +382,15 @@ namespace Controller
         {
             List<string> InfoCliente = new List<string>();
             Pessoa Cliente = new Pessoa();
-           
+
 
             try
             {
-                foreach (DataRow r in tabela.Rows) 
+                foreach (DataRow r in tabela.Rows)
                 {
                     foreach (DataColumn c in tabela.Columns)
                     {
-                        InfoCliente.Add(r[c].ToString());   
+                        InfoCliente.Add(r[c].ToString());
                     }
                 }
 
@@ -393,6 +415,45 @@ namespace Controller
                 ControllerArquivoLog.GeraraLog(ex);
             }
             return Cliente;
+        }
+
+        /// <summary>
+        /// Retornando o ID do cliente atravez do nome
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns></returns>
+        public static int VerificarID(string Nome)
+        {
+            int saida = 0;
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+            DataTable tabela = new DataTable();
+
+            cmd.v_text = "Select ID from pessoa where nome = #Nome#";
+
+            cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
+            cmd.SetValue("Nome", Nome);
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query(cmd.GetUpdatedText(), "pessoas");
+
+
+                foreach (DataRow r in tabela.Rows)
+                {
+                    foreach (DataColumn c in tabela.Columns)
+                    {
+                        saida = Convert.ToInt16(r[c]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return saida;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.IO;
 using Spartacus.Utils;
 using Model;
 using System.Net.Mail;
+using Model.Ordem_de_Servico;
 
 namespace Controller
 {
@@ -191,7 +192,7 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public static string EnviarOrdemDeServiço(string NomeCliente, string EmailCliente, string NomeEmpresa, string NumeroDaOrdem)
+        public static string EnviarOrdemDeServiço(OrdemServico)
         {
             string Saida = " ";
             string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", NomeCliente, NumeroDaOrdem);
