@@ -1,6 +1,6 @@
 ﻿namespace View.Pessoas
 {
-    partial class Frm_PessoaFisica
+    partial class Frm_Cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_PessoaFisica));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Cliente));
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Txt_Situacao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Txt_Cidade = new System.Windows.Forms.TextBox();
@@ -61,12 +60,29 @@
             this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Txt_Pessoa = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.Txt_Lista = new System.Windows.Forms.ComboBox();
             this.Btm_Carregar = new System.Windows.Forms.Button();
+            this.Fisica = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Txt_RazaoSocial = new System.Windows.Forms.TextBox();
+            this.Txt_CNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Contato = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_InscricaoEstadual = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Txt_Tipo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.Fisica.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -110,21 +126,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "E-mail";
             // 
-            // Txt_Situacao
-            // 
-            this.Txt_Situacao.Location = new System.Drawing.Point(69, 221);
-            this.Txt_Situacao.Name = "Txt_Situacao";
-            this.Txt_Situacao.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Situacao.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Situação";
+            this.label4.Text = "Tipo";
             // 
             // label5
             // 
@@ -195,6 +204,7 @@
             // 
             // Txt_Estado
             // 
+            this.Txt_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Txt_Estado.FormattingEnabled = true;
             this.Txt_Estado.Items.AddRange(new object[] {
             "Acre - AC",
@@ -241,9 +251,9 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(0, 311);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 109);
+            this.panel1.Size = new System.Drawing.Size(854, 109);
             this.panel1.TabIndex = 18;
             // 
             // Txt_CPF
@@ -327,7 +337,7 @@
             this.editarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(862, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -335,8 +345,8 @@
             // 
             this.Btm_Salvar.Image = ((System.Drawing.Image)(resources.GetObject("Btm_Salvar.Image")));
             this.Btm_Salvar.Name = "Btm_Salvar";
-            this.Btm_Salvar.Size = new System.Drawing.Size(66, 20);
-            this.Btm_Salvar.Text = "Salvar";
+            this.Btm_Salvar.Size = new System.Drawing.Size(60, 20);
+            this.Btm_Salvar.Text = "&Criar";
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
             // 
             // testeToolStripMenuItem
@@ -371,13 +381,24 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.Controls.Add(this.Txt_Pessoa);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.Txt_Lista);
             this.panel2.Controls.Add(this.Btm_Carregar);
             this.panel2.Location = new System.Drawing.Point(0, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(862, 40);
             this.panel2.TabIndex = 21;
+            // 
+            // Txt_Pessoa
+            // 
+            this.Txt_Pessoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Pessoa.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_Pessoa.Location = new System.Drawing.Point(67, 11);
+            this.Txt_Pessoa.Name = "Txt_Pessoa";
+            this.Txt_Pessoa.Size = new System.Drawing.Size(238, 21);
+            this.Txt_Pessoa.TabIndex = 24;
             // 
             // label14
             // 
@@ -387,14 +408,6 @@
             this.label14.Size = new System.Drawing.Size(29, 13);
             this.label14.TabIndex = 23;
             this.label14.Text = "Lista";
-            // 
-            // Txt_Lista
-            // 
-            this.Txt_Lista.FormattingEnabled = true;
-            this.Txt_Lista.Location = new System.Drawing.Point(64, 9);
-            this.Txt_Lista.Name = "Txt_Lista";
-            this.Txt_Lista.Size = new System.Drawing.Size(241, 21);
-            this.Txt_Lista.TabIndex = 21;
             // 
             // Btm_Carregar
             // 
@@ -406,16 +419,143 @@
             this.Btm_Carregar.UseVisualStyleBackColor = true;
             this.Btm_Carregar.Click += new System.EventHandler(this.Btm_Carregar_Click);
             // 
-            // Frm_PessoaFisica
+            // Fisica
+            // 
+            this.Fisica.Controls.Add(this.tabPage1);
+            this.Fisica.Controls.Add(this.tabPage2);
+            this.Fisica.Location = new System.Drawing.Point(0, 322);
+            this.Fisica.Name = "Fisica";
+            this.Fisica.SelectedIndex = 0;
+            this.Fisica.Size = new System.Drawing.Size(862, 134);
+            this.Fisica.TabIndex = 22;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(854, 108);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Física";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(854, 108);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Jurídica";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.Txt_RazaoSocial);
+            this.panel3.Controls.Add(this.Txt_CNPJ);
+            this.panel3.Controls.Add(this.Txt_Contato);
+            this.panel3.Controls.Add(this.Txt_InscricaoEstadual);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Location = new System.Drawing.Point(-7, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(873, 108);
+            this.panel3.TabIndex = 19;
+            // 
+            // Txt_RazaoSocial
+            // 
+            this.Txt_RazaoSocial.Location = new System.Drawing.Point(525, 58);
+            this.Txt_RazaoSocial.Name = "Txt_RazaoSocial";
+            this.Txt_RazaoSocial.Size = new System.Drawing.Size(236, 20);
+            this.Txt_RazaoSocial.TabIndex = 7;
+            // 
+            // Txt_CNPJ
+            // 
+            this.Txt_CNPJ.Location = new System.Drawing.Point(67, 16);
+            this.Txt_CNPJ.Mask = "00.000.000/0000-00";
+            this.Txt_CNPJ.Name = "Txt_CNPJ";
+            this.Txt_CNPJ.Size = new System.Drawing.Size(235, 20);
+            this.Txt_CNPJ.TabIndex = 1;
+            // 
+            // Txt_Contato
+            // 
+            this.Txt_Contato.Location = new System.Drawing.Point(67, 61);
+            this.Txt_Contato.Name = "Txt_Contato";
+            this.Txt_Contato.Size = new System.Drawing.Size(235, 20);
+            this.Txt_Contato.TabIndex = 3;
+            // 
+            // Txt_InscricaoEstadual
+            // 
+            this.Txt_InscricaoEstadual.Location = new System.Drawing.Point(525, 13);
+            this.Txt_InscricaoEstadual.Name = "Txt_InscricaoEstadual";
+            this.Txt_InscricaoEstadual.Size = new System.Drawing.Size(235, 20);
+            this.Txt_InscricaoEstadual.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(425, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Inscrição Estadual";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(425, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(70, 13);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Razão Social";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(10, 65);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 13);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Contato";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(10, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "CNPJ";
+            // 
+            // Txt_Tipo
+            // 
+            this.Txt_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Tipo.FormattingEnabled = true;
+            this.Txt_Tipo.Items.AddRange(new object[] {
+            "Física",
+            "Jurídica"});
+            this.Txt_Tipo.Location = new System.Drawing.Point(67, 225);
+            this.Txt_Tipo.Name = "Txt_Tipo";
+            this.Txt_Tipo.Size = new System.Drawing.Size(236, 21);
+            this.Txt_Tipo.TabIndex = 23;
+            // 
+            // Frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(846, 418);
+            this.ClientSize = new System.Drawing.Size(862, 451);
+            this.Controls.Add(this.Txt_Tipo);
+            this.Controls.Add(this.Fisica);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.Txt_Email);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.Txt_Observacoes);
             this.Controls.Add(this.label9);
@@ -425,7 +565,6 @@
             this.Controls.Add(this.Txt_Cidade);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Txt_Situacao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Endereco);
@@ -437,9 +576,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Frm_PessoaFisica";
+            this.Name = "Frm_Cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de pessoa Física";
+            this.Text = "Cadastro de cliente";
             this.Load += new System.EventHandler(this.Frm_PessoaFisica_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -447,6 +586,11 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.Fisica.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +603,6 @@
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Txt_Situacao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Txt_Cidade;
@@ -486,8 +629,21 @@
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox Txt_Lista;
         private System.Windows.Forms.Button Btm_Carregar;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ComboBox Txt_Pessoa;
+        private System.Windows.Forms.TabControl Fisica;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox Txt_RazaoSocial;
+        private System.Windows.Forms.MaskedTextBox Txt_CNPJ;
+        private System.Windows.Forms.MaskedTextBox Txt_Contato;
+        private System.Windows.Forms.MaskedTextBox Txt_InscricaoEstadual;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox Txt_Tipo;
     }
 }

@@ -2,6 +2,7 @@
 using Controller;
 using System.Windows.Forms;
 using Model.Pessoa_e_Usuario;
+using System.Data;
 
 namespace View.Pessoas
 {
@@ -14,15 +15,7 @@ namespace View.Pessoas
 
         private void Frm_ListarFisica_Load(object sender, EventArgs e)
         {
-
-            Fisica PessoaFisicaBase = new Fisica();
-
-            foreach (var item in ControllerFisica.LoadList())
-            {
-                PessoaFisicaBase = ControllerFisica.Load(item);
-
-                Data_Os.Rows.Add(PessoaFisicaBase.Nome, PessoaFisicaBase.Celular, PessoaFisicaBase.CPF, PessoaFisicaBase.Cidade, PessoaFisicaBase.Situacao);
-            }
+           Data_Os.DataSource = ControllerPessoa.CarregarLista();
         }
     }
 }

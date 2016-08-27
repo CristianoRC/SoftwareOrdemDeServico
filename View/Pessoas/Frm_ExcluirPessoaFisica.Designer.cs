@@ -30,7 +30,7 @@
         {
             this.Btm_Excluir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Txt_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_Pessoa = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // Btm_Excluir
@@ -52,25 +52,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome";
             // 
-            // Txt_Nome
+            // Txt_Pessoa
             // 
-            this.Txt_Nome.Location = new System.Drawing.Point(67, 18);
-            this.Txt_Nome.Name = "Txt_Nome";
-            this.Txt_Nome.Size = new System.Drawing.Size(230, 20);
-            this.Txt_Nome.TabIndex = 2;
+            this.Txt_Pessoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Pessoa.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_Pessoa.Location = new System.Drawing.Point(68, 18);
+            this.Txt_Pessoa.Name = "Txt_Pessoa";
+            this.Txt_Pessoa.Size = new System.Drawing.Size(206, 21);
+            this.Txt_Pessoa.TabIndex = 3;
             // 
             // Frm_ExcluirPessoaFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 93);
-            this.Controls.Add(this.Txt_Nome);
+            this.Controls.Add(this.Txt_Pessoa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btm_Excluir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Frm_ExcluirPessoaFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Excluir pessoa física";
+            this.Text = "Excluir Cliente";
+            this.Load += new System.EventHandler(this.Frm_ExcluirPessoaFisica_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,6 +85,6 @@
 
         private System.Windows.Forms.Button Btm_Excluir;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_Nome;
+        private System.Windows.Forms.ComboBox Txt_Pessoa;
     }
 }

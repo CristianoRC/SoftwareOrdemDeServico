@@ -14,28 +14,20 @@ namespace View.Pessoas
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrWhiteSpace(Txt_Nome.Text)) //Verifica se o valor do txt é nulo ou em branco
+            if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
             {
-                if (ControllerFisica.Verificar(Txt_Nome.Text))
-                {
-                    if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
-                    {
-                        string saida = ControllerFisica.Excluir(Txt_Nome.Text);
+                string saida = ControllerPessoa.Deletar(Txt_Pessoa.Text);
 
-                        MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Txt_Nome.Clear();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Pessoa física não encontrada!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                Txt_Pessoa.DataSource = ControllerPessoa.CarregarLista();
+                Txt_Pessoa.Refresh();
             }
-            else
-            {
-                MessageBox.Show("Insira um nome! ", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        }
+
+        private void Frm_ExcluirPessoaFisica_Load(object sender, EventArgs e)
+        {
+            Txt_Pessoa.DataSource = ControllerPessoa.CarregarLista();
         }
     }
 }

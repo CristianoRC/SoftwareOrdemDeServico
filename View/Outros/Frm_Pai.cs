@@ -81,7 +81,7 @@ namespace View
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_PessoaFisica Pessoa = new Pessoas.Frm_PessoaFisica();
+            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
 
             Pessoa.MdiParent = this;
 
@@ -259,7 +259,7 @@ namespace View
 
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_PessoaFisica Pessoa = new Pessoas.Frm_PessoaFisica();
+            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
 
             Pessoa.MdiParent = this;
 
