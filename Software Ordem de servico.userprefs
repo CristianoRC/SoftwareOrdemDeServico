@@ -1,18 +1,11 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Servico/ControllerTrabalho.cs">
-    <Files>
-      <File FileName="Controller/Servico/ControllerTrabalho.cs" Line="38" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Software Ordem de servico" expanded="True">
-            <Node name="Controller" expanded="True">
-              <Node name="Servico" expanded="True">
-                <Node name="ControllerTrabalho.cs" selected="True" />
-              </Node>
-            </Node>
+            <Node name="Model" selected="True" />
           </Node>
         </State>
       </Pad>

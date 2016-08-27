@@ -46,8 +46,8 @@ namespace Controller
             cmd.SetValue("NumeroDeSerie",Os.NumeroSerie);
             cmd.SetValue("Equipamento",Os.Equipamento);
             cmd.SetValue("DataEntradaServico",Os.dataEntradaServico);
-            cmd.SetValue("IdCliente",Os.IDCliente);
-            cmd.SetValue("IdTecnico",Os.IDTecnico);
+            cmd.SetValue("IdCliente",Os.IDCliente.ToString());
+            cmd.SetValue("IdTecnico",Os.IDTecnico.ToString());
 
 
             try
@@ -77,7 +77,7 @@ namespace Controller
             cmd.v_text = "delete from ordemdeservico where id = #ID#";
 
             cmd.AddParameter("ID",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("ID",id);
+            cmd.SetValue("ID",id.ToString());
 
             try
             {

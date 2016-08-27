@@ -52,7 +52,7 @@ namespace Controller
             cmd.v_text = "delete from trabalhos where id = #Id#";
                 
             cmd.AddParameter("Id",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("Id",ID);
+            cmd.SetValue("Id",ID.ToString());
 
             try
             {
