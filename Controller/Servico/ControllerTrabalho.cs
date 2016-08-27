@@ -15,17 +15,21 @@ namespace Controller
         public static string Salvar(Trabalho infoTrabalho)
         {
             Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            string query = string.Format
-                (@" insert into trabalho (OrdemDeServico,Valor) values({0},'{1}')",
-                    infoTrabalho.IdOrdemDeServico,infoTrabalho.Valor);
+            cmd.v_text = " insert into trabalhos (OrdemDeServico,Valor) values(#Os#,#Valor#)";
 
+            cmd.AddParameter("Os",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Valor",Spartacus.Database.Type.REAL);
+
+            cmd.SetValue("Os", infoTrabalho.IdOrdemDeServico.ToString());
+            cmd.SetValue("Valor",infoTrabalho.Valor.ToString());
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                database.Execute(query);
+                database.Execute(cmd.GetUpdatedText());
 
                 return "Trabalho foi salvo com sucesso!";
             }
@@ -43,15 +47,18 @@ namespace Controller
         public static string Deletar(int ID)
         {
             Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            string query = string.Format(@"delete from trabalho where id = {0}",ID);
-
+            cmd.v_text = "delete from trabalhos where id = #Id#";
+                
+            cmd.AddParameter("Id",Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("Id",ID);
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                database.Execute(query);
+                database.Execute(cmd.GetUpdatedText());
 
                 return "Trabalho foi deletado com sucesso!";
             }

@@ -16,9 +16,9 @@ namespace View
         {
             Model.Pessoa_e_Usuario.tecnico UsuarioBase = new Model.Pessoa_e_Usuario.tecnico();
 
-            if (ControllerUsuario.Authenticate(login,senha))
+            if (ControllerUsuario.Autenticar(login,senha))
             {
-                UsuarioBase = ControllerUsuario.Load(login);
+                UsuarioBase = ControllerUsuario.Carregar(login);
 
                 Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
 

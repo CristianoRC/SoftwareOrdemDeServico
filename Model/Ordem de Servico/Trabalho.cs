@@ -6,7 +6,7 @@ namespace Model
     {
         public int ID {get;set;}
         public int IdOrdemDeServico {get;set;}
-        public string Valor {get;set;}
+        public double Valor {get;set;}
     }
 }
 

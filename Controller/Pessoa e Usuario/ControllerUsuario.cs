@@ -19,23 +19,28 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Salvar(String Nome, String Senha, char NivelAcesso) //Criar função para verificar a existencia de Login
+        public static String Salvar(String Nome, String Senha, bool NivelAcesso) //Criar função para verificar a existencia de Login
         {
-            // 0 false; 1 True;
-
             string Saida = "";
 
             Spartacus.Database.Generic dataBase;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso) values (#login#,#senha#,#nivelacesso#);";
+
+            cmd.AddParameter("login", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("senha",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("nivelacesso",Spartacus.Database.Type.BOOLEAN);
+
+            cmd.SetValue("login",Nome);
+            cmd.SetValue("senha",Senha);
+            cmd.SetValue("nivelacesso",NivelAcesso.ToString());
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format(
-                    @"insert into Tecnicos  
-                      (login,senha,nivelacesso)
-                      values ('{0}','{2}',{3});",
-                      Nome,Senha,NivelAcesso));
+                dataBase.Execute(cmd.GetUpdatedText());
 
                 Saida = "Tecnico cadastrado com sucesso!";
             }

@@ -21,17 +21,41 @@ namespace Controller
         public static string Salvar(OrdemServico Os)
         {
             Spartacus.Database.Generic database;
-            string query = string.Format(
-                @"insert into ordemdeservico (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico) 
-                  values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},{8});",
-                  Os.Situacao,Os.Defeito,Os.Descricao, Os.Observacao,Os.NumeroSerie,
-                  Os.Equipamento,Os.dataEntradaServico,Os.IDCliente,Os.IDTecnico);
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = @"insert into ordemdeservico 
+                        (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico) 
+                        values(#Situacao#,#Defeito#,#Descricao#,#Observacao#,#NumeroDeSerie#,
+                               #Equipamento#,#DataEntradaServico#,#IdCliente#,#IdTecnico#);";
+
+
+            cmd.AddParameter("Situacao",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Defeito",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Descricao",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Observacao",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("NumeroDeSerie",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Equipamento",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataEntradaServico",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("IdCliente",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("IdTecnico",Spartacus.Database.Type.INTEGER);
+
+            cmd.SetValue("Situacao",Os.Situacao);
+            cmd.SetValue("Defeito",Os.Defeito);
+            cmd.SetValue("Descricao",Os.Descricao);
+            cmd.SetValue("Observacao",Os.Observacao);
+            cmd.SetValue("NumeroDeSerie",Os.NumeroSerie);
+            cmd.SetValue("Equipamento",Os.Equipamento);
+            cmd.SetValue("DataEntradaServico",Os.dataEntradaServico);
+            cmd.SetValue("IdCliente",Os.IDCliente);
+            cmd.SetValue("IdTecnico",Os.IDTecnico);
+
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                database.Execute(query);
+                database.Execute(cmd.GetUpdatedText());
+
                 return "Ordem de serviço foi salva com sucesso!";
             }
             catch (Exception ex)
@@ -48,13 +72,18 @@ namespace Controller
         public static string Deletar(int id)
         {
             Spartacus.Database.Generic database;
-            string query = string.Format(@"delete from ordemdeservico where id = {0}",id);
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "delete from ordemdeservico where id = #ID#";
+
+            cmd.AddParameter("ID",Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("ID",id);
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                database.Execute(query);
+                database.Execute(cmd.GetUpdatedText());
 
                 return "Ordem de serviço deletada com sucesso!";
             }

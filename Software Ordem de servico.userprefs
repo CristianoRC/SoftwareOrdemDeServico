@@ -1,11 +1,22 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Servico/ControllerTrabalho.cs">
     <Files>
-      <File FileName="Model/Ordem de Servico/OrdemServico.cs" Line="9" Column="40" />
-      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="30" Column="1" />
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="50" Column="36" />
+      <File FileName="Controller/Servico/ControllerTrabalho.cs" Line="38" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Software Ordem de servico" expanded="True">
+            <Node name="Controller" expanded="True">
+              <Node name="Servico" expanded="True">
+                <Node name="ControllerTrabalho.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
