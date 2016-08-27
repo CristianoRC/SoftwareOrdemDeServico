@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btm_Excluir = new System.Windows.Forms.Button();
+            this.Txt_Tecnicos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // Txt_Nome
-            // 
-            this.Txt_Nome.Location = new System.Drawing.Point(67, 12);
-            this.Txt_Nome.Name = "Txt_Nome";
-            this.Txt_Nome.Size = new System.Drawing.Size(230, 20);
-            this.Txt_Nome.TabIndex = 8;
             // 
             // label1
             // 
@@ -59,27 +52,35 @@
             this.Btm_Excluir.UseVisualStyleBackColor = true;
             this.Btm_Excluir.Click += new System.EventHandler(this.Btm_Excluir_Click);
             // 
+            // Txt_Tecnicos
+            // 
+            this.Txt_Tecnicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Tecnicos.Location = new System.Drawing.Point(65, 12);
+            this.Txt_Tecnicos.Name = "Txt_Tecnicos";
+            this.Txt_Tecnicos.Size = new System.Drawing.Size(206, 21);
+            this.Txt_Tecnicos.TabIndex = 8;
+            // 
             // Frm_ExcluirUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 82);
-            this.Controls.Add(this.Txt_Nome);
+            this.Controls.Add(this.Txt_Tecnicos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btm_Excluir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Frm_ExcluirUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excluir técnico";
+            this.Load += new System.EventHandler(this.Frm_ExcluirUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btm_Excluir;
+        private System.Windows.Forms.ComboBox Txt_Tecnicos;
     }
 }

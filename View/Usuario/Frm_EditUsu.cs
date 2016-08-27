@@ -1,6 +1,7 @@
 ﻿using System;
 using Controller;
 using System.Windows.Forms;
+using Model.Pessoa_e_Usuario;
 
 namespace View.Usuario
 {
@@ -13,7 +14,7 @@ namespace View.Usuario
 
         private void Frm_EditUsu_Load(object sender, EventArgs e)
         {
-
+            Txt_Tecnicos.DataSource = ControllerUsuario.CarregarListaDeNomes();
         }
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
@@ -21,7 +22,7 @@ namespace View.Usuario
             string saida = "";
 
             //Salvando e passando o resulado para a saida.
-            saida = ControllerUsuario.Editar(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+            saida = ControllerUsuario.Editar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
 
             Txt_Login.Clear();
             Txt_Senha.Clear();
@@ -33,19 +34,36 @@ namespace View.Usuario
 
         private void Btm_Pesquisar_Click(object sender, EventArgs e)
         {
-            Model.Pessoa_e_Usuario.Usuario UsuarioBase = new Model.Pessoa_e_Usuario.Usuario();
+                tecnico UsuarioBase = new tecnico();
 
-            if (ControllerUsuario.Verificar(Txt_Pesquisa.Text))
-            {
-                UsuarioBase = ControllerUsuario.Load(Txt_Pesquisa.Text);
+                UsuarioBase  = ControllerUsuario.Carregar(Txt_Tecnicos.Text);
 
                 Txt_Login.Text = UsuarioBase.Nome;
                 Txt_Senha.Text = UsuarioBase.Senha;
-                Txt_Tipo.Text = UsuarioBase.NivelAcesso;
+                Txt_Tipo.Text = RetornarTipo(UsuarioBase);
+        }
+
+        private string RetornarTipo(tecnico Informacoes)
+        {
+            if (Informacoes.NivelAcesso == true)
+            {
+                return "Administrador";
             }
             else
             {
-                MessageBox.Show("Usuário não encontrado!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return "Técnico";
+            }
+        }
+
+        private bool VerificarTipo()
+        {
+            if (Txt_Tipo.Text == "Administrador")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

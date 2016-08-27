@@ -35,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Btm_Salvar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_Tipo = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Txt_Tipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,25 +92,26 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Tipo";
             // 
-            // Txt_Tipo
-            // 
-            this.Txt_Tipo.Items.AddRange(new object[] {
-            "Técnico",
-            "Administrador"});
-            this.Txt_Tipo.Location = new System.Drawing.Point(77, 102);
-            this.Txt_Tipo.Name = "Txt_Tipo";
-            this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
-            this.Txt_Tipo.TabIndex = 2;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(327, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(193, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // Txt_Tipo
+            // 
+            this.Txt_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Tipo.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_Tipo.Location = new System.Drawing.Point(77, 102);
+            this.Txt_Tipo.Name = "Txt_Tipo";
+            this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
+            this.Txt_Tipo.TabIndex = 2;
             // 
             // Frm_NewUsu
             // 
@@ -145,7 +146,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Btm_Salvar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox Txt_Tipo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox Txt_Tipo;
     }
 }

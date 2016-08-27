@@ -13,10 +13,7 @@ namespace View.Usuario
 
         private void Frm_ListarUsuarios_Load(object sender, EventArgs e)
         {
-            foreach (var item in ControllerUsuario.LoadList())
-            {
-                Data_Os.Rows.Add(ControllerUsuario.Load(item).Nome, ControllerUsuario.Load(item).NivelAcesso);
-            }
+            Data_Os.DataSource = ControllerUsuario.CarregarLista();
         }
     }
 }

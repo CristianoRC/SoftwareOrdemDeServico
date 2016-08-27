@@ -153,30 +153,6 @@
     <Compile Include="Pessoas\Frm_ExcluirPessoaFisica.Designer.cs">
       <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pessoas\Frm_ExcluirPessoaJuridica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pessoas\Frm_ExcluirPessoaJuridica.Designer.cs">
-      <DependentUpon>Frm_ExcluirPessoaJuridica.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_ListarServicoBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_ListarServicoBase.Designer.cs">
-      <DependentUpon>Frm_ListarServicoBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_EditarServicoBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_EditarServicoBase.Designer.cs">
-      <DependentUpon>Frm_EditarServicoBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_NewServicoBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicos bases\Frm_NewServicoBase.Designer.cs">
-      <DependentUpon>Frm_NewServicoBase.cs</DependentUpon>
-    </Compile>
     <Compile Include="Servicos\Frm_ExcluirServico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,12 +249,6 @@
     <Compile Include="Pessoas\Frm_ListarFisica.Designer.cs">
       <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pessoas\Frm_ListarJuridica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pessoas\Frm_ListarJuridica.Designer.cs">
-      <DependentUpon>Frm_ListarJuridica.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pessoas\Frm_PessoaFisica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,18 +292,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaFisica.resx">
       <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaJuridica.resx">
-      <DependentUpon>Frm_ExcluirPessoaJuridica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Servicos bases\Frm_EditarServicoBase.resx">
-      <DependentUpon>Frm_EditarServicoBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Servicos bases\Frm_ListarServicoBase.resx">
-      <DependentUpon>Frm_ListarServicoBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Servicos bases\Frm_NewServicoBase.resx">
-      <DependentUpon>Frm_NewServicoBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ExcluirServico.resx">
       <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>
@@ -382,9 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ListarFisica.resx">
       <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pessoas\Frm_ListarJuridica.resx">
-      <DependentUpon>Frm_ListarJuridica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_PessoaFisica.resx">
       <DependentUpon>Frm_PessoaFisica.cs</DependentUpon>

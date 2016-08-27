@@ -17,7 +17,7 @@ namespace View.Formularios_Usuarios
             if (!ControllerUsuario.Verificar(Txt_Login.Text))
             {
                 //Salvando e passando o resulado para a saida.
-                saida = ControllerUsuario.Save(Txt_Login.Text, Txt_Senha.Text, Txt_Tipo.Text);
+                saida = ControllerUsuario.Salvar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
 
                 Txt_Login.Clear();
                 Txt_Senha.Clear();
@@ -31,6 +31,18 @@ namespace View.Formularios_Usuarios
 
 
             MessageBox.Show(String.Format("{0}", saida), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private bool VerificarTipo()
+        {
+            if(Txt_Tipo.Text == "Administrador")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

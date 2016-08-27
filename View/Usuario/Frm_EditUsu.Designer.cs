@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_EditUsu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Txt_Tipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Btm_Salvar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +39,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.Btm_Pesquisar = new System.Windows.Forms.Button();
-            this.Txt_Pesquisa = new System.Windows.Forms.TextBox();
+            this.Txt_Tecnicos = new System.Windows.Forms.ComboBox();
+            this.Txt_Tipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,16 +54,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
-            // 
-            // Txt_Tipo
-            // 
-            this.Txt_Tipo.Items.AddRange(new object[] {
-            "Técnico",
-            "Administrador"});
-            this.Txt_Tipo.Location = new System.Drawing.Point(72, 133);
-            this.Txt_Tipo.Name = "Txt_Tipo";
-            this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
-            this.Txt_Tipo.TabIndex = 6;
             // 
             // label4
             // 
@@ -120,9 +110,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.Txt_Tecnicos);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Btm_Pesquisar);
-            this.panel1.Controls.Add(this.Txt_Pesquisa);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(537, 36);
@@ -147,21 +137,33 @@
             this.Btm_Pesquisar.UseVisualStyleBackColor = true;
             this.Btm_Pesquisar.Click += new System.EventHandler(this.Btm_Pesquisar_Click);
             // 
-            // Txt_Pesquisa
+            // Txt_Tecnicos
             // 
-            this.Txt_Pesquisa.Location = new System.Drawing.Point(76, 10);
-            this.Txt_Pesquisa.Name = "Txt_Pesquisa";
-            this.Txt_Pesquisa.Size = new System.Drawing.Size(206, 20);
-            this.Txt_Pesquisa.TabIndex = 1;
+            this.Txt_Tecnicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Tecnicos.Location = new System.Drawing.Point(72, 8);
+            this.Txt_Tecnicos.Name = "Txt_Tecnicos";
+            this.Txt_Tecnicos.Size = new System.Drawing.Size(206, 21);
+            this.Txt_Tecnicos.TabIndex = 9;
+            // 
+            // Txt_Tipo
+            // 
+            this.Txt_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Tipo.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_Tipo.Location = new System.Drawing.Point(72, 134);
+            this.Txt_Tipo.Name = "Txt_Tipo";
+            this.Txt_Tipo.Size = new System.Drawing.Size(206, 21);
+            this.Txt_Tipo.TabIndex = 18;
             // 
             // Frm_EditUsu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 247);
+            this.Controls.Add(this.Txt_Tipo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Txt_Tipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Btm_Salvar);
             this.Controls.Add(this.label2);
@@ -184,7 +186,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox Txt_Tipo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Btm_Salvar;
         private System.Windows.Forms.Label label2;
@@ -194,6 +195,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Btm_Pesquisar;
-        private System.Windows.Forms.TextBox Txt_Pesquisa;
+        private System.Windows.Forms.ComboBox Txt_Tecnicos;
+        private System.Windows.Forms.ComboBox Txt_Tipo;
     }
 }

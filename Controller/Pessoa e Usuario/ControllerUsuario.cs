@@ -29,12 +29,12 @@ namespace Controller
             cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso) values (#login#,#senha#,#nivelacesso#);";
 
             cmd.AddParameter("login", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("senha",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("nivelacesso",Spartacus.Database.Type.BOOLEAN);
+            cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
 
-            cmd.SetValue("login",Nome);
-            cmd.SetValue("senha",Senha);
-            cmd.SetValue("nivelacesso",NivelAcesso.ToString());
+            cmd.SetValue("login", Nome);
+            cmd.SetValue("senha", Senha);
+            cmd.SetValue("nivelacesso", NivelAcesso.ToString());
 
             try
             {
@@ -52,8 +52,8 @@ namespace Controller
             }
 
             return Saida;
-          } 
-            
+        }
+
         /// <summary>
         /// Editando usuário
         /// </summary>
@@ -61,37 +61,49 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Editar(int Id,String Nome, String Senha, char NivelAcesso)
+        public static String Editar(int Id, String Nome, String Senha, bool NivelAcesso)
         {
             string Saida = "";
             Spartacus.Database.Generic dataBase;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = @"update Tecnicos  set 
+                           login = #login#, 
+                           senha = #senha#, 
+                           nivelacesso = #nivelacesso#  
+                           Where id = #ID#;";
+
+            cmd.AddParameter("login", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
+            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
+
+            cmd.SetValue("login", Nome);
+            cmd.SetValue("senha", Senha);
+            cmd.SetValue("nivelacesso", NivelAcesso);
+            cmd.SetValue("ID", Id.ToString());
+
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format(
-                    @"update Tecnicos  set 
-                      login = '{0}', 
-                      senha = '{1}', 
-                      nivelacesso = {2}  
-                      Where id ={3} ;",
-                      Nome,Senha,NivelAcesso,Id));
+                dataBase.Execute(cmd.GetUpdatedText());
 
                 Saida = "Tecnico editado com sucesso!";
             }
             catch (Exception Exc)
-			{
+            {
                 ControllerArquivoLog.GeraraLog(Exc);
 
                 Saida = "Erro: " + Exc.Message;
             }
 
-             return Saida;
+            return Saida;
         }
 
         /// <summary>
-        /// Carregando Lista com nome de todos usuarios.
+        /// Carregando Lista todas as informações de todos usuários usuarios.
         /// </summary>
         /// <returns></returns>
         public static DataTable CarregarLista()
@@ -105,7 +117,32 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query("Select * from tecnicos","Tecnicos");
+                Tabela = dataBase.Query("Select * from tecnicos", "Tecnicos");
+            }
+            catch (Exception Exc)
+            {
+                ControllerArquivoLog.GeraraLog(Exc);
+            }
+
+            return Tabela;
+        }
+
+        /// <summary>
+        /// Carregando Lista com nome de todos usuarios.
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable CarregarListaDeNomes()
+        {
+            Spartacus.Database.Generic dataBase;
+            System.Data.DataTable Tabela;
+            Tabela = new DataTable("Tecnicos");
+
+
+            try
+            {
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                Tabela = dataBase.Query("Select login from tecnicos", "Tecnicos");
             }
             catch (Exception Exc)
             {
@@ -132,33 +169,33 @@ namespace Controller
                 Tabela = new DataTable("Tecnicos");
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Id = {0}",ID),"Tecnicos");
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Id = {0}", ID), "Tecnicos");
 
 
-                foreach (DataRow r in Tabela.Rows) 
+                foreach (DataRow r in Tabela.Rows)
                 {
-                    foreach (DataColumn c in Tabela.Columns) 
+                    foreach (DataColumn c in Tabela.Columns)
                     {
-                        switch (c.ColumnName) 
+                        switch (c.ColumnName)
                         {
-                            case  "Id":
+                            case "Id":
                                 UsuarioBase.Id = Convert.ToInt32(r[c]);
                                 break;
-                            case  "Login":
+                            case "Login":
                                 UsuarioBase.Nome = r[c].ToString();
                                 break;
-                            case  "Senha":
+                            case "Senha":
                                 UsuarioBase.Senha = r[c].ToString();
                                 break;
-                            case  "NivelAcesso":
-                                UsuarioBase.NivelAcesso = Convert.ToChar(r[c]);
+                            case "NivelAcesso":
+                                UsuarioBase.NivelAcesso = Convert.ToBoolean(r[c]);
                                 break;
                         }
                     }
                 }
             }
             catch (Exception exc)
-			{
+            {
                 ControllerArquivoLog.GeraraLog(exc);
             }
 
@@ -181,25 +218,25 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = '{0}'",Login),"Tecnicos");
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = '{0}'", Login), "Tecnicos");
 
-                foreach (DataRow r in Tabela.Rows) 
+                foreach (DataRow r in Tabela.Rows)
                 {
-                    foreach (DataColumn c in Tabela.Columns) 
+                    foreach (DataColumn c in Tabela.Columns)
                     {
-                        switch (c.ColumnName) 
+                        switch (c.ColumnName)
                         {
-                            case  "Id":
+                            case "Id":
                                 UsuarioBase.Id = Convert.ToInt32(r[c]);
                                 break;
-                            case  "Login":
+                            case "Login":
                                 UsuarioBase.Nome = r[c].ToString();
                                 break;
-                            case  "Senha":
+                            case "Senha":
                                 UsuarioBase.Senha = r[c].ToString();
                                 break;
-                            case  "NivelAcesso":
-                                UsuarioBase.NivelAcesso = Convert.ToChar(r[c]);
+                            case "NivelAcesso":
+                                UsuarioBase.NivelAcesso = Convert.ToBoolean(r[c]);
                                 break;
                         }
                     }
@@ -232,10 +269,10 @@ namespace Controller
                     @"select * from tecnicos 
                     where Login = '{0}' 
                     and Senha = '{1}'",
-                    Nome,Senha),
+                    Nome, Senha),
                     "Tecnicos");
-                
-                if(Tabela.Rows.Count != 0)
+
+                if (Tabela.Rows.Count == 1)
                 {
                     UsuarioEncontrado = true;
                 }
@@ -264,7 +301,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format("delete from Tecnicos where Id = {0}",ID));
+                dataBase.Execute(String.Format("delete from Tecnicos where Id = {0}", ID));
             }
             catch (Exception exc)
             {
@@ -272,6 +309,66 @@ namespace Controller
             }
 
             return saida;
+        }
+
+        /// <summary>
+        /// Excluindo usuario
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns>Resultado da operação</returns>
+        public static string Deletar(string login)
+        {
+            string saida = String.Format("O técnico foi excluida com sucesso!");
+            Spartacus.Database.Generic dataBase;
+
+            try
+            {
+                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                dataBase.Execute(String.Format("delete from Tecnicos where Login = {0}", login));
+            }
+            catch (Exception exc)
+            {
+                saida = string.Format("Ocorreu um erro ao excluir o técnico:", exc.Message);
+            }
+
+            return saida;
+        }
+
+        /// <summary>
+        /// Verificando se o login já esta sendo utilizado
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public static bool Verificar(string login)
+        {
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+            DataTable tabela = new DataTable("Tabela");
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query(cmd.GetUpdatedText(), "Tecnicos");
+
+                if (tabela.Rows.Count == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            catch (Exception exc)
+            {
+                ControllerArquivoLog.GeraraLog(exc);
+
+                return true;
+            }
         }
     }
 }
