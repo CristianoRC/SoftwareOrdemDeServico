@@ -16,7 +16,7 @@ namespace Controller
 
                 sw.WriteLine("---------------------------------------------");
                 sw.WriteLine(DateTime.Now.ToLongDateString());
-                sw.WriteLine("Erro: {0}", exc.Message);
+                sw.WriteLine("Erro: {0}", exc.ToString());
                 sw.WriteLine("---------------------------------------------");
             } 
             finally

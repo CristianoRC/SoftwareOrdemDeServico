@@ -255,32 +255,36 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns></returns>
-        public static bool Autenticar(string Nome, string Senha)
+        public static bool Autenticar(string Login, string Senha)
         {
             bool UsuarioEncontrado = false;
             Spartacus.Database.Generic dataBase;
             DataTable Tabela = new DataTable("Tecnicos");
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = @"Select * from Tecnicos where Nome = #Nome# and Senha = #Senha#";
+            cmd.v_text = "Select * from Tecnicos where Login = #login# and Senha = #senha#";
 
-            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Senha", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Login",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
 
-            cmd.SetValue("Nome",Nome);
-            cmd.SetValue("Senha",Senha);
+            cmd.SetValue("Login",Login);
+            cmd.SetValue("senha",Senha);
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
-                
-                Tabela = dataBase.Query(cmd.GetUpdatedText(),"Tecnicos");
                     
+                Tabela = dataBase.Query(cmd.GetUpdatedText(),"Tecnicos");
 
                 if (Tabela.Rows.Count == 1)
                 {
                     UsuarioEncontrado = true;
                 }
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+                UsuarioEncontrado = false;
             }
             catch (Exception Exc)
             {

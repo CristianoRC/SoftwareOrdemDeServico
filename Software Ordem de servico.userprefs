@@ -1,16 +1,6 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Software Ordem de servico" expanded="True">
-            <Node name="Model" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/cristianocunha/Projetos/SoftwareOrdemDeServico/Controller/Outros/ControllerEmpresa.cs" line="30" column="47" />
