@@ -72,15 +72,15 @@ namespace View.Usuario
             }
         }
 
-        private bool VerificarTipo()
+        private char VerificarTipo()
         {
             if (Txt_Tipo.Text == "Administrador")
             {
-                return true;
+                return '1';
             }
             else
             {
-                return false;
+                return '0';
             }
         }
     }

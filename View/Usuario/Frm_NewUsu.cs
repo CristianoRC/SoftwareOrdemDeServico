@@ -31,15 +31,15 @@ namespace View.Formularios_Usuarios
             MessageBox.Show(String.Format("{0}", saida), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private bool VerificarTipo()
+        private char VerificarTipo()
         {
             if(Txt_Tipo.Text == "Administrador")
             {
-                return true;
+                return '1';
             }
             else
             {
-                return false;
+                return '0';
             }
         }
     }

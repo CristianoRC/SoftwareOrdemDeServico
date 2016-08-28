@@ -12,7 +12,6 @@ namespace Controller
     public static class ControllerUsuario
     {
         
-        //TODO:Verificar no método salvar a parte do parametro Bool(salva sempre como false.)
         /// <summary>
         /// Salvando novo usuário
         /// </summary>
@@ -20,7 +19,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Salvar(String Nome, String Senha, bool NivelAcesso)
+        public static String Salvar(String Nome, String Senha, char NivelAcesso)
         {
             string Saida = "";
 
@@ -55,7 +54,6 @@ namespace Controller
             return Saida;
         }
 
-        //TODO:Erro de salvar sempre em false.
         /// <summary>
         /// Editando usuário
         /// </summary>
@@ -63,7 +61,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Editar(int Id, String Nome, String Senha, bool NivelAcesso)
+        public static String Editar(int Id, String Nome, String Senha, char NivelAcesso)
         {
             string Saida = "";
             Spartacus.Database.Generic dataBase;
@@ -159,7 +157,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static tecnico Carregar(int ID) //Verificar Código que carrega as informações para classe Tecnicos.
+        public static tecnico Carregar(int ID)
         {
             tecnico UsuarioBase = new tecnico();
 
@@ -209,7 +207,7 @@ namespace Controller
         /// </summary>
         /// <param name="Nome"></param>
         /// <returns>Usuario</returns>
-        public static tecnico Carregar(string Login) //Verificar Código que carrega as informações para classe Tecnicos.
+        public static tecnico Carregar(string Login)
         {
             tecnico UsuarioBase = new tecnico();
 
