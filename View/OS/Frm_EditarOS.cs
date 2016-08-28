@@ -70,6 +70,7 @@ namespace View.OS
             Txt_Nserie.Clear();
             Txt_Observacoes.Clear();
         }
+
         /// <summary>
         /// Carregando as informações dos TxtBox para a Classe OS
         /// </summary>

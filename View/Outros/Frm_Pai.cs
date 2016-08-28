@@ -14,8 +14,9 @@ namespace View
 
         string Usuario;
         bool NivelAcesso;
+        int Id;
 
-        public Frm_Pai(string usuario, bool nivelAcesso)
+        public Frm_Pai(string usuario, bool nivelAcesso,int Id)
         {
             InitializeComponent();
 
@@ -60,16 +61,16 @@ namespace View
 
         private void novaF5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OS.Frm_NewOrdem Frm_NewOrdem = new OS.Frm_NewOrdem();
+            OS.Frm_NewOrdem frm_NewOrdem = new OS.Frm_NewOrdem(Id); 
 
-            Frm_NewOrdem.MdiParent = this;
+            frm_NewOrdem.MdiParent = this;
 
-            Frm_NewOrdem.Show();
+            frm_NewOrdem.Show();
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OS.Frm_EditarOS Frm_Editar = new OS.Frm_EditarOS();
+            OS.Frm_EditarOS Frm_Editar = new OS.Frm_EditarOS(Id);
 
             Frm_Editar.MdiParent = this;
 
@@ -228,45 +229,9 @@ namespace View
             frm_Servico.Show();
         }
 
-        private void novoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Frm_NewServicoBase frm_NewServicoBase = new Frm_NewServicoBase();
-
-            frm_NewServicoBase.MdiParent = this;
-
-            frm_NewServicoBase.Show();
-        }
-
-        private void editarToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Frm_EditarServicoBase frm_EditarServicoBase = new Frm_EditarServicoBase();
-
-            frm_EditarServicoBase.MdiParent = this;
-
-            frm_EditarServicoBase.Show();
-        }
-
-        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_ListarServicoBase frm_ListarServicoBase = new Frm_ListarServicoBase();
-
-            frm_ListarServicoBase.MdiParent = this;
-
-            frm_ListarServicoBase.Show();
-        }
-
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
-
-            Pessoa.MdiParent = this;
-
-            Pessoa.Show();
-        }
-
-        private void cadastrarToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Pessoas.Frm_PessoaJuridica Pessoa = new Pessoas.Frm_PessoaJuridica();
 
             Pessoa.MdiParent = this;
 
@@ -280,15 +245,6 @@ namespace View
             Frm_ListarFisica.MdiParent = this;
 
             Frm_ListarFisica.Show();
-        }
-
-        private void listarToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            Pessoas.Frm_ListarJuridica Frm_ListarJuridica = new Pessoas.Frm_ListarJuridica();
-
-            Frm_ListarJuridica.MdiParent = this;
-
-            Frm_ListarJuridica.Show();
         }
 
         private void excluirToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -318,16 +274,7 @@ namespace View
             frm_ExcluirPF.Show();
         }
 
-        private void excluirToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Pessoas.Frm_ExcluirPessoaJuridica frm_ExcluirPJ = new Pessoas.Frm_ExcluirPessoaJuridica();
-
-            frm_ExcluirPJ.MdiParent = this;
-
-            frm_ExcluirPJ.Show();
-        }
-
-        private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
+         private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             View.Usuario.Frm_ExcluirUsuario frm_ExcluirUsuario = new View.Usuario.Frm_ExcluirUsuario();
 
@@ -352,29 +299,17 @@ namespace View
 
         private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Frm_NewOrcamento frm_NewOrcamento = new Frm_NewOrcamento();
-
-            frm_NewOrcamento.MdiParent = this;
-
-            frm_NewOrcamento.Show();
+           
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Servicos.Frm_ListarOrcamento frm_ListarOrcamento = new Servicos.Frm_ListarOrcamento();
-
-            frm_ListarOrcamento.MdiParent = this;
-
-            frm_ListarOrcamento.Show();
+           
         }
 
         private void excluirToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            Frm_ExcluirOrcamento frm_ExcluirOrcamento = new Frm_ExcluirOrcamento();
-
-            frm_ExcluirOrcamento.MdiParent = this;
-
-            frm_ExcluirOrcamento.Show();
+            
         }
 
         private void reportarBugsToolStripMenuItem_Click(object sender, EventArgs e)

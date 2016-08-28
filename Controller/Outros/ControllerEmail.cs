@@ -4,6 +4,7 @@ using Spartacus.Utils;
 using Model;
 using System.Net.Mail;
 using Model.Ordem_de_Servico;
+using Model.Pessoa_e_Usuario;
 
 namespace Controller
 {
@@ -192,10 +193,10 @@ namespace Controller
         ///  Configurando e enviando e-mail. (Decodificando)
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public static string EnviarOrdemDeServiço(OrdemServico)
+        public static string EnviarOrdemDeServiço(OrdemServico OS, Empresa InfoEmpresa,Pessoa cliente)
         {
             string Saida = " ";
-            string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", NomeCliente, NumeroDaOrdem);
+            string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", cliente.Nome, OS.ID);
 
 
             Email EmailBase = new Email();
@@ -214,7 +215,7 @@ namespace Controller
 
 
             //Assunto do email.
-            mail.Subject = String.Format("Ordem de serviço [ {0} ]", NomeEmpresa);
+            mail.Subject = String.Format("Ordem de serviço [ {0} ]", InfoEmpresa.Nome);
 
             //Informando sobre o corpo.
             mail.IsBodyHtml = true;
@@ -223,7 +224,7 @@ namespace Controller
             mail.Body = MenssagemBase;
 
             //Adicionando E-mail do cliente para enviar.
-            mail.To.Add(EmailCliente);
+            mail.To.Add(cliente.Email);
 
             //Prioridade de Envio.
             mail.Priority = MailPriority.High;
@@ -232,7 +233,7 @@ namespace Controller
 
             Attachment data = new Attachment(file);
 
-            data.Name = String.Format("{0}.pdf", NumeroDaOrdem); //Mudando o nome do arquivo antes de enviar o E-mail.
+            data.Name = String.Format("{0}.pdf", OS.ID); //Mudando o nome do arquivo antes de enviar o E-mail.
 
             //Inclui o arquivo anexo.
             mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.

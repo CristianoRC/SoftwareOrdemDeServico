@@ -72,6 +72,10 @@
     <Reference Include="itextsharp">
       <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Data.Sqlite, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />

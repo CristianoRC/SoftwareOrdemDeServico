@@ -259,18 +259,23 @@ namespace Controller
         {
             bool UsuarioEncontrado = false;
             Spartacus.Database.Generic dataBase;
-            System.Data.DataTable Tabela;
+            DataTable Tabela = new DataTable("Tecnicos");
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = @"Select * from Tecnicos where Nome = #Nome# and Senha = #Senha#";
+
+            cmd.AddParameter("Nome",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Senha", Spartacus.Database.Type.STRING);
+
+            cmd.SetValue("Nome",Nome);
+            cmd.SetValue("Senha",Senha);
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
-
-                Tabela = dataBase.Query(String.Format(
-                    @"select * from tecnicos 
-                    where Login = '{0}' 
-                    and Senha = '{1}'",
-                    Nome, Senha),
-                    "Tecnicos");
+                
+                Tabela = dataBase.Query(cmd.GetUpdatedText(),"Tecnicos");
+                    
 
                 if (Tabela.Rows.Count == 1)
                 {
@@ -345,6 +350,11 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
             DataTable tabela = new DataTable("Tabela");
+
+            cmd.v_text = "select Login from Tecnicos where login = #Login#";
+
+            cmd.AddParameter("Login",Spartacus.Database.Type.STRING);
+            cmd.SetValue("Login", login);
 
             try
             {

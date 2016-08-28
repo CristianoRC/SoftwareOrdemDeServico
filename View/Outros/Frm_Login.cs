@@ -16,13 +16,13 @@ namespace View
         {
             Model.Pessoa_e_Usuario.tecnico UsuarioBase = new Model.Pessoa_e_Usuario.tecnico();
 
-            if (ControllerUsuario.Autenticar(login,senha))
+            if (ControllerUsuario.Autenticar(login.Trim(),senha.Trim()))
             {
                 UsuarioBase = ControllerUsuario.Carregar(login);
 
                 Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
 
-                 Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso);
+                 Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso,UsuarioBase.Id);
 
                  this.Visible = false;
 

@@ -69,6 +69,9 @@
     <Reference Include="itextsharp">
       <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>..\lib\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

@@ -39,11 +39,13 @@ namespace View.OS
             {
                 Email EmailBase = new Email();
 
-                string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(CarregarCl);
+
+                //TODO:Arrumar o código logo após a manutenção do sistema de e-mail
+                //string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(CarregarCliente());
 
                 //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
 
-                MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Txt_DataEntrada.Clear();
