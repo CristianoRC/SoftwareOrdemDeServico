@@ -24,7 +24,19 @@ namespace View.OS
 
         private void Frm_ExcluirOS_Load(object sender, EventArgs e)
         {
-            Txt_Os.DataSource = ControllerOrdemServico.CarregarListaDeIds();
+            Txt_Os.Items.Clear();
+
+            System.Data.DataTable TabelaOS = new System.Data.DataTable();
+
+            TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
+
+            foreach (System.Data.DataRow r in TabelaOS.Rows)
+            {
+                foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                {
+                    Txt_Os.Items.Add(r[c].ToString());
+                }
+            }
         }
     }
 }

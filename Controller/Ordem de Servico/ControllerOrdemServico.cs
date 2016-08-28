@@ -25,29 +25,29 @@ namespace Controller
 
             cmd.v_text = @"insert into ordemdeservico 
                         (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico) 
-                        values(#Situacao#,#Defeito#,#Descricao#,#Observacao#,#NumeroDeSerie#,
-                               #Equipamento#,#DataEntradaServico#,#IdCliente#,#IdTecnico#);";
+                        values(#situacao#,#defeito#,#descricao#,#observacao#,#numeroDeSerie#,
+                               #equipamento#,#dataEntradaServico#,#idCliente#,#idTecnico#);";
 
 
-            cmd.AddParameter("Situacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Defeito", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Descricao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Observacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("NumeroDeSerie", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Equipamento", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("IdCliente", Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("IdTecnico", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("defeito", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("descricao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("observacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("numeroDeSerie", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("equipamento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("dataEntradaServico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("idCliente", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idTecnico", Spartacus.Database.Type.INTEGER);
 
-            cmd.SetValue("Situacao", Os.Situacao);
-            cmd.SetValue("Defeito", Os.Defeito);
-            cmd.SetValue("Descricao", Os.Descricao);
-            cmd.SetValue("Observacao", Os.Observacao);
-            cmd.SetValue("NumeroDeSerie", Os.NumeroSerie);
-            cmd.SetValue("Equipamento", Os.Equipamento);
-            cmd.SetValue("DataEntradaServico", Os.dataEntradaServico);
-            cmd.SetValue("IdCliente", Os.IDCliente.ToString());
-            cmd.SetValue("IdTecnico", Os.IDTecnico.ToString());
+            cmd.SetValue("situacao", Os.Situacao);
+            cmd.SetValue("defeito", Os.Defeito);
+            cmd.SetValue("descricao", Os.Descricao);
+            cmd.SetValue("observacao", Os.Observacao);
+            cmd.SetValue("numeroDeSerie", Os.NumeroSerie);
+            cmd.SetValue("equipamento", Os.Equipamento);
+            cmd.SetValue("dataEntradaServico", Os.dataEntradaServico);
+            cmd.SetValue("idCliente", Os.IDCliente.ToString());
+            cmd.SetValue("idTecnico", Os.IDTecnico.ToString());
 
 
             try
@@ -94,6 +94,10 @@ namespace Controller
             }
         }
 
+        /// <summary>
+        /// Editando Ordem de serviço
+        /// </summary>
+        /// <param name="OS">O.</param>
         public static string Editar(OrdemServico OS)
         {
             string Saida = "";

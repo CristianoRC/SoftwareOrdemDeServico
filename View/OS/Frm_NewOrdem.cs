@@ -21,7 +21,19 @@ namespace View.OS
 
         private void Frm_NewOrdem_Load(object sender, EventArgs e)
         {
-            Txt_Clientes.DataSource = ControllerPessoa.CarregarListaDeNomes();
+            Txt_Clientes.Items.Clear();
+
+            System.Data.DataTable Tabela = new System.Data.DataTable();
+
+            Tabela = ControllerPessoa.CarregarListaDeNomes();
+
+            foreach (System.Data.DataRow r in Tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in Tabela.Columns)
+                {
+                    Txt_Clientes.Items.Add(r[c].ToString());
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +49,7 @@ namespace View.OS
 
             if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Email EmailBase = new Email();
+              //  Email EmailBase = new Email();
 
 
                 //TODO:Arrumar o código logo após a manutenção do sistema de e-mail

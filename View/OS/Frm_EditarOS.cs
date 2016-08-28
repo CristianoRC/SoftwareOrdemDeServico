@@ -19,7 +19,34 @@ namespace View.OS
 
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
-            Txt_Cliente.DataSource = ControllerPessoa.CarregarListaDeNomes();
+            Txt_Cliente.Items.Clear();
+            Txt_IDPesquisa.Items.Clear();
+            Txt_DataEntrada.Text = DateTime.Now.ToString("dd-MM-yy");
+
+            System.Data.DataTable Tabela = new System.Data.DataTable();
+
+            Tabela = ControllerPessoa.CarregarListaDeNomes();
+
+            foreach (System.Data.DataRow r in Tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in Tabela.Columns)
+                {
+                    Txt_Cliente.Items.Add(r[c].ToString());
+                }
+            }
+
+            System.Data.DataTable TabelaOS = new System.Data.DataTable();
+
+            TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
+
+            foreach (System.Data.DataRow r in TabelaOS.Rows)
+            {
+                foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                {
+                    Txt_IDPesquisa.Items.Add(r[c].ToString());
+                }
+            }
+
         }
 
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
