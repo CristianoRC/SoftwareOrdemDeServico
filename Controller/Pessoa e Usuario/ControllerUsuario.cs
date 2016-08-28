@@ -11,7 +11,8 @@ namespace Controller
     /// </summary>
     public static class ControllerUsuario
     {
-
+        
+        //TODO:Verificar no método salvar a parte do parametro Bool(salva sempre como false.)
         /// <summary>
         /// Salvando novo usuário
         /// </summary>
@@ -19,7 +20,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Salvar(String Nome, String Senha, bool NivelAcesso) //Criar função para verificar a existencia de Login
+        public static String Salvar(String Nome, String Senha, bool NivelAcesso)
         {
             string Saida = "";
 
@@ -54,6 +55,7 @@ namespace Controller
             return Saida;
         }
 
+        //TODO:Erro de salvar sempre em false.
         /// <summary>
         /// Editando usuário
         /// </summary>
@@ -71,17 +73,17 @@ namespace Controller
                            login = #login#, 
                            senha = #senha#, 
                            nivelacesso = #nivelacesso#  
-                           Where id = #ID#;";
+                           Where id = #id#;";
 
             cmd.AddParameter("login", Spartacus.Database.Type.STRING);
             cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
             cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
-            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
 
             cmd.SetValue("login", Nome);
             cmd.SetValue("senha", Senha);
-            cmd.SetValue("nivelacesso", NivelAcesso);
-            cmd.SetValue("ID", Id.ToString());
+            cmd.SetValue("nivelacesso", NivelAcesso.ToString());
+            cmd.SetValue("id", Id.ToString());
 
 
             try
@@ -303,17 +305,25 @@ namespace Controller
         /// <returns>Resultado da operação</returns>
         public static string Deletar(int ID)
         {
-            string saida = String.Format("O técnico foi excluida com sucesso!");
+            string saida = String.Format("O técnico foi excluido com sucesso!");
             Spartacus.Database.Generic dataBase;
+
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "delete from Tecnicos where Id = #id#";
+            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("id",ID.ToString());
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format("delete from Tecnicos where Id = {0}", ID));
+                dataBase.Execute(cmd.GetUpdatedText());
             }
-            catch (Exception exc)
+            catch (Spartacus.Database.Exception exc)
             {
+                ControllerArquivoLog.GeraraLog(exc);
+
                 saida = string.Format("Ocorreu um erro ao excluir o técnico:", exc.Message);
             }
 
@@ -327,17 +337,24 @@ namespace Controller
         /// <returns>Resultado da operação</returns>
         public static string Deletar(string login)
         {
-            string saida = String.Format("O técnico foi excluida com sucesso!");
+            string saida = String.Format("O técnico foi excluido com sucesso!");
             Spartacus.Database.Generic dataBase;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "delete from Tecnicos where Login = #login#";
+            cmd.AddParameter("login",Spartacus.Database.Type.STRING);
+            cmd.SetValue("login",login);
 
             try
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                dataBase.Execute(String.Format("delete from Tecnicos where Login = {0}", login));
+                dataBase.Execute(cmd.GetUpdatedText());
             }
-            catch (Exception exc)
+            catch (Spartacus.Database.Exception exc)
             {
+                ControllerArquivoLog.GeraraLog(exc);
+
                 saida = string.Format("Ocorreu um erro ao excluir o técnico:", exc.Message);
             }
 
@@ -355,10 +372,10 @@ namespace Controller
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
             DataTable tabela = new DataTable("Tabela");
 
-            cmd.v_text = "select Login from Tecnicos where login = #Login#";
+            cmd.v_text = "select Login from Tecnicos where login = #login#";
 
-            cmd.AddParameter("Login",Spartacus.Database.Type.STRING);
-            cmd.SetValue("Login", login);
+            cmd.AddParameter("login",Spartacus.Database.Type.STRING);
+            cmd.SetValue("login", login);
 
             try
             {
@@ -377,7 +394,7 @@ namespace Controller
 
 
             }
-            catch (Exception exc)
+            catch (Spartacus.Database.Exception exc)
             {
                 ControllerArquivoLog.GeraraLog(exc);
 

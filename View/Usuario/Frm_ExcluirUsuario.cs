@@ -15,15 +15,25 @@ namespace View.Usuario
         {
             if (MessageBox.Show("Você deseja realmente excluir esse usuário?","Verificação",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ControllerUsuario.Deletar(Txt_Tecnicos.Text);
+               string Saida =  ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
 
-                MessageBox.Show("Usuário deletado com sucesso!","Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
         private void Frm_ExcluirUsuario_Load(object sender, EventArgs e)
         {
-            Txt_Tecnicos.DataSource = ControllerUsuario.CarregarListaDeNomes();
+            System.Data.DataTable tabela = new System.Data.DataTable();
+
+            tabela = ControllerUsuario.CarregarListaDeNomes();
+
+            foreach (System.Data.DataRow r in tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in tabela.Columns) 
+                {
+                    Txt_Tecnicos.Items.Add(r[c]);
+                }
+            }
         }
     }
 }

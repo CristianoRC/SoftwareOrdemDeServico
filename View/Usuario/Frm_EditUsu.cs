@@ -16,8 +16,19 @@ namespace View.Usuario
 
         private void Frm_EditUsu_Load(object sender, EventArgs e)
         {
-            Txt_Tecnicos.DataSource = ControllerUsuario.CarregarListaDeNomes();
-        }
+            System.Data.DataTable tabela = new System.Data.DataTable("Tecnicos");
+
+            tabela = ControllerUsuario.CarregarListaDeNomes();
+
+
+            foreach (System.Data.DataRow r in tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in tabela.Columns) 
+                {
+                    Txt_Tecnicos.Items.Add(r[c].ToString());
+                }
+            }
+       }
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {

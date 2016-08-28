@@ -16,12 +16,10 @@ namespace View.Formularios_Usuarios
 
             if (!ControllerUsuario.Verificar(Txt_Login.Text))
             {
-                //Salvando e passando o resulado para a saida.
                 saida = ControllerUsuario.Salvar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
 
                 Txt_Login.Clear();
                 Txt_Senha.Clear();
-                Txt_Tipo.Text = " ";
             }
             else
             {
