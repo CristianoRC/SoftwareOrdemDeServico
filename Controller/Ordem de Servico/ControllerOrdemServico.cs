@@ -159,7 +159,7 @@ namespace Controller
             return Saida;
         }
 
-        //TODO:Fazer testes com a controller pessoa para ver se o código desenvolvido funciona normalmente.
+       
         public static OrdemServico Carregar(int ID)
         {
             OrdemServico OSBase = new OrdemServico();

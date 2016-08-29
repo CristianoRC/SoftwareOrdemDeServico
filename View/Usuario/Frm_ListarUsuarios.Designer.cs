@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ListarUsuarios));
             this.Data_Os = new System.Windows.Forms.DataGridView();
-            this.Coluna_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coluna_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             ((System.ComponentModel.ISupportInitialize)(this.Data_Os)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +42,6 @@
             this.Data_Os.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Data_Os.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Data_Os.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Data_Os.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Coluna_Identificador,
-            this.Coluna_Produto});
             this.Data_Os.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Data_Os.EnableHeadersVisualStyles = false;
             this.Data_Os.Location = new System.Drawing.Point(0, 0);
@@ -56,13 +52,11 @@
             // 
             // Coluna_Identificador
             // 
-            this.Coluna_Identificador.HeaderText = "Login";
-            this.Coluna_Identificador.Name = "Coluna_Identificador";
+           
             // 
             // Coluna_Produto
             // 
-            this.Coluna_Produto.HeaderText = "Nível de acesso";
-            this.Coluna_Produto.Name = "Coluna_Produto";
+           
             // 
             // Frm_ListarUsuarios
             // 
@@ -84,7 +78,5 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Data_Os;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Identificador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coluna_Produto;
     }
 }
