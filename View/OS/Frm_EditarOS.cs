@@ -14,6 +14,8 @@ namespace View.OS
             InitializeComponent();
         }
 
+        //TODO:Arrumar o botão de salvar OS editada que não esta funcionando.
+
         private int IDTecnico;
         private int IDChamado;
 

@@ -140,7 +140,7 @@ namespace Controller
             cmd.SetValue("DataEntradaServico", OS.dataEntradaServico);
             cmd.SetValue("IdCliente", OS.IDCliente.ToString());
             cmd.SetValue("IdTecnico", OS.IDTecnico.ToString());
-            
+
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
@@ -159,10 +159,35 @@ namespace Controller
             return Saida;
         }
 
-       
+       /// <summary>
+       /// Carregando as informações da tabela para a classe de OS.
+       /// </summary>
+       /// <param name="ID">I.</param>
         public static OrdemServico Carregar(int ID)
         {
+            System.Data.DataTable tabela = new DataTable("OrdemDeServico");
             OrdemServico OSBase = new OrdemServico();
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "Select * from OrdemDeServico Where ID = #id#";
+
+            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("id",ID.ToString());
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query(cmd.GetUpdatedText(),"OrdemDeServico");
+
+                OSBase = PreencherOS(tabela);
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+
 
             return OSBase;
         }
@@ -312,6 +337,47 @@ namespace Controller
 
             Process.Start(local);
         }
+
+
+        /// <summary>
+        /// Preenchendo a classe OS com as informações do DataTable
+        /// </summary>
+        /// <returns>The cliente.</returns>
+        /// <param name="informacoes">Informacoes.</param>
+        private static OrdemServico PreencherOS(DataTable tabela)
+        {
+            List<string> OSBaseLista = new List<string>();
+            OrdemServico OSBase = new OrdemServico();
+
+
+            try
+            {
+                foreach (DataRow r in tabela.Rows)
+                {
+                    foreach (DataColumn c in tabela.Columns)
+                    {
+                        OSBaseLista.Add(r[c].ToString());
+                    }
+                }
+
+                OSBase.ID = Convert.ToInt32(OSBaseLista[0]);
+                OSBase.Situacao = OSBaseLista[1];
+                OSBase.Defeito = OSBaseLista[2];
+                OSBase.Descricao = OSBaseLista[3];
+                OSBase.Observacao = OSBaseLista[4];
+                OSBase.NumeroSerie = OSBaseLista[5];
+                OSBase.Equipamento = OSBaseLista[6];
+                OSBase.dataEntradaServico = OSBaseLista[7];
+                OSBase.IDCliente = Convert.ToInt32(OSBaseLista[8]);
+                OSBase.IDTecnico = Convert.ToInt32(OSBaseLista[9]);
+               
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return OSBase;
+        }
     }
 }
-//TODO:Orcamento vai estar apenas na opção de Situação, e quando acabar o orcamento gerra um trabalho
+//TODO:Orcamento vai estar apenas na opção de Situação, e quando acabar o orcamento gerar um trabalho
