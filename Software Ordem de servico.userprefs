@@ -1,31 +1,8 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/OS/Frm_EditarOS.cs">
-    <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="21" Column="53" />
-      <File FileName="View/OS/Frm_EditarOS.cs" Line="19" Column="9" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Software Ordem de servico" expanded="True">
-            <Node name="Controller" expanded="True">
-              <Node name="Ordem de Servico" expanded="True" />
-            </Node>
-            <Node name="View" expanded="True">
-              <Node name="OS" expanded="True">
-                <Node name="Frm_EditarOS.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/cristianocunha/Projetos/SoftwareOrdemDeServico/Controller/Outros/ControllerEmpresa.cs" line="30" column="47" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

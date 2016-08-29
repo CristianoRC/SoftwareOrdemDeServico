@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
+using View.Pessoas;
 
 namespace View
 {
@@ -297,9 +298,14 @@ namespace View
             Application.Exit();
         }
 
+        //TODO: Aqui esta nos menus de OS, mas é só para testes.
         private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-           
+            Frm_Cliente frm_Cliente = new Frm_Cliente();
+
+            frm_Cliente.MdiParent = this;
+
+            frm_Cliente.Show();
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
