@@ -20,9 +20,16 @@ namespace View.OS
 
                 MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            AtualizarListaOS();
         }
 
         private void Frm_ExcluirOS_Load(object sender, EventArgs e)
+        {
+            AtualizarListaOS();
+        }
+
+        private void AtualizarListaOS()
         {
             Txt_Os.Items.Clear();
 

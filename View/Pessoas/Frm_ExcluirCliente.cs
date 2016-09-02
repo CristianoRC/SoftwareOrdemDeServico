@@ -20,14 +20,31 @@ namespace View.Pessoas
 
                 MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Txt_Pessoa.DataSource = ControllerPessoa.CarregarLista();
-                Txt_Pessoa.Refresh();
+                AtualizarListaDeClientes();
             }
         }
 
         private void Frm_ExcluirPessoaFisica_Load(object sender, EventArgs e)
         {
-            Txt_Pessoa.DataSource = ControllerPessoa.CarregarLista();
+            AtualizarListaDeClientes();
+        }
+
+        private void AtualizarListaDeClientes()
+        {
+            Txt_Pessoa.Items.Clear();
+
+            System.Data.DataTable tabela = new System.Data.DataTable();
+
+            tabela = ControllerPessoa.CarregarListaDeNomes();
+
+
+            foreach (System.Data.DataRow r in tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in tabela.Columns) 
+                {
+                    Txt_Pessoa.Items.Add(r[c].ToString());      
+                }
+            }
         }
     }
 }

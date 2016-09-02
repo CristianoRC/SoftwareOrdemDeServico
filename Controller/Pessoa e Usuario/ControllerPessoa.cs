@@ -213,7 +213,7 @@ namespace Controller
 
             cmd.v_text = "delete from pessoa Where Nome = #nome#";
 
-            cmd.AddParameter("nome", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("nome", Spartacus.Database.Type.STRING);
             cmd.SetValue("nome", Nome);
 
             try

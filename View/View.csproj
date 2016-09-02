@@ -132,11 +132,8 @@
     <Compile Include="OS\Frm_ExcluirOS.Designer.cs">
       <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pessoas\Frm_ExcluirPessoaFisica.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Pessoas\Frm_ExcluirPessoaFisica.Designer.cs">
-      <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
+      <DependentUpon>Frm_ExcluirCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicos\Frm_ExcluirServico.cs">
       <SubType>Form</SubType>
@@ -228,11 +225,8 @@
     <Compile Include="Outros\Frm_Sobre.Designer.cs">
       <DependentUpon>Frm_Sobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pessoas\Frm_ListarFisica.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Pessoas\Frm_ListarFisica.Designer.cs">
-      <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
+      <DependentUpon>Frm_ListarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Pessoas\Frm_Pessoa.Designer.cs">
       <DependentUpon>Frm_Cliente.cs</DependentUpon>
@@ -258,7 +252,7 @@
       <DependentUpon>Frm_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaFisica.resx">
-      <DependentUpon>Frm_ExcluirPessoaFisica.cs</DependentUpon>
+      <DependentUpon>Frm_ExcluirCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ExcluirServico.resx">
       <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>
@@ -306,7 +300,7 @@
       <DependentUpon>Frm_Sobre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ListarFisica.resx">
-      <DependentUpon>Frm_ListarFisica.cs</DependentUpon>
+      <DependentUpon>Frm_ListarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_Pessoa.resx">
       <DependentUpon>Frm_Cliente.cs</DependentUpon>
@@ -338,6 +332,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Pessoas\Frm_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ExcluirCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pessoas\Frm_ListarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

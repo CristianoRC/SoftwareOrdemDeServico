@@ -19,10 +19,19 @@ namespace View.Usuario
 
                 MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+            AtualziarListaDeUsuarios();
         }
 
         private void Frm_ExcluirUsuario_Load(object sender, EventArgs e)
         {
+            AtualziarListaDeUsuarios();
+        }
+
+        private void AtualziarListaDeUsuarios()
+        {
+
+            Txt_Tecnicos.Items.Clear();
+
             System.Data.DataTable tabela = new System.Data.DataTable();
 
             tabela = ControllerUsuario.CarregarListaDeNomes();
