@@ -227,7 +227,7 @@
             // 
             this.novoToolStripMenuItem2.Image = global::View.Properties.Resources.Create_New_100;
             this.novoToolStripMenuItem2.Name = "novoToolStripMenuItem2";
-            this.novoToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.novoToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.novoToolStripMenuItem2.Text = "&Finalizar";
             this.novoToolStripMenuItem2.Click += new System.EventHandler(this.novoToolStripMenuItem2_Click);
             // 
@@ -235,7 +235,7 @@
             // 
             this.listarToolStripMenuItem.Image = global::View.Properties.Resources.List_100;
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listarToolStripMenuItem.Text = "&Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -243,7 +243,7 @@
             // 
             this.excluirToolStripMenuItem5.Image = global::View.Properties.Resources.Delete_512;
             this.excluirToolStripMenuItem5.Name = "excluirToolStripMenuItem5";
-            this.excluirToolStripMenuItem5.Size = new System.Drawing.Size(117, 22);
+            this.excluirToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem5.Text = "&Excluir";
             this.excluirToolStripMenuItem5.Click += new System.EventHandler(this.excluirToolStripMenuItem5_Click);
             // 
@@ -264,6 +264,7 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem2.Text = "&Cadastrar / Editar";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -271,6 +272,7 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem3.Text = "&Listar";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -278,6 +280,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem1.Text = "&Excluir";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // usuariosToolStripMenuItem
             // 

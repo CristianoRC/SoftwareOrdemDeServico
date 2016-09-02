@@ -79,8 +79,8 @@ namespace View.OS
 
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string Retorno = ControllerOrdemServico.Editar(PreencherOS());
 
@@ -98,28 +98,6 @@ namespace View.OS
             Txt_Equipamento.Clear();
             Txt_Nserie.Clear();
             Txt_Observacoes.Clear();
-        }
-
-        /// <summary>
-        /// Carregando as informações dos TxtBox para a Classe OS
-        /// </summary>
-        /// <returns></returns>
-        private OrdemServico PreencherOS()
-        {
-            OrdemServico OSBase = new OrdemServico();
-
-            OSBase.ID = IDChamado; // IDChamado vaeriavel utilizada para salvar o ID que esta sendo editado no momento
-            OSBase.dataEntradaServico = Txt_DataEntrada.Text;
-            OSBase.Defeito = Txt_Defeito.Text;
-            OSBase.Descricao = Txt_Descricao.Text;
-            OSBase.Equipamento = Txt_Equipamento.Text;
-            OSBase.IDCliente = ControllerPessoa.VerificarID(Txt_Cliente.Text);
-            OSBase.IDTecnico = IDTecnico;
-            OSBase.NumeroSerie = Txt_Nserie.Text;
-            OSBase.Observacao = Txt_Observacoes.Text;
-            OSBase.Situacao = Txt_Situacao.Text;
-
-            return OSBase;
         }
     }
 }

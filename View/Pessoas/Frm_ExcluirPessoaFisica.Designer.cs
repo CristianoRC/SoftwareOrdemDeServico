@@ -55,9 +55,6 @@
             // Txt_Pessoa
             // 
             this.Txt_Pessoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_Pessoa.Items.AddRange(new object[] {
-            "Administrador",
-            "Técnico"});
             this.Txt_Pessoa.Location = new System.Drawing.Point(68, 18);
             this.Txt_Pessoa.Name = "Txt_Pessoa";
             this.Txt_Pessoa.Size = new System.Drawing.Size(206, 21);

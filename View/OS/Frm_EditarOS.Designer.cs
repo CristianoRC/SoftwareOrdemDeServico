@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_EditarOS));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Txt_IDPesquisa = new System.Windows.Forms.ComboBox();
             this.Btm_Carregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_IDPesquisa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Cliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.Txt_DataEntrada = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Descricao = new System.Windows.Forms.TextBox();
             this.Lbl_Descricao = new System.Windows.Forms.Label();
@@ -56,6 +56,21 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(833, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 248);
+            this.button1.TabIndex = 44;
+            this.toolTip1.SetToolTip(this.button1, "Salvar");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -67,6 +82,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 44);
             this.panel1.TabIndex = 0;
+            // 
+            // Txt_IDPesquisa
+            // 
+            this.Txt_IDPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_IDPesquisa.Items.AddRange(new object[] {
+            "Administrador",
+            "Técnico"});
+            this.Txt_IDPesquisa.Location = new System.Drawing.Point(126, 10);
+            this.Txt_IDPesquisa.Name = "Txt_IDPesquisa";
+            this.Txt_IDPesquisa.Size = new System.Drawing.Size(207, 21);
+            this.Txt_IDPesquisa.TabIndex = 29;
             // 
             // Btm_Carregar
             // 
@@ -86,17 +112,6 @@
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Ordem de serviço:";
-            // 
-            // Txt_IDPesquisa
-            // 
-            this.Txt_IDPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_IDPesquisa.Items.AddRange(new object[] {
-            "Administrador",
-            "Técnico"});
-            this.Txt_IDPesquisa.Location = new System.Drawing.Point(126, 10);
-            this.Txt_IDPesquisa.Name = "Txt_IDPesquisa";
-            this.Txt_IDPesquisa.Size = new System.Drawing.Size(207, 21);
-            this.Txt_IDPesquisa.TabIndex = 29;
             // 
             // label2
             // 
@@ -126,20 +141,6 @@
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 29;
             this.label3.Text = "Cliente";
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(833, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 248);
-            this.button1.TabIndex = 44;
-            this.toolTip1.SetToolTip(this.button1, "Salvar");
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Txt_DataEntrada
             // 

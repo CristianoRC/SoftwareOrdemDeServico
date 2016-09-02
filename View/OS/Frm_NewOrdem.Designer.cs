@@ -127,7 +127,7 @@
             // 
             // Txt_Descricao
             // 
-            this.Txt_Descricao.Location = new System.Drawing.Point(527, 145);
+            this.Txt_Descricao.Location = new System.Drawing.Point(527, 101);
             this.Txt_Descricao.Multiline = true;
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(207, 120);
@@ -136,7 +136,7 @@
             // Lbl_Descricao
             // 
             this.Lbl_Descricao.AutoSize = true;
-            this.Lbl_Descricao.Location = new System.Drawing.Point(452, 145);
+            this.Lbl_Descricao.Location = new System.Drawing.Point(452, 101);
             this.Lbl_Descricao.Name = "Lbl_Descricao";
             this.Lbl_Descricao.Size = new System.Drawing.Size(55, 13);
             this.Lbl_Descricao.TabIndex = 18;

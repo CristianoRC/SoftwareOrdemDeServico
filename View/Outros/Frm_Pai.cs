@@ -298,14 +298,8 @@ namespace View
             Application.Exit();
         }
 
-        //TODO: Aqui esta nos menus de OS, mas é só para testes.
         private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Frm_Cliente frm_Cliente = new Frm_Cliente();
-
-            frm_Cliente.MdiParent = this;
-
-            frm_Cliente.Show();
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -343,6 +337,33 @@ namespace View
             Imprimir.MdiParent = this;
 
             Imprimir.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Frm_Cliente frm_cliente = new Frm_Cliente();
+
+            frm_cliente.MdiParent = this;
+
+            frm_cliente.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Frm_ListarFisica frm_ListarCliente = new Frm_ListarFisica();
+
+            frm_ListarCliente.MdiParent = this;
+
+            frm_ListarCliente.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_ExcluirPessoaFisica frm_ExcluirPessoa = new Frm_ExcluirPessoaFisica();
+
+            frm_ExcluirPessoa.MdiParent = this;
+
+            frm_ExcluirPessoa.Show();
         }
     }
 }
