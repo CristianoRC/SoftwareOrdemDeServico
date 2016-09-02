@@ -99,5 +99,26 @@ namespace View.OS
             Txt_Nserie.Clear();
             Txt_Observacoes.Clear();
         }
+
+
+        /// <summary>
+        /// Carregando as informações dos TxtBox para a Classe Cliente.
+        /// </summary>
+        /// <returns></returns>
+        private OrdemServico PreencherOS()
+        {
+            OrdemServico OSBase = new OrdemServico();
+
+            OSBase.dataEntradaServico = Txt_DataEntrada.Text;
+            OSBase.Defeito = Txt_Defeito.Text;
+            OSBase.Descricao = Txt_Descricao.Text;
+            OSBase.Equipamento = Txt_Equipamento.Text;
+            OSBase.IDCliente = Convert.ToInt32(Txt_Cliente.Text);
+            OSBase.IDTecnico = IDTecnico;
+            OSBase.NumeroSerie = Txt_Nserie.Text;
+            OSBase.Observacao = Txt_Observacoes.Text;
+            OSBase.Situacao = Txt_Situacao.Text;
+            return OSBase;
+        }
     }
 }

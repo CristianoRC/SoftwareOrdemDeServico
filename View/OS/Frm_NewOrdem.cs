@@ -38,13 +38,13 @@ namespace View.OS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Retorno = ControllerOrdemServico.Salvar(CarregarCliente());
+            string Retorno = ControllerOrdemServico.Salvar(PreencherOS());
 
             MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ControllerOrdemServico.CreatPDF(CarregarCliente());
+                ControllerOrdemServico.CreatPDF(PreencherOS());
             }
 
             if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -72,7 +72,7 @@ namespace View.OS
         /// Carregando as informações dos TxtBox para a Classe Cliente.
         /// </summary>
         /// <returns></returns>
-        private OrdemServico CarregarCliente()
+        private OrdemServico PreencherOS()
         {
             OrdemServico OSBase = new OrdemServico();
 

@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerServico.cs">
+    <Files>
+      <File FileName="Controller/Ordem de Servico/ControllerServico.cs" Line="49" Column="54" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
