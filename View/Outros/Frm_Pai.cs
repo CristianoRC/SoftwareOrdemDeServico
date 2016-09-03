@@ -13,16 +13,18 @@ namespace View
             InitializeComponent();
         }
 
+        //Informações dos técnicos para os forms de OS.
         string Usuario;
         bool NivelAcesso;
         int Id;
 
-        public Frm_Pai(string usuario, bool nivelAcesso,int Id)
+        public Frm_Pai(string usuario, bool nivelAcesso,int id)
         {
             InitializeComponent();
 
             Usuario = usuario;
             NivelAcesso = nivelAcesso;
+            Id = id;
 
             if (NivelAcesso == false) // Técnico e o que faz a manutenção;
             {

@@ -23,10 +23,8 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = @"insert into ordemdeservico 
-                        (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico) 
-                        values(#situacao#,#defeito#,#descricao#,#observacao#,#numeroDeSerie#,
-                               #equipamento#,#dataEntradaServico#,#idCliente#,#idTecnico#);";
+            cmd.v_text = @"insert into OrdemDeServico (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico)
+                                                values(#situacao#,#defeito#,#descricao#,#observacao#,#numeroDeSerie#,#equipamento#,#dataEntradaServico#,#idCliente#,#idTecnico#)";
 
 
             cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
@@ -36,8 +34,8 @@ namespace Controller
             cmd.AddParameter("numeroDeSerie", Spartacus.Database.Type.STRING);
             cmd.AddParameter("equipamento", Spartacus.Database.Type.STRING);
             cmd.AddParameter("dataEntradaServico", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("idCliente", Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("idTecnico", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idCliente",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idTecnico",Spartacus.Database.Type.INTEGER);
 
             cmd.SetValue("situacao", Os.Situacao);
             cmd.SetValue("defeito", Os.Defeito);
@@ -46,13 +44,14 @@ namespace Controller
             cmd.SetValue("numeroDeSerie", Os.NumeroSerie);
             cmd.SetValue("equipamento", Os.Equipamento);
             cmd.SetValue("dataEntradaServico", Os.dataEntradaServico);
-            cmd.SetValue("idCliente", Os.IDCliente.ToString());
-            cmd.SetValue("idTecnico", Os.IDTecnico.ToString());
-
+            cmd.SetValue("idCliente",Os.IDCliente.ToString());
+            cmd.SetValue("idTecnico",Os.IDTecnico.ToString());
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+                
+                string teste = cmd.GetUpdatedText();
 
                 database.Execute(cmd.GetUpdatedText());
 
@@ -106,28 +105,28 @@ namespace Controller
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
             cmd.v_text = @"update OrdemDeServico set 
-                       Situacao = #Situacao#,
-                       Defeito = #Defeito#,
-                       Descricao = #Descricao#,
-                       Observacao = #Observacao#,
-                       NumeroDeSerie = #NumeroDeSerie#,
-                       Equipamento = #Equipamento#,
-                       Equipamentoo = #DataEntradaServico#,
-                       IdCliente = #IdCliente#,
-                       IdCliente = #IdTecnico#
-                       Where ID = #ID#";
+                       Situacao = #situacao#,
+                       Defeito = #defeito#,
+                       Descricao = #descricao#,
+                       Observacao = #observacao#,
+                       NumeroDeSerie = #numeroDeSerie#,
+                       Equipamento = #equipamento#,
+                       Equipamentoo = #dataEntradaServico#,
+                       IdCliente = #idCliente#,
+                       IdCliente = #idTecnico#
+                       Where ID = #iD#";
 
 
-            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("Situacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Defeito", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Descricao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Observacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("NumeroDeSerie", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("Equipamento", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("IdCliente", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("IdTecnico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("iD", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("defeito", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("descricao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("observacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("numeroDeSerie", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("equipamento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("dataEntradaServico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("idCliente", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idTecnico", Spartacus.Database.Type.INTEGER);
             
 
             cmd.SetValue("ID", OS.ID.ToString());

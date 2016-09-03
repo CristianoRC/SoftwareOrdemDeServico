@@ -14,20 +14,11 @@ namespace View.Formularios_Usuarios
         {
             string saida = "";
 
-            if (!ControllerUsuario.Verificar(Txt_Login.Text))
-            {
                 saida = ControllerUsuario.Salvar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
 
                 Txt_Login.Clear();
                 Txt_Senha.Clear();
-            }
-            else
-            {
-                saida = "Usuario já cadastrado!";
-            }
-
-
-
+          
             MessageBox.Show(String.Format("{0}", saida), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

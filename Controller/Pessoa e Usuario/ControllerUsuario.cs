@@ -23,33 +23,42 @@ namespace Controller
         {
             string Saida = "";
 
-            Spartacus.Database.Generic dataBase;
-            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
-
-            cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso) values (#login#,#senha#,#nivelacesso#);";
-
-            cmd.AddParameter("login", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
-
-            cmd.SetValue("login", Nome);
-            cmd.SetValue("senha", Senha);
-            cmd.SetValue("nivelacesso", NivelAcesso.ToString());
-
-            try
+            if (!VerificarExistenciaUsuario(Nome))
             {
-                dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
+                Spartacus.Database.Generic dataBase;
+                Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-                dataBase.Execute(cmd.GetUpdatedText());
+                cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso) values (#login#,#senha#,#nivelacesso#);";
 
-                Saida = "Tecnico cadastrado com sucesso!";
+                cmd.AddParameter("login", Spartacus.Database.Type.STRING);
+                cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
+                cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
+
+                cmd.SetValue("login", Nome);
+                cmd.SetValue("senha", Senha);
+                cmd.SetValue("nivelacesso", NivelAcesso.ToString());
+
+                try
+                {
+                    dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                    dataBase.Execute(cmd.GetUpdatedText());
+
+                    Saida = "Tecnico cadastrado com sucesso!";
+                }
+                catch (Exception Exc)
+                {
+                    ControllerArquivoLog.GeraraLog(Exc);
+
+                    Saida = ("Erro: " + Exc.Message);
+                }
             }
-            catch (Exception Exc)
+            else
             {
-                ControllerArquivoLog.GeraraLog(Exc);
-
-                Saida = ("Erro: " + Exc.Message);
+                Saida = "Erro! já existe um usuário com esse mesmo login";
             }
+
+            
 
             return Saida;
         }
@@ -364,12 +373,12 @@ namespace Controller
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        public static bool Verificar(string login)
+        public static bool VerificarExistenciaUsuario(string login)
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
             DataTable tabela = new DataTable("Tabela");
-
+       
             cmd.v_text = "select Login from Tecnicos where login = #login#";
 
             cmd.AddParameter("login",Spartacus.Database.Type.STRING);

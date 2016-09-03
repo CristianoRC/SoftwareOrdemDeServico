@@ -21,6 +21,8 @@ namespace View.OS
 
         private void Frm_NewOrdem_Load(object sender, EventArgs e)
         {
+            Txt_DataEntrada.Text = DateTime.Now.ToString("dd/MM/yy");
+
             Txt_Clientes.Items.Clear();
 
             System.Data.DataTable Tabela = new System.Data.DataTable();

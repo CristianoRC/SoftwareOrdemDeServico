@@ -69,7 +69,7 @@ namespace View.OS
                 Txt_Equipamento.Text = OrdemDeServico.Equipamento;
                 Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
                 Txt_Descricao.Text = OrdemDeServico.Descricao;
-                //Criar função para retornar nome atravez do ID do cliente Txt_Cliente.Text = 
+                Txt_Cliente.Text = Controller.ControllerPessoa.Carregar(OrdemDeServico.IDCliente).Nome;
 
             }
             else
@@ -113,7 +113,7 @@ namespace View.OS
             OSBase.Defeito = Txt_Defeito.Text;
             OSBase.Descricao = Txt_Descricao.Text;
             OSBase.Equipamento = Txt_Equipamento.Text;
-            OSBase.IDCliente = Convert.ToInt32(Txt_Cliente.Text);
+            OSBase.IDCliente = ControllerPessoa.VerificarID(Txt_Cliente.Text);
             OSBase.IDTecnico = IDTecnico;
             OSBase.NumeroSerie = Txt_Nserie.Text;
             OSBase.Observacao = Txt_Observacoes.Text;
