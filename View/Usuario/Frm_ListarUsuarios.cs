@@ -13,6 +13,8 @@ namespace View.Usuario
 
         private void Frm_ListarUsuarios_Load(object sender, EventArgs e)
         {
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             Data_Os.DataSource = ControllerUsuario.CarregarLista();
         }
     }

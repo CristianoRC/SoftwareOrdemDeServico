@@ -14,7 +14,7 @@ namespace View
 
         private void Frm_ListarServico_Load(object sender, EventArgs e)
         {
-          
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
     }
 }

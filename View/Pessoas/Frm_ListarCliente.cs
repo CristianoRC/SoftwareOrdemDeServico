@@ -15,6 +15,7 @@ namespace View.Pessoas
 
         private void Frm_ListarFisica_Load(object sender, EventArgs e)
         {
+           Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
            Data_Os.DataSource = ControllerPessoa.CarregarLista();
         }
     }

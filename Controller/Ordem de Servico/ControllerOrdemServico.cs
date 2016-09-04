@@ -23,8 +23,9 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = @"insert into OrdemDeServico (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico)
-                                                values(#situacao#,#defeito#,#descricao#,#observacao#,#numeroDeSerie#,#equipamento#,#dataEntradaServico#,#idCliente#,#idTecnico#)";
+            cmd.v_text = @"insert into OrdemDeServico 
+                           (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico)
+                           values(#situacao#,#defeito#,#descricao#,#observacao#,#numerodeserie#,#equipamento#,#dataentradaservico#,#idcliente#,#idtecnico#)";
 
 
             cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
@@ -50,9 +51,7 @@ namespace Controller
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-                
-                string teste = cmd.GetUpdatedText();
-
+              
                 database.Execute(cmd.GetUpdatedText());
 
                 return "Ordem de serviço foi salva com sucesso!";
@@ -109,12 +108,12 @@ namespace Controller
                        Defeito = #defeito#,
                        Descricao = #descricao#,
                        Observacao = #observacao#,
-                       NumeroDeSerie = #numeroDeSerie#,
+                       NumeroDeSerie = #numerodeserie#,
                        Equipamento = #equipamento#,
-                       Equipamentoo = #dataEntradaServico#,
-                       IdCliente = #idCliente#,
-                       IdCliente = #idTecnico#
-                       Where ID = #iD#";
+                       Equipamento = #dataentradaservico#,
+                       IdCliente = #idcliente#,
+                       IdCliente = #idtecnico#
+                       Where ID = #id#";
 
 
             cmd.AddParameter("iD", Spartacus.Database.Type.INTEGER);
