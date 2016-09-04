@@ -25,6 +25,8 @@ namespace View.OS
 
             Txt_Clientes.Items.Clear();
 
+
+            //Preenchendo o ComboBox com o nome de Clientes
             System.Data.DataTable Tabela = new System.Data.DataTable();
 
             Tabela = ControllerPessoa.CarregarListaDeNomes();
@@ -36,6 +38,13 @@ namespace View.OS
                     Txt_Clientes.Items.Add(r[c].ToString());
                 }
             }
+
+            //Colocando o primeiro da lista no combobox para não ficar vazio.
+            if(Txt_Clientes.Items.Count  != 0)
+            {
+                Txt_Clientes.Text = Txt_Clientes.Items[0].ToString();
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

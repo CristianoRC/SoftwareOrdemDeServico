@@ -14,16 +14,13 @@ namespace View.OS
             InitializeComponent();
         }
 
-        //TODO:Arrumar o botão de salvar OS editada que não esta funcionando.
-
         private int IDTecnico;
         private int IDChamado;
-
+       
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
             Txt_Cliente.Items.Clear();
             Txt_IDPesquisa.Items.Clear();
-            Txt_DataEntrada.Text = DateTime.Now.ToString("dd-MM-yy");
 
             System.Data.DataTable Tabela = new System.Data.DataTable();
 
@@ -108,7 +105,7 @@ namespace View.OS
         private OrdemServico PreencherOS()
         {
             OrdemServico OSBase = new OrdemServico();
-
+            OSBase.ID = IDChamado;
             OSBase.dataEntradaServico = Txt_DataEntrada.Text;
             OSBase.Defeito = Txt_Defeito.Text;
             OSBase.Descricao = Txt_Descricao.Text;

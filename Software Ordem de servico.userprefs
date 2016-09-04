@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="13" Column="21" />
+      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="153" Column="17" />
+      <File FileName="View/OS/Frm_EditarOS.cs" Line="114" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

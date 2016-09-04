@@ -110,22 +110,22 @@ namespace Controller
                        Observacao = #observacao#,
                        NumeroDeSerie = #numerodeserie#,
                        Equipamento = #equipamento#,
-                       Equipamento = #dataentradaservico#,
+                       DataEntradaServico = #dataentradaservico#,
                        IdCliente = #idcliente#,
-                       IdCliente = #idtecnico#
+                       IdTecnico = #idtecnico#
                        Where ID = #id#";
 
 
-            cmd.AddParameter("iD", Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("defeito", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("descricao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("observacao", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("numeroDeSerie", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("equipamento", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("dataEntradaServico", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("idCliente", Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("idTecnico", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("ID", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("Situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Defeito", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Descricao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Observacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("NumeroDeSerie", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("Equipamento", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("IdCliente", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("IdTecnico", Spartacus.Database.Type.INTEGER);
             
 
             cmd.SetValue("ID", OS.ID.ToString());
