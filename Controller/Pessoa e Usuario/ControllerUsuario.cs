@@ -28,15 +28,17 @@ namespace Controller
                 Spartacus.Database.Generic dataBase;
                 Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-                cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso) values (#login#,#senha#,#nivelacesso#);";
+                cmd.v_text = "insert into Tecnicos (login,senha,nivelacesso,Status) values (#login#,#senha#,#nivelacesso#,#status#);";
 
                 cmd.AddParameter("login", Spartacus.Database.Type.STRING);
                 cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
                 cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
+                cmd.AddParameter("Status",Spartacus.Database.Type.BOOLEAN);
 
                 cmd.SetValue("login", Nome);
                 cmd.SetValue("senha", Senha);
                 cmd.SetValue("nivelacesso", NivelAcesso.ToString());
+                cmd.SetValue("status", Convert.ToString('1'));
 
                 try
                 {
@@ -126,7 +128,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query("Select * from tecnicos", "Tecnicos");
+                Tabela = dataBase.Query("Select * from tecnicos where Status <> '0'", "Tecnicos");
             }
             catch (Exception Exc)
             {
@@ -151,7 +153,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query("Select login from tecnicos", "Tecnicos");
+                Tabela = dataBase.Query("Select login from tecnicos where Status <> '0'", "Tecnicos");
             }
             catch (Exception Exc)
             {
@@ -271,11 +273,14 @@ namespace Controller
             DataTable Tabela = new DataTable("Tecnicos");
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "Select * from Tecnicos where Login = #login# and Senha = #senha#";
+            cmd.v_text = "Select * from Tecnicos where Login = #login# and Senha = #senha# and Status <> #status#";
 
             cmd.AddParameter("Login",Spartacus.Database.Type.STRING);
             cmd.AddParameter("senha", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
 
+
+            cmd.SetValue("status",Convert.ToString('0'));
             cmd.SetValue("Login",Login);
             cmd.SetValue("senha",Senha);
 
@@ -317,9 +322,13 @@ namespace Controller
 
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "delete from Tecnicos where Id = #id#";
+            cmd.v_text = "update Tecnicos set Status = #status# Where Id = #id#";
+
             cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
+
             cmd.SetValue("id",ID.ToString());
+            cmd.SetValue("status", Convert.ToString('0'));
 
             try
             {
@@ -348,8 +357,13 @@ namespace Controller
             Spartacus.Database.Generic dataBase;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "delete from Tecnicos where Login = #login#";
+
+            cmd.v_text = "update Tecnicos set Status = #status# Where Login = #login#";
+
             cmd.AddParameter("login",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
+
+            cmd.SetValue("status", Convert.ToString('0'));
             cmd.SetValue("login",login);
 
             try
@@ -382,6 +396,7 @@ namespace Controller
             cmd.v_text = "select Login from Tecnicos where login = #login#";
 
             cmd.AddParameter("login",Spartacus.Database.Type.STRING);
+
             cmd.SetValue("login", login);
 
             try

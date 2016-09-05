@@ -305,9 +305,6 @@ namespace Controller
             }
 
             return PreencherCliente(tabela);
-
-            database.Close();
-            tabela.Dispose();
         }
 
         /// <summary>

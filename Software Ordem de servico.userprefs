@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="View/View.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Pessoa e Usuario/ControllerUsuario.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="153" Column="17" />
-      <File FileName="View/OS/Frm_EditarOS.cs" Line="114" Column="42" />
+      <File FileName="Controller/Pessoa e Usuario/ControllerUsuario.cs" Line="103" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
