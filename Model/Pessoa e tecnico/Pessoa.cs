@@ -4,7 +4,7 @@ namespace Model.Pessoa_e_Usuario
 {
      public class Pessoa
     {
-        public string ID {get;set;}
+        public int ID {get;set;}
         public string Nome {get;set;}
         public string Tipo {get;set;}
         public string Endereco {get;set;}
@@ -13,6 +13,7 @@ namespace Model.Pessoa_e_Usuario
         public string Cidade {get;set;}
         public string Bairro {get;set;}
         public string Cep {get;set;}
+        public bool Status {get;set;}
 
         //Física
         public string Sexo {get;set;}

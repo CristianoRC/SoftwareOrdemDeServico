@@ -27,6 +27,7 @@ namespace Controller
         /// <returns></returns>
         public static String Salvar(Pessoa cliente)
         {
+            char nivelAcesso = '1';
             string Saida = "";
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
@@ -36,11 +37,11 @@ namespace Controller
                         (Nome,Tipo,Endereco,Email,
                          SiglaEstado,Cidade,Bairro,CEP,
                          Sexo,CPF,Celular,DataDeNascimento,
-                         RazaoSocial,Cnpj,InscricaoEstadual)
+                         RazaoSocial,Cnpj,InscricaoEstadual,Status)
                          values (#nome#,#tipo#,#endereco#,#email#,
-                                 #siglaEstado#,#cidade#,#bairro#,#cep#,
-                                 #sexo#,#cpf#,#celular#,#dataDeNascimento#,
-                                 #razaoSocial#,#cnpj#,#inscricaoEstadual#);";
+                                 #siglaestado#,#cidade#,#bairro#,#cep#,
+                                 #sexo#,#cpf#,#celular#,#datadenascimento#,
+                                 #razaosocial#,#cnpj#,#inscricaoestadual#,#status#);";
 
 
             cmd.AddParameter("nome", Spartacus.Database.Type.STRING);
@@ -58,7 +59,7 @@ namespace Controller
             cmd.AddParameter("razaoSocial", Spartacus.Database.Type.STRING);
             cmd.AddParameter("cnpj", Spartacus.Database.Type.STRING);
             cmd.AddParameter("inscricaoEstadual", Spartacus.Database.Type.STRING);
-
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
 
             cmd.SetValue("nome", cliente.Nome);
             cmd.SetValue("tipo", cliente.Tipo);
@@ -69,12 +70,14 @@ namespace Controller
             cmd.SetValue("bairro", cliente.Bairro);
             cmd.SetValue("cep", cliente.Cep);
             cmd.SetValue("sexo", cliente.Sexo);
-            cmd.SetValue("cpd", cliente.Cpf);
+            cmd.SetValue("cpf", cliente.Cpf);
             cmd.SetValue("celular", cliente.Celular);
             cmd.SetValue("dataDeNascimento", cliente.DataDeNascimento);
             cmd.SetValue("razaoSocial", cliente.RazaoSocial);
             cmd.SetValue("cnpj", cliente.Cnpj);
             cmd.SetValue("inscricaoEstadual", cliente.InscricaoEstadual);
+            cmd.SetValue("status", nivelAcesso.ToString()); //Passa o valor 1(true), porque na criação o usuário já sai ativo.
+
 
             if (Verificar(cliente.Nome) == false)
             {
@@ -82,7 +85,6 @@ namespace Controller
 
                 try
                 {
-
                     database.Execute(cmd.GetUpdatedText());
 
                     Saida = "Cliente registrada com sucesso!";
@@ -134,17 +136,17 @@ namespace Controller
                     Tipo = #tipo#,
                     Endereco = #endereco#,
                     Email = #email#,
-                    SiglaEstado = #siglaEstado#,
+                    SiglaEstado = #siglaestado#,
                     Cidade = #cidade#,
                     Bairro = #bairro#,
                     CEP = #cep#,
                     Sexo = #sexo#,
                     CPF = #cpf#,
                     Celular = #celular#,
-                    DataDeNascimento = #dataDeNascimento#,
-                    RazaoSocial = #razaoSocial#,
+                    DataDeNascimento = #datadenascimento#,
+                    RazaoSocial = #razaosocial#,
                     Cnpj = #cnpj#,
-                    InscricaoEstadual = #inscricaoEstadual#
+                    InscricaoEstadual = #inscricaoestadual#
                     where ID = #id#";
 
 
@@ -165,7 +167,7 @@ namespace Controller
             cmd.AddParameter("cnpj", Spartacus.Database.Type.STRING);
             cmd.AddParameter("inscricaoEstadual", Spartacus.Database.Type.STRING);
 
-            cmd.SetValue("id", cliente.ID);
+            cmd.SetValue("id", cliente.ID.ToString());
             cmd.SetValue("nome", cliente.Nome);
             cmd.SetValue("tipo", cliente.Tipo);
             cmd.SetValue("endereco", cliente.Endereco);
@@ -207,14 +209,18 @@ namespace Controller
         /// <returns>Resultado da operação</returns>
         public static string Deletar(string Nome)
         {
+            char nivelAcesso = '0';
             string saida = String.Format("cliente {0} foi excluido com sucesso!", Nome);
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "delete from pessoa Where Nome = #nome#";
+            cmd.v_text = "update pessoa set Status = #status# Where Nome = #nome#";
 
             cmd.AddParameter("nome", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("status",Spartacus.Database.Type.INTEGER);
+
             cmd.SetValue("nome", Nome);
+            cmd.SetValue("status", nivelAcesso.ToString());//Recebe o valor 0(false), para desativar usuário
 
             try
             {
@@ -237,14 +243,17 @@ namespace Controller
         /// <param name="Nome">Nome.</param>
         public static bool Verificar(string Nome)
         {
+            //TODO:Problemas na verificação, esta salvando 2 logins iguais.
+
             bool PessoaEncontrada = false;
             Spartacus.Database.Generic dataBase;
             System.Data.DataTable Tabela;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "select * from pessoa where Nome = #Nome#";
+            cmd.v_text = "select * from pessoa where Nome = #nome#";
 
             cmd.AddParameter("Nome", Spartacus.Database.Type.STRING);
+
             cmd.SetValue("Nome", Nome);
 
             try
@@ -296,6 +305,9 @@ namespace Controller
             }
 
             return PreencherCliente(tabela);
+
+            database.Close();
+            tabela.Dispose();
         }
 
         /// <summary>
@@ -325,6 +337,7 @@ namespace Controller
             }
 
             return PreencherCliente(tabela);
+
         }
 
         /// <summary>
@@ -333,14 +346,23 @@ namespace Controller
         /// <returns>The lista.</returns>
         public static DataTable CarregarLista()
         {
+            char nivelAcesso = '0';//0(Flase)
             Spartacus.Database.Generic database;
             System.Data.DataTable tabela = new DataTable("Pessoas");
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "select * from pessoa where status <> #status#";
+
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
+            cmd.SetValue("status",nivelAcesso.ToString());
+
+
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select * from pessoa", "Pessoas");
+                tabela = database.Query(cmd.GetUpdatedText(), "Pessoas");
             }
             catch (Exception ex)
             {
@@ -356,14 +378,21 @@ namespace Controller
         /// <returns>The lista.</returns>
         public static DataTable CarregarListaDeNomes()
         {
+            char nivelAcesso = '0';//0(Flase)
             Spartacus.Database.Generic database;
             System.Data.DataTable tabela = new DataTable("Pessoas");
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "select Nome from pessoa where status <> #status#";
+
+            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
+            cmd.SetValue("status",nivelAcesso.ToString());
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select Nome from pessoa", "Pessoas");
+                tabela = database.Query(cmd.GetUpdatedText(), "Pessoas");
             }
             catch (Exception ex)
             {
@@ -394,7 +423,7 @@ namespace Controller
                     }
                 }
 
-                Cliente.ID = InfoCliente[0];
+                Cliente.ID = Convert.ToInt16(InfoCliente[0]);
                 Cliente.Nome = InfoCliente[1];
                 Cliente.Tipo = InfoCliente[2];
                 Cliente.Endereco = InfoCliente[3];
@@ -404,16 +433,20 @@ namespace Controller
                 Cliente.Bairro = InfoCliente[7];
                 Cliente.Cep = InfoCliente[8];
                 Cliente.Sexo = InfoCliente[9];
-                Cliente.Celular = InfoCliente[10];
-                Cliente.DataDeNascimento = InfoCliente[11];
-                Cliente.RazaoSocial = InfoCliente[12];
-                Cliente.Cnpj = InfoCliente[13];
-                Cliente.InscricaoEstadual = InfoCliente[14];
+                Cliente.Cpf = InfoCliente[10];
+                Cliente.Celular = InfoCliente[11];
+                Cliente.DataDeNascimento = InfoCliente[12];
+                Cliente.RazaoSocial = InfoCliente[13];
+                Cliente.Cnpj = InfoCliente[14];
+                Cliente.InscricaoEstadual = InfoCliente[15];
+                Cliente.Status = Convert.ToBoolean(InfoCliente[16]); //TODO:Verificar esse código.
             }
             catch (Exception ex)
             {
                 ControllerArquivoLog.GeraraLog(ex);
             }
+
+            InfoCliente.Clear();
             return Cliente;
         }
 

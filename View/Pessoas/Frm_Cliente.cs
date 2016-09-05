@@ -12,6 +12,8 @@ namespace View.Pessoas
             InitializeComponent();
         }
 
+        private int IDCarregado;
+
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
             if (!ControllerPessoa.Verificar(Txt_Nome.Text))//Se ele não existir crie um novo, senão edite apenas
@@ -26,19 +28,8 @@ namespace View.Pessoas
 
         private void Frm_PessoaFisica_Load(object sender, EventArgs e)
         {
-            Txt_Pessoa.Items.Clear();
-
-            System.Data.DataTable tabela = new System.Data.DataTable();
-
-            tabela = ControllerPessoa.CarregarListaDeNomes();
-
-            foreach (System.Data.DataRow r in tabela.Rows)
-            {
-                foreach (System.Data.DataColumn c in tabela.Columns) 
-                {
-                    Txt_Pessoa.Items.Add(r[c].ToString());      
-                }
-            }  
+            //Colocando os valores sem Acentuação, pois na hora de carregar da problema, pois o banco salva sem acento.
+            AtualziarLsitaDeClientes();
         }
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
@@ -50,7 +41,6 @@ namespace View.Pessoas
             Txt_Nome.Text = PessoaFBase.Nome;
             Txt_Endereco.Text = PessoaFBase.Endereco;
             Txt_Email.Text = PessoaFBase.Email;
-            Txt_Tipo.Text = PessoaFBase.Tipo;
             Txt_Estado.Text = PessoaFBase.SiglaEstado;
             Txt_Cidade.Text = PessoaFBase.Cidade;
             Txt_Bairro.Text = PessoaFBase.Bairro;
@@ -68,6 +58,19 @@ namespace View.Pessoas
             Txt_RazaoSocial.Text = PessoaFBase.RazaoSocial;
             Txt_InscricaoEstadual.Text = PessoaFBase.InscricaoEstadual;
 
+            IDCarregado = PessoaFBase.ID;
+
+            //Preenchendo as informações no comboBox Tipo
+            if (PessoaFBase.Tipo == "Física" || PessoaFBase.Tipo == "Fisica" )
+            {
+                Txt_Tipo.Text = Txt_Tipo.Items[0].ToString();
+            }
+            else
+            {
+                Txt_Tipo.Text =  Txt_Tipo.Items[1].ToString();
+            }
+
+
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,12 +80,22 @@ namespace View.Pessoas
 
         private void salvar()
         {
-            ControllerPessoa.Salvar(PreencherInformacoes());
+            string  Saida = ControllerPessoa.Salvar(PreencherInformacoes());
+
+            MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            LimparCampos();
+            AtualziarLsitaDeClientes();
         }
 
         private void editar()
         {
-            ControllerPessoa.Editar(PreencherInformacoes());
+            String Saida = ControllerPessoa.Editar(PreencherInformacoes());
+
+            MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            LimparCampos();
+            AtualziarLsitaDeClientes();
         }
 
         /// <summary>
@@ -114,7 +127,55 @@ namespace View.Pessoas
             PessoaBase.RazaoSocial = Txt_RazaoSocial.Text;
             PessoaBase.InscricaoEstadual = Txt_InscricaoEstadual.Text;
 
+            PessoaBase.ID = IDCarregado;
+
             return PessoaBase;
+        }
+
+        /// <summary>
+        /// Limpando todos os TextBox
+        /// </summary>
+        private void LimparCampos()
+        {
+            Txt_Nome.Clear();
+            Txt_Endereco.Clear();
+            Txt_Email.Clear();
+            Txt_Tipo.Text = "";
+            Txt_Estado.Text = "";
+            Txt_Cidade.Clear();
+            Txt_Bairro.Clear();
+            Txt_Cep.Clear();
+
+            //Parte de Pessoa Física
+            Txt_CPF.Clear();
+            Txt_Celular.Clear();
+            Txt_Sexo.Text = "";
+            Txt_DataNacimento.Clear();
+
+            //Parte Jurídica
+            Txt_CNPJ.Clear();
+            Txt_Contato.Clear();
+            Txt_RazaoSocial.Clear();
+            Txt_InscricaoEstadual.Clear();
+        }
+
+        private void AtualziarLsitaDeClientes()
+        {
+            Txt_Pessoa.Items.Clear();
+
+            System.Data.DataTable tabela = new System.Data.DataTable();
+
+            tabela = ControllerPessoa.CarregarListaDeNomes();
+
+            foreach (System.Data.DataRow r in tabela.Rows)
+            {
+                foreach (System.Data.DataColumn c in tabela.Columns) 
+                {
+                    Txt_Pessoa.Items.Add(r[c].ToString());      
+                }
+            }
+
+            Txt_Pessoa.Text = Txt_Pessoa.Items[0].ToString();
         }
     }
 }
