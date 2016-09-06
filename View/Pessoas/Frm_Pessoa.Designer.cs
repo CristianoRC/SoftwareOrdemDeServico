@@ -41,8 +41,6 @@
             this.Txt_Bairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Txt_Observacoes = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.Txt_Estado = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Txt_CPF = new System.Windows.Forms.MaskedTextBox();
@@ -56,16 +54,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Cep = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Txt_Pessoa = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Btm_Carregar = new System.Windows.Forms.Button();
-            this.Fisica = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TabControl = new System.Windows.Forms.TabControl();
+            this.tabPage_Fisica = new System.Windows.Forms.TabPage();
+            this.tabPage_Juridica = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Txt_RazaoSocial = new System.Windows.Forms.TextBox();
             this.Txt_CNPJ = new System.Windows.Forms.MaskedTextBox();
@@ -76,12 +73,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.Txt_Tipo = new System.Windows.Forms.ComboBox();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.Fisica.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.TabControl.SuspendLayout();
+            this.tabPage_Fisica.SuspendLayout();
+            this.tabPage_Juridica.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,7 +136,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 272);
+            this.label5.Location = new System.Drawing.Point(408, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 8;
@@ -146,7 +144,7 @@
             // 
             // Txt_Cidade
             // 
-            this.Txt_Cidade.Location = new System.Drawing.Point(519, 102);
+            this.Txt_Cidade.Location = new System.Drawing.Point(485, 141);
             this.Txt_Cidade.Name = "Txt_Cidade";
             this.Txt_Cidade.Size = new System.Drawing.Size(236, 20);
             this.Txt_Cidade.TabIndex = 11;
@@ -154,7 +152,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(440, 106);
+            this.label6.Location = new System.Drawing.Point(406, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 10;
@@ -162,7 +160,7 @@
             // 
             // Txt_Bairro
             // 
-            this.Txt_Bairro.Location = new System.Drawing.Point(519, 137);
+            this.Txt_Bairro.Location = new System.Drawing.Point(485, 180);
             this.Txt_Bairro.Name = "Txt_Bairro";
             this.Txt_Bairro.Size = new System.Drawing.Size(236, 20);
             this.Txt_Bairro.TabIndex = 13;
@@ -170,7 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 141);
+            this.label7.Location = new System.Drawing.Point(406, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 12;
@@ -179,28 +177,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(440, 183);
+            this.label8.Location = new System.Drawing.Point(408, 229);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "CEP";
-            // 
-            // Txt_Observacoes
-            // 
-            this.Txt_Observacoes.Location = new System.Drawing.Point(519, 221);
-            this.Txt_Observacoes.Multiline = true;
-            this.Txt_Observacoes.Name = "Txt_Observacoes";
-            this.Txt_Observacoes.Size = new System.Drawing.Size(236, 73);
-            this.Txt_Observacoes.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(440, 221);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Observações";
             // 
             // Txt_Estado
             // 
@@ -234,7 +215,7 @@
             "São Paulo - SP",
             "Sergipe - SE",
             "Tocantins - TO"});
-            this.Txt_Estado.Location = new System.Drawing.Point(69, 268);
+            this.Txt_Estado.Location = new System.Drawing.Point(486, 103);
             this.Txt_Estado.Name = "Txt_Estado";
             this.Txt_Estado.Size = new System.Drawing.Size(236, 21);
             this.Txt_Estado.TabIndex = 9;
@@ -343,9 +324,8 @@
             // 
             // Btm_Salvar
             // 
-            this.Btm_Salvar.Image = ((System.Drawing.Image)(resources.GetObject("Btm_Salvar.Image")));
             this.Btm_Salvar.Name = "Btm_Salvar";
-            this.Btm_Salvar.Size = new System.Drawing.Size(60, 20);
+            this.Btm_Salvar.Size = new System.Drawing.Size(44, 20);
             this.Btm_Salvar.Text = "&Criar";
             this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
             // 
@@ -353,14 +333,6 @@
             // 
             this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
             this.testeToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Image = global::View.Properties.Resources.Edit_User_100;
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // Txt_Email
             // 
@@ -371,7 +343,7 @@
             // 
             // Txt_Cep
             // 
-            this.Txt_Cep.Location = new System.Drawing.Point(519, 176);
+            this.Txt_Cep.Location = new System.Drawing.Point(487, 222);
             this.Txt_Cep.Mask = "99999-999";
             this.Txt_Cep.Name = "Txt_Cep";
             this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
@@ -419,37 +391,37 @@
             this.Btm_Carregar.UseVisualStyleBackColor = true;
             this.Btm_Carregar.Click += new System.EventHandler(this.Btm_Carregar_Click);
             // 
-            // Fisica
+            // TabControl
             // 
-            this.Fisica.Controls.Add(this.tabPage1);
-            this.Fisica.Controls.Add(this.tabPage2);
-            this.Fisica.Location = new System.Drawing.Point(0, 322);
-            this.Fisica.Name = "Fisica";
-            this.Fisica.SelectedIndex = 0;
-            this.Fisica.Size = new System.Drawing.Size(862, 134);
-            this.Fisica.TabIndex = 22;
+            this.TabControl.Controls.Add(this.tabPage_Fisica);
+            this.TabControl.Controls.Add(this.tabPage_Juridica);
+            this.TabControl.Location = new System.Drawing.Point(0, 268);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(862, 133);
+            this.TabControl.TabIndex = 22;
             // 
-            // tabPage1
+            // tabPage_Fisica
             // 
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(854, 108);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Física";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage_Fisica.Controls.Add(this.panel1);
+            this.tabPage_Fisica.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Fisica.Name = "tabPage_Fisica";
+            this.tabPage_Fisica.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Fisica.Size = new System.Drawing.Size(854, 107);
+            this.tabPage_Fisica.TabIndex = 0;
+            this.tabPage_Fisica.Text = "Física";
+            this.tabPage_Fisica.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabPage_Juridica
             // 
-            this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(854, 108);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Jurídica";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage_Juridica.Controls.Add(this.panel3);
+            this.tabPage_Juridica.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Juridica.Name = "tabPage_Juridica";
+            this.tabPage_Juridica.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Juridica.Size = new System.Drawing.Size(854, 107);
+            this.tabPage_Juridica.TabIndex = 1;
+            this.tabPage_Juridica.Text = "Jurídica";
+            this.tabPage_Juridica.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -544,21 +516,28 @@
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(236, 21);
             this.Txt_Tipo.TabIndex = 23;
+            this.Txt_Tipo.DropDownClosed += new System.EventHandler(this.Txt_Tipo_DropDownClosed);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Image = global::View.Properties.Resources.Edit_User_100;
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // Frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(862, 451);
+            this.ClientSize = new System.Drawing.Size(862, 397);
             this.Controls.Add(this.Txt_Tipo);
-            this.Controls.Add(this.Fisica);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.Txt_Email);
             this.Controls.Add(this.Txt_Estado);
-            this.Controls.Add(this.Txt_Observacoes);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Txt_Bairro);
             this.Controls.Add(this.label7);
@@ -586,9 +565,9 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.Fisica.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.TabControl.ResumeLayout(false);
+            this.tabPage_Fisica.ResumeLayout(false);
+            this.tabPage_Juridica.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -610,8 +589,6 @@
         private System.Windows.Forms.TextBox Txt_Bairro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox Txt_Observacoes;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox Txt_Estado;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
@@ -632,9 +609,9 @@
         private System.Windows.Forms.Button Btm_Carregar;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ComboBox Txt_Pessoa;
-        private System.Windows.Forms.TabControl Fisica;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl TabControl;
+        private System.Windows.Forms.TabPage tabPage_Fisica;
+        private System.Windows.Forms.TabPage tabPage_Juridica;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox Txt_RazaoSocial;
         private System.Windows.Forms.MaskedTextBox Txt_CNPJ;

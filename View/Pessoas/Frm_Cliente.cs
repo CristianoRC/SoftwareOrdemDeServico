@@ -177,5 +177,19 @@ namespace View.Pessoas
 
             Txt_Pessoa.Text = Txt_Pessoa.Items[0].ToString();
         }
+
+        private void Txt_Tipo_DropDownClosed(object sender, EventArgs e)
+        {
+            if (Txt_Tipo.Text == "Física")
+            {
+                TabControl.TabPages[0].Hide();
+                TabControl.TabPages[1].Show();
+            }
+            else
+            {
+                TabControl.TabPages[1].Hide();
+                TabControl.TabPages[0].Show();
+            }
+        }
     }
 }

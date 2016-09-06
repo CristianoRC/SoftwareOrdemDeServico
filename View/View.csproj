@@ -251,8 +251,14 @@
     <EmbeddedResource Include="Outros\Frm_Report.resx">
       <DependentUpon>Frm_Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_Cliente.resx">
+      <DependentUpon>Frm_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pessoas\Frm_ExcluirPessoaFisica.resx">
       <DependentUpon>Frm_ExcluirCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pessoas\Frm_ListarCliente.resx">
+      <DependentUpon>Frm_ListarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ExcluirServico.resx">
       <DependentUpon>Frm_ExcluirServico.cs</DependentUpon>

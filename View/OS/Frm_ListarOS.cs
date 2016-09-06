@@ -14,9 +14,19 @@ namespace View.OS
 
         private void Frm_ListarOS_Load(object sender, EventArgs e)
         {
+            AualizarLista();
+        }
+
+        private void AualizarLista()
+        {
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
+        }
+
+        private void Btm_Atualizar_Click(object sender, EventArgs e)
+        {
+            AualizarLista();
         }
     }
 }

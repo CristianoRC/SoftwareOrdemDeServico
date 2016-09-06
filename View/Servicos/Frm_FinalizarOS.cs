@@ -31,16 +31,18 @@ namespace View
         /// <param name="e"></param>
         private void Frm_Servico_Load(object sender, EventArgs e)
         {
+            System.Data.DataTable TabelaOS = new System.Data.DataTable();
+
+            TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
+
+            foreach (System.Data.DataRow r in TabelaOS.Rows)
+            {
+                foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                {
+                    Txt_IDPesquisa.Items.Add(r[c].ToString());
+                }
+            }
         }
 
-        /// <summary>
-        /// Carregando o valor do serviço para o TextBox(Usado para valores) cada vez que o algo é selecionado no TextBox dos serviços;
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Txt_Servico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-    }
+   }
 }
