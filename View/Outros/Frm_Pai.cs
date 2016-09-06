@@ -83,20 +83,11 @@ namespace View
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
-
-            Pessoa.MdiParent = this;
-
-            Pessoa.Show();
         }
 
         private void jurídicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
-
-            Pessoa.MdiParent = this;
-
-            Pessoa.Show();
+       
         }
 
         private void telaInicialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,20 +225,12 @@ namespace View
 
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_Cliente Pessoa = new Pessoas.Frm_Cliente();
 
-            Pessoa.MdiParent = this;
-
-            Pessoa.Show();
         }
 
         private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_ListarFisica Frm_ListarFisica = new Pessoas.Frm_ListarFisica();
 
-            Frm_ListarFisica.MdiParent = this;
-
-            Frm_ListarFisica.Show();
         }
 
         private void excluirToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -270,11 +253,7 @@ namespace View
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pessoas.Frm_ExcluirPessoaFisica frm_ExcluirPF = new Pessoas.Frm_ExcluirPessoaFisica();
-
-            frm_ExcluirPF.MdiParent = this;
-
-            frm_ExcluirPF.Show();
+          
         }
 
          private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
@@ -343,16 +322,16 @@ namespace View
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Frm_Cliente frm_cliente = new Frm_Cliente();
+            Frm_Clientes frm_Clientes = new Frm_Clientes();
 
-            frm_cliente.MdiParent = this;
+            frm_Clientes.MdiParent = this;
 
-            frm_cliente.Show();
+            frm_Clientes.Show();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Frm_ListarFisica frm_ListarCliente = new Frm_ListarFisica();
+            Frm_ListarClientes frm_ListarCliente = new Frm_ListarClientes();
 
             frm_ListarCliente.MdiParent = this;
 
@@ -361,11 +340,10 @@ namespace View
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Frm_ExcluirPessoaFisica frm_ExcluirPessoa = new Frm_ExcluirPessoaFisica();
+            Frm_ExcluirClientes frm_ExcluirClientes = new Frm_ExcluirClientes();
+            frm_ExcluirClientes.MdiParent = this;
 
-            frm_ExcluirPessoa.MdiParent = this;
-
-            frm_ExcluirPessoa.Show();
+            frm_ExcluirClientes.Show();
         }
     }
 }

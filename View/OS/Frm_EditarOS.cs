@@ -16,7 +16,7 @@ namespace View.OS
 
         private int IDTecnico;
         private int IDChamado;
-       
+
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
             Txt_Cliente.Items.Clear();
@@ -26,26 +26,30 @@ namespace View.OS
 
             Tabela = ControllerPessoa.CarregarListaDeNomes();
 
-            foreach (System.Data.DataRow r in Tabela.Rows)
+            if (Tabela.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in Tabela.Columns)
+                foreach (System.Data.DataRow r in Tabela.Rows)
                 {
-                    Txt_Cliente.Items.Add(r[c].ToString());
+                    foreach (System.Data.DataColumn c in Tabela.Columns)
+                    {
+                        Txt_Cliente.Items.Add(r[c].ToString());
+                    }
                 }
             }
 
             System.Data.DataTable TabelaOS = new System.Data.DataTable();
 
             TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
-
-            foreach (System.Data.DataRow r in TabelaOS.Rows)
+            if (TabelaOS.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                foreach (System.Data.DataRow r in TabelaOS.Rows)
                 {
-                    Txt_IDPesquisa.Items.Add(r[c].ToString());
+                    foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                    {
+                        Txt_IDPesquisa.Items.Add(r[c].ToString());
+                    }
                 }
             }
-
         }
 
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
@@ -76,7 +80,7 @@ namespace View.OS
 
 
         }
-        
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             string Retorno = ControllerOrdemServico.Editar(PreencherOS());

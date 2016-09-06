@@ -31,16 +31,19 @@ namespace View.OS
 
             Tabela = ControllerPessoa.CarregarListaDeNomes();
 
-            foreach (System.Data.DataRow r in Tabela.Rows)
+            if (Tabela.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in Tabela.Columns)
+                foreach (System.Data.DataRow r in Tabela.Rows)
                 {
-                    Txt_Clientes.Items.Add(r[c].ToString());
+                    foreach (System.Data.DataColumn c in Tabela.Columns)
+                    {
+                        Txt_Clientes.Items.Add(r[c].ToString());
+                    }
                 }
             }
 
             //Colocando o primeiro da lista no combobox para não ficar vazio.
-            if(Txt_Clientes.Items.Count  != 0)
+            if (Txt_Clientes.Items.Count != 0)
             {
                 Txt_Clientes.Text = Txt_Clientes.Items[0].ToString();
             }
@@ -60,7 +63,7 @@ namespace View.OS
 
             if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-              //  Email EmailBase = new Email();
+                //  Email EmailBase = new Email();
 
 
                 //TODO:Arrumar o código logo após a manutenção do sistema de e-mail
@@ -68,7 +71,7 @@ namespace View.OS
 
                 //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
 
-               // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Txt_DataEntrada.Clear();

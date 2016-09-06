@@ -13,11 +13,11 @@ namespace View.Usuario
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você deseja realmente excluir esse usuário?","Verificação",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Você deseja realmente excluir esse usuário?", "Verificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               string Saida =  ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
+                string Saida = ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
 
-                MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             AtualziarListaDeUsuarios();
         }
@@ -35,12 +35,14 @@ namespace View.Usuario
             System.Data.DataTable tabela = new System.Data.DataTable();
 
             tabela = ControllerUsuario.CarregarListaDeNomes();
-
-            foreach (System.Data.DataRow r in tabela.Rows)
+            if (tabela.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in tabela.Columns) 
+                foreach (System.Data.DataRow r in tabela.Rows)
                 {
-                    Txt_Tecnicos.Items.Add(r[c]);
+                    foreach (System.Data.DataColumn c in tabela.Columns)
+                    {
+                        Txt_Tecnicos.Items.Add(r[c]);
+                    }
                 }
             }
         }

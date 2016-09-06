@@ -66,7 +66,7 @@
             this.button1.Location = new System.Drawing.Point(833, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(227, 248);
-            this.button1.TabIndex = 44;
+            this.button1.TabIndex = 17;
             this.toolTip1.SetToolTip(this.button1, "Salvar");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -92,7 +92,7 @@
             this.Txt_IDPesquisa.Location = new System.Drawing.Point(126, 10);
             this.Txt_IDPesquisa.Name = "Txt_IDPesquisa";
             this.Txt_IDPesquisa.Size = new System.Drawing.Size(207, 21);
-            this.Txt_IDPesquisa.TabIndex = 29;
+            this.Txt_IDPesquisa.TabIndex = 1;
             // 
             // Btm_Carregar
             // 
@@ -119,7 +119,7 @@
             this.label2.Location = new System.Drawing.Point(919, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 46;
+            this.label2.TabIndex = 18;
             this.label2.Text = "Salvar";
             // 
             // Txt_Cliente
@@ -131,7 +131,7 @@
             this.Txt_Cliente.Location = new System.Drawing.Point(104, 51);
             this.Txt_Cliente.Name = "Txt_Cliente";
             this.Txt_Cliente.Size = new System.Drawing.Size(207, 21);
-            this.Txt_Cliente.TabIndex = 45;
+            this.Txt_Cliente.TabIndex = 2;
             // 
             // label3
             // 
@@ -139,7 +139,7 @@
             this.label3.Location = new System.Drawing.Point(29, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 29;
+            this.label3.TabIndex = 1;
             this.label3.Text = "Cliente";
             // 
             // Txt_DataEntrada
@@ -148,7 +148,7 @@
             this.Txt_DataEntrada.Location = new System.Drawing.Point(532, 55);
             this.Txt_DataEntrada.Name = "Txt_DataEntrada";
             this.Txt_DataEntrada.Size = new System.Drawing.Size(207, 20);
-            this.Txt_DataEntrada.TabIndex = 39;
+            this.Txt_DataEntrada.TabIndex = 12;
             // 
             // Txt_Descricao
             // 
@@ -156,7 +156,7 @@
             this.Txt_Descricao.Multiline = true;
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(207, 120);
-            this.Txt_Descricao.TabIndex = 43;
+            this.Txt_Descricao.TabIndex = 16;
             // 
             // Lbl_Descricao
             // 
@@ -164,7 +164,7 @@
             this.Lbl_Descricao.Location = new System.Drawing.Point(457, 133);
             this.Lbl_Descricao.Name = "Lbl_Descricao";
             this.Lbl_Descricao.Size = new System.Drawing.Size(55, 13);
-            this.Lbl_Descricao.TabIndex = 42;
+            this.Lbl_Descricao.TabIndex = 15;
             this.Lbl_Descricao.Text = "Descrição";
             // 
             // label9
@@ -173,7 +173,7 @@
             this.label9.Location = new System.Drawing.Point(457, 60);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 13);
-            this.label9.TabIndex = 38;
+            this.label9.TabIndex = 11;
             this.label9.Text = "Data entrada";
             // 
             // Txt_Equipamento
@@ -181,7 +181,7 @@
             this.Txt_Equipamento.Location = new System.Drawing.Point(104, 126);
             this.Txt_Equipamento.Name = "Txt_Equipamento";
             this.Txt_Equipamento.Size = new System.Drawing.Size(207, 20);
-            this.Txt_Equipamento.TabIndex = 31;
+            this.Txt_Equipamento.TabIndex = 6;
             // 
             // Lbl_Equipamento
             // 
@@ -189,7 +189,7 @@
             this.Lbl_Equipamento.Location = new System.Drawing.Point(29, 130);
             this.Lbl_Equipamento.Name = "Lbl_Equipamento";
             this.Lbl_Equipamento.Size = new System.Drawing.Size(69, 13);
-            this.Lbl_Equipamento.TabIndex = 30;
+            this.Lbl_Equipamento.TabIndex = 5;
             this.Lbl_Equipamento.Text = "Equipamento";
             // 
             // Txt_Defeito
@@ -198,7 +198,7 @@
             this.Txt_Defeito.Multiline = true;
             this.Txt_Defeito.Name = "Txt_Defeito";
             this.Txt_Defeito.Size = new System.Drawing.Size(207, 97);
-            this.Txt_Defeito.TabIndex = 37;
+            this.Txt_Defeito.TabIndex = 10;
             // 
             // lBL_dEFEITO
             // 
@@ -206,7 +206,7 @@
             this.lBL_dEFEITO.Location = new System.Drawing.Point(29, 221);
             this.lBL_dEFEITO.Name = "lBL_dEFEITO";
             this.lBL_dEFEITO.Size = new System.Drawing.Size(41, 13);
-            this.lBL_dEFEITO.TabIndex = 36;
+            this.lBL_dEFEITO.TabIndex = 9;
             this.lBL_dEFEITO.Text = "Defeito";
             // 
             // Txt_Nserie
@@ -214,7 +214,7 @@
             this.Txt_Nserie.Location = new System.Drawing.Point(104, 178);
             this.Txt_Nserie.Name = "Txt_Nserie";
             this.Txt_Nserie.Size = new System.Drawing.Size(207, 20);
-            this.Txt_Nserie.TabIndex = 35;
+            this.Txt_Nserie.TabIndex = 8;
             // 
             // Lbl_Nserie
             // 
@@ -222,7 +222,7 @@
             this.Lbl_Nserie.Location = new System.Drawing.Point(29, 182);
             this.Lbl_Nserie.Name = "Lbl_Nserie";
             this.Lbl_Nserie.Size = new System.Drawing.Size(64, 13);
-            this.Lbl_Nserie.TabIndex = 34;
+            this.Lbl_Nserie.TabIndex = 7;
             this.Lbl_Nserie.Text = "Nº  de Serie";
             // 
             // Txt_Observacoes
@@ -230,7 +230,7 @@
             this.Txt_Observacoes.Location = new System.Drawing.Point(532, 94);
             this.Txt_Observacoes.Name = "Txt_Observacoes";
             this.Txt_Observacoes.Size = new System.Drawing.Size(207, 20);
-            this.Txt_Observacoes.TabIndex = 41;
+            this.Txt_Observacoes.TabIndex = 14;
             // 
             // Lbl_Observacoes
             // 
@@ -238,7 +238,7 @@
             this.Lbl_Observacoes.Location = new System.Drawing.Point(456, 97);
             this.Lbl_Observacoes.Name = "Lbl_Observacoes";
             this.Lbl_Observacoes.Size = new System.Drawing.Size(70, 13);
-            this.Lbl_Observacoes.TabIndex = 40;
+            this.Lbl_Observacoes.TabIndex = 13;
             this.Lbl_Observacoes.Text = "Observações";
             // 
             // Txt_Situacao
@@ -252,7 +252,7 @@
             this.Txt_Situacao.Location = new System.Drawing.Point(104, 89);
             this.Txt_Situacao.Name = "Txt_Situacao";
             this.Txt_Situacao.Size = new System.Drawing.Size(207, 21);
-            this.Txt_Situacao.TabIndex = 48;
+            this.Txt_Situacao.TabIndex = 4;
             // 
             // label1
             // 
@@ -260,7 +260,7 @@
             this.label1.Location = new System.Drawing.Point(28, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 47;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Situação";
             // 
             // Frm_EditarOS

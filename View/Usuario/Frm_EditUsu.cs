@@ -19,16 +19,18 @@ namespace View.Usuario
             System.Data.DataTable tabela = new System.Data.DataTable("Tecnicos");
 
             tabela = ControllerUsuario.CarregarListaDeNomes();
-
-
-            foreach (System.Data.DataRow r in tabela.Rows)
+            
+            if (tabela.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in tabela.Columns) 
+                foreach (System.Data.DataRow r in tabela.Rows)
                 {
-                    Txt_Tecnicos.Items.Add(r[c].ToString());
+                    foreach (System.Data.DataColumn c in tabela.Columns)
+                    {
+                        Txt_Tecnicos.Items.Add(r[c].ToString());
+                    }
                 }
             }
-       }
+        }
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {

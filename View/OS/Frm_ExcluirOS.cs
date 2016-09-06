@@ -37,11 +37,14 @@ namespace View.OS
 
             TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
 
-            foreach (System.Data.DataRow r in TabelaOS.Rows)
+            if (TabelaOS.Rows.Count != 0)
             {
-                foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                foreach (System.Data.DataRow r in TabelaOS.Rows)
                 {
-                    Txt_Os.Items.Add(r[c].ToString());
+                    foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                    {
+                        Txt_Os.Items.Add(r[c].ToString());
+                    }
                 }
             }
         }

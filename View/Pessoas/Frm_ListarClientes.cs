@@ -1,21 +1,21 @@
-﻿using System;
-using Controller;
-using System.Windows.Forms;
-using Model.Pessoa_e_Usuario;
+﻿using Controller;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace View.Pessoas
 {
-    public partial class Frm_ListarFisica : Form
+    public partial class Frm_ListarClientes : Form
     {
-        public Frm_ListarFisica()
+        public Frm_ListarClientes()
         {
             InitializeComponent();
-        }
-
-        private void Frm_ListarFisica_Load(object sender, EventArgs e)
-        {
-            AtualizarLista();
         }
 
         private void AtualizarLista()
@@ -25,6 +25,11 @@ namespace View.Pessoas
         }
 
         private void Btm_Atualizar_Click(object sender, EventArgs e)
+        {
+            AtualizarLista();
+        }
+
+        private void Frm_ListarClientes_Load(object sender, EventArgs e)
         {
             AtualizarLista();
         }
