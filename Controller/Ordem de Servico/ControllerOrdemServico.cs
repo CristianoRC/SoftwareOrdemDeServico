@@ -157,6 +157,42 @@ namespace Controller
             return Saida;
         }
 
+        /// <summary>
+        /// Finalizando ordem de serviço(Mudando o Status da OS).
+        /// </summary>
+        /// <returns>The O.</returns>
+        public static string FinalizarOS(Trabalho InfoTrabalho)//TODO:Sistema de criar trabalho quando finalizar
+        {
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "update OrdemDeServico set Situacao = #situacao# where ID = #id#";
+
+            cmd.AddParameter("situacao",Spartacus.Database.Type.STRING);
+            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+
+            cmd.SetValue("situacao","Finalizado");
+            cmd.SetValue("id",InfoTrabalho.IdOrdemDeServico.ToString());
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                database.Execute(cmd.GetUpdatedText());
+
+                ControllerServico.Salvar(InfoTrabalho);//Gerar um trabalho, após ter alterado as informações da OS.
+
+                return "Ordem de serviço finalizda com sucesso.";
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+
+                return String.Format("Ocorreu um erro ao tentar finalizar a OS: {0}",ex.Message);
+            }
+
+        }
+
        /// <summary>
        /// Carregando as informações da tabela para a classe de OS.
        /// </summary>
@@ -213,6 +249,28 @@ namespace Controller
         }
 
         /// <summary>
+        /// Retorna um DataTable com todas as Ordens de serviço NÃO FINALIZADAS.
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarListaDeIdsNaoFinalizados()
+        {
+            DataTable tabela = new DataTable("ordemdeservico");
+            Spartacus.Database.Generic database;
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query("select ID from ordemdeservico where Situacao <> 'Finalizado'", "Ordemdeservico");
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return tabela;
+        }
+
+        /// <summary>
         /// Retorna um DataTable com todas as Ordens de serviço.
         /// </summary>
         /// <returns>The lista.</returns>
@@ -225,7 +283,7 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select ID from ordemdeservico", "Ordemdeservico");
+                tabela = database.Query("select ID from ordemdeservico where Situacao <> 'Finalizado'", "Ordemdeservico");
             }
             catch (Exception ex)
             {
@@ -377,4 +435,3 @@ namespace Controller
         }
     }
 }
-//TODO:Orcamento vai estar apenas na opção de Situação, e quando acabar o orcamento gerar um trabalho

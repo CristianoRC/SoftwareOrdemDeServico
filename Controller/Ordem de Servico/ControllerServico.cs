@@ -8,7 +8,6 @@ namespace Controller
 {
     public static class ControllerServico
     {
-        //TODO:Desenvolver o sistema pra quando gerar um trabalho, finzaliar a OS;
 
         /// <summary>
         /// Salvando trabalho
@@ -19,12 +18,14 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "Insert into Trabalhos(OrdemDeServico,Valor) values (#osID#,#valor#)";
-            cmd.AddParameter("osID",Spartacus.Database.Type.INTEGER);
+            cmd.v_text = "Insert into Trabalhos(OrdemDeServico,Valor,Descricao) values (#idordemdeservico#,#valor#,#descricao#)";
+            cmd.AddParameter("idordemdeservico",Spartacus.Database.Type.INTEGER);
             cmd.AddParameter("valor",Spartacus.Database.Type.REAL);
+            cmd.AddParameter("descricao",Spartacus.Database.Type.STRING);
 
-            cmd.SetValue("osID",TrabalhoBase.IdOrdemDeServico.ToString());
+            cmd.SetValue("idordemdeservico",TrabalhoBase.IdOrdemDeServico.ToString());
             cmd.SetValue("valor",TrabalhoBase.Valor.ToString());
+            cmd.SetValue("descricao",TrabalhoBase.Descricao);
 
             try
             {
