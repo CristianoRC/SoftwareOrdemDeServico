@@ -80,9 +80,9 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "delete from Trabalhos where OrdemDeServico = #idOS#";
-            cmd.AddParameter("idOS",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("idOS",NumeroOs.ToString());
+            cmd.v_text = "delete from Trabalhos where ID = #id#";
+            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("id",NumeroOs.ToString());
 
             try
             {
@@ -110,7 +110,33 @@ namespace Controller
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
             DataTable tabela = new DataTable("Trabalhos");
 
-            cmd.v_text = "select * from trabalhos";
+            cmd.v_text = "select t.* from Trabalhos t";
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query(cmd.GetUpdatedText(),"Trabalhos");
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+
+            return tabela;
+        }
+
+        /// <summary>
+        /// Carregando lista de Ids Trabalhos executados.
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarListaDeIds()
+        {
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+            DataTable tabela = new DataTable("Trabalhos");
+
+            cmd.v_text = "select ID from Trabalhos";
 
             try
             {

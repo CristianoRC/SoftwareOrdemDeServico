@@ -14,7 +14,11 @@ namespace View
 
         private void Frm_ListarServico_Load(object sender, EventArgs e)
         {
+            Data_Os.Columns.Clear();
+
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            Data_Os.DataSource = ControllerServico.CarregarLista();
         }
     }
 }

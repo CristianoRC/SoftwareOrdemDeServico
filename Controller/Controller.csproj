@@ -101,7 +101,6 @@
     <Compile Include="Report\ControllerArquivoLog.cs" />
     <Compile Include="Pessoa e Usuario\ControllerPessoa.cs" />
     <Compile Include="DB.cs" />
-    <Compile Include="Servico\ControllerTrabalho.cs" />
     <Compile Include="Ordem de Servico\ControllerServico.cs" />
   </ItemGroup>
   <ItemGroup>
