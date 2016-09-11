@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/OS/Frm_FinalizarOS.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/Servicos/Frm_ListarServico.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="255" Column="56" />
-      <File FileName="View/OS/Frm_FinalizarOS.cs" Line="17" Column="60" />
+      <File FileName="Controller/Ordem de Servico/ControllerServico.cs" Line="24" Column="69" />
+      <File FileName="View/Servicos/Frm_ListarServico.cs" Line="18" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

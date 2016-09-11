@@ -14,8 +14,6 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO:Arrumar sistema de salvar valor com Virgula.
-
         /// <summary>
         /// Finalizando Ordem de serviço (Botão).
         /// </summary>
@@ -74,7 +72,7 @@ namespace View
             Trabalho TrabalhoBase = new Trabalho();
 
             TrabalhoBase.IdOrdemDeServico = Convert.ToInt16(Txt_IDPesquisa.Text);
-            TrabalhoBase.Valor = Convert.ToDouble(Txt_Valor.Text);
+            TrabalhoBase.Valor = Convert.ToDecimal(Txt_Valor.Text);
             TrabalhoBase.Descricao = Txt_Descricao.Text;
 
             return TrabalhoBase;

@@ -8,7 +8,6 @@ namespace Controller
 {
     public static class ControllerServico
     {
-
         /// <summary>
         /// Salvando trabalho
         /// </summary>
@@ -22,6 +21,8 @@ namespace Controller
             cmd.AddParameter("idordemdeservico",Spartacus.Database.Type.INTEGER);
             cmd.AddParameter("valor",Spartacus.Database.Type.REAL);
             cmd.AddParameter("descricao",Spartacus.Database.Type.STRING);
+            cmd.SetLocale("valor",Spartacus.Database.Locale.EUROPEAN);
+
 
             cmd.SetValue("idordemdeservico",TrabalhoBase.IdOrdemDeServico.ToString());
             cmd.SetValue("valor",TrabalhoBase.Valor.ToString());
@@ -173,7 +174,7 @@ namespace Controller
 
             TrabalhoBase.ID = Convert.ToInt32(Informacoes[0]);
             TrabalhoBase.IdOrdemDeServico = Convert.ToInt32(Informacoes[1]);
-            TrabalhoBase.Valor = Convert.ToDouble(Informacoes[2]);
+            TrabalhoBase.Valor = Convert.ToDecimal(Informacoes[2]);
 
             return TrabalhoBase;
         }

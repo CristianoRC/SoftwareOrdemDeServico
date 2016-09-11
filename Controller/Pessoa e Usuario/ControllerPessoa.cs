@@ -436,7 +436,7 @@ namespace Controller
                 Cliente.RazaoSocial = InfoCliente[13];
                 Cliente.Cnpj = InfoCliente[14];
                 Cliente.InscricaoEstadual = InfoCliente[15];
-                Cliente.Status = Convert.ToBoolean(InfoCliente[16]); //TODO:Verificar esse código.
+                Cliente.Status = Convert.ToBoolean(InfoCliente[16]);
             }
             catch (Exception ex)
             {

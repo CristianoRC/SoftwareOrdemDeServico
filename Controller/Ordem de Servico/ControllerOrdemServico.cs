@@ -161,7 +161,7 @@ namespace Controller
         /// Finalizando ordem de serviço(Mudando o Status da OS).
         /// </summary>
         /// <returns>The O.</returns>
-        public static string FinalizarOS(Trabalho InfoTrabalho)//TODO:Sistema de criar trabalho quando finalizar
+        public static string FinalizarOS(Trabalho InfoTrabalho)
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
