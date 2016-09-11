@@ -21,7 +21,7 @@ namespace View
         {
             String saida = ControllerOrdemServico.FinalizarOS(PreencherTrabalho());
 
-            MessageBox.Show(saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Txt_IDPesquisa.Items.Clear();
             Txt_Descricao.Clear();
@@ -30,13 +30,6 @@ namespace View
             atualizarListaDeOS();
         }
 
-        //Evento para Key Press
-//        Se a tecla digitada não for número
-        //        if (!char.IsDigit(e.KeyChar) || !char.IsDigit(e.Virgula))
-//        {
-//            //Atribui True no Handled para cancelar o evento
-//            e.Handled = true;
-//        }
 
         /// <summary>
         /// Carregando o nome de todos os serviços e os adicionando no combo Box(Txt_Servicos).
@@ -77,5 +70,16 @@ namespace View
 
             return TrabalhoBase;
         }
-   }
+
+        private void Txt_Valor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                if (!(e.KeyChar == ',')) //Verifica se é Vírgula.
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+    }
 }

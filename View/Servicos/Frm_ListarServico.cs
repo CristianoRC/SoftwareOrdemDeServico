@@ -14,7 +14,6 @@ namespace View
 
         private void Frm_ListarServico_Load(object sender, EventArgs e)
         {
-            //TODO: Adicionar botão de atualizar lista.
             AtualizarLista();
         }
 
@@ -25,6 +24,11 @@ namespace View
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             Data_Os.DataSource = ControllerServico.CarregarLista();
+        }
+
+        private void Btm_Atualizar_Click(object sender, EventArgs e)
+        {
+            AtualizarLista();
         }
     }
 }

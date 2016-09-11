@@ -67,6 +67,7 @@
             this.Txt_Valor.Size = new System.Drawing.Size(208, 20);
             this.Txt_Valor.TabIndex = 4;
             this.toolTip1.SetToolTip(this.Txt_Valor, "Apenas Numeros");
+            this.Txt_Valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Valor_KeyPress);
             // 
             // label3
             // 
