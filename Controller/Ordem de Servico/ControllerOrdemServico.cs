@@ -38,6 +38,7 @@ namespace Controller
             cmd.AddParameter("idCliente",Spartacus.Database.Type.INTEGER);
             cmd.AddParameter("idTecnico",Spartacus.Database.Type.INTEGER);
 
+            // valor com acento será mantido por causa do false
             cmd.SetValue("situacao", Os.Situacao);
             cmd.SetValue("defeito", Os.Defeito);
             cmd.SetValue("descricao", Os.Descricao);

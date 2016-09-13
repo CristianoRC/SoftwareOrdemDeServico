@@ -7,6 +7,22 @@ namespace View.OS
 {
     public partial class Frm_EditarOS : Form
     {
+        /// <summary>
+        /// Utilizado quando o é chamado pelo formulário de listagem de OS para edicao.
+        /// </summary>
+        /// <param name="idTecnico"></param>
+        /// <param name="IDOs"></param>
+        public Frm_EditarOS(int idTecnico, int IDOs)
+        {
+            IDTecnico = idTecnico;
+            IDChamado = IDOs;
+            InitializeComponent();
+
+            //Carregando as informações passadas pelo form de listagem de OS.
+            CarregarInformacoes(IDChamado);
+            Txt_IDPesquisa.Text = IDChamado.ToString();
+        }
+
         public Frm_EditarOS(int idTecnico)
         {
             IDTecnico = idTecnico;
@@ -54,24 +70,10 @@ namespace View.OS
 
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
         {
-            OrdemServico OrdemDeServico = new OrdemServico();
-
             //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
             if (!String.IsNullOrEmpty(Txt_IDPesquisa.Text))
             {
-                OrdemDeServico = ControllerOrdemServico.Carregar(Convert.ToInt32(Txt_IDPesquisa.Text));
-
-                IDChamado = OrdemDeServico.ID;
-                Txt_Situacao.Text = OrdemDeServico.Situacao;
-                Txt_Defeito.Text = OrdemDeServico.Defeito;
-                Txt_Descricao.Text = OrdemDeServico.Descricao;
-                Txt_Observacoes.Text = OrdemDeServico.Observacao;
-                Txt_Nserie.Text = OrdemDeServico.NumeroSerie;
-                Txt_Equipamento.Text = OrdemDeServico.Equipamento;
-                Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
-                Txt_Descricao.Text = OrdemDeServico.Descricao;
-                Txt_Cliente.Text = Controller.ControllerPessoa.Carregar(OrdemDeServico.IDCliente).Nome;
-
+                CarregarInformacoes(Convert.ToInt32(Txt_IDPesquisa.Text));
             }
             else
             {
@@ -101,6 +103,22 @@ namespace View.OS
             Txt_Observacoes.Clear();
         }
 
+        private void CarregarInformacoes(int id)
+        {
+            OrdemServico OrdemDeServico = new OrdemServico();
+            OrdemDeServico = ControllerOrdemServico.Carregar(id);
+
+            IDChamado = OrdemDeServico.ID;
+            Txt_Situacao.Text = OrdemDeServico.Situacao;
+            Txt_Defeito.Text = OrdemDeServico.Defeito;
+            Txt_Descricao.Text = OrdemDeServico.Descricao;
+            Txt_Observacoes.Text = OrdemDeServico.Observacao;
+            Txt_Nserie.Text = OrdemDeServico.NumeroSerie;
+            Txt_Equipamento.Text = OrdemDeServico.Equipamento;
+            Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
+            Txt_Descricao.Text = OrdemDeServico.Descricao;
+            Txt_Cliente.Text = Controller.ControllerPessoa.Carregar(OrdemDeServico.IDCliente).Nome;
+        }
 
         /// <summary>
         /// Carregando as informações dos TxtBox para a Classe Cliente.

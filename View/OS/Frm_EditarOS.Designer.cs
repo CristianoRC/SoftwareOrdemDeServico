@@ -245,7 +245,7 @@
             // 
             this.Txt_Situacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Txt_Situacao.Items.AddRange(new object[] {
-            "Avaliação",
+            "Avaliacao",
             "Orçamento",
             "Manutenção",
             "Finalizado"});

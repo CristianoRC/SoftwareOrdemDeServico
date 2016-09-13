@@ -49,6 +49,7 @@
             this.Data_Os.Location = new System.Drawing.Point(0, 0);
             this.Data_Os.MultiSelect = false;
             this.Data_Os.Name = "Data_Os";
+            this.Data_Os.ReadOnly = true;
             this.Data_Os.Size = new System.Drawing.Size(374, 413);
             this.Data_Os.TabIndex = 1;
             // 

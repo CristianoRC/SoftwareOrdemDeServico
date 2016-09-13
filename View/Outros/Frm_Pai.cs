@@ -138,7 +138,7 @@ namespace View
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OS.Frm_ListarOS Frm_ListarOS = new OS.Frm_ListarOS();
+            OS.Frm_ListarOS Frm_ListarOS = new OS.Frm_ListarOS(Id);//ID do tecnico, que já vem, pela tela de login.
 
             Frm_ListarOS.MdiParent = this;
 
@@ -285,7 +285,11 @@ namespace View
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            View.OS.Frm_ListarOrcamento frm_ListarOrcamento = new OS.Frm_ListarOrcamento();
+
+            frm_ListarOrcamento.MdiParent = this;
+
+            frm_ListarOrcamento.Show();
         }
 
         private void excluirToolStripMenuItem5_Click(object sender, EventArgs e)

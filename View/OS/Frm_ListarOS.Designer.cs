@@ -49,8 +49,10 @@
             this.Data_Os.Location = new System.Drawing.Point(0, 3);
             this.Data_Os.MultiSelect = false;
             this.Data_Os.Name = "Data_Os";
+            this.Data_Os.ReadOnly = true;
             this.Data_Os.Size = new System.Drawing.Size(1082, 441);
             this.Data_Os.TabIndex = 0;
+            this.Data_Os.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Data_Os_CellMouseDoubleClick);
             // 
             // Btm_Atualizar
             // 
