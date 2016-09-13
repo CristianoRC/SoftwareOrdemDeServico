@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/Servicos/Frm_ListarServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/Usuario/Frm_ListarUsuarios.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerServico.cs" Line="24" Column="69" />
-      <File FileName="View/Servicos/Frm_ListarServico.cs" Line="18" Column="13" />
+      <File FileName="View/Usuario/Frm_ListarUsuarios.cs" Line="13" Column="9" />
+      <File FileName="Controller/Pessoa e Usuario/ControllerUsuario.cs" Line="120" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

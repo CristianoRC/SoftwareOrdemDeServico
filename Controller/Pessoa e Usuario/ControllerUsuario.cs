@@ -35,7 +35,7 @@ namespace Controller
                 cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
                 cmd.AddParameter("Status",Spartacus.Database.Type.BOOLEAN);
 
-                cmd.SetValue("login", Nome);
+                cmd.SetValue("login", Nome.ToLower());
                 cmd.SetValue("senha", Senha);
                 cmd.SetValue("nivelacesso", NivelAcesso.ToString());
                 cmd.SetValue("status", Convert.ToString('1'));
@@ -89,7 +89,7 @@ namespace Controller
             cmd.AddParameter("nivelacesso", Spartacus.Database.Type.BOOLEAN);
             cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
 
-            cmd.SetValue("login", Nome);
+            cmd.SetValue("login", Nome.ToLower());
             cmd.SetValue("senha", Senha);
             cmd.SetValue("nivelacesso", NivelAcesso.ToString());
             cmd.SetValue("id", Id.ToString());
@@ -128,7 +128,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query("Select * from tecnicos where Status <> '0'", "Tecnicos");
+                Tabela = dataBase.Query("Select login,nivelacesso from tecnicos where Status <> '0'", "Tecnicos");
             }
             catch (Exception Exc)
             {
@@ -229,7 +229,7 @@ namespace Controller
             {
                 dataBase = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = '{0}'", Login), "Tecnicos");
+                Tabela = dataBase.Query(String.Format("Select * from tecnicos WHERE Login = '{0}'", Login.ToLower()), "Tecnicos");
 
                 foreach (DataRow r in Tabela.Rows)
                 {
@@ -281,7 +281,7 @@ namespace Controller
 
 
             cmd.SetValue("status",Convert.ToString('0'));
-            cmd.SetValue("Login",Login);
+            cmd.SetValue("Login",Login.ToLower());
             cmd.SetValue("senha",Senha);
 
             try
@@ -364,7 +364,7 @@ namespace Controller
             cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
 
             cmd.SetValue("status", Convert.ToString('0'));
-            cmd.SetValue("login",login);
+            cmd.SetValue("login",login.ToLower());
 
             try
             {
@@ -397,7 +397,7 @@ namespace Controller
 
             cmd.AddParameter("login",Spartacus.Database.Type.STRING);
 
-            cmd.SetValue("login", login);
+            cmd.SetValue("login", login.ToLower());
 
             try
             {

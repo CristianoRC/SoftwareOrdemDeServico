@@ -243,8 +243,6 @@ namespace Controller
         /// <param name="Nome">Nome.</param>
         public static bool Verificar(string Nome)
         {
-            //TODO:Problemas na verificação, esta salvando 2 logins iguais.
-
             bool PessoaEncontrada = false;
             Spartacus.Database.Generic dataBase;
             System.Data.DataTable Tabela;

@@ -62,6 +62,7 @@
             this.Btm_Atualizar.TabIndex = 4;
             this.Btm_Atualizar.Text = "Atualizar";
             this.Btm_Atualizar.UseVisualStyleBackColor = true;
+            this.Btm_Atualizar.Click += new System.EventHandler(this.Btm_Atualizar_Click);
             // 
             // Frm_ListarUsuarios
             // 

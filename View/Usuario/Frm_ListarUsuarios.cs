@@ -13,6 +13,16 @@ namespace View.Usuario
 
         private void Frm_ListarUsuarios_Load(object sender, EventArgs e)
         {
+            AtualizaLista();
+        }
+
+        private void Btm_Atualizar_Click(object sender, EventArgs e)
+        {
+            AtualizaLista();
+        }
+
+        private void AtualizaLista()
+        {
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             Data_Os.DataSource = ControllerUsuario.CarregarLista();
