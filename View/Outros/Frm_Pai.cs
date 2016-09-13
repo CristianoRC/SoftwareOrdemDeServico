@@ -285,7 +285,7 @@ namespace View
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.OS.Frm_ListarOrcamento frm_ListarOrcamento = new OS.Frm_ListarOrcamento();
+            View.OS.Frm_ListarOrcamento frm_ListarOrcamento = new OS.Frm_ListarOrcamento(Id);
 
             frm_ListarOrcamento.MdiParent = this;
 

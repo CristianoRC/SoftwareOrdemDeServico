@@ -64,6 +64,7 @@
             this.Data_Os.ReadOnly = true;
             this.Data_Os.Size = new System.Drawing.Size(1127, 388);
             this.Data_Os.TabIndex = 2;
+            this.Data_Os.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Data_Os_CellMouseDoubleClick);
             // 
             // Frm_ListarOrcamento
             // 

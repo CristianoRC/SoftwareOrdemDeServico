@@ -33,5 +33,14 @@ namespace View.Pessoas
         {
             AtualizarLista();
         }
+
+        private void Data_Os_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int IdCliente = int.Parse(Data_Os.CurrentRow.Cells[0].Value.ToString());
+
+            Frm_Clientes frm_Clientes = new Frm_Clientes(IdCliente);
+
+            frm_Clientes.ShowDialog();
+        }
     }
 }

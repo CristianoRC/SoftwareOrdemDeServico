@@ -58,8 +58,10 @@
             this.Data_Os.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Data_Os.Location = new System.Drawing.Point(0, -1);
             this.Data_Os.Name = "Data_Os";
+            this.Data_Os.ReadOnly = true;
             this.Data_Os.Size = new System.Drawing.Size(1108, 406);
             this.Data_Os.TabIndex = 4;
+            this.Data_Os.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Data_Os_CellMouseDoubleClick);
             // 
             // Frm_ListarClientes
             // 

@@ -19,6 +19,15 @@ namespace View.Pessoas
             InitializeComponent();
         }
 
+        public Frm_Clientes(int IDCliente)
+        {
+            InitializeComponent();
+
+            IDCarregado = IDCliente;
+
+            CarregarInformacoes(IDCliente);
+        }
+
         private int IDCarregado;
 
         private void Frm_Clientes_Load(object sender, EventArgs e)
@@ -147,9 +156,23 @@ namespace View.Pessoas
 
         private void Btm_Carregar_Click(object sender, EventArgs e)
         {
+            CarregarInformacoes(Txt_Pessoa.Text);
+        }
+
+        private void Txt_Tipo_DropDownClosed(object sender, EventArgs e)
+        {
+            CarregarInformacoes(IDCarregado);
+        }
+
+        /// <summary>
+        /// Carrega informações do banco para os textbox
+        /// </summary>
+        /// <param name="id"></param>
+        private void CarregarInformacoes(int id)
+        {
             Pessoa PessoaFBase = new Pessoa();
 
-            PessoaFBase = ControllerPessoa.Carregar(Txt_Pessoa.Text);
+            PessoaFBase = ControllerPessoa.Carregar(id);
 
             Txt_Nome.Text = PessoaFBase.Nome;
             Txt_Endereco.Text = PessoaFBase.Endereco;
@@ -184,9 +207,87 @@ namespace View.Pessoas
             }
         }
 
-        private void Txt_Tipo_DropDownClosed(object sender, EventArgs e)
+        /// <summary>
+        /// Carrega informações do banco para os textbox
+        /// </summary>
+        /// <param name="id"></param>
+        private void CarregarInformacoes(string nome)
         {
-           
+            Pessoa PessoaFBase = new Pessoa();
+
+            PessoaFBase = ControllerPessoa.Carregar(nome);
+
+            Txt_Nome.Text = PessoaFBase.Nome;
+            Txt_Endereco.Text = PessoaFBase.Endereco;
+            Txt_Email.Text = PessoaFBase.Email;
+            Txt_Estado.Text = PessoaFBase.SiglaEstado;
+            Txt_Cidade.Text = PessoaFBase.Cidade;
+            Txt_Bairro.Text = PessoaFBase.Bairro;
+            Txt_Cep.Text = PessoaFBase.Cep;
+
+            //Parte de Pessoa Física
+            Txt_CPF.Text = PessoaFBase.Cpf;
+            Txt_Celular.Text = PessoaFBase.Celular;
+            Txt_Sexo.Text = PessoaFBase.Sexo;
+            Txt_DataNacimento.Text = PessoaFBase.DataDeNascimento.ToString();
+
+            //Parte Jurídica
+            Txt_CNPJ.Text = PessoaFBase.Cnpj;
+            Txt_Contato.Text = PessoaFBase.Contato;
+            Txt_RazaoSocial.Text = PessoaFBase.RazaoSocial;
+            Txt_InscricaoEstadual.Text = PessoaFBase.InscricaoEstadual;
+
+            IDCarregado = PessoaFBase.ID;
+
+            //Preenchendo as informações no comboBox Tipo
+            if (PessoaFBase.Tipo == "Física" || PessoaFBase.Tipo == "Fisica")
+            {
+                Txt_Tipo.Text = Txt_Tipo.Items[0].ToString();
+            }
+            else
+            {
+                Txt_Tipo.Text = Txt_Tipo.Items[1].ToString();
+            }
+        }
+
+        private void Txt_Cep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                    e.Handled = true;   
+            }
+        }
+
+        private void Txt_CPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Txt_Celular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Txt_DataNacimento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Txt_CNPJ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
+            {
+                e.Handled = true;
+            }
         }
     }
 }
