@@ -22,7 +22,7 @@ namespace Controller
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
-
+            
             cmd.v_text = @"insert into OrdemDeServico 
                            (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico)
                            values(#situacao#,#defeito#,#descricao#,#observacao#,#numerodeserie#,#equipamento#,#dataentradaservico#,#idcliente#,#idtecnico#)";
@@ -39,12 +39,12 @@ namespace Controller
             cmd.AddParameter("idTecnico",Spartacus.Database.Type.INTEGER);
 
             // valor com acento será mantido por causa do false
-            cmd.SetValue("situacao", Os.Situacao);
-            cmd.SetValue("defeito", Os.Defeito);
-            cmd.SetValue("descricao", Os.Descricao);
-            cmd.SetValue("observacao", Os.Observacao);
+            cmd.SetValue("situacao", Os.Situacao,false);
+            cmd.SetValue("defeito", Os.Defeito,false);
+            cmd.SetValue("descricao", Os.Descricao,false);
+            cmd.SetValue("observacao", Os.Observacao,false);
             cmd.SetValue("numeroDeSerie", Os.NumeroSerie);
-            cmd.SetValue("equipamento", Os.Equipamento);
+            cmd.SetValue("equipamento", Os.Equipamento,false);
             cmd.SetValue("dataEntradaServico", Os.dataEntradaServico);
             cmd.SetValue("idCliente",Os.IDCliente.ToString());
             cmd.SetValue("idTecnico",Os.IDTecnico.ToString());
@@ -52,7 +52,10 @@ namespace Controller
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-              
+
+                // desabilitando seguranca de execucao de comandos 
+                database.SetExecuteSecurity(false);
+
                 database.Execute(cmd.GetUpdatedText());
 
                 return "Ordem de serviço foi salva com sucesso!";
@@ -97,7 +100,7 @@ namespace Controller
         /// Editando Ordem de serviço
         /// </summary>
         /// <param name="OS">O.</param>
-        public static string Editar(OrdemServico OS)
+        public static string Editar(OrdemServico Os)
         {
             string Saida = "";
 
@@ -127,22 +130,25 @@ namespace Controller
             cmd.AddParameter("DataEntradaServico", Spartacus.Database.Type.STRING);
             cmd.AddParameter("IdCliente", Spartacus.Database.Type.INTEGER);
             cmd.AddParameter("IdTecnico", Spartacus.Database.Type.INTEGER);
-            
 
-            cmd.SetValue("ID", OS.ID.ToString());
-            cmd.SetValue("Situacao", OS.Situacao);
-            cmd.SetValue("Defeito", OS.Defeito);
-            cmd.SetValue("Descricao", OS.Descricao);
-            cmd.SetValue("Observacao", OS.Observacao);
-            cmd.SetValue("NumeroDeSerie", OS.NumeroSerie);
-            cmd.SetValue("Equipamento", OS.Equipamento);
-            cmd.SetValue("DataEntradaServico", OS.dataEntradaServico);
-            cmd.SetValue("IdCliente", OS.IDCliente.ToString());
-            cmd.SetValue("IdTecnico", OS.IDTecnico.ToString());
+
+            // valor com acento será mantido por causa do false
+            cmd.SetValue("situacao", Os.Situacao, false);
+            cmd.SetValue("defeito", Os.Defeito, false);
+            cmd.SetValue("descricao", Os.Descricao, false);
+            cmd.SetValue("observacao", Os.Observacao, false);
+            cmd.SetValue("numeroDeSerie", Os.NumeroSerie);
+            cmd.SetValue("equipamento", Os.Equipamento, false);
+            cmd.SetValue("dataEntradaServico", Os.dataEntradaServico);
+            cmd.SetValue("idCliente", Os.IDCliente.ToString());
+            cmd.SetValue("idTecnico", Os.IDTecnico.ToString());
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                // desabilitando seguranca de execucao de comandos 
+                database.SetExecuteSecurity(false);
 
                 database.Execute(cmd.GetUpdatedText());
 
