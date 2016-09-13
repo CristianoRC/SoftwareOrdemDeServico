@@ -249,45 +249,6 @@ namespace View.Pessoas
                 Txt_Tipo.Text = Txt_Tipo.Items[1].ToString();
             }
         }
-
-        private void Txt_Cep_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
-            {
-                    e.Handled = true;   
-            }
-        }
-
-        private void Txt_CPF_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void Txt_Celular_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void Txt_DataNacimento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void Txt_CNPJ_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))//Verifica se é numero
-            {
-                e.Handled = true;
-            }
-        }
+        
     }
 }

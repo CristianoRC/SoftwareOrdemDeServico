@@ -19,15 +19,22 @@ namespace View
         /// </summary>
         private void finalizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String saida = ControllerOrdemServico.FinalizarOS(PreencherTrabalho());
+            if (!String.IsNullOrEmpty(Txt_IDPesquisa.Text))
+            {
+                String saida = ControllerOrdemServico.FinalizarOS(PreencherTrabalho());
 
-            MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Txt_IDPesquisa.Items.Clear();
-            Txt_Descricao.Clear();
-            Txt_Valor.Clear();
+                Txt_IDPesquisa.Items.Clear();
+                Txt_Descricao.Clear();
+                Txt_Valor.Clear();
 
-            atualizarListaDeOS();
+                atualizarListaDeOS();
+            }
+            else
+            {
+                MessageBox.Show("Escolha uma ordem de serviço!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -80,6 +87,11 @@ namespace View
                     e.Handled = true;
                 }
             }
+        }
+
+        private void Btm_Limpar_Click(object sender, EventArgs e)
+        {
+            Txt_Valor.Clear();
         }
     }
 }

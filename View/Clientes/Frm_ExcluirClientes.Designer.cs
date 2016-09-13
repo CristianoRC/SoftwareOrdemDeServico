@@ -63,6 +63,7 @@
             this.Controls.Add(this.Btm_Deletar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_ExcluirClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excluir Clientes";
             this.Load += new System.EventHandler(this.Frm_ExcluirClientes_Load);
             this.ResumeLayout(false);

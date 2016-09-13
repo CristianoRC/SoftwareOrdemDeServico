@@ -14,17 +14,24 @@ namespace View.Servicos
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-            String Saida = ControllerServico.Deletar(Convert.ToInt16(Txt_IDPesquisa.Text));
+            if (!String.IsNullOrEmpty(Txt_IDPesquisa.Text))
+            {
+                String Saida = ControllerServico.Deletar(Convert.ToInt16(Txt_IDPesquisa.Text));
 
-            MessageBox.Show(Saida,"Informação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            AtualizarLista();
+                AtualizarLista();
+            }
+            else
+            {
+                MessageBox.Show("Insira um valor", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Frm_ExcluirServico_Load(object sender, EventArgs e)
         {
-            AtualizarLista(); 
-           
+            AtualizarLista();
+
         }
 
         private void AtualizarLista()

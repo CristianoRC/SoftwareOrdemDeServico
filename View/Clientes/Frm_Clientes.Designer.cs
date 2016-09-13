@@ -141,7 +141,6 @@
             this.Txt_CPF.Name = "Txt_CPF";
             this.Txt_CPF.Size = new System.Drawing.Size(235, 20);
             this.Txt_CPF.TabIndex = 1;
-            this.Txt_CPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_CPF_KeyPress);
             // 
             // Txt_Celular
             // 
@@ -150,7 +149,6 @@
             this.Txt_Celular.Name = "Txt_Celular";
             this.Txt_Celular.Size = new System.Drawing.Size(235, 20);
             this.Txt_Celular.TabIndex = 3;
-            this.Txt_Celular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Celular_KeyPress);
             // 
             // Txt_DataNacimento
             // 
@@ -161,7 +159,6 @@
             this.Txt_DataNacimento.TabIndex = 7;
             this.Txt_DataNacimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txt_DataNacimento.ValidatingType = typeof(System.DateTime);
-            this.Txt_DataNacimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_DataNacimento_KeyPress);
             // 
             // label13
             // 
@@ -254,7 +251,6 @@
             this.Txt_CNPJ.Name = "Txt_CNPJ";
             this.Txt_CNPJ.Size = new System.Drawing.Size(235, 20);
             this.Txt_CNPJ.TabIndex = 1;
-            this.Txt_CNPJ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_CNPJ_KeyPress);
             // 
             // Txt_Contato
             // 
@@ -355,7 +351,6 @@
             this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
             this.Txt_Cep.TabIndex = 17;
             this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt_Cep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Cep_KeyPress);
             // 
             // Txt_Email
             // 

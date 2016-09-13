@@ -45,14 +45,21 @@ namespace View.Pessoas
 
         private void Btm_Deletar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você deseja mesmo excluir o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!String.IsNullOrEmpty(Txt_Pessoa.Text))
             {
-                String saida = ControllerPessoa.Deletar(Txt_Pessoa.Text);
+                if (MessageBox.Show("Você deseja mesmo excluir o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    String saida = ControllerPessoa.Deletar(Txt_Pessoa.Text);
 
-                MessageBox.Show(saida, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
- 
-                AtualziarLsitaDeClientes();
+                    MessageBox.Show(saida, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    AtualziarLsitaDeClientes();
+                }
             }
+            else
+            {
+                MessageBox.Show("Insira um valor", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }
     }
 }

@@ -13,15 +13,21 @@ namespace View.OS
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
+            if (!String.IsNullOrEmpty(Txt_Os.Text))
             {
-                string saida = ControllerOrdemServico.Deletar(Convert.ToInt16(Txt_Os.Text));
+                if (MessageBox.Show("Você realmente deseja excluir?", "Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)//Verifica se a pessoa quer realmente excluir a Ormde de serviço.
+                {
+                    string saida = ControllerOrdemServico.Deletar(Convert.ToInt16(Txt_Os.Text));
 
-                MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                AtualizarListaOS();
             }
-
-            AtualizarListaOS();
+            else
+            {
+                MessageBox.Show("Insira um valor", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Frm_ExcluirOS_Load(object sender, EventArgs e)
