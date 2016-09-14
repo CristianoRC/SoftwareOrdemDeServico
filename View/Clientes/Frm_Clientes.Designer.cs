@@ -94,7 +94,6 @@
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(236, 21);
             this.Txt_Tipo.TabIndex = 9;
-            this.Txt_Tipo.DropDownClosed += new System.EventHandler(this.Txt_Tipo_DropDownClosed);
             // 
             // TabControl
             // 

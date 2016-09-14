@@ -86,9 +86,6 @@
             // Txt_IDPesquisa
             // 
             this.Txt_IDPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_IDPesquisa.Items.AddRange(new object[] {
-            "Administrador",
-            "Técnico"});
             this.Txt_IDPesquisa.Location = new System.Drawing.Point(126, 10);
             this.Txt_IDPesquisa.Name = "Txt_IDPesquisa";
             this.Txt_IDPesquisa.Size = new System.Drawing.Size(207, 21);
@@ -125,9 +122,6 @@
             // Txt_Cliente
             // 
             this.Txt_Cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_Cliente.Items.AddRange(new object[] {
-            "Administrador",
-            "Técnico"});
             this.Txt_Cliente.Location = new System.Drawing.Point(104, 51);
             this.Txt_Cliente.Name = "Txt_Cliente";
             this.Txt_Cliente.Size = new System.Drawing.Size(207, 21);
@@ -245,7 +239,7 @@
             // 
             this.Txt_Situacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Txt_Situacao.Items.AddRange(new object[] {
-            "Avaliacao",
+            "Avaliação",
             "Orçamento",
             "Manutenção",
             "Finalizado"});

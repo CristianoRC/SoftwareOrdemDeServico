@@ -16,13 +16,11 @@ namespace View.OS
         {
             IDTecnico = idTecnico;
             IDChamado = IDOs;
+            CarregarLista = true;
+            
             InitializeComponent();
-
-            //Carregando as informações passadas pelo form de listagem de OS.
-            CarregarInformacoes(IDChamado);
-            Txt_IDPesquisa.Text = IDChamado.ToString();
         }
-
+        
         public Frm_EditarOS(int idTecnico)
         {
             IDTecnico = idTecnico;
@@ -32,12 +30,10 @@ namespace View.OS
 
         private int IDTecnico;
         private int IDChamado;
+        private bool CarregarLista; //Pega a informação se o formulário foi aberto do form ListaOS
 
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
-            Txt_Cliente.Items.Clear();
-            Txt_IDPesquisa.Items.Clear();
-
             System.Data.DataTable Tabela = new System.Data.DataTable();
 
             Tabela = ControllerPessoa.CarregarListaDeNomes();
@@ -66,6 +62,14 @@ namespace View.OS
                     }
                 }
             }
+            
+            if (CarregarLista)
+            {
+                //Carregando as informações passadas pelo form de listagem de OS.
+                CarregarInformacoes(IDChamado);
+
+                CarregarLista = false;
+            }
         }
 
         private void Btm_Pesquisa_Click(object sender, EventArgs e)
@@ -79,8 +83,6 @@ namespace View.OS
             {
                 MessageBox.Show("Escolha uma ordem de serviço!", "Informações", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -117,7 +119,17 @@ namespace View.OS
             Txt_Equipamento.Text = OrdemDeServico.Equipamento;
             Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
             Txt_Descricao.Text = OrdemDeServico.Descricao;
-            Txt_Cliente.Text = Controller.ControllerPessoa.Carregar(OrdemDeServico.IDCliente).Nome;
+            Txt_Cliente.Text = ControllerPessoa.VerificarNome(OrdemDeServico.IDCliente);
+
+            //Caso o estatus da OS for finalizado, não é possível mudar.
+            if (OrdemDeServico.Situacao == "Finalizado")
+            {
+                Txt_Situacao.Enabled = false;
+            }
+            else
+            {
+                Txt_Situacao.Enabled = true;
+            }
         }
 
         /// <summary>

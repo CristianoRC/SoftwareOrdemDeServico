@@ -48,38 +48,47 @@ namespace View.OS
                 Txt_Clientes.Text = Txt_Clientes.Items[0].ToString();
             }
 
+            Txt_Situacao.Text = Txt_Situacao.Items[0].ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Retorno = ControllerOrdemServico.Salvar(PreencherOS());
-
-            MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!String.IsNullOrEmpty(Txt_Clientes.Text))
             {
-                ControllerOrdemServico.CreatPDF(PreencherOS());
-            }
+                string Retorno = ControllerOrdemServico.Salvar(PreencherOS());
 
-            if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ControllerOrdemServico.CreatPDF(PreencherOS());
+                }
+
+                if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //  Email EmailBase = new Email();
+
+
+                    //TODO:Arrumar o código logo após a manutenção do sistema de e-mail
+                    //string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(CarregarCliente());
+
+                    //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
+
+                    // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                Txt_DataEntrada.Clear();
+                Txt_Defeito.Clear();
+                Txt_Descricao.Clear();
+                Txt_Equipamento.Clear();
+                Txt_Nserie.Clear();
+                Txt_Observacoes.Clear();
+            }
+            else
             {
-                //  Email EmailBase = new Email();
-
-
-                //TODO:Arrumar o código logo após a manutenção do sistema de e-mail
-                //string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(CarregarCliente());
-
-                //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
-
-                // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um cliente!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            Txt_DataEntrada.Clear();
-            Txt_Defeito.Clear();
-            Txt_Descricao.Clear();
-            Txt_Equipamento.Clear();
-            Txt_Nserie.Clear();
-            Txt_Observacoes.Clear();
+           
         }
 
         /// <summary>

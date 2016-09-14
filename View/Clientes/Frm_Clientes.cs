@@ -159,10 +159,6 @@ namespace View.Pessoas
             CarregarInformacoes(Txt_Pessoa.Text);
         }
 
-        private void Txt_Tipo_DropDownClosed(object sender, EventArgs e)
-        {
-            CarregarInformacoes(IDCarregado);
-        }
 
         /// <summary>
         /// Carrega informações do banco para os textbox

@@ -59,7 +59,7 @@ namespace Controller
             cmd.AddParameter("razaoSocial", Spartacus.Database.Type.STRING);
             cmd.AddParameter("cnpj", Spartacus.Database.Type.STRING);
             cmd.AddParameter("inscricaoEstadual", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
+            cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
 
             cmd.SetValue("nome", cliente.Nome);
             cmd.SetValue("tipo", cliente.Tipo);
@@ -217,7 +217,7 @@ namespace Controller
             cmd.v_text = "update pessoa set Status = #status# Where Nome = #nome#";
 
             cmd.AddParameter("nome", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("status",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("status", Spartacus.Database.Type.INTEGER);
 
             cmd.SetValue("nome", Nome);
             cmd.SetValue("status", nivelAcesso.ToString());//Recebe o valor 0(false), para desativar usuário
@@ -348,8 +348,8 @@ namespace Controller
 
             cmd.v_text = "select * from pessoa where status <> #status#";
 
-            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
-            cmd.SetValue("status",nivelAcesso.ToString());
+            cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
+            cmd.SetValue("status", nivelAcesso.ToString());
 
 
 
@@ -380,8 +380,8 @@ namespace Controller
 
             cmd.v_text = "select Nome from pessoa where status <> #status#";
 
-            cmd.AddParameter("status",Spartacus.Database.Type.BOOLEAN);
-            cmd.SetValue("status",nivelAcesso.ToString());
+            cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
+            cmd.SetValue("status", nivelAcesso.ToString());
 
             try
             {
@@ -396,7 +396,7 @@ namespace Controller
 
             return tabela;
         }
-            
+
         /// <summary>
         /// Preenchendo a classe Pessoa com as informações do DataTable
         /// </summary>
@@ -455,7 +455,6 @@ namespace Controller
             int saida = 0;
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
-            DataTable tabela = new DataTable();
 
             cmd.v_text = "Select ID from pessoa where nome = #nome#";
 
@@ -466,16 +465,36 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(cmd.GetUpdatedText(), "pessoas");
+                saida = int.Parse(database.ExecuteScalar(cmd.GetUpdatedText()));
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return saida;
+        }
 
+        /// <summary>
+        /// Retornando o nome atravez do ID
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public static string VerificarNome(int id)
+        {
+            string saida = "";
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-                foreach (DataRow r in tabela.Rows)
-                {
-                    foreach (DataColumn c in tabela.Columns)
-                    {
-                        saida = Convert.ToInt16(r[c]);
-                    }
-                }
+            cmd.v_text = "Select Nome from pessoa where Id = #id#";
+
+            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("id", id.ToString());
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                saida = database.ExecuteScalar(cmd.GetUpdatedText());
             }
             catch (Exception ex)
             {
