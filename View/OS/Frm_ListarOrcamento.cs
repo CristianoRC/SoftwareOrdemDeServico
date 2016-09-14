@@ -23,12 +23,17 @@ namespace View.OS
 
         private void Btm_Atualizar_Click(object sender, EventArgs e)
         {
-
+            AtualizarGrid();
         }
 
         private void Frm_ListarOrcamento_Load(object sender, EventArgs e)
         {
+            AtualizarGrid();
+        }
 
+        private void AtualizarGrid()
+        {
+            Data_Os.DataSource = Controller.ControllerOrdemServico.CarregarListaOrcamentos();
         }
 
         private void Data_Os_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

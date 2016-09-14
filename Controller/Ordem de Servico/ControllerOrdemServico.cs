@@ -300,6 +300,28 @@ namespace Controller
         }
 
         /// <summary>
+        /// Retorna um DataTable com todas os orçamentos.(Ordemd e serviço com Situação = Orçamento)
+        /// </summary>
+        /// <returns>The lista.</returns>
+        public static DataTable CarregarListaOrcamentos()
+        {
+            DataTable tabela = new DataTable("ordemdeservico");
+            Spartacus.Database.Generic database;
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                tabela = database.Query("select * from ordemdeservico where Situacao = 'Orçamento'", "Ordemdeservico");
+            }
+            catch (Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+            return tabela;
+        }
+
+        /// <summary>
         /// Gerando PDF da ordem de serviço. (A ordem de serviço em PDF não fica salvar ela é gerada cada vez que a função é chamada)
         /// </summary>
         /// <param name="Identificador"></param>
