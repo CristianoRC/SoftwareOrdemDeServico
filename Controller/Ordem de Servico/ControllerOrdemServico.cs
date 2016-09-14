@@ -133,6 +133,7 @@ namespace Controller
 
 
             // valor com acento será mantido por causa do false
+            cmd.SetValue("id",Os.ID.ToString());
             cmd.SetValue("situacao", Os.Situacao, false);
             cmd.SetValue("defeito", Os.Defeito, false);
             cmd.SetValue("descricao", Os.Descricao, false);

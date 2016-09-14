@@ -33,6 +33,7 @@ namespace View.OS
 
         private void AtualizarGrid()
         {
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Data_Os.DataSource = Controller.ControllerOrdemServico.CarregarListaOrcamentos();
         }
 
