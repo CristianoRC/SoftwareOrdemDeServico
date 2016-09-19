@@ -27,8 +27,6 @@ namespace View.Opicoes
         {
             try
             {
-                if (Check_Informações.Checked == true)
-                {
                     Model.Empresa EmpresaBase = new Model.Empresa();
 
                     EmpresaBase.Nome = Txt_Nome.Text;
@@ -38,7 +36,7 @@ namespace View.Opicoes
                     string Resultado = ControllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
 
                     MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
 
                 if (TemFoto)
                 {
@@ -58,6 +56,8 @@ namespace View.Opicoes
                         File.Copy(openFileDialog1.FileName, "Logo.png");
                     }
 
+                    pictureBox1.ImageLocation = "Log1.png";
+
                     MessageBox.Show("Logo modificado com sucesso! Reinicie seu software para que as modificações sejam feitas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -72,6 +72,9 @@ namespace View.Opicoes
 
         private void Frm_OpicoesInicial_Load(object sender, EventArgs e)
         {
+
+            pictureBox1.ImageLocation = "Logo.png";
+
             Model.Empresa EmpresaBase = new Model.Empresa();
 
             EmpresaBase = ControllerEmpresa.Load();

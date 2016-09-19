@@ -2,6 +2,7 @@
 using Model.Ordem_de_Servico;
 using System.Windows.Forms;
 using Controller;
+using System.Data;
 
 namespace View.OS
 {
@@ -18,19 +19,11 @@ namespace View.OS
 
         private void Frm_ListarOS_Load(object sender, EventArgs e)
         {
-            AualizarLista();
-        }
+            AualizarGridSemFiltro();
+            AtualizarListaDeClientes();
 
-        private void AualizarLista()
-        {
-            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
-        }
-
-        private void Btm_Atualizar_Click(object sender, EventArgs e)
-        {
-            AualizarLista();
+            comboBox_FiltroInicial.Text = comboBox_FiltroInicial.Items[0].ToString();
+            comboBoxStatus.Text = comboBoxStatus.Items[0].ToString();
         }
 
         private void Data_Os_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -39,6 +32,63 @@ namespace View.OS
             Frm_EditarOS frm_Editaros = new Frm_EditarOS(v_IDTecnico, IdOs);
 
             frm_Editaros.ShowDialog();
+        }
+
+        private void Btm_Atualizar_Click(object sender, EventArgs e)
+        {
+            if (checkBox_Filtro.Checked == true)
+            {
+                AualizarGridComFiltro();
+            }
+            else
+            {
+                AualizarGridSemFiltro();
+                AtualizarListaDeClientes();
+            }
+        }
+
+        private void AualizarGridSemFiltro()
+        {
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
+        }
+
+        private void AualizarGridComFiltro()
+        {
+            string ComandoSQL;
+            int IDCliente = ControllerPessoa.VerificarID(comboBox_Clientes.Text);
+
+            if (comboBoxStatus.Text == "É")
+            {
+                ComandoSQL = "=";
+            }
+            else
+            {
+                ComandoSQL = "<>";
+            }
+
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            Data_Os.DataSource = ControllerOrdemServico.CarregarListaComFiltroDePesquisa(ComandoSQL, IDCliente);
+        }
+
+        private void AtualizarListaDeClientes()
+        {
+            comboBox_Clientes.Items.Clear();
+
+            DataTable tabela = new DataTable("ListaDeNomes");
+            tabela = ControllerPessoa.CarregarListaDeNomes();
+
+            foreach (DataRow r in tabela.Rows)
+            {
+                foreach (DataColumn c in tabela.Columns)
+                {
+                    comboBox_Clientes.Items.Add(r[c].ToString());
+                }
+            }
+
+            comboBox_Clientes.Text = comboBox_Clientes.Items[0].ToString();
         }
     }
 }

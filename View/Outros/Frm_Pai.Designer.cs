@@ -42,11 +42,11 @@
             this.listarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.finalizarOrdemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarServiçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +60,6 @@
             this.EmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailBaseOrçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportarBugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupexibirPainelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,6 +183,23 @@
             this.finalizarOrdemToolStripMenuItem.Text = "&Finalizar ordem";
             this.finalizarOrdemToolStripMenuItem.Click += new System.EventHandler(this.finalizarOrdemToolStripMenuItem_Click);
             // 
+            // orçamentoToolStripMenuItem
+            // 
+            this.orçamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarToolStripMenuItem});
+            this.orçamentoToolStripMenuItem.Image = global::View.Properties.Resources.Cheap_2_100;
+            this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
+            this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.orçamentoToolStripMenuItem.Text = "Orçamentos";
+            // 
+            // listarToolStripMenuItem
+            // 
+            this.listarToolStripMenuItem.Image = global::View.Properties.Resources.List_100;
+            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem.Text = "&Listar";
+            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            // 
             // serviçoToolStripMenuItem
             // 
             this.serviçoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,23 +225,6 @@
             this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(209, 22);
             this.excluirToolStripMenuItem2.Text = "&Excluir serviço";
             this.excluirToolStripMenuItem2.Click += new System.EventHandler(this.excluirToolStripMenuItem2_Click);
-            // 
-            // orçamentoToolStripMenuItem
-            // 
-            this.orçamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarToolStripMenuItem});
-            this.orçamentoToolStripMenuItem.Image = global::View.Properties.Resources.Cheap_2_100;
-            this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
-            this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.orçamentoToolStripMenuItem.Text = "Orçamentos";
-            // 
-            // listarToolStripMenuItem
-            // 
-            this.listarToolStripMenuItem.Image = global::View.Properties.Resources.List_100;
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listarToolStripMenuItem.Text = "&Listar";
-            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
             // pessoaToolStripMenuItem
             // 
@@ -331,7 +330,6 @@
             // 
             this.emailToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailBaseToolStripMenuItem,
-            this.emailBaseOrçamentoToolStripMenuItem,
             this.servidorToolStripMenuItem});
             this.emailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailToolStripMenuItem.Image")));
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
@@ -507,7 +505,6 @@
         private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportarBugsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emailBaseOrçamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem ordemDeServiçoToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
