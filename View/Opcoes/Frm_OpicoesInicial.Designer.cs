@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Check_Informações = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,16 +55,16 @@
             // 
             this.Txt_Nome.Location = new System.Drawing.Point(72, 33);
             this.Txt_Nome.Name = "Txt_Nome";
-            this.Txt_Nome.Size = new System.Drawing.Size(277, 20);
+            this.Txt_Nome.Size = new System.Drawing.Size(316, 20);
             this.Txt_Nome.TabIndex = 1;
             // 
             // Btm_Salvar
             // 
             this.Btm_Salvar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.Btm_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btm_Salvar.Location = new System.Drawing.Point(170, 239);
+            this.Btm_Salvar.Location = new System.Drawing.Point(72, 188);
             this.Btm_Salvar.Name = "Btm_Salvar";
-            this.Btm_Salvar.Size = new System.Drawing.Size(81, 28);
+            this.Btm_Salvar.Size = new System.Drawing.Size(316, 28);
             this.Btm_Salvar.TabIndex = 7;
             this.Btm_Salvar.Text = "Salvar";
             this.Btm_Salvar.UseVisualStyleBackColor = true;
@@ -74,9 +73,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(390, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(437, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 205);
+            this.pictureBox1.Size = new System.Drawing.Size(234, 170);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -85,9 +84,9 @@
             // 
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(104, 184);
+            this.button1.Location = new System.Drawing.Point(437, 188);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 28);
+            this.button1.Size = new System.Drawing.Size(234, 28);
             this.button1.TabIndex = 6;
             this.button1.Text = "Carregar Logo";
             this.button1.UseVisualStyleBackColor = true;
@@ -101,7 +100,7 @@
             // 
             this.Txt_Contato.Location = new System.Drawing.Point(72, 79);
             this.Txt_Contato.Name = "Txt_Contato";
-            this.Txt_Contato.Size = new System.Drawing.Size(277, 20);
+            this.Txt_Contato.Size = new System.Drawing.Size(316, 20);
             this.Txt_Contato.TabIndex = 3;
             // 
             // label2
@@ -117,7 +116,7 @@
             // 
             this.Txt_Endereco.Location = new System.Drawing.Point(72, 124);
             this.Txt_Endereco.Name = "Txt_Endereco";
-            this.Txt_Endereco.Size = new System.Drawing.Size(277, 20);
+            this.Txt_Endereco.Size = new System.Drawing.Size(316, 20);
             this.Txt_Endereco.TabIndex = 5;
             // 
             // label3
@@ -129,23 +128,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Endereço:";
             // 
-            // Check_Informações
-            // 
-            this.Check_Informações.AutoSize = true;
-            this.Check_Informações.Location = new System.Drawing.Point(72, 150);
-            this.Check_Informações.Name = "Check_Informações";
-            this.Check_Informações.Size = new System.Drawing.Size(189, 17);
-            this.Check_Informações.TabIndex = 8;
-            this.Check_Informações.Text = "Modificar Informações da Empresa";
-            this.Check_Informações.UseVisualStyleBackColor = true;
-            // 
             // Frm_OpicoesInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(683, 296);
-            this.Controls.Add(this.Check_Informações);
+            this.ClientSize = new System.Drawing.Size(683, 273);
             this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Contato);
@@ -179,6 +167,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox Check_Informações;
     }
 }

@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ImprimirOS));
-            this.Txt_Pesquisa = new System.Windows.Forms.TextBox();
             this.Btm_Imprimir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Txt_Ids = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // Txt_Pesquisa
-            // 
-            this.Txt_Pesquisa.Location = new System.Drawing.Point(65, 15);
-            this.Txt_Pesquisa.Name = "Txt_Pesquisa";
-            this.Txt_Pesquisa.Size = new System.Drawing.Size(243, 20);
-            this.Txt_Pesquisa.TabIndex = 0;
             // 
             // Btm_Imprimir
             // 
-            this.Btm_Imprimir.Location = new System.Drawing.Point(119, 74);
+            this.Btm_Imprimir.Location = new System.Drawing.Point(326, 12);
             this.Btm_Imprimir.Name = "Btm_Imprimir";
-            this.Btm_Imprimir.Size = new System.Drawing.Size(75, 23);
+            this.Btm_Imprimir.Size = new System.Drawing.Size(114, 23);
             this.Btm_Imprimir.TabIndex = 1;
             this.Btm_Imprimir.Text = "Imprimir";
             this.Btm_Imprimir.UseVisualStyleBackColor = true;
@@ -55,46 +47,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Numero:";
             // 
-            // checkBox1
+            // Txt_Ids
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(65, 41);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Ordem de serviço já finalizada.";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Txt_Ids.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Txt_Ids.FormattingEnabled = true;
+            this.Txt_Ids.Location = new System.Drawing.Point(65, 14);
+            this.Txt_Ids.Name = "Txt_Ids";
+            this.Txt_Ids.Size = new System.Drawing.Size(243, 21);
+            this.Txt_Ids.TabIndex = 3;
             // 
             // Frm_ImprimirOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 109);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(445, 53);
+            this.Controls.Add(this.Txt_Ids);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btm_Imprimir);
-            this.Controls.Add(this.Txt_Pesquisa);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Frm_ImprimirOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Imprimir Ordem de serviço";
+            this.Load += new System.EventHandler(this.Frm_ImprimirOS_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Txt_Pesquisa;
         private System.Windows.Forms.Button Btm_Imprimir;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox Txt_Ids;
     }
 }
