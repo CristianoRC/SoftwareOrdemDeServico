@@ -51,6 +51,11 @@ namespace View.OS
             Txt_Situacao.Text = Txt_Situacao.Items[0].ToString();
         }
 
+        /// <summary>
+        /// Btm Salvar
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Txt_Clientes.Text))
@@ -61,28 +66,17 @@ namespace View.OS
 
                 if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ControllerOrdemServico.CreatPDF(PreencherOS());
+                    ControllerRelatorio.CreatPDF(PreencherOS());
                 }
 
                 if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //  Email EmailBase = new Email();
-
-
-                    //TODO:Arrumar o código logo após a manutenção do sistema de e-mail
-                    //string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(CarregarCliente());
-
-                    //Corrigir bugs acima, ira se arrumar logo após da implementação do sistema de escrever e-mail só para "anexo";
-
-                    // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   //TODO:Arrumar o código após a criação do sistema de e-mail
+                   // string ResultadoEnvio = ControllerEmail.EnviarOrdemDeServiço(OSBase,EmpresaBase,PessoaBase);
+                   // MessageBox.Show(ResultadoEnvio, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                Txt_DataEntrada.Clear();
-                Txt_Defeito.Clear();
-                Txt_Descricao.Clear();
-                Txt_Equipamento.Clear();
-                Txt_Nserie.Clear();
-                Txt_Observacoes.Clear();
+                LimparCampos();
             }
             else
             {
@@ -109,6 +103,16 @@ namespace View.OS
             OSBase.Observacao = Txt_Observacoes.Text;
             OSBase.Situacao = Txt_Situacao.Text;
             return OSBase;
+        }
+
+        private void LimparCampos()
+        {
+            Txt_DataEntrada.Clear();
+            Txt_Defeito.Clear();
+            Txt_Descricao.Clear();
+            Txt_Equipamento.Clear();
+            Txt_Nserie.Clear();
+            Txt_Observacoes.Clear();
         }
     }
 }

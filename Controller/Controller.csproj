@@ -102,6 +102,7 @@
     <Compile Include="Pessoa e Usuario\ControllerPessoa.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Ordem de Servico\ControllerServico.cs" />
+    <Compile Include="ControllerRelatorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

@@ -22,7 +22,7 @@ namespace View
                 EmailBase.Senha = Txt_Senha.Text;
                 EmailBase.Host = Txt_Host.Text;
                 EmailBase.Port = int.Parse(Txt_Porta.Text);
-                string saida =  ControllerEmail.SaveConfig(EmailBase.email, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
+                string saida =  ControllerEmail.SalvarInformacoesLoginServidor(EmailBase.email, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
 
                 MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Mostrando o resultado da Função SaveConfig();
@@ -38,7 +38,7 @@ namespace View
             //Carregando informações do arquivo.
 
             Model.Email EmailBase = new Model.Email();
-            EmailBase = ControllerEmail.LoadConfig();
+            EmailBase = ControllerEmail.CarregarInformacoesLoginServidor();
 
             Txt_Email.Text = EmailBase.email;
             Txt_Senha.Text = EmailBase.Senha;

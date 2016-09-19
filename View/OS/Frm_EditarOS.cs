@@ -93,7 +93,7 @@ namespace View.OS
 
             if (MessageBox.Show("Deseja imprimir o arquivo?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                ControllerOrdemServico.CreatPDF(PreencherOS());
+                ControllerRelatorio.CreatPDF(PreencherOS());
             }
 
 

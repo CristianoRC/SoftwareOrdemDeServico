@@ -292,11 +292,6 @@ namespace View
             frm_ListarOrcamento.Show();
         }
 
-        private void excluirToolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void reportarBugsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Report frm_Report = new Frm_Report();
@@ -304,15 +299,6 @@ namespace View
             frm_Report.MdiParent = this;
 
             frm_Report.Show();
-        }
-
-        private void emailBaseOrçamentoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_EmailBaseOrcamento frm_EmailBaseOrcamento = new Frm_EmailBaseOrcamento();
-
-            frm_EmailBaseOrcamento.MdiParent = this;
-
-            frm_EmailBaseOrcamento.Show();
         }
 
         private void ordemDeServiçoToolStripMenuItem_Click_1(object sender, EventArgs e)

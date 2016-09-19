@@ -13,14 +13,14 @@ namespace View
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControllerEmail.SaveEmailBase(Txt_EmailBase.Text);
+            string Resultado = ControllerEmail.SalvarEmailFinalizacaoOS(Txt_EmailBase.Text);
 
-            MessageBox.Show(ControllerEmail.SaveEmailBase(Txt_EmailBase.Text), "Indormação", MessageBoxButtons.OK, MessageBoxIcon.Information); //Mostrando o resultado da função SaveEmailBase.
+            MessageBox.Show(Resultado ,"Indormação", MessageBoxButtons.OK, MessageBoxIcon.Information); //Mostrando o resultado da função SaveEmailBase.
         }
 
         private void Frm_EmailBase_Load(object sender, EventArgs e)
         {
-            Txt_EmailBase.Text = ControllerEmail.LoadEmailBase();
+            Txt_EmailBase.Text = ControllerEmail.CarregarEmailFinalizacaoOS();
         }
 
         private void Txt_EmailBase_TextChanged(object sender, EventArgs e)

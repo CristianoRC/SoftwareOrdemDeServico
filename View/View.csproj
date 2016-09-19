@@ -108,12 +108,6 @@
     <Compile Include="Email\Frm_EmailBase.Designer.cs">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Email\Frm_EmailBaseOrcamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Email\Frm_EmailBaseOrcamento.Designer.cs">
-      <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
-    </Compile>
     <Compile Include="OS\Frm_ListarOrcamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,9 +199,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Email\Frm_EmailBase.resx">
       <DependentUpon>Frm_EmailBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Email\Frm_EmailBaseOrcamento.resx">
-      <DependentUpon>Frm_EmailBaseOrcamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ExcluirOS.resx">
       <DependentUpon>Frm_ExcluirOS.cs</DependentUpon>

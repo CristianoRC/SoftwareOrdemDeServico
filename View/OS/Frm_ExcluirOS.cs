@@ -20,6 +20,8 @@ namespace View.OS
                     string saida = ControllerOrdemServico.Deletar(Convert.ToInt16(Txt_Os.Text));
 
                     MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ControllerRelatorio.GerarRelatorio();
                 }
 
                 AtualizarListaOS();

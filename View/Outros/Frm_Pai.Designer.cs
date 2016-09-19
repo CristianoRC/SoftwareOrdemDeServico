@@ -346,14 +346,6 @@
             this.emailBaseToolStripMenuItem.Text = "&E-mail Base Final do serviço";
             this.emailBaseToolStripMenuItem.Click += new System.EventHandler(this.emailBaseToolStripMenuItem_Click);
             // 
-            // emailBaseOrçamentoToolStripMenuItem
-            // 
-            this.emailBaseOrçamentoToolStripMenuItem.Image = global::View.Properties.Resources.US_Dollar_100;
-            this.emailBaseOrçamentoToolStripMenuItem.Name = "emailBaseOrçamentoToolStripMenuItem";
-            this.emailBaseOrçamentoToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.emailBaseOrçamentoToolStripMenuItem.Text = "E-mail Base orçamento";
-            this.emailBaseOrçamentoToolStripMenuItem.Click += new System.EventHandler(this.emailBaseOrçamentoToolStripMenuItem_Click);
-            // 
             // servidorToolStripMenuItem
             // 
             this.servidorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("servidorToolStripMenuItem.Image")));
