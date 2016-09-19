@@ -235,33 +235,6 @@ namespace Controller
         }
 
         /// <summary>
-        /// Retorna um DataTable com todas as Ordens de serviço, utilizando um filtro de pesquisa~.
-        /// </summary>
-        /// <returns>The lista.</returns>
-        public static DataTable CarregarListaComFiltroDePesquisa(string filtroSQL, int IDCliente)
-        {
-            DataTable tabela = new DataTable("ordemdeservico");
-            Spartacus.Database.Generic database;
-            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
-
-            cmd.v_text = String.Format("select * from ordemdeservico where idcliente {0} #idcliente#",filtroSQL);
-            cmd.AddParameter("idcliente", Spartacus.Database.Type.STRING);
-            cmd.SetValue("idcliente", IDCliente.ToString());
-
-            try
-            {
-                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-
-                tabela = database.Query(cmd.GetUpdatedText(), "Ordemdeservico");
-            }
-            catch (Exception ex)
-            {
-                ControllerArquivoLog.GeraraLog(ex);
-            }
-            return tabela;
-        }
-
-        /// <summary>
         /// Retorna um DataTable com todas as Ordens de serviço.
         /// </summary>
         /// <returns>The lista.</returns>
