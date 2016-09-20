@@ -16,11 +16,11 @@ namespace View.OS
         {
             IDTecnico = idTecnico;
             IDChamado = IDOs;
-            CarregarLista = true;
+            InicializacaoPeloFormularioExterno = true;
             
             InitializeComponent();
         }
-        
+
         public Frm_EditarOS(int idTecnico)
         {
             IDTecnico = idTecnico;
@@ -30,45 +30,21 @@ namespace View.OS
 
         private int IDTecnico;
         private int IDChamado;
-        private bool CarregarLista; //Pega a informação se o formulário foi aberto do form ListaOS
+        private bool InicializacaoPeloFormularioExterno;
+        //Pega a informação se o formulário foi aberto do form ListaOS
 
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
-            System.Data.DataTable Tabela = new System.Data.DataTable();
+            AtualizarListaDeClintes();
+            AtualizarListaDeOS();
 
-            Tabela = ControllerPessoa.CarregarListaDeNomes();
-
-            if (Tabela.Rows.Count != 0)
-            {
-                foreach (System.Data.DataRow r in Tabela.Rows)
-                {
-                    foreach (System.Data.DataColumn c in Tabela.Columns)
-                    {
-                        Txt_Cliente.Items.Add(r[c].ToString());
-                    }
-                }
-            }
-
-            System.Data.DataTable TabelaOS = new System.Data.DataTable();
-
-            TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
-            if (TabelaOS.Rows.Count != 0)
-            {
-                foreach (System.Data.DataRow r in TabelaOS.Rows)
-                {
-                    foreach (System.Data.DataColumn c in TabelaOS.Columns)
-                    {
-                        Txt_IDPesquisa.Items.Add(r[c].ToString());
-                    }
-                }
-            }
             
-            if (CarregarLista)
+            if (InicializacaoPeloFormularioExterno)
             {
                 //Carregando as informações passadas pelo form de listagem de OS.
-                CarregarInformacoes(IDChamado);
+                PreencherCamposDeTexto(IDChamado);
 
-                CarregarLista = false;
+                InicializacaoPeloFormularioExterno = false;
             }
         }
 
@@ -77,7 +53,7 @@ namespace View.OS
             //Verificado se a ordem de serviço que foi procurada existe e se existir retornar a Ordem de serviço base.
             if (!String.IsNullOrEmpty(Txt_IDPesquisa.Text))
             {
-                CarregarInformacoes(Convert.ToInt32(Txt_IDPesquisa.Text));
+                PreencherCamposDeTexto(Convert.ToInt32(Txt_IDPesquisa.Text));
             }
             else
             {
@@ -105,24 +81,25 @@ namespace View.OS
             Txt_Observacoes.Clear();
         }
 
-        private void CarregarInformacoes(int id)
+        private void PreencherCamposDeTexto(int id)
         {
-            OrdemServico OrdemDeServico = new OrdemServico();
-            OrdemDeServico = ControllerOrdemServico.Carregar(id);
+            OrdemServico InformacoesOrdemDeServico = new OrdemServico();
+            InformacoesOrdemDeServico = ControllerOrdemServico.Carregar(id);
 
-            IDChamado = OrdemDeServico.ID;
-            Txt_Situacao.Text = OrdemDeServico.Situacao;
-            Txt_Defeito.Text = OrdemDeServico.Defeito;
-            Txt_Descricao.Text = OrdemDeServico.Descricao;
-            Txt_Observacoes.Text = OrdemDeServico.Observacao;
-            Txt_Nserie.Text = OrdemDeServico.NumeroSerie;
-            Txt_Equipamento.Text = OrdemDeServico.Equipamento;
-            Txt_DataEntrada.Text = OrdemDeServico.dataEntradaServico;
-            Txt_Descricao.Text = OrdemDeServico.Descricao;
-            Txt_Cliente.Text = ControllerPessoa.VerificarNome(OrdemDeServico.IDCliente);
+            IDChamado = InformacoesOrdemDeServico.ID;
+            Txt_IDPesquisa.Text = InformacoesOrdemDeServico.ID.ToString();
+            Txt_Situacao.Text = InformacoesOrdemDeServico.Situacao;
+            Txt_Defeito.Text = InformacoesOrdemDeServico.Defeito;
+            Txt_Descricao.Text = InformacoesOrdemDeServico.Descricao;
+            Txt_Observacoes.Text = InformacoesOrdemDeServico.Observacao;
+            Txt_Nserie.Text = InformacoesOrdemDeServico.NumeroSerie;
+            Txt_Equipamento.Text = InformacoesOrdemDeServico.Equipamento;
+            Txt_DataEntrada.Text = InformacoesOrdemDeServico.dataEntradaServico;
+            Txt_Descricao.Text = InformacoesOrdemDeServico.Descricao;
+            Txt_Cliente.Text = ControllerPessoa.VerificarNome(InformacoesOrdemDeServico.IDCliente);
 
             //Caso o estatus da OS for finalizado, não é possível mudar.
-            if (OrdemDeServico.Situacao == "Finalizado")
+            if (InformacoesOrdemDeServico.Situacao == "Finalizado")
             {
                 Txt_Situacao.Enabled = false;
             }
@@ -150,6 +127,42 @@ namespace View.OS
             OSBase.Observacao = Txt_Observacoes.Text;
             OSBase.Situacao = Txt_Situacao.Text;
             return OSBase;
+        }
+
+        private void AtualizarListaDeClintes()
+        {
+            System.Data.DataTable Tabela = new System.Data.DataTable();
+
+            Tabela = ControllerPessoa.CarregarListaDeNomes();
+
+            if (Tabela.Rows.Count != 0)
+            {
+                foreach (System.Data.DataRow r in Tabela.Rows)
+                {
+                    foreach (System.Data.DataColumn c in Tabela.Columns)
+                    {
+                        Txt_Cliente.Items.Add(r[c].ToString());
+                    }
+                }
+            }
+        }
+
+        private void AtualizarListaDeOS()
+        {
+            System.Data.DataTable TabelaOS = new System.Data.DataTable();
+
+            TabelaOS = ControllerOrdemServico.CarregarListaDeIds();
+            if (TabelaOS.Rows.Count != 0)
+            {
+                foreach (System.Data.DataRow r in TabelaOS.Rows)
+                {
+                    foreach (System.Data.DataColumn c in TabelaOS.Columns)
+                    {
+                        Txt_IDPesquisa.Items.Add(r[c].ToString());
+                    }
+                }
+            }
+
         }
     }
 }

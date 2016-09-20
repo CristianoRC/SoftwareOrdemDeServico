@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/OS/Frm_EditarOS.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/OS/Frm_ListarOS.cs">
     <Files>
-      <File FileName="View/OS/Frm_ListarOrcamento.cs" Line="5" Column="22" />
-      <File FileName="View/OS/Frm_EditarOS.cs" Line="88" Column="65" />
+      <File FileName="View/OS/Frm_ListarOS.cs" Line="92" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
