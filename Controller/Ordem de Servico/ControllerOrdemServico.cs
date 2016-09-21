@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
-using System.Diagnostics;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using Model;
 using Model.Ordem_de_Servico;
-using Ionic.Zip;
-using System.IO;
-
 
 namespace Controller
 {
@@ -22,11 +16,10 @@ namespace Controller
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
-            
+
             cmd.v_text = @"insert into OrdemDeServico 
                            (Situacao,Defeito,Descricao,Observacao,NumeroDeSerie,Equipamento,DataEntradaServico,IdCliente,IdTecnico)
                            values(#situacao#,#defeito#,#descricao#,#observacao#,#numerodeserie#,#equipamento#,#dataentradaservico#,#idcliente#,#idtecnico#)";
-
 
             cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
             cmd.AddParameter("defeito", Spartacus.Database.Type.STRING);
@@ -35,19 +28,19 @@ namespace Controller
             cmd.AddParameter("numeroDeSerie", Spartacus.Database.Type.STRING);
             cmd.AddParameter("equipamento", Spartacus.Database.Type.STRING);
             cmd.AddParameter("dataEntradaServico", Spartacus.Database.Type.STRING);
-            cmd.AddParameter("idCliente",Spartacus.Database.Type.INTEGER);
-            cmd.AddParameter("idTecnico",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idCliente", Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("idTecnico", Spartacus.Database.Type.INTEGER);
 
             // valor com acento será mantido por causa do false
-            cmd.SetValue("situacao", Os.Situacao,false);
-            cmd.SetValue("defeito", Os.Defeito,false);
-            cmd.SetValue("descricao", Os.Descricao,false);
-            cmd.SetValue("observacao", Os.Observacao,false);
+            cmd.SetValue("situacao", Os.Situacao, false);
+            cmd.SetValue("defeito", Os.Defeito, false);
+            cmd.SetValue("descricao", Os.Descricao, false);
+            cmd.SetValue("observacao", Os.Observacao, false);
             cmd.SetValue("numeroDeSerie", Os.NumeroSerie);
-            cmd.SetValue("equipamento", Os.Equipamento,false);
+            cmd.SetValue("equipamento", Os.Equipamento, false);
             cmd.SetValue("dataEntradaServico", Os.dataEntradaServico);
-            cmd.SetValue("idCliente",Os.IDCliente.ToString());
-            cmd.SetValue("idTecnico",Os.IDTecnico.ToString());
+            cmd.SetValue("idCliente", Os.IDCliente.ToString());
+            cmd.SetValue("idTecnico", Os.IDTecnico.ToString());
 
             try
             {
@@ -133,7 +126,7 @@ namespace Controller
 
 
             // valor com acento será mantido por causa do false
-            cmd.SetValue("id",Os.ID.ToString());
+            cmd.SetValue("id", Os.ID.ToString());
             cmd.SetValue("situacao", Os.Situacao, false);
             cmd.SetValue("defeito", Os.Defeito, false);
             cmd.SetValue("descricao", Os.Descricao, false);
@@ -176,11 +169,11 @@ namespace Controller
 
             cmd.v_text = "update OrdemDeServico set Situacao = #situacao# where ID = #id#";
 
-            cmd.AddParameter("situacao",Spartacus.Database.Type.STRING);
-            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
+            cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
 
-            cmd.SetValue("situacao","Finalizado");
-            cmd.SetValue("id",InfoTrabalho.IdOrdemDeServico.ToString());
+            cmd.SetValue("situacao", "Finalizado");
+            cmd.SetValue("id", InfoTrabalho.IdOrdemDeServico.ToString());
 
             try
             {
@@ -196,15 +189,15 @@ namespace Controller
             {
                 ControllerArquivoLog.GeraraLog(ex);
 
-                return String.Format("Ocorreu um erro ao tentar finalizar a OS: {0}",ex.Message);
+                return String.Format("Ocorreu um erro ao tentar finalizar a OS: {0}", ex.Message);
             }
 
         }
 
-       /// <summary>
-       /// Carregando as informações da tabela para a classe de OS.
-       /// </summary>
-       /// <param name="ID">I.</param>
+        /// <summary>
+        /// Carregando as informações da tabela para a classe de OS.
+        /// </summary>
+        /// <param name="ID">I.</param>
         public static OrdemServico Carregar(int ID)
         {
             System.Data.DataTable tabela = new DataTable("OrdemDeServico");
@@ -214,14 +207,14 @@ namespace Controller
 
             cmd.v_text = "Select * from OrdemDeServico Where ID = #id#";
 
-            cmd.AddParameter("id",Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("id",ID.ToString());
+            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("id", ID.ToString());
 
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(cmd.GetUpdatedText(),"OrdemDeServico");
+                tabela = database.Query(cmd.GetUpdatedText(), "OrdemDeServico");
 
                 OSBase = PreencherOS(tabela);
             }
@@ -244,7 +237,7 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = String.Format("select * from ordemdeservico where idcliente {0} #idcliente#",filtroSQL);
+            cmd.v_text = String.Format("select * from ordemdeservico where idcliente {0} #idcliente#", filtroSQL);
             cmd.AddParameter("idcliente", Spartacus.Database.Type.STRING);
             cmd.SetValue("idcliente", IDCliente.ToString());
 
@@ -380,7 +373,7 @@ namespace Controller
                 OSBase.dataEntradaServico = OSBaseLista[7];
                 OSBase.IDCliente = Convert.ToInt32(OSBaseLista[8]);
                 OSBase.IDTecnico = Convert.ToInt32(OSBaseLista[9]);
-               
+
             }
             catch (Exception ex)
             {

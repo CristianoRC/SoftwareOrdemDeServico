@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Model.Ordem_de_Servico;
 using Controller;
-using Model.Pessoa_e_Usuario;
 using Model;
 
 namespace View

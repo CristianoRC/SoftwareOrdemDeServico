@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Controller
+﻿namespace Controller
 {
     public static class DB
     {
