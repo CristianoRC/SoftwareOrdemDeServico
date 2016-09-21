@@ -24,9 +24,11 @@ namespace Controller
         /// </summary>
         public static void apagar()
         {
-            if (File.Exists("Log.txt"))
+            string CaminhoArquivoLog = String.Format("{0}/Log.txt",Ferramentas.ObterCaminhoDoExecutavel());
+
+            if (File.Exists(CaminhoArquivoLog))
             {
-                File.Delete("Log.txt");
+                File.Delete(CaminhoArquivoLog);
             }
         }
     }

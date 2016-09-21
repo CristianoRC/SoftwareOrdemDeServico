@@ -11,6 +11,7 @@ namespace View.Opicoes
         {
             InitializeComponent();
         }
+
         bool TemFoto = false;
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,16 +28,18 @@ namespace View.Opicoes
         {
             try
             {
-                    Model.Empresa EmpresaBase = new Model.Empresa();
+                Model.Empresa EmpresaBase = new Model.Empresa();
 
-                    EmpresaBase.Nome = Txt_Nome.Text;
-                    EmpresaBase.Contato = Txt_Contato.Text;
-                    EmpresaBase.Endereco = Txt_Endereco.Text;
+                EmpresaBase.Nome = Txt_Nome.Text;
+                EmpresaBase.Contato = Txt_Contato.Text;
+                EmpresaBase.Endereco = Txt_Endereco.Text;
 
-                    string Resultado = ControllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
+                string Resultado = ControllerEmpresa.Save(EmpresaBase.Nome, EmpresaBase.Contato, EmpresaBase.Endereco);
 
-                    MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                String CaminhoLogo1 = String.Format("{0}/Logo1.png",Ferramentas.ObterCaminhoDoExecutavel());
+                String CaminhoLogo = String.Format("{0}/Logo.png",Ferramentas.ObterCaminhoDoExecutavel());
 
                 if (TemFoto)
                 {
@@ -47,16 +50,16 @@ namespace View.Opicoes
                     esta sendo usada, por isso dara para renomer/ excluir).
 
                     */
-                    if (File.Exists("Logo.png"))
+                    if (File.Exists(CaminhoLogo))
                     {
-                        File.Copy(openFileDialog1.FileName, "Logo1.png");
+                        File.Copy(openFileDialog1.FileName, CaminhoLogo1);
                     }
                     else
                     {
-                        File.Copy(openFileDialog1.FileName, "Logo.png");
+                        File.Copy(openFileDialog1.FileName, CaminhoLogo);
                     }
 
-                    pictureBox1.ImageLocation = "Log1.png";
+                    pictureBox1.ImageLocation = CaminhoLogo1;
 
                     MessageBox.Show("Logo modificado com sucesso! Reinicie seu software para que as modificações sejam feitas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

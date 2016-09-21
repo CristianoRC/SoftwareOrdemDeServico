@@ -15,10 +15,11 @@ namespace Controller
         {
             StreamReader sr = null;
             Empresa EmpresaBase = new Empresa();
+            string CaminhoDoArquivo = String.Format("{0}/Empresa.CFG",Ferramentas.ObterCaminhoDoExecutavel());
 
             try
             {
-                sr = new StreamReader("Empresa.CFG");
+                sr = new StreamReader(CaminhoDoArquivo);
 
                 EmpresaBase.Nome = sr.ReadLine();
                 EmpresaBase.Contato = sr.ReadLine();
@@ -51,10 +52,12 @@ namespace Controller
         {
             string Saida = " ";
             StreamWriter sw = null;
+            string CaminhoDoArquivo = String.Format("{0}/Empresa.CFG",Ferramentas.ObterCaminhoDoExecutavel());
 
+            
             try
             {
-                sw = new StreamWriter("Empresa.CFG");
+                sw = new StreamWriter(CaminhoDoArquivo);
 
                 sw.WriteLine(Nome);
                 sw.WriteLine(Contato);

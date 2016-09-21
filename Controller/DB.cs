@@ -4,7 +4,7 @@
     {
         public static string GetStrConection()
         {
-            return "DataBase.db";
+            return string.Format("{0}/DataBase.db",Ferramentas.ObterCaminhoDoExecutavel());
         }
     }
 }

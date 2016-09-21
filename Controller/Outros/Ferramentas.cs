@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Controller
 {
@@ -11,7 +12,7 @@ namespace Controller
 
 			try 
 			{
-				sw = new StreamWriter("UltimoLogin.dat");
+				sw = new StreamWriter(String.Format("{0}/UltimoLogin.dat",ObterCaminhoDoExecutavel()));
 
 				sw.WriteLine(Login);
 			}
@@ -30,12 +31,14 @@ namespace Controller
 		{
 			StreamReader sr = null;
 			string saida = "";
+			string LocalDoArquivo = String.Format("{0}/UltimoLogin.dat",ObterCaminhoDoExecutavel());
+
 
 			try 
 			{
-				if(File.Exists("UltimoLogin.dat"))
+				if(File.Exists(LocalDoArquivo))
 				{
-					sr = new StreamReader("UltimoLogin.dat");
+					sr = new StreamReader(LocalDoArquivo);
 
 					saida = sr.ReadLine();
 				}
@@ -52,6 +55,15 @@ namespace Controller
 			}
 
 			return saida;
+		}
+
+		/// <summary>
+        /// Retona o caminho para o arquivo executável que iniciou o aplicativo.(A pasta do Executável)
+		/// Documentação: https://msdn.microsoft.com/pt-br/library/system.windows.forms.application.startuppath(v=vs.110).aspx
+        /// </summary>
+		public static string ObterCaminhoDoExecutavel()
+		{
+			return Application.StartupPath.ToString();			
 		}
 	}
 }

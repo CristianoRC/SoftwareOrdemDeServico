@@ -12,7 +12,7 @@ namespace Controller
 
             try 
             {
-                sw = new StreamWriter("Log.txt",true);
+                sw = new StreamWriter(String.Format("{0}/Log.txt",Ferramentas.ObterCaminhoDoExecutavel()),true);
 
                 sw.WriteLine("---------------------------------------------");
                 sw.WriteLine(DateTime.Now.ToLongDateString());

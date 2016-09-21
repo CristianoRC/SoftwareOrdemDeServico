@@ -20,10 +20,11 @@ namespace Controller
         {
             StreamReader sr = null;
             string Saida;
+            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat",Ferramentas.ObterCaminhoDoExecutavel());
 
             try
             {
-                sr = new StreamReader("Menssagem.dat");
+                sr = new StreamReader(CaminhoDoArquivo);
 
                 Saida = sr.ReadToEnd();
 
@@ -49,14 +50,14 @@ namespace Controller
         public static Email CarregarInformacoesLoginServidor()
         {
             Cryptor cr;
-
+            string CaminhoDoArquivo = String.Format("{0}/Email.dat",Ferramentas.ObterCaminhoDoExecutavel());
             Email EmailBase = new Email();
             StreamReader sr = null;
             cr = new Cryptor("p@$$w0rd");
 
             try
             {
-                sr = new StreamReader("Email.dat");
+                sr = new StreamReader(CaminhoDoArquivo);
 
                 EmailBase.email = cr.Decrypt(sr.ReadLine());
                 EmailBase.Senha = cr.Decrypt(sr.ReadLine());
@@ -83,12 +84,12 @@ namespace Controller
         public static string SalvarEmailFinalizacaoOS(string Texto)
         {
             string saida = " ";
-
+            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat",Ferramentas.ObterCaminhoDoExecutavel());
             StreamWriter sw = null;
 
             try
             {
-                sw = new StreamWriter("Menssagem.dat");
+                sw = new StreamWriter(CaminhoDoArquivo);
 
                 sw.WriteLine(Texto);
 
@@ -121,13 +122,13 @@ namespace Controller
         {
             Cryptor cr;
             string Saida = "";
-
+            string CaminhoDoArquivo = String.Format("{0}/Email.dat",Ferramentas.ObterCaminhoDoExecutavel());
             StreamWriter sw = null;
             cr = new Cryptor("p@$$w0rd");
 
             try
             {
-                sw = new StreamWriter("Email.dat");
+                sw = new StreamWriter(CaminhoDoArquivo);
 
                 sw.WriteLine(cr.Encrypt(EnderecoEmail));
                 sw.WriteLine(cr.Encrypt(Senha));
@@ -246,7 +247,7 @@ namespace Controller
             //Prioridade de Envio.
             mail.Priority = MailPriority.High;
             // Criar o arquivo anexo para esse e-mail.
-            string file = String.Format("{0}/OS.pdf", Path.GetTempPath());
+            string file = String.Format("{0}/OS.pdf", Path.GetTempPath());//TODO:Rever Esse Código.
 
             Attachment data = new Attachment(file);
 
