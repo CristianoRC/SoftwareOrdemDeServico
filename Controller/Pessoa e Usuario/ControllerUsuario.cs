@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
 using Model.Pessoa_e_Usuario;
 using System.Data;
 

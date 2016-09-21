@@ -1,9 +1,6 @@
 ﻿using System;
-using Model;
 using Controller;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using Model.Pessoa_e_Usuario;
 using Model.Ordem_de_Servico;
 
 namespace View.OS

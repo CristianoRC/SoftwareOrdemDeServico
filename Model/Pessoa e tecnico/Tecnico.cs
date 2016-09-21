@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Model.Pessoa_e_Usuario
+﻿namespace Model.Pessoa_e_Usuario
 {
     public class tecnico
     {
