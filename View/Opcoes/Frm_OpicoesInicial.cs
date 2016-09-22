@@ -75,8 +75,9 @@ namespace View.Opicoes
 
         private void Frm_OpicoesInicial_Load(object sender, EventArgs e)
         {
+            String CaminhoLogo = String.Format("{0}/Logo.png", Ferramentas.ObterCaminhoDoExecutavel());
 
-            pictureBox1.ImageLocation = "Logo.png";
+            pictureBox1.ImageLocation = CaminhoLogo;
 
             Model.Empresa EmpresaBase = new Model.Empresa();
 

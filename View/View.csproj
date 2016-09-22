@@ -144,12 +144,6 @@
     <Compile Include="Servicos\Frm_ListarServico.Designer.cs">
       <DependentUpon>Frm_ListarServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Outros\Frm_Backup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Outros\Frm_Backup.Designer.cs">
-      <DependentUpon>Frm_Backup.cs</DependentUpon>
-    </Compile>
     <Compile Include="OS\Frm_ListarOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicos\Frm_ListarServico.resx">
       <DependentUpon>Frm_ListarServico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Outros\Frm_Backup.resx">
-      <DependentUpon>Frm_Backup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OS\Frm_ListarOS.resx">
       <DependentUpon>Frm_ListarOS.cs</DependentUpon>

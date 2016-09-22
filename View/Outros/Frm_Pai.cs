@@ -26,22 +26,21 @@ namespace View
             NivelAcesso = nivelAcesso;
             Id = id;
 
-            if (NivelAcesso == false) // Técnico e o que faz a manutenção;
+            if (NivelAcesso == false) // Se for técnico e não Administrador
             {
                 //Desativando algumas informações que o usario não pode usar.
 
                 usuariosToolStripMenuItem.Visible = false;
-
                 emailToolStripMenuItem.Enabled = false;
                 EmpresaToolStripMenuItem.Enabled = false;
-                BackupexibirPainelToolStripMenuItem.Enabled = false;
-                
+                novoToolStripMenuItem.Enabled = false;
+                editarToolStripMenuItem.Enabled = false;
 
                 //Desativando função de excluir para usuarios
                 excluirToolStripMenuItem3.Enabled = false;
                 excluirToolStripMenuItem2.Enabled = false;
                 excluirToolStripMenuItem4.Enabled = false;
-
+                excluirToolStripMenuItem4.Enabled = false;
             }
         }
 
@@ -170,15 +169,6 @@ namespace View
         private void Frm_Pai_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-        }
-
-        private void exibirPainelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_Backup frm_Backup = new Frm_Backup();
-
-            frm_Backup.MdiParent = this;
-
-            frm_Backup.Show();
         }
 
         private void listarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
