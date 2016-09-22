@@ -101,16 +101,19 @@ namespace View
 
         private void Frm_Pai_Load(object sender, EventArgs e)
         {
+            string CaminhoLogo = String.Format("{0}/Logo.png",Controller.Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoEmpresa = String.Format("{0}/Empresa.CFG",Controller.Ferramentas.ObterCaminhoDoExecutavel());
+
             //Se o logo estiver na pasta do software ele vai ficar no fundo da Tela Pai.
-            if (File.Exists("Logo.png"))
+            if (File.Exists(CaminhoLogo))
             {
-                this.BackgroundImage = System.Drawing.Image.FromFile("Logo.png");
+                this.BackgroundImage = System.Drawing.Image.FromFile(CaminhoLogo);
             }
 
             StreamReader sr = null;
             try
             {
-                sr = new System.IO.StreamReader("Empresa.CFG");
+                sr = new System.IO.StreamReader(CaminhoEmpresa);
 
                 Lbl_NomeEmpresa.Text = sr.ReadLine();
 

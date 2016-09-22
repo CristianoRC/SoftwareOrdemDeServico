@@ -1,0 +1,17 @@
+{
+    "version": "0.3.0",
+    "configurations": [
+        {
+            "name": "Software Orden de Servico",
+            "type": "mono",
+            "request": "launch",
+            "program": "${workspaceRoot}/View/bin/Debug/Software de ordem de serviço.exe",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "",
+            "runtimeExecutable": null,
+            "env": {},
+            "externalConsole": false
+        }
+    ]
+}
