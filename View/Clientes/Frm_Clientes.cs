@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace View.Pessoas
 {
+    //TODO: Colocar apenas as siglas dos estados no formulário de edição e criação de clientes.
+
     public partial class Frm_Clientes : Form
     {
         public Frm_Clientes()

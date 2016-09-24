@@ -159,7 +159,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Finalizando ordem de serviço(Mudando o Status da OS).
+        /// Finalizando ordem de serviço(Mudando o Status da OS), e criando um novo serviço.
         /// </summary>
         /// <returns>The O.</returns>
         public static string FinalizarOS(Servico InformacoesDoServico)
@@ -228,7 +228,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Retorna um DataTable com todas as Ordens de serviço, utilizando um filtro de pesquisa~.
+        /// Retorna um DataTable com todas as Ordens de serviço, utilizando um filtro de pesquisa.
         /// </summary>
         /// <returns>The lista.</returns>
         public static DataTable CarregarListaComFiltroDePesquisa(string filtroSQL, int IDCliente)
@@ -237,7 +237,11 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = String.Format("select * from ordemdeservico where idcliente {0} #idcliente#", filtroSQL);
+            cmd.v_text = String.Format(@"select ID, Equipamento, NumeroDESerie, Defeito, DataEntradaServico
+                                         from ordemdeservico where idcliente {0} #idcliente#", filtroSQL);
+
+
+
             cmd.AddParameter("idcliente", Spartacus.Database.Type.STRING);
             cmd.SetValue("idcliente", IDCliente.ToString());
 
@@ -267,7 +271,8 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select * from ordemdeservico", "Ordemdeservico");
+                tabela = database.Query(@"select ID, Equipamento, NumeroDESerie, Defeito, DataEntradaServico 
+                                          from ordemdeservico", "Ordemdeservico");
             }
             catch (Exception ex)
             {
@@ -277,7 +282,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Retorna um DataTable com todas as Ordens de serviço NÃO FINALIZADAS.
+        /// Retorna um DataTable com todos os ids das Ordens de serviço NÃO FINALIZADAS.
         /// </summary>
         /// <returns>The lista.</returns>
         public static DataTable CarregarListaDeIdsNaoFinalizados()
@@ -299,7 +304,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Retorna um DataTable com todas as Ordens de serviço.
+        /// Retorna um DataTable com todos os ids das Ordens de serviço.
         /// </summary>
         /// <returns>The lista.</returns>
         public static DataTable CarregarListaDeIds()
@@ -333,7 +338,8 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query("select * from ordemdeservico where Situacao = 'Orçamento'", "Ordemdeservico");
+                tabela = database.Query(@"select ID, Equipamento, NumeroDESerie, Defeito, DataEntradaServico
+                                          where Situacao = 'Orçamento'", "Ordemdeservico");
             }
             catch (Exception ex)
             {

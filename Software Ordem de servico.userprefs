@@ -2,8 +2,22 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="278" Column="9" />
+      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="15" Column="53" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Software Ordem de servico" expanded="True">
+            <Node name="Controller" expanded="True">
+              <Node name="Ordem de Servico" expanded="True">
+                <Node name="ControllerOrdemServico.cs" selected="True" />
+              </Node>
+              <Node name="Pessoa e Usuario" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

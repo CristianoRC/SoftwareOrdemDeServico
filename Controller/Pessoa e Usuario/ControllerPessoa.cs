@@ -108,7 +108,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Editando pessoa Jurídica na pasta "J"(Pasta usada para guardar todas as pessoas jurídicas no diretorio do software)
+        /// Editando informações sobre um cliente ainda já criado.
         /// </summary>
         /// <param name="nome"></param>
         /// <param name="endereco"></param>
@@ -336,7 +336,7 @@ namespace Controller
         }
 
         /// <summary>
-        /// Carregando lista com todos as informações de todos clientes
+        /// Retorna um DataTable com todas as informações de todos clientes
         /// </summary>
         /// <returns>The lista.</returns>
         public static DataTable CarregarLista()
@@ -346,7 +346,8 @@ namespace Controller
             System.Data.DataTable tabela = new DataTable("Pessoas");
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "select * from pessoa where status <> #status#";
+            cmd.v_text = @"select  Id, Nome, Tipo, Email, SiglaEstado, Endereco, Cidade,Bairro
+                          from pessoa where status <> #status#";
 
             cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
             cmd.SetValue("status", nivelAcesso.ToString());

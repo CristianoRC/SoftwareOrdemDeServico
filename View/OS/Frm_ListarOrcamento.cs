@@ -28,12 +28,18 @@ namespace View.OS
         {
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Data_Os.DataSource = Controller.ControllerOrdemServico.CarregarListaOrcamentos();
+
+            if (Data_Os.Rows.Count != 0)
+            {
+                Data_Os.Columns[2].Name = "Numero de Serie";
+                Data_Os.Columns[4].Name = "Data de Entrada";
+            }
         }
 
         private void Data_Os_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int IdOs = int.Parse(Data_Os.CurrentRow.Cells[0].Value.ToString());
-            Frm_EditarOS frm_Editaros = new Frm_EditarOS(v_IdTecnico,IdOs);
+            Frm_EditarOS frm_Editaros = new Frm_EditarOS(v_IdTecnico, IdOs);
 
             frm_Editaros.ShowDialog();
         }

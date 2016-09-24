@@ -51,6 +51,12 @@ namespace View.OS
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
+
+            if (Data_Os.Rows.Count != 0)
+            {
+                Data_Os.Columns[2].Name = "Numero de Serie";
+                Data_Os.Columns[4].Name = "Data de Entrada";
+            }
         }
 
         private void AualizarGridComFiltro()
@@ -70,6 +76,9 @@ namespace View.OS
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             Data_Os.DataSource = ControllerOrdemServico.CarregarListaComFiltroDePesquisa(ComandoSQL, IDCliente);
+
+            Data_Os.Columns[2].Name = "Numero de Serie";
+            Data_Os.Columns[4].Name = "Data de Entrada";
         }
 
         private void AtualizarListaDeClientes()

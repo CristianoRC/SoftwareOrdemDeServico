@@ -11,7 +11,7 @@ namespace View.Pessoas
             InitializeComponent();
         }
 
-        private void AtualizarLista()
+        private void AtualizarInformacoesDoGrid()
         {
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Data_Os.DataSource = ControllerPessoa.CarregarLista();
@@ -19,12 +19,12 @@ namespace View.Pessoas
 
         private void Btm_Atualizar_Click(object sender, EventArgs e)
         {
-            AtualizarLista();
+            AtualizarInformacoesDoGrid();
         }
 
         private void Frm_ListarClientes_Load(object sender, EventArgs e)
         {
-            AtualizarLista();
+            AtualizarInformacoesDoGrid();
         }
 
         private void Data_Os_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

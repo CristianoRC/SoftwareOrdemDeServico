@@ -13,13 +13,21 @@ namespace View.Usuario
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você deseja realmente excluir esse usuário?", "Verificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!String.IsNullOrEmpty(Txt_Tecnicos.Text))
             {
-                string Saida = ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
+                if (MessageBox.Show("Você deseja realmente excluir esse usuário?", "Verificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string Saida = ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
 
-                MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                AtualziarListaDeUsuarios();
             }
-            AtualziarListaDeUsuarios();
+            else
+            {
+                MessageBox.Show("Escolha um usuário!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void Frm_ExcluirUsuario_Load(object sender, EventArgs e)
