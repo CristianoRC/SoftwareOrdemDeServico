@@ -88,7 +88,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(234, 28);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Carregar Logo";
+            this.button1.Text = "Carregar novo Logo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -133,7 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(683, 273);
+            this.ClientSize = new System.Drawing.Size(683, 246);
             this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Contato);

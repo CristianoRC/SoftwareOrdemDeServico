@@ -20,7 +20,7 @@ namespace Controller
         {
             StreamReader sr = null;
             string Saida;
-            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat",Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat", Ferramentas.ObterCaminhoDoExecutavel());
 
             try
             {
@@ -32,7 +32,7 @@ namespace Controller
             catch (System.Exception exc)
             {
                 Saida = "Ocorreu um arro ao tentar ler o arquivo com as informações.";
-                ControllerArquivoLog.GeraraLog (exc);
+                ControllerArquivoLog.GeraraLog(exc);
             }
             finally
             {
@@ -50,7 +50,7 @@ namespace Controller
         public static Email CarregarInformacoesLoginServidor()
         {
             Cryptor cr;
-            string CaminhoDoArquivo = String.Format("{0}/Email.dat",Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoDoArquivo = String.Format("{0}/Email.dat", Ferramentas.ObterCaminhoDoExecutavel());
             Email EmailBase = new Email();
             StreamReader sr = null;
             cr = new Cryptor("p@$$w0rd");
@@ -84,7 +84,7 @@ namespace Controller
         public static string SalvarEmailFinalizacaoOS(string Texto)
         {
             string saida = " ";
-            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat",Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoDoArquivo = String.Format("{0}/Menssagem.dat", Ferramentas.ObterCaminhoDoExecutavel());
             StreamWriter sw = null;
 
             try
@@ -122,7 +122,7 @@ namespace Controller
         {
             Cryptor cr;
             string Saida = "";
-            string CaminhoDoArquivo = String.Format("{0}/Email.dat",Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoDoArquivo = String.Format("{0}/Email.dat", Ferramentas.ObterCaminhoDoExecutavel());
             StreamWriter sw = null;
             cr = new Cryptor("p@$$w0rd");
 
@@ -211,7 +211,7 @@ namespace Controller
         ///  Enviando Email inicial, quando e aberto uma Ordem de Serviço
         /// </summary>
         /// <param name="NomeUsuario"></param>
-        public static string EnviarOrdemDeServiço(OrdemServico OS, Empresa InfoEmpresa,Pessoa cliente)
+        public static string EnviarOrdemDeServiço(OrdemServico OS, Empresa InfoEmpresa, Pessoa cliente)
         {
             string Saida = " ";
             string MenssagemBase = string.Format("Olá {0}, sua ordem de serviço n° {1} foi criado com sucesso! O arquivo segue em anexo a este e-mail", cliente.Nome, OS.ID);
@@ -312,11 +312,16 @@ namespace Controller
             //Prioridade de Envio.
             mail.Priority = MailPriority.High;
 
-            // Criar o arquivo anexo para esse e-mail.
-            Attachment data = new Attachment("Log.txt");
 
-            //Inclui o arquivo anexo.
-            mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.
+            if (System.IO.File.Exists("Log.txt"))
+            {
+                // Criar o arquivo anexo para esse e-mail.
+                Attachment data = new Attachment("Log.txt");
+
+                //Inclui o arquivo anexo.
+                mail.Attachments.Add(data); //Caminho de onde o arquivo da Ordem de serviço é salvo.
+            }
+
 
             try
             {
@@ -334,7 +339,7 @@ namespace Controller
 
             return Saida;
         }
-            
+
         /// <summary>
         /// Decodificando informações do E-mail com as informações da finalização de Ordem de Serviço. EX: **Cliente = Nome do Cliente
         /// </summary>
@@ -357,6 +362,6 @@ namespace Controller
             TextoEmail = EmailTemporario;
 
             return TextoEmail;
-        }    
+        }
     }
 }

@@ -16,24 +16,24 @@ namespace View
         {
             Model.Pessoa_e_Usuario.tecnico UsuarioBase = new Model.Pessoa_e_Usuario.tecnico();
 
-            if (ControllerUsuario.Autenticar(login.Trim(),senha.Trim()))
+            if (ControllerUsuario.Autenticar(login.Trim(), senha.Trim()))
             {
                 UsuarioBase = ControllerUsuario.Carregar(login);
 
-                Ferramentas.SalvarUltimoLogin (Txt_Login.Text);
+                Ferramentas.SalvarUltimoLogin(Txt_Login.Text);
 
-                 Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso,UsuarioBase.Id);
+                Frm_Pai Pai = new Frm_Pai(UsuarioBase.Nome, UsuarioBase.NivelAcesso, UsuarioBase.Id);
 
-                 this.Visible = false;
+                this.Visible = false;
 
-                 Pai.Show();
-             }
-             else
-             {
-                    MessageBox.Show("Login ou senhas incorretos", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Txt_Senha.Clear();
-             }
-         }
+                Pai.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login ou senhas incorretos", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Txt_Senha.Clear();
+            }
+        }
 
         private void Btm_Sair_Click(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace View
 
         private void bTM_lOGAR_Click(object sender, EventArgs e)
         {
-            logar(Txt_Login.Text,Txt_Senha.Text);
+            logar(Txt_Login.Text, Txt_Senha.Text);
         }
 
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,14 +82,14 @@ namespace View
                 pictureBox1.ImageLocation = "Logo.png";
             }
 
-			Txt_Login.Text = Ferramentas.RecuperarUltimoLogin ();
+            Txt_Login.Text = Ferramentas.RecuperarUltimoLogin();
         }
 
         private void Txt_Senha_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
-                logar(Txt_Login.Text,Txt_Senha.Text);
+                logar(Txt_Login.Text, Txt_Senha.Text);
             }
         }
 
@@ -97,7 +97,7 @@ namespace View
         {
             if (e.KeyChar == 13)
             {
-                logar(Txt_Login.Text,Txt_Senha.Text);
+                logar(Txt_Login.Text, Txt_Senha.Text);
             }
         }
     }

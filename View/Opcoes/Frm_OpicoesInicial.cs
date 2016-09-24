@@ -38,8 +38,8 @@ namespace View.Opicoes
 
                 MessageBox.Show(Resultado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                String CaminhoLogo1 = String.Format("{0}/Logo1.png",Ferramentas.ObterCaminhoDoExecutavel());
-                String CaminhoLogo = String.Format("{0}/Logo.png",Ferramentas.ObterCaminhoDoExecutavel());
+                String CaminhoLogo1 = String.Format("{0}/Logo1.png", Ferramentas.ObterCaminhoDoExecutavel());
+                String CaminhoLogo = String.Format("{0}/Logo.png", Ferramentas.ObterCaminhoDoExecutavel());
 
                 if (TemFoto)
                 {

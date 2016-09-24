@@ -9,7 +9,7 @@ namespace Controller
     public static class ControllerOrdemServico
     {
         /// <summary>
-        /// Salcando Ordem De Serviço
+        /// Salvando Ordem De Serviço
         /// </summary>
         /// <param name="Os">Os.</param>
         public static string Salvar(OrdemServico Os)
