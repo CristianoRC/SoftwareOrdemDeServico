@@ -65,15 +65,15 @@ namespace View
         /// Preenchendo uma classe trabalho com as informações do Form.
         /// </summary>
         /// <returns>The trabalho.</returns>
-        private Trabalho PreencherTrabalho()
+        private Servico PreencherTrabalho()
         {
-            Trabalho TrabalhoBase = new Trabalho();
+            Servico ServicoBase = new Servico();
 
-            TrabalhoBase.IdOrdemDeServico = Convert.ToInt16(Txt_IDPesquisa.Text);
-            TrabalhoBase.Valor = Convert.ToDecimal(Txt_Valor.Text);
-            TrabalhoBase.Descricao = Txt_Descricao.Text;
+            ServicoBase.IdOrdemDeServico = Convert.ToInt16(Txt_IDPesquisa.Text);
+            ServicoBase.Valor = Convert.ToDecimal(Txt_Valor.Text);
+            ServicoBase.Descricao = Txt_Descricao.Text;
 
-            return TrabalhoBase;
+            return ServicoBase;
         }
 
         private void Txt_Valor_KeyPress(object sender, KeyPressEventArgs e)

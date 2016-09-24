@@ -162,7 +162,7 @@ namespace Controller
         /// Finalizando ordem de serviço(Mudando o Status da OS).
         /// </summary>
         /// <returns>The O.</returns>
-        public static string FinalizarOS(Trabalho InfoTrabalho)
+        public static string FinalizarOS(Servico InformacoesDoServico)
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
@@ -173,7 +173,7 @@ namespace Controller
             cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
 
             cmd.SetValue("situacao", "Finalizado");
-            cmd.SetValue("id", InfoTrabalho.IdOrdemDeServico.ToString());
+            cmd.SetValue("id", InformacoesDoServico.IdOrdemDeServico.ToString());
 
             try
             {
@@ -181,7 +181,7 @@ namespace Controller
 
                 database.Execute(cmd.GetUpdatedText());
 
-                ControllerServico.Salvar(InfoTrabalho);//Gerar um trabalho, após ter alterado as informações da OS.
+                ControllerServico.Salvar(InformacoesDoServico);//Gerar um trabalho, após ter alterado as informações da OS.
 
                 return "Ordem de serviço finalizda com sucesso.";
             }

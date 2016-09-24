@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public class Trabalho
+    public class Servico
     {
         public int ID {get;set;}
         public int IdOrdemDeServico {get;set;}
