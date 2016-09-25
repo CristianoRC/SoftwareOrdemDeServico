@@ -111,11 +111,6 @@ namespace Controller
 
             Process.Start(local);
         }
-
-        public static void GerarRelatorio()
-        {
-           
-        }
     }
 }
 

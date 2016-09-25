@@ -1,18 +1,21 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Relatorio/ControllerRelatorioXLSX.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="15" Column="53" />
+      <File FileName="Controller/Relatorio/ControllerRelatorioPDF.cs" Line="67" Column="1" />
+      <File FileName="Controller/Relatorio/ControllerRelatorioXLSX.cs" Line="51" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Software Ordem de servico" expanded="True">
             <Node name="Controller" expanded="True">
-              <Node name="Ordem de Servico" expanded="True">
-                <Node name="ControllerOrdemServico.cs" selected="True" />
+              <Node name="Relatorio" expanded="True">
+                <Node name="ControllerRelatorioXLSX.cs" selected="True" />
               </Node>
-              <Node name="Pessoa e Usuario" expanded="True" />
+            </Node>
+            <Node name="View" expanded="True">
+              <Node name="Clientes" expanded="True" />
             </Node>
           </Node>
         </State>

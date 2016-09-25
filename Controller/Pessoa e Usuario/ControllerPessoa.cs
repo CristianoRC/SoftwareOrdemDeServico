@@ -341,7 +341,7 @@ namespace Controller
         /// <returns>The lista.</returns>
         public static DataTable CarregarLista()
         {
-            char nivelAcesso = '0';//0(Flase)
+            char Status = '0';//0(Flase)
             Spartacus.Database.Generic database;
             System.Data.DataTable tabela = new DataTable("Pessoas");
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
@@ -350,7 +350,7 @@ namespace Controller
                           from pessoa where status <> #status#";
 
             cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
-            cmd.SetValue("status", nivelAcesso.ToString());
+            cmd.SetValue("status", Status.ToString());
 
 
 
