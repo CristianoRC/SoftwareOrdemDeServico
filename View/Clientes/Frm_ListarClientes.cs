@@ -15,6 +15,11 @@ namespace View.Pessoas
         {
             Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Data_Os.DataSource = ControllerPessoa.CarregarLista();
+
+            if (Data_Os.Rows.Count != 0)
+            {
+                Data_Os.Columns[4].HeaderText= "Estado";
+            }
         }
 
         private void Btm_Atualizar_Click(object sender, EventArgs e)

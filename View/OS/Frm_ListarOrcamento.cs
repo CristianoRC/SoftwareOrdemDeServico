@@ -31,8 +31,8 @@ namespace View.OS
 
             if (Data_Os.Rows.Count != 0)
             {
-                Data_Os.Columns[2].Name = "Numero de Serie";
-                Data_Os.Columns[4].Name = "Data de Entrada";
+                Data_Os.Columns[2].HeaderText = "Numero de Serie";
+                Data_Os.Columns[4].HeaderText = "Data de Entrada";
             }
         }
 
@@ -42,6 +42,11 @@ namespace View.OS
             Frm_EditarOS frm_Editaros = new Frm_EditarOS(v_IdTecnico, IdOs);
 
             frm_Editaros.ShowDialog();
+        }
+
+        private void Data_Os_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

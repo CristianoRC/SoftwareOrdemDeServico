@@ -30,11 +30,12 @@ namespace View
             {
                 //Desativando algumas informações que o usario não pode usar.
 
-                usuariosToolStripMenuItem.Visible = false;
+                usuariosToolStripMenuItem.Enabled = false;
                 emailToolStripMenuItem.Enabled = false;
                 EmpresaToolStripMenuItem.Enabled = false;
                 novoToolStripMenuItem.Enabled = false;
                 editarToolStripMenuItem.Enabled = false;
+                
 
                 //Desativando função de excluir para usuarios
                 excluirToolStripMenuItem3.Enabled = false;
@@ -327,6 +328,11 @@ namespace View
             frm_ExcluirClientes.MdiParent = this;
 
             frm_ExcluirClientes.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

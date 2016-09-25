@@ -26,7 +26,7 @@ namespace View
 
             if (Data_Os.Rows.Count != -1)
             {
-                Data_Os.Columns[1].Name = "Ordem de serviço"; 
+                Data_Os.Columns[1].HeaderText = "Ordem de serviço"; 
             }
 
         }

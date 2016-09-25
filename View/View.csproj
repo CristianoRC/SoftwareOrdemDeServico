@@ -337,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Resources\Accounting-50.png" />
     <None Include="Resources\Print-96.png" />
     <None Include="Resources\Bar Chart-96.png" />
     <None Include="Resources\US Dollar-100.png" />

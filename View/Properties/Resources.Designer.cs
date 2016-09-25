@@ -63,6 +63,16 @@ namespace View.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Accounting_50 {
+            get {
+                object obj = ResourceManager.GetObject("Accounting-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_List_100 {
             get {
                 object obj = ResourceManager.GetObject("Add List-100", resourceCulture);
