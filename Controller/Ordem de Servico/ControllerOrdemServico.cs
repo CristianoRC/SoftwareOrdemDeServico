@@ -271,7 +271,7 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(@"select ID, Equipamento, NumeroDESerie, Defeito, DataEntradaServico 
+                tabela = database.Query(@"select ID, Equipamento, NumeroDeSerie, Defeito, DataEntradaServico 
                                           from ordemdeservico", "Ordemdeservico");
             }
             catch (Exception ex)
