@@ -20,15 +20,11 @@ namespace View
         {
             Data_Os.Columns.Clear();
 
-            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;    
 
             Data_Os.DataSource = ControllerServico.CarregarLista();
 
-            if (Data_Os.Rows.Count != -1)
-            {
-                Data_Os.Columns[1].HeaderText = "Ordem de serviço"; 
-            }
-
+            Data_Os.Columns[1].HeaderText = "Ordem de serviço"; 
         }
 
         private void Btm_Atualizar_Click(object sender, EventArgs e)

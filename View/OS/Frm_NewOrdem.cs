@@ -63,7 +63,7 @@ namespace View.OS
 
                 if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ControllerRelatorio.CreatPDF(PreencherOS());
+                    //TODO: Função para gerra uma ordem de serviçço em PDF Aqui.
                 }
 
                 if (MessageBox.Show("Deseja enviar a ordem de serviço para o cliente?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

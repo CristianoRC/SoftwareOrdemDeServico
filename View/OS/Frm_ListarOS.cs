@@ -48,10 +48,10 @@ namespace View.OS
 
         private void AualizarGridSemFiltro()
         {
-            Data_Os.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
-
+            String caminho = String.Format("{0}/RelatorioOS.xlsx", Ferramentas.ObterCaminhoDoExecutavel());
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+           
             if (Data_Os.Rows.Count != 0)
             {
                 Data_Os.Columns[2].HeaderText = "Numero de Serie";

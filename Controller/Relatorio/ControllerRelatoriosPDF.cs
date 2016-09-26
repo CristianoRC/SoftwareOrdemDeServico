@@ -2,7 +2,7 @@
 
 namespace Controller
 {
-    public static class ControllerRelatorioPDF
+    public static class ControllerRelatoriosPDF
     {
         /// <summary>
         /// Exporta a tabela de clientes do banco, gerando um PDF como resultado final.

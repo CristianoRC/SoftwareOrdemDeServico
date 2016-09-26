@@ -104,9 +104,8 @@
     <Compile Include="Ordem de Servico\ControllerServico.cs" />
     <Compile Include="Log\ControllerLog.cs" />
     <Compile Include="Log\ControllerArquivoLog.cs" />
-    <Compile Include="Relatorio\ControllerRelatorio.cs" />
-    <Compile Include="Relatorio\ControllerRelatorioPDF.cs" />
-    <Compile Include="Relatorio\ControllerRelatorioXLSX.cs" />
+    <Compile Include="Relatorio\ControllerRelatoriosPDF.cs" />
+    <Compile Include="Relatorio\ControllerRelatoriosXLSX.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
