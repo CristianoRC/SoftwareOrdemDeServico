@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerOrdemServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerServico.cs">
     <Files>
-      <File FileName="Controller/Relatorio/ControllerRelatoriosPDF.cs" Line="67" Column="9" />
-      <File FileName="Controller/Ordem de Servico/ControllerOrdemServico.cs" Line="305" Column="9" />
+      <File FileName="Controller/Relatorio/ControllerRelatoriosPDF.cs" Line="71" Column="94" />
+      <File FileName="Controller/Ordem de Servico/ControllerServico.cs" Line="105" Column="9" />
+      <File FileName="View/Servicos/Frm_ExcluirServico.cs" Line="9" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,12 +12,14 @@
           <Node name="Software Ordem de servico" expanded="True">
             <Node name="Controller" expanded="True">
               <Node name="Ordem de Servico" expanded="True">
-                <Node name="ControllerOrdemServico.cs" selected="True" />
+                <Node name="ControllerServico.cs" selected="True" />
               </Node>
               <Node name="Relatorio" expanded="True" />
             </Node>
             <Node name="View" expanded="True">
-              <Node name="OS" expanded="True" />
+              <Node name="Servicos" expanded="True">
+                <Node name="Frm_ExcluirServico.cs" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>

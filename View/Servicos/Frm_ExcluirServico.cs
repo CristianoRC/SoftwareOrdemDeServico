@@ -40,7 +40,7 @@ namespace View.Servicos
 
             DataTable Tabela = new DataTable("Servicos");
 
-            Tabela = ControllerServico.CarregarListaDeIds();
+            Tabela = ControllerServico.CarregarListaDeIdsDasOrdensDeServico();
 
             if (Tabela.Rows.Count != 0)
             {

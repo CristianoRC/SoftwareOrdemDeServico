@@ -293,7 +293,7 @@ namespace Controller
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-
+                    
                 tabela = database.Query("select ID from ordemdeservico where Situacao <> 'Finalizado'", "Ordemdeservico");
             }
             catch (Exception ex)
@@ -338,7 +338,7 @@ namespace Controller
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
-                tabela = database.Query(@"select ID, Equipamento, NumeroDESerie, Defeito, DataEntradaServico
+                tabela = database.Query(@"select Id, Equipamento, NumeroDeSerie, Defeito, DataEntradaServico from OrdemDeServico
                                           where Situacao = 'Orçamento'", "Ordemdeservico");
             }
             catch (Exception ex)

@@ -40,7 +40,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Numero";
+            this.label1.Text = "ID Da ORDEM DE SERVIÇO";
             // 
             // Btm_Excluir
             // 

@@ -120,6 +120,56 @@ namespace Controller
             }
         }
 
+        /// <summary>
+        /// Exporta a tabela de serviços executados do banco, gerando um PDF como resultado final.
+        /// </summary>
+        /// <returns>The tabelas para PDF.</returns>
+        /// <param name="CaminhoDoArquivoDeSaida">Caminho do arquivo,Ex"C:/Nome.PDF".</param>
+        public static string ExportarListaDeServicoParaPDF(String CaminhoDoArquivoDeSaida)
+        {
+
+            Spartacus.Database.Generic database;
+            Spartacus.Reporting.Report relatorio;
+            System.Data.DataTable tabela = new System.Data.DataTable("relatorio");
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+
+            cmd.v_text = @"select 'Lista de serviços cadastrados  no sistema' as titulo, * from Trabalhos";
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+                tabela = database.Query(cmd.GetUpdatedText(), "relatorio");
+
+                if (tabela.Rows.Count != 0)
+                {
+                    System.Collections.Generic.List<Spartacus.Reporting.Field> v_fields;
+
+                    v_fields = new System.Collections.Generic.List<Spartacus.Reporting.Field>();
+
+                    v_fields.Add(new Spartacus.Reporting.Field("Id", "Id", Spartacus.Reporting.FieldAlignment.CENTER, 10, Spartacus.Database.Type.INTEGER));
+                    v_fields.Add(new Spartacus.Reporting.Field("OrdemDeServico", "Ordem de serviço nº", Spartacus.Reporting.FieldAlignment.CENTER, 15, Spartacus.Database.Type.STRING));
+                    v_fields.Add(new Spartacus.Reporting.Field("Valor", "Valor (R$)", Spartacus.Reporting.FieldAlignment.CENTER, 25, Spartacus.Database.Type.REAL));
+                    v_fields.Add(new Spartacus.Reporting.Field("Descricao", "Descrição", Spartacus.Reporting.FieldAlignment.CENTER, 50, Spartacus.Database.Type.STRING));
+
+                            
+                    relatorio = new Spartacus.Reporting.Report(tabela, "titulo", v_fields);
+                    relatorio.Execute();
+                    relatorio.Save(CaminhoDoArquivoDeSaida);
+
+                    return "Relatório gerado com sucesso!";
+                }
+                else
+                {
+                    return "Não foi encontrado infromações no Banco de dados. ";
+                }
+
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                return String.Format("Ocorreu um erro ao gerar o relatório: {0}", ex.v_message);
+            }
+        }
     }
 }
 

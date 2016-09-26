@@ -81,12 +81,14 @@ namespace Controller
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
 
-            cmd.v_text = "delete from Trabalhos where ID = #id#";
-            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
-            cmd.SetValue("id", NumeroOs.ToString());
+            cmd.v_text = "delete from Trabalhos where OrdemDeServico = #idordemdeservico#";
+            cmd.AddParameter("idordemdeservico", Spartacus.Database.Type.INTEGER);
+            cmd.SetValue("idordemdeservico", NumeroOs.ToString());
 
             try
             {
+                ReverterStatusDaOrdemDeServico(NumeroOs);
+
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
 
                 database.Execute(cmd.GetUpdatedText());
@@ -128,16 +130,16 @@ namespace Controller
         }
 
         /// <summary>
-        /// Carregando lista de Ids Serviços executados.
+        /// Carrega uma lista de ids das Ordens de serviço que contém um serviço.
         /// </summary>
-        /// <returns>The lista.</returns>
-        public static DataTable CarregarListaDeIds()
+        /// <returns>Lista de Ids Das ordens de serviço.</returns>
+        public static DataTable CarregarListaDeIdsDasOrdensDeServico()
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
             DataTable tabela = new DataTable("Trabalhos");
 
-            cmd.v_text = "select ID from Trabalhos";
+            cmd.v_text = "select OrdemDeServico from Trabalhos";
 
             try
             {
@@ -178,6 +180,40 @@ namespace Controller
 
             return ServicoBase;
         }
-    }
-}
 
+        /// <summary>
+        /// Reverte o status da Ordemd e serviço quando o serviço é excluido, o Status volta para Manutenção,
+        /// pois não pdoe háver uma Ordem de serviço finalizada sem um serviço criado.
+        /// </summary>
+        /// <param name="IDOrdemDeServico">Identifier ordem de servico.</param>
+        private static void ReverterStatusDaOrdemDeServico(int IDOrdemDeServico)
+        {
+            
+            Spartacus.Database.Generic database;
+            Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+            cmd.v_text = "update OrdemDeServico set Situacao = #situacao# where ID = #id#";
+
+            cmd.AddParameter("situacao", Spartacus.Database.Type.STRING);
+            cmd.AddParameter("id", Spartacus.Database.Type.INTEGER);
+
+            cmd.SetValue("situacao", "Manutenção", false); // valor com acento será mantido por causa do false
+            cmd.SetValue("id", IDOrdemDeServico.ToString());
+
+            try
+            {
+                database = new Spartacus.Database.Sqlite(DB.GetStrConection());
+
+                // desabilitando seguranca de execucao de comandos 
+                database.SetExecuteSecurity(false);
+
+                database.Execute(cmd.GetUpdatedText());
+            }
+            catch (Spartacus.Database.Exception ex)
+            {
+                ControllerArquivoLog.GeraraLog(ex);
+            }
+        }
+    }
+
+}

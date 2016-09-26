@@ -88,7 +88,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Spartacus">
-      <HintPath>..\packages\Spartacus.0.43.8\Spartacus.dll</HintPath>
+      <HintPath>..\lib\Spartacus.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
