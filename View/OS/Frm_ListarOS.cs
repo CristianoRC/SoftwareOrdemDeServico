@@ -52,11 +52,8 @@ namespace View.OS
 
             Data_Os.DataSource = ControllerOrdemServico.CarregarLista();
 
-            if (Data_Os.Rows.Count != 0)
-            {
-                Data_Os.Columns[2].HeaderText = "Numero de Serie";
-                Data_Os.Columns[4].HeaderText = "Data de Entrada";
-            }
+            Data_Os.Columns[2].HeaderText = "Numero de Serie";
+            Data_Os.Columns[4].HeaderText = "Data de Entrada";
         }
 
         private void AualizarGridComFiltro()
@@ -88,15 +85,18 @@ namespace View.OS
             DataTable tabela = new DataTable("ListaDeNomes");
             tabela = ControllerPessoa.CarregarListaDeNomes();
 
-            foreach (DataRow r in tabela.Rows)
-            {
-                foreach (DataColumn c in tabela.Columns)
-                {
-                    comboBox_Clientes.Items.Add(r[c].ToString());
-                }
-            }
 
-            comboBox_Clientes.Text = comboBox_Clientes.Items[0].ToString();
+            if (tabela.Rows.Count != 0)
+            {
+                foreach (DataRow r in tabela.Rows)
+                {
+                    foreach (DataColumn c in tabela.Columns)
+                    {
+                        comboBox_Clientes.Items.Add(r[c].ToString());
+                    }
+                }
+                comboBox_Clientes.Text = comboBox_Clientes.Items[0].ToString();
+            }
         }
     }
 }

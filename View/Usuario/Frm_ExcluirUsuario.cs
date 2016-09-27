@@ -6,22 +6,33 @@ namespace View.Usuario
 {
     public partial class Frm_ExcluirUsuario : Form
     {
-        public Frm_ExcluirUsuario()
+        public Frm_ExcluirUsuario(String p_NomeUsuario)
         {
             InitializeComponent();
+
+            LoginUsuarioAtual = p_NomeUsuario;
         }
+
+        String LoginUsuarioAtual;
 
         private void Btm_Excluir_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Txt_Tecnicos.Text))
             {
-                if (MessageBox.Show("Você deseja realmente excluir esse usuário?", "Verificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (!VerificarLoginAtualComODaExclusao(Txt_Tecnicos.Text))
                 {
-                    string Saida = ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
+                    if (MessageBox.Show("Você deseja realmente excluir esse usuário?", "Verificação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string Saida = ControllerUsuario.Deletar(Txt_Tecnicos.Text.Trim());
 
-                    MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    AtualziarListaDeUsuarios();
                 }
-                AtualziarListaDeUsuarios();
+                else
+                {
+                    MessageBox.Show("Você não pdoe excluir o usuário que está logado!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -52,6 +63,23 @@ namespace View.Usuario
                         Txt_Tecnicos.Items.Add(r[c]);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Verifica se o login que esta sendo usado é o mesmo que vai ser excluido.
+        /// </summary>
+        /// <returns><c>true</c>, if login atual COM O da exclusao was verificared, <c>false</c> otherwise.</returns>
+        /// <param name="LoginASerExcluido">Login A ser excluido.</param>
+        private bool VerificarLoginAtualComODaExclusao(String LoginASerExcluido)
+        {
+            if (LoginASerExcluido.ToLower() == LoginUsuarioAtual.ToLower())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

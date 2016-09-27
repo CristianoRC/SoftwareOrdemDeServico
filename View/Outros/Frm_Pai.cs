@@ -14,7 +14,7 @@ namespace View
         }
 
         //Informações dos técnicos para os forms de OS.
-        string Usuario;
+        string Login;
         bool NivelAcesso;
         int Id;
 
@@ -22,7 +22,7 @@ namespace View
         {
             InitializeComponent();
 
-            Usuario = usuario;
+            Login = usuario;
             NivelAcesso = nivelAcesso;
             Id = id;
 
@@ -117,7 +117,7 @@ namespace View
 
                 Lbl_NomeEmpresa.Text = sr.ReadLine();
 
-                Lbl_Nome.Text = Usuario;
+                Lbl_Nome.Text = Login;
             }
             catch (Exception exc)
             {
@@ -252,7 +252,7 @@ namespace View
 
          private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            View.Usuario.Frm_ExcluirUsuario frm_ExcluirUsuario = new View.Usuario.Frm_ExcluirUsuario();
+            View.Usuario.Frm_ExcluirUsuario frm_ExcluirUsuario = new View.Usuario.Frm_ExcluirUsuario(Login);
 
             frm_ExcluirUsuario.MdiParent = this;
 

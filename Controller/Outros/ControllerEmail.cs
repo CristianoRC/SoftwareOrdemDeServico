@@ -363,5 +363,49 @@ namespace Controller
 
             return TextoEmail;
         }
+
+        public static bool VerificarInformacoesDoServidorSMTP(Email InformacoesServidor)
+        {
+            SmtpClient smtp = new SmtpClient(InformacoesServidor.Host, InformacoesServidor.Port);   //Servidor
+            MailMessage mail = new MailMessage(); //Menssagem
+            mail.From = new MailAddress(InformacoesServidor.email);
+
+
+            //Configurando servidor.
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential(InformacoesServidor.email, InformacoesServidor.Senha);//Passando Login e senha do e-mail da empresa(para enviar)
+
+
+            //Assunto do email.
+            mail.Subject = String.Format("Email de testes Software Ordem de Serviço");
+
+            //Informando sobre o corpo.
+            mail.IsBodyHtml = true;
+
+            //Conteúdo do email.
+            mail.Body = "Email configurado com sucesso!";
+
+            //Adicionando E-mail do cliente para enviar.
+            mail.To.Add("contato@cristianoprogramador.com");
+
+            //Prioridade de Envio.
+            mail.Priority = MailPriority.High;
+
+
+            try
+            {
+                //Envia o email.
+                smtp.Send(mail);
+
+                return true;
+            }
+            catch (System.Exception exc)
+            {
+                //Gerando arquivo de Log
+                ControllerArquivoLog.GeraraLog(exc);
+                return false;
+            }
+        }
     }
 }

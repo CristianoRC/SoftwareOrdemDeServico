@@ -13,7 +13,7 @@ namespace View
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
             if (!string.IsNullOrWhiteSpace(Txt_Porta.Text))
             {
                 Model.Email EmailBase = new Model.Email();
@@ -22,14 +22,21 @@ namespace View
                 EmailBase.Senha = Txt_Senha.Text;
                 EmailBase.Host = Txt_Host.Text;
                 EmailBase.Port = int.Parse(Txt_Porta.Text);
-                string saida =  ControllerEmail.SalvarInformacoesLoginServidor(EmailBase.email, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
 
-                MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Mostrando o resultado da Função SaveConfig();
+                if (ControllerEmail.VerificarInformacoesDoServidorSMTP(EmailBase))
+                {
+                    string saida = ControllerEmail.SalvarInformacoesLoginServidor(EmailBase.email, EmailBase.Senha, EmailBase.Host, EmailBase.Port);
+
+                    MessageBox.Show(saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Informações do servidor SMTP inválidos, verifique seu Login/Senha e as informações do seu servidor.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Insira um valor válido para a porta do seu servidor","Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido para a porta do seu servidor", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
