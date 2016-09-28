@@ -152,7 +152,7 @@ namespace Controller
                     v_fields.Add(new Spartacus.Reporting.Field("Valor", "Valor (R$)", Spartacus.Reporting.FieldAlignment.CENTER, 25, Spartacus.Database.Type.REAL));
                     v_fields.Add(new Spartacus.Reporting.Field("Descricao", "Descrição", Spartacus.Reporting.FieldAlignment.CENTER, 50, Spartacus.Database.Type.STRING));
 
-                            
+
                     relatorio = new Spartacus.Reporting.Report(tabela, "titulo", v_fields);
                     relatorio.Execute();
                     relatorio.Save(CaminhoDoArquivoDeSaida);

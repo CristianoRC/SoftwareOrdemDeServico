@@ -18,7 +18,7 @@ namespace View
         bool NivelAcesso;
         int Id;
 
-        public Frm_Pai(string usuario, bool nivelAcesso,int id)
+        public Frm_Pai(string usuario, bool nivelAcesso, int id)
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace View
                 EmpresaToolStripMenuItem.Enabled = false;
                 novoToolStripMenuItem.Enabled = false;
                 editarToolStripMenuItem.Enabled = false;
-                
+
 
                 //Desativando função de excluir para usuarios
                 excluirToolStripMenuItem3.Enabled = false;
@@ -64,7 +64,7 @@ namespace View
 
         private void novaF5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OS.Frm_NewOrdem frm_NewOrdem = new OS.Frm_NewOrdem(Id); 
+            OS.Frm_NewOrdem frm_NewOrdem = new OS.Frm_NewOrdem(Id);
 
             frm_NewOrdem.MdiParent = this;
 
@@ -81,15 +81,6 @@ namespace View
 
         }
 
-        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void jurídicaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-       
-        }
-
         private void telaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Opicoes.Frm_OpicoesInicial Tela_Inicial = new Opicoes.Frm_OpicoesInicial();
@@ -101,8 +92,8 @@ namespace View
 
         private void Frm_Pai_Load(object sender, EventArgs e)
         {
-            string CaminhoLogo = String.Format("{0}/Logo.png",Controller.Ferramentas.ObterCaminhoDoExecutavel());
-            string CaminhoEmpresa = String.Format("{0}/Empresa.CFG",Controller.Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoLogo = String.Format("{0}/Logo.png", Controller.Ferramentas.ObterCaminhoDoExecutavel());
+            string CaminhoEmpresa = String.Format("{0}/Empresa.CFG", Controller.Ferramentas.ObterCaminhoDoExecutavel());
 
             //Se o logo estiver na pasta do software ele vai ficar no fundo da Tela Pai.
             if (File.Exists(CaminhoLogo))
@@ -167,11 +158,6 @@ namespace View
             frm_EdiUso.Show();
         }
 
-        private void Frm_Pai_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void listarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Usuario.Frm_ListarUsuarios frm_ListarUsuarios = new Usuario.Frm_ListarUsuarios();
@@ -217,16 +203,6 @@ namespace View
             frm_Servico.Show();
         }
 
-        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void excluirToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             OS.Frm_ExcluirOS frm_ExcluirOS = new OS.Frm_ExcluirOS();
@@ -245,12 +221,7 @@ namespace View
             frm_ExcluirServico.Show();
         }
 
-        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-         private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
+        private void excluirToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             View.Usuario.Frm_ExcluirUsuario frm_ExcluirUsuario = new View.Usuario.Frm_ExcluirUsuario(Login);
 
@@ -271,10 +242,6 @@ namespace View
         private void Frm_Pai_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -330,9 +297,122 @@ namespace View
             frm_ExcluirClientes.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog svDialog = new SaveFileDialog();
 
+            svDialog.FileName = "Relatorio de Clientes";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "PDF File(*.pdf)|*.pdf";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Controller.ControllerRelatoriosPDF.ExportarListaDeClientesParaPDF(svDialog.FileName);
+            }
+        }
+
+        private void ordensDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svDialog = new SaveFileDialog();
+
+            svDialog.FileName = "Relatorio de Ordens de Servico executadas";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "PDF File(*.pdf)|*.pdf";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Controller.ControllerRelatoriosPDF.ExportarListaDeOrdemDeServicoParaPDF(svDialog.FileName);
+            }
+        }
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svDialog = new SaveFileDialog();
+
+            svDialog.FileName = "Relatorio de Servicos executados";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "PDF File(*.pdf)|*.pdf";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Controller.ControllerRelatoriosPDF.ExportarListaDeServicoParaPDF(svDialog.FileName);
+            }
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svDialog = new SaveFileDialog();
+
+            svDialog.FileName = "Relatorio de Clientes";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "xlsx File(*.xlsx)|*.xlsx";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+                cmd.v_text = @"select  Id, Nome, Tipo, Email, SiglaEstado, Endereco, Cidade,Bairro
+                          from pessoa where status <> #status#";
+
+                cmd.AddParameter("status", Spartacus.Database.Type.BOOLEAN);
+                cmd.SetValue("status", "0");//0(Flase)
+
+                Controller.ControllerRelatoriosXLSX.ExportarTabelaParaXLSX(svDialog.FileName, cmd);
+            }
+        }
+
+        private void ordensDeServiçoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svDialog = new SaveFileDialog();
+
+            svDialog.FileName = "Relatorio de Ordens de Servico";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "xlsx File(*.xlsx)|*.xlsx";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+                cmd.v_text = @"select ID, Equipamento, NumeroDeSerie, Defeito, DataEntradaServico
+                               from ordemdeservico";
+
+                Controller.ControllerRelatoriosXLSX.ExportarTabelaParaXLSX(svDialog.FileName, cmd);
+            }
+        }
+
+        private void serviçosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svDialog = new SaveFileDialog();
+
+            svDialog.FileName = "Relatorio de servicos executados";
+            svDialog.Title = "Salvar relatório";
+            svDialog.Filter = "xlsx File(*.xlsx)|*.xlsx";
+            svDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult resultado = svDialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Spartacus.Database.Command cmd = new Spartacus.Database.Command();
+
+                cmd.v_text = @"select t.*from Trabalhos t";
+
+                Controller.ControllerRelatoriosXLSX.ExportarTabelaParaXLSX(svDialog.FileName, cmd);
+            }
         }
     }
 }

@@ -38,13 +38,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(120, 26);
             this.label1.TabIndex = 5;
-            this.label1.Text = "ID Da ORDEM DE SERVIÇO";
+            this.label1.Text = "ID da ordem de serviço:\r\n\r\n";
             // 
             // Btm_Excluir
             // 
-            this.Btm_Excluir.Location = new System.Drawing.Point(297, 7);
+            this.Btm_Excluir.Location = new System.Drawing.Point(396, 7);
             this.Btm_Excluir.Name = "Btm_Excluir";
             this.Btm_Excluir.Size = new System.Drawing.Size(75, 23);
             this.Btm_Excluir.TabIndex = 4;
@@ -55,16 +55,16 @@
             // Txt_IDPesquisa
             // 
             this.Txt_IDPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_IDPesquisa.Location = new System.Drawing.Point(68, 7);
+            this.Txt_IDPesquisa.Location = new System.Drawing.Point(144, 10);
             this.Txt_IDPesquisa.Name = "Txt_IDPesquisa";
-            this.Txt_IDPesquisa.Size = new System.Drawing.Size(207, 21);
+            this.Txt_IDPesquisa.Size = new System.Drawing.Size(233, 21);
             this.Txt_IDPesquisa.TabIndex = 6;
             // 
             // Frm_ExcluirServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 42);
+            this.ClientSize = new System.Drawing.Size(481, 42);
             this.Controls.Add(this.Txt_IDPesquisa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btm_Excluir);

@@ -19,7 +19,7 @@ namespace Controller
             try
             {
                 database = new Spartacus.Database.Sqlite(DB.GetStrConection());
-            
+
                 database.TransferToFile(QuerySQL.GetUpdatedText(), Caminho);
 
                 return "Relatório gerado com sucesso!";
