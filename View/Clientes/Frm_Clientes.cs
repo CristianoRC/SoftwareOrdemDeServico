@@ -31,22 +31,37 @@ namespace View.Pessoas
 
         private void salvar()
         {
-            string Saida = ControllerPessoa.Salvar(PreencherInformacoes());
+            if (!String.IsNullOrWhiteSpace(Txt_Nome.Text))
+            {
+                
+                string Saida = ControllerPessoa.Salvar(PreencherInformacoes());
 
-            MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            LimparCampos();
-            AtualziarLsitaDeClientes();
+                LimparCampos();
+                AtualziarLsitaDeClientes();
+            }
+            else
+            {
+                MessageBox.Show("Insira um nome!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void editar()
         {
-            String Saida = ControllerPessoa.Editar(PreencherInformacoes());
+            if (!String.IsNullOrWhiteSpace(Txt_Nome.Text))
+            {
+                String Saida = ControllerPessoa.Editar(PreencherInformacoes());
 
-            MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            LimparCampos();
-            AtualziarLsitaDeClientes();
+                LimparCampos();
+                AtualziarLsitaDeClientes();
+            }
+            else
+            {
+                MessageBox.Show("Insira um nome!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
