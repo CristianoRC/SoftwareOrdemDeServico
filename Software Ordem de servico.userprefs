@@ -1,22 +1,23 @@
 ﻿<Properties StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Ordem de Servico/ControllerServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Outros/Ferramentas.cs">
     <Files>
-      <File FileName="Controller/Ordem de Servico/ControllerServico.cs" Line="131" Column="9" />
-      <File FileName="Controller/Outros/ControllerEmail.cs" Line="214" Column="104" />
+      <File FileName="Controller/Outros/Ferramentas.cs" Line="69" Column="3" />
+      <File FileName="View/OS/Frm_NewOrdem.cs" Line="56" Column="57" />
+      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="126" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Software Ordem de servico" expanded="True">
             <Node name="Controller" expanded="True">
-              <Node name="Ordem de Servico" expanded="True">
-                <Node name="ControllerServico.cs" selected="True" />
+              <Node name="Outros" expanded="True">
+                <Node name="Ferramentas.cs" selected="True" />
               </Node>
-              <Node name="Outros" expanded="True" />
+              <Node name="Pessoa e Usuario" expanded="True" />
             </Node>
             <Node name="View" expanded="True">
-              <Node name="Clientes" expanded="True" />
+              <Node name="OS" expanded="True" />
             </Node>
           </Node>
         </State>

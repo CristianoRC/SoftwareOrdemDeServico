@@ -10,20 +10,20 @@ namespace Controller
 		{
 			StreamWriter sw = null;
 
-			try 
+			try
 			{
-				sw = new StreamWriter(String.Format("{0}/UltimoLogin.dat",ObterCaminhoDoExecutavel()));
+				sw = new StreamWriter(String.Format("{0}/UltimoLogin.dat", ObterCaminhoDoExecutavel()));
 
 				sw.WriteLine(Login);
 			}
-			catch (Exception ex) 
+			catch (Exception ex)
 			{
-                ControllerArquivoLog.GeraraLog(ex);
+				ControllerArquivoLog.GeraraLog(ex);
 			}
-			finally 
+			finally
 			{
 				if (sw != null)
-					sw.Close ();
+					sw.Close();
 			}
 		}
 
@@ -31,12 +31,12 @@ namespace Controller
 		{
 			StreamReader sr = null;
 			string saida = "";
-			string LocalDoArquivo = String.Format("{0}/UltimoLogin.dat",ObterCaminhoDoExecutavel());
+			string LocalDoArquivo = String.Format("{0}/UltimoLogin.dat", ObterCaminhoDoExecutavel());
 
 
-			try 
+			try
 			{
-				if(File.Exists(LocalDoArquivo))
+				if (File.Exists(LocalDoArquivo))
 				{
 					sr = new StreamReader(LocalDoArquivo);
 
@@ -44,26 +44,39 @@ namespace Controller
 				}
 				
 			}
-			catch (Exception ex) 
+			catch (Exception ex)
 			{
-                ControllerArquivoLog.GeraraLog(ex);
+				ControllerArquivoLog.GeraraLog(ex);
 			}
 			finally
 			{
 				if (sr != null)
-					sr.Close ();
+					sr.Close();
 			}
 
 			return saida;
 		}
 
 		/// <summary>
-        /// Retona o caminho para o arquivo executável que iniciou o aplicativo.(A pasta do Executável)
+		/// Retona o caminho para o arquivo executável que iniciou o aplicativo.(A pasta do Executável)
 		/// Documentação: https://msdn.microsoft.com/pt-br/library/system.windows.forms.application.startuppath(v=vs.110).aspx
-        /// </summary>
+		/// </summary>
 		public static string ObterCaminhoDoExecutavel()
 		{
 			return Application.StartupPath.ToString();			
+		}
+
+		public static bool VerificarEmailValido(string email)
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

@@ -107,7 +107,7 @@ namespace Controller
         /// Carregando lista de servicos executados.
         /// </summary>
         /// <returns>The lista.</returns>
-        public static DataTable CarregarLista()
+        public static DataTable CarregarLista()	
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();

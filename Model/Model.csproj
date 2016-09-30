@@ -73,9 +73,6 @@
     <Reference Include="Spartacus">
       <HintPath>..\packages\Spartacus.0.42.0\lib\net40\Spartacus.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetZip">
-      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Outros\Empresa.cs" />

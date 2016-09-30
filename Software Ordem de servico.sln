@@ -186,6 +186,15 @@ Global
 		$23.NamingStyle = PascalCase
 		$23.IncludeInstanceMembers = True
 		$23.IncludeStaticEntities = True
+		$0.DotNetNamingPolicy = $25
+		$25.DirectoryNamespaceAssociation = None
+		$25.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $26
+		$26.FileWidth = 120
+		$26.TabsToSpaces = False
+		$26.inheritsSet = VisualStudio
+		$26.inheritsScope = text/plain
+		$26.scope = text/plain
 		description = Software para controle de Ordem de Serviço
 		version = 0.3
 	EndGlobalSection
