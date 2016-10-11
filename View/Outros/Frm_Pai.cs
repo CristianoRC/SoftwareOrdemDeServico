@@ -414,5 +414,19 @@ namespace View
                 Controller.ControllerRelatoriosXLSX.ExportarTabelaParaXLSX(svDialog.FileName, cmd);
             }
         }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Frm_Clientes frm_Clientes = new Frm_Clientes();
+
+            frm_Clientes.Show();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            Frm_ListarClientes frm_ListarCliente = new Frm_ListarClientes();
+
+            frm_ListarCliente.Show();
+        }
     }
 }

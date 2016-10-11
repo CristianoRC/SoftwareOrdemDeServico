@@ -230,7 +230,7 @@ namespace Controller
         /// <summary>
         /// Retorna um DataTable com todas as Ordens de serviço, utilizando um filtro de pesquisa.
         /// </summary>
-        /// <returns>The lista.</returns>
+         /// <returns>The lista.</returns>
         public static DataTable CarregarListaComFiltroDePesquisa(string filtroSQL, int IDCliente)
         {
             DataTable tabela = new DataTable("ordemdeservico");
@@ -351,8 +351,8 @@ namespace Controller
         /// <summary>
         /// Preenchendo a classe OS com as informações do DataTable
         /// </summary>
+        /// <param name="tabela">todo: describe tabela parameter on PreencherOS</param>
         /// <returns>The cliente.</returns>
-        /// <param name="informacoes">Informacoes.</param>
         private static OrdemServico PreencherOS(DataTable tabela)
         {
             List<string> OSBaseLista = new List<string>();
