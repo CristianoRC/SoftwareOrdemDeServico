@@ -154,7 +154,7 @@
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.BorderSize = 3;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(828, 21);
@@ -176,14 +176,11 @@
             // 
             // Txt_Clientes
             // 
-            this.Txt_Clientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Txt_Clientes.Items.AddRange(new object[] {
-            "Administrador",
-            "Técnico"});
             this.Txt_Clientes.Location = new System.Drawing.Point(99, 17);
             this.Txt_Clientes.Name = "Txt_Clientes";
             this.Txt_Clientes.Size = new System.Drawing.Size(207, 21);
             this.Txt_Clientes.TabIndex = 1;
+            this.Txt_Clientes.TextUpdate += new System.EventHandler(this.Txt_Clientes_TextUpdate);
             // 
             // label2
             // 
@@ -209,7 +206,8 @@
             this.Txt_Situacao.Items.AddRange(new object[] {
             "Avaliação",
             "Orçamento",
-            "Manutenção"});
+            "Manutenção",
+            "Montagem"});
             this.Txt_Situacao.Location = new System.Drawing.Point(99, 63);
             this.Txt_Situacao.Name = "Txt_Situacao";
             this.Txt_Situacao.Size = new System.Drawing.Size(207, 21);

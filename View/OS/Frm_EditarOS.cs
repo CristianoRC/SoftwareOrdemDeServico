@@ -17,7 +17,7 @@ namespace View.OS
             IDTecnico = idTecnico;
             IDChamado = IDOs;
             InicializacaoPeloFormularioExterno = true;
-            
+
             InitializeComponent();
         }
 
@@ -33,12 +33,15 @@ namespace View.OS
         private bool InicializacaoPeloFormularioExterno;
         //Pega a informação se o formulário foi aberto do form ListaOS
 
+        System.Data.DataTable TabelaDeClientes = new System.Data.DataTable();
+
+
         private void Frm_EditarOS_Load(object sender, EventArgs e)
         {
             AtualizarListaDeClintes();
             AtualizarListaDeOS();
 
-            
+
             if (InicializacaoPeloFormularioExterno)
             {
                 //Carregando as informações passadas pelo form de listagem de OS.
@@ -63,22 +66,29 @@ namespace View.OS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string Retorno = ControllerOrdemServico.Editar(PreencherOS());
-
-            MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (MessageBox.Show("Deseja imprimir o arquivo?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (ControllerPessoa.VerificarExistencia(Txt_Cliente.Text))
             {
-               //TODO: Função para gerra uma ordem de serviçço em PDF Aqui.
+                string Retorno = ControllerOrdemServico.Editar(PreencherOS());
+
+                MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (MessageBox.Show("Deseja imprimir o arquivo?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //TODO: Função para gerra uma ordem de serviçço em PDF Aqui.
+                }
+
+
+                Txt_DataEntrada.Clear();
+                Txt_Defeito.Clear();
+                Txt_Descricao.Clear();
+                Txt_Equipamento.Clear();
+                Txt_Nserie.Clear();
+                Txt_Observacoes.Clear();
             }
-
-
-            Txt_DataEntrada.Clear();
-            Txt_Defeito.Clear();
-            Txt_Descricao.Clear();
-            Txt_Equipamento.Clear();
-            Txt_Nserie.Clear();
-            Txt_Observacoes.Clear();
+            else
+            {
+                MessageBox.Show(String.Format("Verifique o nome do cliente"), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void PreencherCamposDeTexto(int id)
@@ -131,15 +141,14 @@ namespace View.OS
 
         private void AtualizarListaDeClintes()
         {
-            System.Data.DataTable Tabela = new System.Data.DataTable();
 
-            Tabela = ControllerPessoa.CarregarListaDeNomes();
+            TabelaDeClientes = ControllerPessoa.CarregarListaDeNomes();
 
-            if (Tabela.Rows.Count != 0)
+            if (TabelaDeClientes.Rows.Count != 0)
             {
-                foreach (System.Data.DataRow r in Tabela.Rows)
+                foreach (System.Data.DataRow r in TabelaDeClientes.Rows)
                 {
-                    foreach (System.Data.DataColumn c in Tabela.Columns)
+                    foreach (System.Data.DataColumn c in TabelaDeClientes.Columns)
                     {
                         Txt_Cliente.Items.Add(r[c].ToString());
                     }
@@ -163,6 +172,28 @@ namespace View.OS
                 }
             }
 
+        }
+
+        private void Txt_Cliente_TextUpdate(object sender, EventArgs e)
+        {
+            Txt_Cliente.Items.Clear();
+
+            if (TabelaDeClientes.Rows.Count != 0)
+            {
+                foreach (System.Data.DataRow r in TabelaDeClientes.Rows)
+                {
+                    foreach (System.Data.DataColumn c in TabelaDeClientes.Columns)
+                    {
+                        if (r[c].ToString().Trim().Contains(Txt_Cliente.Text.Trim()))
+                        {
+                            Txt_Cliente.Items.Add(r[c].ToString());
+                        }
+                    }
+                }
+
+                //Move o cursor para o Fim do combobox.
+                Txt_Cliente.SelectionStart = Txt_Cliente.Text.ToString().Length;
+            }
         }
     }
 }

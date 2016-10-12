@@ -34,7 +34,7 @@ namespace View.Pessoas
             if (!String.IsNullOrWhiteSpace(Txt_Nome.Text))
             {
                 
-                string Saida = ControllerPessoa.Salvar(PreencherInformacoes());
+                string Saida = ControllerPessoa.Criar(PreencherInformacoes());
 
                 MessageBox.Show(Saida, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -148,7 +148,7 @@ namespace View.Pessoas
 
         private void Btm_Salvar_Click(object sender, EventArgs e)
         {
-            if (!ControllerPessoa.Verificar(Txt_Nome.Text))//Se ele não existir crie um novo, senão edite apenas
+            if (!ControllerPessoa.VerificarExistencia(Txt_Nome.Text))//Se ele não existir crie um novo, senão edite apenas
             {
                 salvar();
             }

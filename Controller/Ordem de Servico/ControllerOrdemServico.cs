@@ -146,7 +146,7 @@ namespace Controller
 
                 database.Execute(cmd.GetUpdatedText());
 
-                Saida = "Ordem de serviço editada com sucesso!";
+                Saida = "A Ordem de serviço foi editada com sucesso!";
             }
             catch (Exception exc)
             {
@@ -183,7 +183,7 @@ namespace Controller
 
                 ControllerServico.Salvar(InformacoesDoServico);//Gerar um trabalho, após ter alterado as informações da OS.
 
-                return "Ordem de serviço finalizda com sucesso.";
+                return "A Ordem de serviço foi finalizda com sucesso.";
             }
             catch (Spartacus.Database.Exception ex)
             {
