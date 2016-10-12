@@ -12,7 +12,7 @@ namespace Controller
         /// Salvando Ordem De Serviço
         /// </summary>
         /// <param name="Os">Os.</param>
-        public static string Salvar(OrdemServico Os)
+        public static string Criar(OrdemServico Os)
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
@@ -181,7 +181,7 @@ namespace Controller
 
                 database.Execute(cmd.GetUpdatedText());
 
-                ControllerServico.Salvar(InformacoesDoServico);//Gerar um trabalho, após ter alterado as informações da OS.
+                ControllerServico.Criar(InformacoesDoServico);//Gerar um trabalho, após ter alterado as informações da OS.
 
                 return "A Ordem de serviço foi finalizda com sucesso.";
             }

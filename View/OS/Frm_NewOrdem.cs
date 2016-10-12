@@ -45,7 +45,7 @@ namespace View.OS
         {
             if (ControllerPessoa.VerificarExistencia(Txt_Clientes.Text))
             {
-                string Retorno = ControllerOrdemServico.Salvar(PreencherOS());
+                string Retorno = ControllerOrdemServico.Criar(PreencherOS());
 
                 MessageBox.Show(String.Format("{0}", Retorno), "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -17,7 +17,7 @@ namespace Controller
         /// <param name="Senha"></param>
         /// <param name="NivelAcesso"></param>
         /// <returns></returns>
-        public static String Salvar(String Nome, String Senha, char NivelAcesso)
+        public static String Criar(String Nome, String Senha, char NivelAcesso)
         {
             string Saida = "";
 

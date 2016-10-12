@@ -14,7 +14,7 @@ namespace View.Formularios_Usuarios
         {
             string saida = "";
 
-                saida = ControllerUsuario.Salvar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
+                saida = ControllerUsuario.Criar(Txt_Login.Text, Txt_Senha.Text, VerificarTipo());
 
                 Txt_Login.Clear();
                 Txt_Senha.Clear();

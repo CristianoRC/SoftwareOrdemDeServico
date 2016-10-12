@@ -12,7 +12,7 @@ namespace Controller
         /// Salvando um novo serviço, Seriço que é gerado apartir da finalização de uma Ordem de serviço
         /// </summary>
         /// <param name="ServicoBase">Servico Base.</param>
-        public static string Salvar(Servico ServicoBase)
+        public static string Criar(Servico ServicoBase)
         {
             Spartacus.Database.Generic database;
             Spartacus.Database.Command cmd = new Spartacus.Database.Command();
