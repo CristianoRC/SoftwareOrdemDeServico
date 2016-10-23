@@ -213,7 +213,6 @@ namespace Controller
             return saida;
         }
 
-
         /// <summary>
         /// Carregando informações do cliente.
         /// </summary>

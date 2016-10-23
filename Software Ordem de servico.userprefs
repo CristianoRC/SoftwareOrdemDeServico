@@ -1,32 +1,14 @@
-﻿<Properties StartupItem="View/View.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Outros/Ferramentas.cs">
+﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Pessoa e Usuario/ControllerPessoa.cs">
     <Files>
-      <File FileName="Controller/Outros/Ferramentas.cs" Line="69" Column="3" />
-      <File FileName="View/OS/Frm_NewOrdem.cs" Line="56" Column="57" />
-      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="126" Column="26" />
+      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="2" Column="34" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Software Ordem de servico" expanded="True">
-            <Node name="Controller" expanded="True">
-              <Node name="Outros" expanded="True">
-                <Node name="Ferramentas.cs" selected="True" />
-              </Node>
-              <Node name="Pessoa e Usuario" expanded="True" />
-            </Node>
-            <Node name="View" expanded="True">
-              <Node name="OS" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.View PreferredExecutionTarget="MonoDevelop.Default" />
   <AuthorInfo Name="Cristiano Raffi Cunha" Email="contato@cristianoprogramador.com" Copyright="cristiano Cunha" Company="" Trademark="" />
 </Properties>

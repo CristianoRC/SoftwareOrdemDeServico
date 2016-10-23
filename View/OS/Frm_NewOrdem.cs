@@ -51,7 +51,7 @@ namespace View.OS
 
                 if (MessageBox.Show("Deseja imprimir  a ordem de serviço?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //TODO: Função para gerra uma ordem de serviçço em PDF Aqui.
+                    //TODO: Função para gerar uma ordem de serviço em PDF Aqui.
                 }
 
                 if (Ferramentas.VerificarEmailValido(ControllerPessoa.ObterEmail(Txt_Clientes.Text)))
