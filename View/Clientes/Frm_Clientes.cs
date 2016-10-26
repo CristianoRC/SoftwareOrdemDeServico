@@ -170,7 +170,7 @@ namespace View.Pessoas
 			CarregarInformacoes(Txt_Pessoa.Text);
 		}
 
-		private void Txt_Cep_TextChanged(object sender, EventArgs e)
+		private void Txt_Cep_Leave(object sender, EventArgs e)
 		{
 			var valorSemMascara = Txt_Cep.Text.Replace("-", "");
 
@@ -178,17 +178,24 @@ namespace View.Pessoas
 
 			uint Cepuint;
 
-			//Verifica se ele já tem 8 caractres(o valor do CEP), para carregar as informações do CEP
+			//Verifica se ele já tem 8 caractres(o valor do CEP), e se são epnas numeros
 			if (valorSemMascara.Length == 8 && uint.TryParse(valorSemMascara, out Cepuint))
 			{
-				DotCEP.Endereco endereco = new DotCEP.Endereco();
+				try
+				{
+					DotCEP.Endereco endereco = new DotCEP.Endereco();
 
-				endereco = DotCEP.Consultas.ObterEnderecoCompleto(Convert.ToUInt32(valorSemMascara));
+					endereco = DotCEP.Consultas.ObterEnderecoCompleto(valorSemMascara);
 
-				Txt_Endereco.Text = endereco.logradouro;
-				Txt_Estado.Text = endereco.uf;
-				Txt_Cidade.Text = endereco.localidade;
-				Txt_Bairro.Text = endereco.bairro;
+					Txt_Endereco.Text = endereco.logradouro;
+					Txt_Estado.Text = endereco.uf;
+					Txt_Cidade.Text = endereco.localidade;
+					Txt_Bairro.Text = endereco.bairro;
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
 			}
 		}
 
