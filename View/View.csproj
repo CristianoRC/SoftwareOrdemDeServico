@@ -54,6 +54,12 @@
     <Reference Include="Spartacus">
       <HintPath>..\lib\Spartacus.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DotCEP">
+      <HintPath>..\packages\DotCEP.1.0.0\lib\DotCEP.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Email\Frm_ConfigEmail.cs">
@@ -290,6 +296,7 @@
     <EmbeddedResource Include="Usuario\Frm_NewUsu.resx">
       <DependentUpon>Frm_NewUsu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

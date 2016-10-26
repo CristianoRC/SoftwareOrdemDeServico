@@ -59,21 +59,23 @@
             this.Txt_Email = new System.Windows.Forms.MaskedTextBox();
             this.Txt_Estado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Txt_Bairro = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Txt_Cidade = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Txt_Endereco = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Btm_Salvar = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Txt_Endereco = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Txt_Complemento = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Txt_Bairro = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Txt_Cidade = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage_Fisica.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -90,20 +92,20 @@
             this.Txt_Tipo.Items.AddRange(new object[] {
             "Física",
             "Jurídica"});
-            this.Txt_Tipo.Location = new System.Drawing.Point(67, 227);
+            this.Txt_Tipo.Location = new System.Drawing.Point(67, 174);
             this.Txt_Tipo.Name = "Txt_Tipo";
             this.Txt_Tipo.Size = new System.Drawing.Size(236, 21);
-            this.Txt_Tipo.TabIndex = 9;
+            this.Txt_Tipo.TabIndex = 7;
             // 
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage_Fisica);
             this.TabControl.Controls.Add(this.tabPage_Juridica);
-            this.TabControl.Location = new System.Drawing.Point(0, 270);
+            this.TabControl.Location = new System.Drawing.Point(0, 298);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(862, 133);
-            this.TabControl.TabIndex = 18;
+            this.TabControl.TabIndex = 20;
             // 
             // tabPage_Fisica
             // 
@@ -310,7 +312,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(862, 40);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 1;
             // 
             // Txt_Pessoa
             // 
@@ -344,140 +346,93 @@
             // 
             // Txt_Cep
             // 
-            this.Txt_Cep.Location = new System.Drawing.Point(487, 224);
-            this.Txt_Cep.Mask = "99999-999";
+            this.Txt_Cep.Location = new System.Drawing.Point(67, 210);
+            this.Txt_Cep.Mask = "00000-000";
             this.Txt_Cep.Name = "Txt_Cep";
-            this.Txt_Cep.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Cep.TabIndex = 17;
+            this.Txt_Cep.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Cep.TabIndex = 9;
             this.Txt_Cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt_Cep.TextChanged += new System.EventHandler(this.Txt_Cep_TextChanged);
             // 
             // Txt_Email
             // 
-            this.Txt_Email.Location = new System.Drawing.Point(67, 178);
+            this.Txt_Email.Location = new System.Drawing.Point(67, 140);
             this.Txt_Email.Name = "Txt_Email";
-            this.Txt_Email.Size = new System.Drawing.Size(235, 20);
-            this.Txt_Email.TabIndex = 7;
+            this.Txt_Email.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Email.TabIndex = 5;
             // 
             // Txt_Estado
             // 
             this.Txt_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Txt_Estado.FormattingEnabled = true;
             this.Txt_Estado.Items.AddRange(new object[] {
-            "Acre - AC",
-            "Alagoas - AL",
-            "Amapá - AP",
-            "Amazonas - AM",
-            "Bahia  - BA",
-            "Ceará - CE",
-            "Distrito Federal  - DF",
-            "Espírito Santo - ES",
-            "Goiás - GO",
-            "Maranhão - MA",
-            "Mato Grosso - MT",
-            "Mato Grosso do Sul - MS",
-            "Minas Gerais - MG",
-            "Pará - PA",
-            "Paraíba - PB",
-            "Paraná - PR",
-            "Pernambuco - PE",
-            "Piauí - PI",
-            "Rio de Janeiro - RJ",
-            "Rio Grande do Norte - RN",
-            "Rio Grande do Sul - RS",
-            "Rondônia - RO",
-            "Roraima - RR",
-            "Santa Catarina - SC",
-            "São Paulo - SP",
-            "Sergipe - SE",
-            "Tocantins - TO"});
-            this.Txt_Estado.Location = new System.Drawing.Point(486, 105);
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.Txt_Estado.Location = new System.Drawing.Point(66, 243);
             this.Txt_Estado.Name = "Txt_Estado";
-            this.Txt_Estado.Size = new System.Drawing.Size(236, 21);
+            this.Txt_Estado.Size = new System.Drawing.Size(75, 21);
             this.Txt_Estado.TabIndex = 11;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(408, 231);
+            this.label8.Location = new System.Drawing.Point(15, 214);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 8;
             this.label8.Text = "CEP";
-            // 
-            // Txt_Bairro
-            // 
-            this.Txt_Bairro.Location = new System.Drawing.Point(485, 182);
-            this.Txt_Bairro.Name = "Txt_Bairro";
-            this.Txt_Bairro.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Bairro.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(406, 186);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Bairro";
-            // 
-            // Txt_Cidade
-            // 
-            this.Txt_Cidade.Location = new System.Drawing.Point(485, 143);
-            this.Txt_Cidade.Name = "Txt_Cidade";
-            this.Txt_Cidade.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Cidade.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(406, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Cidade";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(408, 113);
+            this.label5.Location = new System.Drawing.Point(15, 247);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(21, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Estado";
+            this.label5.Text = "UF";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 227);
+            this.label4.Location = new System.Drawing.Point(15, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Tipo";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 185);
+            this.label3.Location = new System.Drawing.Point(15, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 4;
             this.label3.Text = "E-mail";
-            // 
-            // Txt_Endereco
-            // 
-            this.Txt_Endereco.Location = new System.Drawing.Point(69, 139);
-            this.Txt_Endereco.Name = "Txt_Endereco";
-            this.Txt_Endereco.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Endereco.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Endereço";
             // 
             // Txt_Nome
             // 
@@ -489,7 +444,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 105);
+            this.label1.Location = new System.Drawing.Point(15, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -527,11 +482,83 @@
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
+            // Txt_Endereco
+            // 
+            this.Txt_Endereco.Location = new System.Drawing.Point(523, 171);
+            this.Txt_Endereco.Name = "Txt_Endereco";
+            this.Txt_Endereco.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Endereco.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(446, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Logradouro";
+            // 
+            // Txt_Complemento
+            // 
+            this.Txt_Complemento.Location = new System.Drawing.Point(523, 213);
+            this.Txt_Complemento.Name = "Txt_Complemento";
+            this.Txt_Complemento.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Complemento.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(446, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Complemento";
+            // 
+            // Txt_Bairro
+            // 
+            this.Txt_Bairro.Location = new System.Drawing.Point(523, 136);
+            this.Txt_Bairro.Name = "Txt_Bairro";
+            this.Txt_Bairro.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Bairro.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(446, 140);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Bairro";
+            // 
+            // Txt_Cidade
+            // 
+            this.Txt_Cidade.Location = new System.Drawing.Point(523, 105);
+            this.Txt_Cidade.Name = "Txt_Cidade";
+            this.Txt_Cidade.Size = new System.Drawing.Size(236, 20);
+            this.Txt_Cidade.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(446, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Cidade";
+            // 
             // Frm_Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 401);
+            this.ClientSize = new System.Drawing.Size(863, 431);
+            this.Controls.Add(this.Txt_Bairro);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Txt_Cidade);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Txt_Complemento);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.Txt_Endereco);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Txt_Tipo);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.panel2);
@@ -539,15 +566,9 @@
             this.Controls.Add(this.Txt_Email);
             this.Controls.Add(this.Txt_Estado);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.Txt_Bairro);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.Txt_Cidade);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Txt_Endereco);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.Txt_Nome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -604,20 +625,22 @@
         private System.Windows.Forms.MaskedTextBox Txt_Email;
         private System.Windows.Forms.ComboBox Txt_Estado;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox Txt_Bairro;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Txt_Cidade;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Txt_Endereco;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Btm_Salvar;
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.TextBox Txt_Endereco;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Txt_Complemento;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox Txt_Bairro;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Txt_Cidade;
+        private System.Windows.Forms.Label label6;
     }
 }
