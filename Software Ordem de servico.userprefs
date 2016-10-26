@@ -1,14 +1,14 @@
-﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default">
+﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default" StartupItem="View/View.csproj">
   <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Pessoa e Usuario/ControllerPessoa.cs">
     <Files>
-      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="2" Column="34" />
+      <File FileName="Controller/Pessoa e Usuario/ControllerPessoa.cs" Line="16" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.View PreferredExecutionTarget="MonoDevelop.Default" />
   <AuthorInfo Name="Cristiano Raffi Cunha" Email="contato@cristianoprogramador.com" Copyright="cristiano Cunha" Company="" Trademark="" />
+  <MonoDevelop.Ide.ItemProperties.View PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
