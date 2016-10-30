@@ -199,7 +199,6 @@ namespace View.Pessoas
 			}
 		}
 
-
 		/// <summary>
 		/// Carrega informações do banco para os textbox
 		/// </summary>
@@ -287,5 +286,6 @@ namespace View.Pessoas
 				Txt_Tipo.Text = Txt_Tipo.Items[1].ToString();
 			}
 		}
+
 	}
 }

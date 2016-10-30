@@ -1,7 +1,7 @@
-﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default" StartupItem="View/View.csproj">
+﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="View/Clientes/Frm_Clientes.cs">
     <Files>
-      <File FileName="View/Clientes/Frm_Clientes.cs" Line="194" Column="6" />
+      <File FileName="View/Clientes/Frm_Clientes.cs" Line="268" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
@@ -9,6 +9,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <AuthorInfo Name="Cristiano Raffi Cunha" Email="contato@cristianoprogramador.com" Copyright="cristiano Cunha" Company="" Trademark="" />
   <MonoDevelop.Ide.ItemProperties.View PreferredExecutionTarget="MonoDevelop.Default" />
+  <AuthorInfo Name="Cristiano Raffi Cunha" Email="contato@cristianoprogramador.com" Copyright="cristiano Cunha" Company="" Trademark="" />
 </Properties>

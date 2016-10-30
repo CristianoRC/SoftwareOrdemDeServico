@@ -55,10 +55,10 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Spartacus">
-      <HintPath>..\lib\x86\Spartacus.dll</HintPath>
+      <HintPath>..\packages\Spartacus.0.42.0\lib\net40\Spartacus.dll</HintPath>
     </Reference>
     <Reference Include="DotCEP">
-      <HintPath>..\packages\DotCEP.1.0.2\lib\DotCEP.dll</HintPath>
+      <HintPath>..\packages\DotCEP.1.1.1\lib\DotCEP.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +297,10 @@
       <DependentUpon>Frm_NewUsu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="DotCEP\sqlite3.dll" />
+    <None Include="DotCEP\sqlite3.def" />
+    <None Include="DotCEP\libsqlite3.so" />
+    <None Include="DotCEP\Cache\Cache.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -310,7 +310,8 @@ namespace View
 
 			if (resultado == DialogResult.OK)
 			{
-				Controller.ControllerRelatoriosPDF.ExportarListaDeClientesParaPDF(svDialog.FileName);
+				//TODO:Corrigir apos a atualização da Spartacus
+				//Controller.ControllerRelatoriosPDF.ExportarListaDeClientesParaPDF(svDialog.FileName);
 			}
 		}
 
@@ -327,7 +328,7 @@ namespace View
 
 			if (resultado == DialogResult.OK)
 			{
-				Controller.ControllerRelatoriosPDF.ExportarListaDeOrdemDeServicoParaPDF(svDialog.FileName);
+				//Controller.ControllerRelatoriosPDF.ExportarListaDeOrdemDeServicoParaPDF(svDialog.FileName);
 			}
 		}
 		private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -343,7 +344,7 @@ namespace View
 
 			if (resultado == DialogResult.OK)
 			{
-				Controller.ControllerRelatoriosPDF.ExportarListaDeServicoParaPDF(svDialog.FileName);
+				//Controller.ControllerRelatoriosPDF.ExportarListaDeServicoParaPDF(svDialog.FileName);
 			}
 		}
 

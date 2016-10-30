@@ -31,8 +31,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Clientes));
 			this.Txt_Tipo = new System.Windows.Forms.ComboBox();
 			this.TabControl = new System.Windows.Forms.TabControl();
-			this.tabPage_Fisica = new System.Windows.Forms.TabPage();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.panel_Fisica = new System.Windows.Forms.Panel();
 			this.Txt_CPF = new System.Windows.Forms.MaskedTextBox();
 			this.Txt_Celular = new System.Windows.Forms.MaskedTextBox();
 			this.Txt_DataNacimento = new System.Windows.Forms.MaskedTextBox();
@@ -41,8 +41,8 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.tabPage_Juridica = new System.Windows.Forms.TabPage();
-			this.panel3 = new System.Windows.Forms.Panel();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.panelJuridica = new System.Windows.Forms.Panel();
 			this.Txt_RazaoSocial = new System.Windows.Forms.TextBox();
 			this.Txt_CNPJ = new System.Windows.Forms.MaskedTextBox();
 			this.Txt_Contato = new System.Windows.Forms.MaskedTextBox();
@@ -77,10 +77,10 @@
 			this.Txt_Cidade = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.TabControl.SuspendLayout();
-			this.tabPage_Fisica.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.tabPage_Juridica.SuspendLayout();
-			this.panel3.SuspendLayout();
+			this.tabPage1.SuspendLayout();
+			this.panel_Fisica.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			this.panelJuridica.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -99,41 +99,42 @@
 			// 
 			// TabControl
 			// 
-			this.TabControl.Controls.Add(this.tabPage_Fisica);
-			this.TabControl.Controls.Add(this.tabPage_Juridica);
+			this.TabControl.Controls.Add(this.tabPage1);
+			this.TabControl.Controls.Add(this.tabPage2);
 			this.TabControl.Location = new System.Drawing.Point(0, 298);
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
 			this.TabControl.Size = new System.Drawing.Size(862, 133);
 			this.TabControl.TabIndex = 20;
 			// 
-			// tabPage_Fisica
+			// tabPage1
 			// 
-			this.tabPage_Fisica.Controls.Add(this.panel1);
-			this.tabPage_Fisica.Location = new System.Drawing.Point(4, 22);
-			this.tabPage_Fisica.Name = "tabPage_Fisica";
-			this.tabPage_Fisica.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage_Fisica.Size = new System.Drawing.Size(854, 107);
-			this.tabPage_Fisica.TabIndex = 0;
-			this.tabPage_Fisica.Text = "Física";
-			this.tabPage_Fisica.UseVisualStyleBackColor = true;
+			this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.tabPage1.Controls.Add(this.panel_Fisica);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.tabPage1.Size = new System.Drawing.Size(854, 107);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Física";
+			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
-			// panel1
+			// panel_Fisica
 			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel1.Controls.Add(this.Txt_CPF);
-			this.panel1.Controls.Add(this.Txt_Celular);
-			this.panel1.Controls.Add(this.Txt_DataNacimento);
-			this.panel1.Controls.Add(this.label13);
-			this.panel1.Controls.Add(this.Txt_Sexo);
-			this.panel1.Controls.Add(this.label12);
-			this.panel1.Controls.Add(this.label11);
-			this.panel1.Controls.Add(this.label10);
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(854, 109);
-			this.panel1.TabIndex = 0;
+			this.panel_Fisica.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.panel_Fisica.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel_Fisica.Controls.Add(this.Txt_CPF);
+			this.panel_Fisica.Controls.Add(this.Txt_Celular);
+			this.panel_Fisica.Controls.Add(this.Txt_DataNacimento);
+			this.panel_Fisica.Controls.Add(this.label13);
+			this.panel_Fisica.Controls.Add(this.Txt_Sexo);
+			this.panel_Fisica.Controls.Add(this.label12);
+			this.panel_Fisica.Controls.Add(this.label11);
+			this.panel_Fisica.Controls.Add(this.label10);
+			this.panel_Fisica.Location = new System.Drawing.Point(0, 2);
+			this.panel_Fisica.Name = "panel_Fisica";
+			this.panel_Fisica.Size = new System.Drawing.Size(854, 109);
+			this.panel_Fisica.TabIndex = 0;
 			// 
 			// Txt_CPF
 			// 
@@ -142,6 +143,7 @@
 			this.Txt_CPF.Name = "Txt_CPF";
 			this.Txt_CPF.Size = new System.Drawing.Size(235, 20);
 			this.Txt_CPF.TabIndex = 1;
+			this.Txt_CPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// Txt_Celular
 			// 
@@ -150,6 +152,7 @@
 			this.Txt_Celular.Name = "Txt_Celular";
 			this.Txt_Celular.Size = new System.Drawing.Size(235, 20);
 			this.Txt_Celular.TabIndex = 3;
+			this.Txt_Celular.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// Txt_DataNacimento
 			// 
@@ -210,33 +213,32 @@
 			this.label10.TabIndex = 0;
 			this.label10.Text = "CPF";
 			// 
-			// tabPage_Juridica
+			// tabPage2
 			// 
-			this.tabPage_Juridica.Controls.Add(this.panel3);
-			this.tabPage_Juridica.Location = new System.Drawing.Point(4, 22);
-			this.tabPage_Juridica.Name = "tabPage_Juridica";
-			this.tabPage_Juridica.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage_Juridica.Size = new System.Drawing.Size(854, 107);
-			this.tabPage_Juridica.TabIndex = 1;
-			this.tabPage_Juridica.Text = "Jurídica";
-			this.tabPage_Juridica.UseVisualStyleBackColor = true;
+			this.tabPage2.Controls.Add(this.panelJuridica);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Size = new System.Drawing.Size(854, 107);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Jurídica";
+			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// panel3
+			// panelJuridica
 			// 
-			this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel3.Controls.Add(this.Txt_RazaoSocial);
-			this.panel3.Controls.Add(this.Txt_CNPJ);
-			this.panel3.Controls.Add(this.Txt_Contato);
-			this.panel3.Controls.Add(this.Txt_InscricaoEstadual);
-			this.panel3.Controls.Add(this.label15);
-			this.panel3.Controls.Add(this.label16);
-			this.panel3.Controls.Add(this.label17);
-			this.panel3.Controls.Add(this.label18);
-			this.panel3.Location = new System.Drawing.Point(0, 0);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(873, 108);
-			this.panel3.TabIndex = 19;
+			this.panelJuridica.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.panelJuridica.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panelJuridica.Controls.Add(this.Txt_RazaoSocial);
+			this.panelJuridica.Controls.Add(this.Txt_CNPJ);
+			this.panelJuridica.Controls.Add(this.Txt_Contato);
+			this.panelJuridica.Controls.Add(this.Txt_InscricaoEstadual);
+			this.panelJuridica.Controls.Add(this.label15);
+			this.panelJuridica.Controls.Add(this.label16);
+			this.panelJuridica.Controls.Add(this.label17);
+			this.panelJuridica.Controls.Add(this.label18);
+			this.panelJuridica.Location = new System.Drawing.Point(0, 3);
+			this.panelJuridica.Name = "panelJuridica";
+			this.panelJuridica.Size = new System.Drawing.Size(873, 108);
+			this.panelJuridica.TabIndex = 19;
 			// 
 			// Txt_RazaoSocial
 			// 
@@ -252,6 +254,7 @@
 			this.Txt_CNPJ.Name = "Txt_CNPJ";
 			this.Txt_CNPJ.Size = new System.Drawing.Size(235, 20);
 			this.Txt_CNPJ.TabIndex = 1;
+			this.Txt_CNPJ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// Txt_Contato
 			// 
@@ -465,7 +468,7 @@
 			// Btm_Salvar
 			// 
 			this.Btm_Salvar.Name = "Btm_Salvar";
-			this.Btm_Salvar.Size = new System.Drawing.Size(44, 20);
+			this.Btm_Salvar.Size = new System.Drawing.Size(42, 20);
 			this.Btm_Salvar.Text = "&Criar";
 			this.Btm_Salvar.Click += new System.EventHandler(this.Btm_Salvar_Click);
 			// 
@@ -478,7 +481,7 @@
 			// 
 			this.editarToolStripMenuItem.Image = global::View.Properties.Resources.Edit_User_100;
 			this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-			this.editarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+			this.editarToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
 			this.editarToolStripMenuItem.Text = "Editar";
 			this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
 			// 
@@ -578,12 +581,12 @@
 			this.Text = "Controle de Clientes";
 			this.Load += new System.EventHandler(this.Frm_Clientes_Load);
 			this.TabControl.ResumeLayout(false);
-			this.tabPage_Fisica.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.tabPage_Juridica.ResumeLayout(false);
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
+			this.tabPage1.ResumeLayout(false);
+			this.panel_Fisica.ResumeLayout(false);
+			this.panel_Fisica.PerformLayout();
+			this.tabPage2.ResumeLayout(false);
+			this.panelJuridica.ResumeLayout(false);
+			this.panelJuridica.PerformLayout();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			this.menuStrip1.ResumeLayout(false);
@@ -597,8 +600,7 @@
 
 		private System.Windows.Forms.ComboBox Txt_Tipo;
 		private System.Windows.Forms.TabControl TabControl;
-		private System.Windows.Forms.TabPage tabPage_Fisica;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panel_Fisica;
 		private System.Windows.Forms.MaskedTextBox Txt_CPF;
 		private System.Windows.Forms.MaskedTextBox Txt_Celular;
 		private System.Windows.Forms.MaskedTextBox Txt_DataNacimento;
@@ -607,8 +609,7 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TabPage tabPage_Juridica;
-		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Panel panelJuridica;
 		private System.Windows.Forms.TextBox Txt_RazaoSocial;
 		private System.Windows.Forms.MaskedTextBox Txt_CNPJ;
 		private System.Windows.Forms.MaskedTextBox Txt_Contato;
@@ -642,5 +643,7 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox Txt_Cidade;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage tabPage2;
 	}
 }
