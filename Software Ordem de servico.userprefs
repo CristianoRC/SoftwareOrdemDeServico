@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{72C53E37-2CBD-4311-BB03-9BBFC9D5A926}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/Clientes/Frm_Clientes.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/OS/Frm_FinalizarOS.cs">
     <Files>
-      <File FileName="View/Clientes/Frm_Clientes.cs" Line="268" Column="29" />
+      <File FileName="View/OS/Frm_FinalizarOS.cs" Line="10" Column="10" />
+      <File FileName="View/OS/Frm_EditarOS.cs" Line="17" Column="3" />
+      <File FileName="View/OS/Frm_NewOrdem.cs" Line="10" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
@@ -11,4 +13,5 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.View PreferredExecutionTarget="MonoDevelop.Default" />
   <AuthorInfo Name="Cristiano Raffi Cunha" Email="contato@cristianoprogramador.com" Copyright="cristiano Cunha" Company="" Trademark="" />
+  <MultiItemStartupConfigurations />
 </Properties>

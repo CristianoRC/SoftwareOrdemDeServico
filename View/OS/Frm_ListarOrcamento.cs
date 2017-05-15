@@ -34,6 +34,7 @@ namespace View.OS
             {
                 Data_Os.Columns[2].HeaderText = "Numero de Serie";
                 Data_Os.Columns[4].HeaderText = "Data de Entrada";
+				Data_Os.Columns[5].HeaderText = "Valor do Orçamento";
             }
         }
 
