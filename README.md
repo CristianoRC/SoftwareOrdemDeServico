@@ -2,6 +2,8 @@
 
 ![OS Icon](https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/View/icon.png)
 
+![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)
+
 Documentação do projeto: http://cristianoprogramador.com/DocumentacaoOS/
 
 <b>Site:</b> http://cristianoprogramador.com/
