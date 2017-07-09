@@ -1,3 +1,5 @@
+#Projeto descontinuado
+
 # Software de ordem de servico
 
 ![OS Icon](https://github.com/CristianoRC/SoftwareOrdemDeServico/blob/master/View/icon.png)
